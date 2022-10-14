@@ -1,0 +1,210 @@
+
+/* todo */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* header */
+
+header{
+    position: relative;
+    width: 100%;
+    height: 100px;
+    background: #d3142b;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header ul{
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+list-style: none;
+}
+
+header ul li{
+padding-left: 10px;
+}
+
+header ul li a{
+text-decoration: none;
+color: #fff;
+}
+
+header ul li a:hover{
+    color: black;
+}
+
+.logo img{
+width: 320px;
+height: 60px;
+}
+
+/* body */
+
+body{
+    background-color: rgb(211 211 211);
+}
+
+/* home */
+
+.menu{
+    border: solid 1px darkred;
+    border-radius: 20px;
+    display: flex;
+    margin: 20px 20%;
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+}
+
+.menu .botones{
+    display: flex;
+    width: 80%;
+    justify-content: space-around;
+    padding: 15px 0 0 0;
+}
+
+.menu .botones button{
+    height: 40px;
+    border-radius: 25px;
+    width: 150px;
+    font-size: medium;
+}
+
+.menu .botones button:hover{
+    color: darkgreen;
+    border: solid 2px darkgreen;
+    font-size: large;
+}
+
+.menu .botones button:active{
+    font-size: small;
+}
+
+/* datos */
+
+.contenedor{
+    display: none;
+    border: solid 1px darkred;
+    border-radius: 20px;
+    margin: 20px 5%;
+    padding: 20px;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    /* background-color: #c8eaff; */
+}
+
+.contenedor .campos{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 0 10px 0;
+    align-items: center;
+}
+
+.contenedor .campos .mostrar label{
+    padding: 0 5px;
+}
+
+.contenedor .campos button{
+    height: 30px;
+    border-radius: 25px;
+    width: 100px;
+    font-size: medium;
+    background-color: #1d5c1f;
+    color: white;
+}
+
+.contenedor .campos button:hover{
+    font-size: large;
+}
+
+.contenedor .campos button:active{
+    font-size: small;
+    /* background-color: white; */
+    /* color: #1d5c1f; */
+}
+
+.contenedor .campos .buscar label{
+    padding: 0 5px;
+}
+
+.contenedor .paginacion{    
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 0 0 0;
+    align-items: center;
+}
+
+.contenedor .paginacion .mensaje{
+    width: 50%;
+}
+
+.contenedor .paginacion .pasar{
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.contenedor .paginacion .pasar button{
+    height: 30px;
+    border-radius: 25px;
+    width: 100px;
+    font-size: medium;
+    margin: 0 8px;
+}
+
+.contenedor .paginacion .pasar button:hover{
+    color: darkred;
+    border: solid 2px darkred;
+    font-size: large;
+}
+
+.contenedor .paginacion .pasar button:active{
+    font-size: small;
+}
+
+.contenedor .paginacion .pasar .numeros a{
+    height: 30px;
+    text-decoration: none;
+    color: black;
+    border: solid 2px black;
+    border-radius: 3em;
+    padding: 4px;
+    margin: 0 2px;
+}
+
+.contenedor .paginacion .pasar .numeros a:hover{
+    color: darkred;
+    border: solid 2px darkred;
+    font-size: large;
+}
+
+.contenedor .paginacion .pasar .numeros a:active{
+    font-size: small;
+}
+
+/* tabla */
+
+.tabla{
+    width: 100%;
+}
+
+table{
+    border: solid 1px #035934;
+}
