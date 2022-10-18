@@ -13,6 +13,9 @@ class Masiva
         $filas=null;
         $model=new conexion();
         $conexion=$model->conectar();
+        // $buscar= is_null($bsqd)?'':"where documento like '%$bsqd%'";
+        // $sql="SELECT * FROM personas";
+        // $sql="SELECT * FROM personas for json path,root('clientes')";
         $sql="SELECT * FROM personas order by documento offset $empieza2 rows fetch next $cantidad2 rows only";
         $rscat=sqlsrv_query($conexion,$sql);
         while($row=sqlsrv_fetch_array($rscat))

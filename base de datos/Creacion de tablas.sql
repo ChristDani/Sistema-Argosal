@@ -1,28 +1,7 @@
-use master
-go
-
-create database Argosal
-on
-(
-name=Argosal_dat,
-filename='E:\bases de datos\Argosal\Argosal.mdf',
-size=10,
-maxsize=50,
-filegrowth=5
-)
-log on 
-(
-name=Argosal_log,
-filename='E:\bases de datos\Argosal\Argosal.ldf',
-size=5mb,
-maxsize=25mb,
-filegrowth=5mb
-)
-go
-
 use Argosal
 go
 
+drop table if exists masiva
 create table masiva
 (
 documento char(12) default'---',
@@ -80,6 +59,17 @@ libres char(4) null,
 bloqueados char(4) null,
 stockTotal char(4) null
 )
+
+drop table if exists usuarios
+create table usuarios
+(
+dni char(8) primary key,
+nombre char(25) not null,
+clave char(6) not null,
+fechaRegistro smalldatetime default getdate()
+)
+
+
 
 drop table personas
 

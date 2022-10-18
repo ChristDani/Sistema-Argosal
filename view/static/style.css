@@ -53,6 +53,49 @@ body{
     background-color: rgb(211 211 211);
 }
 
+/* login */
+
+.banner{
+    display: flex;
+    background:url(img/banner.webp) no-repeat center;
+    background-size: cover;
+    width: 65%;
+    position: absolute;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner img{
+    height: 25%;
+}
+
+.formLogin{
+    position: absolute;
+    width: 35%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    right: 0;
+    padding: 0 0 0 25px;
+}
+
+.formLogin a img{
+    height: 150px;
+}
+
+.formLogin form{
+    display: flex;
+    flex-direction: column;
+}
+
+.formLogin form label{
+    display: flex;
+    justify-content: space-between;
+}
+
 /* home */
 
 .menu{
@@ -93,7 +136,7 @@ body{
 /* datos */
 
 .contenedor{
-    display: none;
+    /* display: none; */
     border: solid 1px darkred;
     border-radius: 20px;
     margin: 20px 5%;
@@ -167,6 +210,7 @@ body{
     width: 100px;
     font-size: medium;
     margin: 0 8px;
+    cursor: pointer;
 }
 
 .contenedor .paginacion .pasar button:hover{
@@ -179,7 +223,12 @@ body{
     font-size: small;
 }
 
-.contenedor .paginacion .pasar .numeros a{
+.contenedor .paginacion .pasar ul{
+    display: flex;
+    list-style: none;
+}
+
+.contenedor .paginacion .pasar ul a{
     height: 30px;
     text-decoration: none;
     color: black;
@@ -187,15 +236,16 @@ body{
     border-radius: 3em;
     padding: 4px;
     margin: 0 2px;
+    cursor: pointer;
 }
 
-.contenedor .paginacion .pasar .numeros a:hover{
+.contenedor .paginacion .pasar ul a:hover{
     color: darkred;
     border: solid 2px darkred;
     font-size: large;
 }
 
-.contenedor .paginacion .pasar .numeros a:active{
+.contenedor .paginacion .pasar ul a:active{
     font-size: small;
 }
 

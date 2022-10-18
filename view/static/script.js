@@ -19,9 +19,9 @@ function mostrarLand(){
 
 function paginaAnterior(){
     console.log("anterior");
+    // $empezar2-=12;
 }
 
-function paginaSiguiente(){
-    $empezar2+=12;
-    console.log("siguiente");
-}
+// function loginFail(){
+//     console.log("DNI o Clave Incorrecta");
+// }

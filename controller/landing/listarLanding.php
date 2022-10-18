@@ -51,12 +51,13 @@ function listarLanding($empezar,$cantidad)
     { $i=$empezar+1;
         foreach ($filas as $fila) 
         {
+            $fecha=$fila[3]-> format('d/m/Y');
             echo "<tr>";
             echo "<td align='center'>$i</td>";
             echo "<td align='center'>$fila[0]</td>";
             echo "<td align='center'>$fila[1]</td>";
             echo "<td align='center'>$fila[2]</td>";
-            echo "<td align='center'>$fila[3]</td>";
+            echo "<td align='center'>$fecha</td>";
             echo "<td align='center'>$fila[4]</td>";
             echo "</tr>";
             $i+=1;
