@@ -1,5 +1,4 @@
 <div id="landing" class="contenedor">
-    <hgroup><h2>Landing</h2></hgroup>
     <div class="campos">
         <div class='mostrar'>
             <label for="numRegistrosL">Mostrar</label>
@@ -22,12 +21,16 @@
             <table border=1 width="100%">
                 <thead>
                     <tr>
-                    <th width="6%">N°</th>
-                    <th width="10%">documento</th>
-                    <th width="10%">telefono</th>
-                    <th width="10%">planes</th>
-                    <th width="10%">fecha Registro</th>
-                    <th width="10%">estado</th>
+                        <th height=50px colspan=1>Agregar Venta</th>
+                        <th colspan=7>Tabla de Datos Provinientes de la Landing</th>
+                    </tr>
+                    <tr>
+                        <th width="6%">N°</th>
+                        <th width="10%">documento</th>
+                        <th width="10%">telefono</th>
+                        <th width="10%">planes</th>
+                        <th width="10%">fecha Registro</th>
+                        <th width="10%">estado</th>
                     </tr>
                 </thead>
                 <tbody id='resultadosL'>

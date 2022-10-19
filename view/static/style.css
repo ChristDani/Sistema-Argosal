@@ -200,12 +200,12 @@ body{
 }
 
 .contenedor .paginacion .mensaje{
-    width: 50%;
+    width: 35%;
 }
 
 .contenedor .paginacion .pasar{
     display: flex;
-    width: 50%;
+    width: 65%;
     justify-content: space-around;
     align-items: center;
     justify-content: flex-end;
@@ -278,3 +278,57 @@ table{
     border: solid 1px #035934;
     border-collapse: collapse;
 }
+
+/* modal */
+
+.btnModal{
+    padding: 10px 15px;
+    background-color: #035934;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+#btnModalW{
+    display: none;
+}
+
+.modal{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0; left: 0;
+    background-color: rgba(144, 148, 150, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal .contenido{
+    width: 100%;
+    max-width: 950px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.modal .contenido hgroup{
+    margin-bottom: 15px;
+}
+
+.modal .contenido form{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4;
+}
+
+.modal .contenido form div{
+    padding: 2px;
+    margin: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+

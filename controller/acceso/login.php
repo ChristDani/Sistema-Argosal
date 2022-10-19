@@ -18,6 +18,7 @@ if ($filas2 != null)
 		$tdni = $columna[0];
 		$tusu=$columna[1];
 		$tclave = $columna[2];
+		$ttipo = $columna[3];
 			
 	}
 }
@@ -33,6 +34,7 @@ if(($dni==$tdni) && ($clave == $tclave))
 	$_SESSION["user"]=$tusu;
 	header("location:../../index.php?pagina=clientes&dni=$tdni");
 	session_destroy();
+
 
 }
 

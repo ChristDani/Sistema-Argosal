@@ -11,20 +11,33 @@
 </head>
 <body>
     <?php 
-    
+    require_once("model/usuarios.php");
     if (isset($_GET["pagina"])) 
     {
         if (session_start())
         {
+            $dni=$_GET['dni'];
+    
+            $consultas=new user();
+            $filas2=$consultas->buscarUser($dni);
+    
+            foreach($filas2 as $columna) 
+            {
+                $tusu=$columna[1];
+                $tipoU=$columna[3];
+            }
+
             if($_GET["pagina"]==="clientes")
             {
-                
                 include_once "paginas/clientes.php";
-                
             }
             elseif ($_GET["pagina"]==="equipos") 
             {
                 include_once "paginas/equipos.php";
+            }
+            else {
+                session_destroy();
+                header("location: ./");
             }
         }
     }

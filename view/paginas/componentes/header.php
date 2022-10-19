@@ -2,8 +2,12 @@
     <div class="logo">
         <img src="view/static/img/logo-claro.png">
     </div>
-    <ul>
-        <li><a href="index.php?pagina=clientes">Clientes</a></li>
-        <li><a href="index.php?pagina=equipos">Equipos</a></li>
-    </ul>
+    <?php
+    if ($tipoU == 'director') {
+        echo '<ul>';
+        echo "<li><a href='index.php?pagina=clientes&dni=$dni'>Clientes</a></li>";
+        echo "<li><a href='index.php?pagina=equipos&dni=$dni'>Equipos</a></li>";
+        echo '</ul>';
+    }
+    ?>
 </header>
