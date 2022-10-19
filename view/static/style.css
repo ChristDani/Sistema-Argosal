@@ -135,16 +135,23 @@ body{
 
 /* datos */
 
+.contenedor hgroup{
+    margin: 0 0 30px 0;
+}
+
 .contenedor{
-    /* display: none; */
+    display: none;
     border: solid 1px darkred;
     border-radius: 20px;
-    margin: 20px 5%;
+    margin: 20px 2%;
     padding: 20px;
     align-items: center;
     flex-direction: column;
     background-color: white;
     /* background-color: #c8eaff; */
+}
+.E{
+    display: block;
 }
 
 .contenedor .campos{
@@ -210,16 +217,18 @@ body{
     width: 100px;
     font-size: medium;
     margin: 0 8px;
+}
+.contenedor .paginacion .pasar button.activo{
     cursor: pointer;
 }
 
-.contenedor .paginacion .pasar button:hover{
+.contenedor .paginacion .pasar button.activo:hover{
     color: darkred;
     border: solid 2px darkred;
     font-size: large;
 }
 
-.contenedor .paginacion .pasar button:active{
+.contenedor .paginacion .pasar button.activo:active{
     font-size: small;
 }
 
@@ -228,25 +237,35 @@ body{
     list-style: none;
 }
 
-.contenedor .paginacion .pasar ul a{
+.contenedor .paginacion .pasar ul li{
     height: 30px;
-    text-decoration: none;
-    color: black;
     border: solid 2px black;
     border-radius: 3em;
     padding: 4px;
     margin: 0 2px;
     cursor: pointer;
 }
+.contenedor .paginacion .pasar ul a{
+    text-decoration: none;
+    color: black;
+    padding: 4px;
+}
 
-.contenedor .paginacion .pasar ul a:hover{
-    color: darkred;
-    border: solid 2px darkred;
+.contenedor .paginacion .pasar ul li a:hover{
     font-size: large;
 }
 
-.contenedor .paginacion .pasar ul a:active{
+.contenedor .paginacion .pasar ul li a:active{
     font-size: small;
+}
+
+.contenedor .paginacion .pasar ul li.actual{
+    border: solid 2px black;
+    background-color: #d3142b;
+    color: white;
+}
+.contenedor .paginacion .pasar ul li.actual a{
+    color: white;
 }
 
 /* tabla */
@@ -257,4 +276,5 @@ body{
 
 table{
     border: solid 1px #035934;
+    border-collapse: collapse;
 }

@@ -16,12 +16,3 @@ function mostrarLand(){
     document.getElementById('masiva').style.display='none';
     document.getElementById('landing').style.display='flex';
 }
-
-function paginaAnterior(){
-    console.log("anterior");
-    // $empezar2-=12;
-}
-
-// function loginFail(){
-//     console.log("DNI o Clave Incorrecta");
-// }

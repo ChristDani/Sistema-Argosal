@@ -1,20 +1,19 @@
-<div id="whatsapp" class="contenedor">
-    <hgroup><h2>Whatsapp</h2></hgroup>
-    <div class="campos">
+<div class="contenedor E">
+<div class="campos">
         <div class='mostrar'>
-            <label for="numRegistrosW">Mostrar</label>
-            <select name="numRegistrosW" id="numRegistrosW">
+            <label for="numRegistrosE">Mostrar</label>
+            <select name="numRegistrosE" id="numRegistrosE">
                 <option>10</option>
                 <option>25</option>
                 <option>50</option>
                 <option>100</option>
             </select>
-            <label for="numRegistrosW">Registros.</label>
+            <label for="numRegistrosE">Registros.</label>
         </div>
         <button>Excel</button>
         <div class='buscar'>
-            <label for='busquedaW'>Buscar:</label>
-            <input autocomplete="off" type="text" name="busquedaW" id="busquedaW" onkeyup="getDataW(1);">
+            <label for='busquedaE'>Buscar:</label>
+            <input autocomplete="off" type="text" name="busquedaE" id="busquedaE" onkeyup="getDataE(1);">
         </div>
     </div>
     <div class="tabla">
@@ -33,7 +32,7 @@
                     <th width="10%">Estado</th>
                     </tr>
                 </thead>
-                <tbody id='resultadosW'>
+                <tbody id='resultadosE'>
 
                 </tbody>
             </table>
@@ -41,12 +40,12 @@
     </div>
     <div class="paginacion">
         <div class="mensaje">
-            <label id="msgW"></label>
+            <label id="msgE"></label>
         </div>
-        <div id="munW" class="pasar">
+        <div id="munE" class="pasar">
 
         </div>
     </div>
 </div>
 
-<script src="controller/whatsapp/listarWhatsapp.js"></script>
+<script src="controller/equipos/listarEquipos.js"></script>

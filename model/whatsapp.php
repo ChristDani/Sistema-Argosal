@@ -5,10 +5,10 @@ $model=new conexion();
 $con=$model->conectar();
 
 // en el caso de solo querer determinadas columnas usar esto con el mismo nombre de las columnas...
-$columnas=['documento',	'telefono',	'planes',	'fechaRegistro', 'estado'];
+$columnas=['telefono',	'nombre',	'idPromocion',	'idTarjeta',	'documento',	'operador',	'tipoPlan',	'idModoPago',	'fechaRegistro', 'estado'];
 
 // tabla a seleccionar
-$tabla='landing';
+$tabla='whatsapp';
 
 // $buscar=isset($_POST['busqueda']) ? $con->mssql_escape($_POST['busqueda']) : null;
 $buscar= isset($_POST['busqueda']) ? $_POST['busqueda'] : null;
@@ -84,9 +84,14 @@ if ($filas>0) {
     while ($fila=sqlsrv_fetch_array($resultado)) {
         $output['data'].= "<tr>";
         $output['data'].= "<td align='center'>$i</td>";
-        $output['data'].= "<td align='center'>".$fila['documento']."</td>";
         $output['data'].= "<td align='center'>".$fila['telefono']."</td>";
-        $output['data'].= "<td align='center'>".$fila['planes']."</td>";
+        $output['data'].= "<td align='center'>".$fila['nombre']."</td>";
+        $output['data'].= "<td align='center'>".$fila['idPromocion']."</td>";
+        $output['data'].= "<td align='center'>".$fila['idTarjeta']."</td>";
+        $output['data'].= "<td align='center'>".$fila['documento']."</td>";
+        $output['data'].= "<td align='center'>".$fila['operador']."</td>";
+        $output['data'].= "<td align='center'>".$fila['tipoPlan']."</td>";
+        $output['data'].= "<td align='center'>".$fila['idModoPago']."</td>";
         $output['data'].= "<td align='center'>".$fila['fechaRegistro']."</td>";
         $output['data'].= "<td align='center'>".$fila['estado']."</td>";
         $output['data'].= "<td align='center'><a href=''>editar</a></td>";
@@ -95,7 +100,7 @@ if ($filas>0) {
     }
 } else {
     $output['data'].= "<tr>";
-    $output['data'].= "<td align='center' colspan=6 height='100px'>Sin Resultados...</td>";
+    $output['data'].= "<td align='center' colspan=13 height='100px'>Sin Resultados...</td>";
     $output['data'].= "</tr>";
 }
 
@@ -125,9 +130,9 @@ if ($totalContar===1) {
         // activacion del boton anterior
     
         if ($pagina==$pagInicio) {
-            $output['paginacion'] .= "<button disabled onclick='getDataL(".$pagina-1 .");'>Anterior</button>";
+            $output['paginacion'] .= "<button disabled onclick='getDataW(".$pagina-1 .");'>Anterior</button>";
         } else {
-            $output['paginacion'] .= "<button class='activo' onclick='getDataL(".$pagina-1 .");'>Anterior</button>";
+            $output['paginacion'] .= "<button class='activo' onclick='getDataW(".$pagina-1 .");'>Anterior</button>";
         }
     
         $output['paginacion'] .= "<ul>";
@@ -136,7 +141,7 @@ if ($totalContar===1) {
         // pagina inicial anclada
     
         if ($pagInicio>2) {
-            $output['paginacion'] .= "<li><a href='#' onclick='getDataL(1);'>1</a></li>";
+            $output['paginacion'] .= "<li><a href='#' onclick='getDataW(1);'>1</a></li>";
             $output['paginacion'] .= "<li class='ancla'><a>...</a></li>";
         }
     
@@ -146,7 +151,7 @@ if ($totalContar===1) {
             if ($pagina==$i) {
                 $output['paginacion'] .= "<li class='actual'><a>$i</a></li>";
             }else {
-                $output['paginacion'] .= "<li><a href='#' onclick='getDataL($i);'>$i</a></li>";
+                $output['paginacion'] .= "<li><a href='#' onclick='getDataW($i);'>$i</a></li>";
             }
         }
     
@@ -154,7 +159,7 @@ if ($totalContar===1) {
     
         if ($pagFinal<($paginasTotal-1)) {
             $output['paginacion'] .= "<li class='ancla'><a>...</a></li>";
-            $output['paginacion'] .= "<li><a href='#' onclick='getDataL($paginasTotal);'>$paginasTotal</a></li>";
+            $output['paginacion'] .= "<li><a href='#' onclick='getDataW($paginasTotal);'>$paginasTotal</a></li>";
         }
     
         $output['paginacion'] .= "</ul>";
@@ -162,9 +167,9 @@ if ($totalContar===1) {
         // activacion del boton siguiente
     
         if ($pagina==$pagFinal) {
-            $output['paginacion'] .= "<button disabled onclick='getDataL(".$pagina+1 .");'>Siguiente</button>";
+            $output['paginacion'] .= "<button disabled onclick='getDataW(".$pagina+1 .");'>Siguiente</button>";
         } else {
-            $output['paginacion'] .= "<button class='activo' onclick='getDataL(".$pagina+1 .");'>Siguiente</button>";
+            $output['paginacion'] .= "<button class='activo' onclick='getDataW(".$pagina+1 .");'>Siguiente</button>";
         }
     }
 
@@ -173,7 +178,7 @@ if ($totalContar===1) {
 
 echo json_encode($output, JSON_UNESCAPED_UNICODE); //por si viene con 'ñ' o tildes...
 
-class Landing
+class Whatsapp
 {
 
 }

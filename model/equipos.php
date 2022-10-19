@@ -5,10 +5,10 @@ $model=new conexion();
 $con=$model->conectar();
 
 // en el caso de solo querer determinadas columnas usar esto con el mismo nombre de las columnas...
-$columnas=['documento',	'telefono',	'planes',	'fechaRegistro', 'estado'];
+$columnas=['region',	'nombre_centro',	'ce',	'alm',	'almacen',	'material',	'descripcion',	'libres',	'bloqueados', 'stockTotal'];
 
 // tabla a seleccionar
-$tabla='landing';
+$tabla='equipos';
 
 // $buscar=isset($_POST['busqueda']) ? $con->mssql_escape($_POST['busqueda']) : null;
 $buscar= isset($_POST['busqueda']) ? $_POST['busqueda'] : null;
@@ -45,7 +45,7 @@ $sLimite = " offset $inicio rows fetch next $limite rows only ";
 // cantidad de registros devueltos en la consulta
 $contar="select * from $tabla $where";
 
-$sql = "select ".implode(", ", $columnas)." from $tabla $where order by documento $sLimite";
+$sql = "select ".implode(", ", $columnas)." from $tabla $where order by region $sLimite";
 // para verificar errores en la consulta
 // echo $sql;
 
@@ -54,6 +54,7 @@ $sql = "select ".implode(", ", $columnas)." from $tabla $where order by document
 $resulContar=sqlsrv_query($con,$contar, array(), array("Scrollable"=>SQLSRV_CURSOR_KEYSET));
 
 $resultado=sqlsrv_query($con,$sql, array(), array("Scrollable"=>"buffered"));
+// $resultado=sqlsrv_query($con,$sql, array(), array("Scrollable"=>SQLSRV_CURSOR_KEYSET));
 // para saber el numero de filas
 
 $totalContar = sqlsrv_num_rows($resulContar);
@@ -84,18 +85,23 @@ if ($filas>0) {
     while ($fila=sqlsrv_fetch_array($resultado)) {
         $output['data'].= "<tr>";
         $output['data'].= "<td align='center'>$i</td>";
-        $output['data'].= "<td align='center'>".$fila['documento']."</td>";
-        $output['data'].= "<td align='center'>".$fila['telefono']."</td>";
-        $output['data'].= "<td align='center'>".$fila['planes']."</td>";
-        $output['data'].= "<td align='center'>".$fila['fechaRegistro']."</td>";
-        $output['data'].= "<td align='center'>".$fila['estado']."</td>";
+        $output['data'].= "<td align='center'>".$fila['region']."</td>";
+        $output['data'].= "<td align='center'>".$fila['nombre_centro']."</td>";
+        $output['data'].= "<td align='center'>".$fila['ce']."</td>";
+        $output['data'].= "<td align='center'>".$fila['alm']."</td>";
+        $output['data'].= "<td align='center'>".$fila['almacen']."</td>";
+        $output['data'].= "<td align='center'>".$fila['material']."</td>";
+        $output['data'].= "<td align='center'>".$fila['descripcion']."</td>";
+        $output['data'].= "<td align='center'>".$fila['libres']."</td>";
+        $output['data'].= "<td align='center'>".$fila['bloqueados']."</td>";
+        $output['data'].= "<td align='center'>".$fila['stockTotal']."</td>";
         $output['data'].= "<td align='center'><a href=''>editar</a></td>";
         $output['data'].= "</tr>";
         $i+=1;
     }
 } else {
     $output['data'].= "<tr>";
-    $output['data'].= "<td align='center' colspan=6 height='100px'>Sin Resultados...</td>";
+    $output['data'].= "<td align='center' colspan=13 height='100px'>Sin Resultados...</td>";
     $output['data'].= "</tr>";
 }
 
@@ -125,9 +131,9 @@ if ($totalContar===1) {
         // activacion del boton anterior
     
         if ($pagina==$pagInicio) {
-            $output['paginacion'] .= "<button disabled onclick='getDataL(".$pagina-1 .");'>Anterior</button>";
+            $output['paginacion'] .= "<button disabled onclick='getDataE(".$pagina-1 .");'>Anterior</button>";
         } else {
-            $output['paginacion'] .= "<button class='activo' onclick='getDataL(".$pagina-1 .");'>Anterior</button>";
+            $output['paginacion'] .= "<button class='activo' onclick='getDataE(".$pagina-1 .");'>Anterior</button>";
         }
     
         $output['paginacion'] .= "<ul>";
@@ -136,7 +142,7 @@ if ($totalContar===1) {
         // pagina inicial anclada
     
         if ($pagInicio>2) {
-            $output['paginacion'] .= "<li><a href='#' onclick='getDataL(1);'>1</a></li>";
+            $output['paginacion'] .= "<li><a href='#' onclick='getDataE(1);'>1</a></li>";
             $output['paginacion'] .= "<li class='ancla'><a>...</a></li>";
         }
     
@@ -146,7 +152,7 @@ if ($totalContar===1) {
             if ($pagina==$i) {
                 $output['paginacion'] .= "<li class='actual'><a>$i</a></li>";
             }else {
-                $output['paginacion'] .= "<li><a href='#' onclick='getDataL($i);'>$i</a></li>";
+                $output['paginacion'] .= "<li><a href='#' onclick='getDataE($i);'>$i</a></li>";
             }
         }
     
@@ -154,7 +160,7 @@ if ($totalContar===1) {
     
         if ($pagFinal<($paginasTotal-1)) {
             $output['paginacion'] .= "<li class='ancla'><a>...</a></li>";
-            $output['paginacion'] .= "<li><a href='#' onclick='getDataL($paginasTotal);'>$paginasTotal</a></li>";
+            $output['paginacion'] .= "<li><a href='#' onclick='getDataE($paginasTotal);'>$paginasTotal</a></li>";
         }
     
         $output['paginacion'] .= "</ul>";
@@ -162,9 +168,9 @@ if ($totalContar===1) {
         // activacion del boton siguiente
     
         if ($pagina==$pagFinal) {
-            $output['paginacion'] .= "<button disabled onclick='getDataL(".$pagina+1 .");'>Siguiente</button>";
+            $output['paginacion'] .= "<button disabled onclick='getDataE(".$pagina+1 .");'>Siguiente</button>";
         } else {
-            $output['paginacion'] .= "<button class='activo' onclick='getDataL(".$pagina+1 .");'>Siguiente</button>";
+            $output['paginacion'] .= "<button class='activo' onclick='getDataE(".$pagina+1 .");'>Siguiente</button>";
         }
     }
 
@@ -173,7 +179,7 @@ if ($totalContar===1) {
 
 echo json_encode($output, JSON_UNESCAPED_UNICODE); //por si viene con 'ñ' o tildes...
 
-class Landing
+class Equipos
 {
 
 }

@@ -12,30 +12,29 @@
 <body>
     <?php 
     
-        if (isset($_GET["pagina"])) 
+    if (isset($_GET["pagina"])) 
+    {
+        if (session_start())
         {
-            if (session_start())
+            if($_GET["pagina"]==="clientes")
             {
-                if($_GET["pagina"]==="clientes")
-                {
-
-                    include_once "paginas/clientes.php";
-
-                }
-                elseif ($_GET["pagina"]==="equipos") 
-                {
-                    include_once "paginas/equipos.php";
-                }
+                
+                include_once "paginas/clientes.php";
+                
+            }
+            elseif ($_GET["pagina"]==="equipos") 
+            {
+                include_once "paginas/equipos.php";
             }
         }
-        else
-        {
-
-            include_once "paginas/login.php";
-
-        }
+    }
+    else
+    {
+        
+        include_once "paginas/login.php";
+        
+    }
     ?>
 
-<!-- <script src="view/static/paginacion.js"></script> -->
 </body>
 </html>
