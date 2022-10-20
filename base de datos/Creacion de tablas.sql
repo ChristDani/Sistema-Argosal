@@ -23,16 +23,23 @@ fechaRegistro char(10) default'--/--/----'
 drop table if exists whatsapp
 create table whatsapp
 (
-telefono char(11) not null,
+asesor char(15) not null,
 nombre char(25) not null,
-idPromocion char(1) not null,
-idTarjeta char(1) not null,
-documento char(12) null,
-operador char(10) null,
-tipoPlan char(25) null,
-idModoPago char(1) not null,
-fechaRegistro smalldatetime default getdate(),
-estado char(10) default 'sin procesar'
+dni char(8) not null,
+telefono char(11) not null,
+producto char(5) not null,
+lineaProcedente char(8) not null,
+operadorCedente char(15) not null,
+modalidad char(8) not null,
+tipo char(15) not null,
+planR char(50) not null,
+equipo char(50) not null,
+formaDePago char(10) not null,
+sec char(15) null,
+tipoFija char(15) not null,
+planFija char(50) not null,
+estado char(10) not null,
+fechaRegistro smalldatetime default getdate()
 )
 
 drop table if exists landing
