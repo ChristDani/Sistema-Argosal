@@ -1,5 +1,12 @@
 <?php 
 
+require_once '../../model/conexion.php';
+
+$dni = $_GET['dni'];
+
+$model = new conexion();
+$con = $model->conectar();
+
 $asesor = $_POST['asesor'];
 $nombreC = $_POST['nombre'];
 $dniC = $_POST['dni'];
@@ -17,7 +24,25 @@ $estado = $_POST['estado'];
 $tipoFija = $_POST['tipoFija'];
 $planFija = $_POST['planFija'];
 
+try {
 
-echo "$asesor - $nombreC - $dniC - $telefono - $producto - $lineaProce - $operadorCeden - $modalidad - $tipo - $plan - $equipos - $formaPago - $sec - $estado - $tipoFija - $planFija"; 
+    $model = new conexion();
+    $con = $model->conectar();
+
+    $sql="INSERT INTO whatsapp(asesor,nombre,dni,telefono,producto,lineaProcedente,operadorCedente,modalidad,tipo,planR,equipo,formaDePago,sec,tipoFija,planFija,estado) VALUES('$asesor','$nombreC','$dniC','$telefono','$producto','$lineaProce','$operadorCeden','$modalidad','$tipo','$plan','$equipos','$formaPago','$sec','$tipoFija','$planFija','$estado')";
+
+    $rs=sqlsrv_query($con,$sql);
+
+    $con = $model->desconectar();
+    
+    header("location: ../../index.php?pagina=clientes&dni=$dni"); 
+
+} catch (\Throwable $th) {
+    $html .= "<script>";
+    $html .= "confirm('incorrecto')";
+    $html .= "</script>";
+
+    echo $html; 
+} 
 
 ?>

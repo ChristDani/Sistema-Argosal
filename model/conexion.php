@@ -6,17 +6,17 @@
 		public function conectar()
 		{
 
-			$server="192.168.0.231";
-			$conexion=array("Database"=>"Argosal",
-							"UID"=>"paraclase",
-							"PWD"=>"12345",
-							"CharacterSet"=>"UTF-8");
-
-			// $server="192.168.0.41";
+			// $server="192.168.0.231";
 			// $conexion=array("Database"=>"Argosal",
-			// 				"UID"=>"sa",
-			// 				"PWD"=>"123456",
+			// 				"UID"=>"paraclase",
+			// 				"PWD"=>"12345",
 			// 				"CharacterSet"=>"UTF-8");
+
+			$server="192.168.0.41";
+			$conexion=array("Database"=>"Argosal",
+							"UID"=>"sa",
+							"PWD"=>"123456",
+							"CharacterSet"=>"UTF-8");
 			$con=sqlsrv_connect($server,$conexion);
 
 			if ($con) 

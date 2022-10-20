@@ -18,18 +18,18 @@ function getDataW(pagina) {
     // console.log(pagina)
 
     // para mantener la pagina al cambiar el limite de datos
-    if (pagina != null) {
-        paginaActualW = pagina
-    }
+    // if (pagina != null) {
+    //     paginaActualW = pagina
+    // }
 
     // le damos el origen de los datos
     let url='model/whatsapp.php';
     let formaData = new FormData()
     formaData.append('busqueda', input)
     formaData.append('registros', select)
-    // formaData.append('pagina', pagina)
+    formaData.append('pagina', pagina)
     // para mantener la pagina al cambiar el limite de datos
-    formaData.append('pagina', paginaActualW)
+    // formaData.append('pagina', paginaActualW)
 
     fetch(url,{
         method: "POST",

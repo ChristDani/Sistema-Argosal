@@ -5,7 +5,7 @@ $model=new conexion();
 $con=$model->conectar();
 
 // en el caso de solo querer determinadas columnas usar esto con el mismo nombre de las columnas...
-$columnas=['telefono',	'nombre',	'idPromocion',	'idTarjeta',	'documento',	'operador',	'tipoPlan',	'idModoPago',	'fechaRegistro', 'estado'];
+$columnas=['asesor','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','sec','tipoFija','planFija','estado','fechaRegistro'];
 
 // tabla a seleccionar
 $tabla='whatsapp';
@@ -45,7 +45,7 @@ $sLimite = " offset $inicio rows fetch next $limite rows only ";
 // cantidad de registros devueltos en la consulta
 $contar="select * from $tabla $where";
 
-$sql = "select ".implode(", ", $columnas)." from $tabla $where order by documento $sLimite";
+$sql = "select ".implode(", ", $columnas)." from $tabla $where order by nombre $sLimite";
 // para verificar errores en la consulta
 // echo $sql;
 
@@ -54,6 +54,7 @@ $sql = "select ".implode(", ", $columnas)." from $tabla $where order by document
 $resulContar=sqlsrv_query($con,$contar, array(), array("Scrollable"=>SQLSRV_CURSOR_KEYSET));
 
 $resultado=sqlsrv_query($con,$sql, array(), array("Scrollable"=>"buffered"));
+// $resultado=sqlsrv_query($con,$sql, array(), array("Scrollable"=>SQLSRV_CURSOR_KEYSET));
 // para saber el numero de filas
 
 $totalContar = sqlsrv_num_rows($resulContar);
@@ -82,25 +83,35 @@ $output['paginacion']= '';
 if ($filas>0) {
     $i=$inicio+1;
     while ($fila=sqlsrv_fetch_array($resultado)) {
+
+        $fecha=$fila['fechaRegistro']-> format('d/m/Y');
+
         $output['data'].= "<tr>";
         $output['data'].= "<td align='center'>$i</td>";
-        $output['data'].= "<td align='center'>".$fila['telefono']."</td>";
+        $output['data'].= "<td align='center'>".$fila['asesor']."</td>";
         $output['data'].= "<td align='center'>".$fila['nombre']."</td>";
-        $output['data'].= "<td align='center'>".$fila['idPromocion']."</td>";
-        $output['data'].= "<td align='center'>".$fila['idTarjeta']."</td>";
-        $output['data'].= "<td align='center'>".$fila['documento']."</td>";
-        $output['data'].= "<td align='center'>".$fila['operador']."</td>";
-        $output['data'].= "<td align='center'>".$fila['tipoPlan']."</td>";
-        $output['data'].= "<td align='center'>".$fila['idModoPago']."</td>";
-        $output['data'].= "<td align='center'>".$fila['fechaRegistro']."</td>";
+        // $output['data'].= "<td align='center'>".$fila['dni']."</td>";
+        $output['data'].= "<td align='center'>".$fila['telefono']."</td>";
+        // $output['data'].= "<td align='center'>".$fila['producto']."</td>";
+        // $output['data'].= "<td align='center'>".$fila['lineaProcedente']."</td>";
+        // $output['data'].= "<td align='center'>".$fila['operadorCedente']."</td>";
+        $output['data'].= "<td align='center'>".$fila['modalidad']."</td>";
+        // $output['data'].= "<td align='center'>".$fila['tipo']."</td>";
+        // $output['data'].= "<td align='center'>".$fila['planR']."</td>";
+        // $output['data'].= "<td align='center'>".$fila['equipo']."</td>";
+        // $output['data'].= "<td align='center'>".$fila['formaDePago']."</td>";
+        $output['data'].= "<td align='center'>".$fila['sec']."</td>";
+        // $output['data'].= "<td align='center'>".$fila['tipoFija']."</td>";
+        // $output['data'].= "<td align='center'>".$fila['planFija']."</td>";
         $output['data'].= "<td align='center'>".$fila['estado']."</td>";
-        $output['data'].= "<td align='center'><a href=''>editar</a></td>";
+        $output['data'].= "<td align='center'>".$fecha."</td>";
+        $output['data'].= "<td align='center'><a href=''><span class='material-symbols-outlined'>info</span></a></td>";
         $output['data'].= "</tr>";
         $i+=1;
     }
 } else {
     $output['data'].= "<tr>";
-    $output['data'].= "<td align='center' colspan=13 height='100px'>Sin Resultados...</td>";
+    $output['data'].= "<td align='center' colspan=all height='100px'>Sin Resultados...</td>";
     $output['data'].= "</tr>";
 }
 
