@@ -60,11 +60,14 @@
 <div class="modal">
     <div class="contenido">
         <hgroup><h3>Agregar Venta</h3></hgroup>
-        <form action="" method="post">
+        <form action="controller/whatsapp/agregar.php" method="post">
 
             <div>
-                <label for="asesor">Asesor:</label>
-                <input disabled type="text" name="asesor" id="asesor" value="<?php echo $tusu; ?>">
+                <label for="asesor1">Asesor:</label>
+                <!-- valor para mostrar -->
+                <input disabled type="text" name="asesor1" id="asesor1" value="<?php echo $tusu; ?>">
+                <!-- valor para llevar datos -->
+                <input type="text" name="asesor" id="asesor" value="<?php echo $tusu; ?>">
             </div>
 
             <div>
@@ -195,17 +198,13 @@
                 </select>
             </div>
 
-
-
-
-
-
-
-
             <input type="submit" value="Guardar Venta">
+
         </form>
+
         <div class="cerrar">
             <label for="btnModalW">Cerrar</label>
         </div>
+
     </div>
 </div>

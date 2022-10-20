@@ -300,10 +300,14 @@ table{
     position: fixed;
     top: 0; left: 0;
     background-color: rgba(144, 148, 150, 0.8);
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     z-index: 100;
+}
+
+#btnModalW:checked ~ .modal{
+    display: flex;
 }
 
 .modal .contenido{
@@ -320,7 +324,7 @@ table{
 
 .modal .contenido form{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 4;
 }
 
@@ -332,3 +336,24 @@ table{
     justify-content: space-between;
 }
 
+.modal .contenido .cerrar{
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal .contenido .cerrar label{
+    padding: 7px 10px;
+    background-color: #d3142b;
+    color: white;
+    cursor: pointer;
+}
+
+.modal .contenido .cerrar label:hover{
+    background-color: darkred;
+}
+
+#asesor{
+    display: none;
+}
