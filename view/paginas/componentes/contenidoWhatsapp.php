@@ -25,20 +25,20 @@
             <label for="busquedaW" class="form-label">Buscar</label>
         </div>
     </div>
-    <div class="tabla Scroll">
+    <div class="tabla">
         <center>
             <table class="table table-responsive-sm table-striped table-hover ">
                 <thead class="table-dark">
                     <tr>
                         <th class="text-center">N°</th>
-                        <th class="text-center">asesor</th>
+                        <!-- <th class="text-center">asesor</th> -->
                         <th class="text-center">nombre</th>
                         <!-- <th width="10%">dni</th> -->
                         <th class="text-center">telefono</th>
                         <!-- <th width="5%">producto</th> -->
                         <!-- <th width="5%">lineaProcedente</th>  -->
                         <!-- <th width="10%">operadorCedente</th> -->
-                        <th class="text-center">modalidad</th>
+                        <!-- <th class="text-center">modalidad</th> -->
                         <!-- <th width="10%">tipo</th> -->
                         <!-- <th width="10%">planR</th> -->
                         <!-- <th width="10%">equipo</th> -->
@@ -75,7 +75,7 @@
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="staticBackdropLabel">Agregar datos</h1>
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Registrar venta</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body"> 
@@ -83,73 +83,79 @@
                 <div class="form-floating mb-3">                
                     <div class="col-xs-2">
                         <!-- valor para mostrar -->
-                        <input class="form-control" disabled type="text" name="asesor1" id="asesor1" value="Asesor <?php echo $tusu; ?>">
+                        <center><label>Registrando venta como <?php echo "<em>$tusu</em>"; ?></label></center>
                         <!-- valor para llevar datos -->
                         <input hidden  name="asesor" id="asesor" value="<?php echo $tusu; ?>"> 
                     </div>
                 </div>                 
                 <div class="form-floating mb-3">
                     <input class="form-control" autocomplete="off" type="text" name="nombre" id="nombre" placeholder="Nombre del cliente..." required>
-                    <label for="nombre">Nombre:</label>
+                    <label for="nombre">Nombre</label>
                 </div>
                 
                 <div class="form-floating mb-3">                
                     <input class="form-control" autocomplete="off" type="text" name="dni" id="dni" maxlength=8 placeholder="DNI del cliente..." required oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
-                    <label for="dni">DNI:</label>
+                    <label for="dni">DNI</label>
                 </div>
                 
                 <div class="form-floating mb-3">                
                     <input class="form-control" autocomplete="off" type="tel" name="telefono" id="telefono" maxlength=9 placeholder="999 999 999" required oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
-                    <label for="telefono">Telefono:</label>
+                    <label for="telefono">Telefono</label>
                 </div>
                 
                 <div class="form-floating mb-3">                
                     <select class="form-select form-select-sm" name="producto" id="producto">
-                        <option></option>
+                        <option value="---" style="color: gray;">(vacio)</option>
+                        <option hidden selected>Seleccione Producto</option>
                         <option value="Movil">Movil</option>
                         <option value="Fija">Fija</option>
                     </select>
-                    <label for="producto">Producto:</label>
+                    <label for="producto">Producto</label>
                 </div>
 
-                <div class="form-floating mb-3">                
+                <div class="form-floating mb-3 hidden" id="dtipo">                
                     <select class="form-select form-select-sm" name="tipo" id="tipo">
+                        <option value="---" style="color: gray;">(vacio)</option>
+                        <option hidden selected>Seleccione Tipo</option>
                         <option value="Portabilidad">Portabilidad</option>
                         <option value="Renovacion">Renovacion</option>
                     </select>
-                    <label for="tipo">Tipo:</label>
+                    <label for="tipo">Tipo</label>
                 </div>
                 
-                <div class="form-floating mb-3">                
+                <div class="form-floating mb-3 hidden" id="dlineaProce">                
                     <select class="form-select form-select-sm" name="lineaProce" id="lineaProce">
-                        <option></option>
+                        <option value="---" style="color: gray;">(vacio)</option>
+                        <option hidden selected>Seleccione Linea</option>
                         <option value="Postpago">Postpago</option>
                         <option value="Prepago">Prepago</option>
                     </select>
-                    <label for="lineaProce">Linea Procedente:</label>
+                    <label for="lineaProce">Linea Procedente</label>
                 </div>
                 
-                <div class="form-floating mb-3">                
+                <div class="form-floating mb-3 hidden" id="doperadorCeden">                
                     <select class="form-select form-select-sm" name="operadorCeden" id="operadorCeden">
-                        <option></option>
+                        <option value="---">---</option>
                         <option value="Movistar">Movistar</option>
                         <option value="Entel">Entel</option>
                         <option value="Bitel">Bitel</option>
                     </select>
-                    <label for="operadorCeden">Operador Cedente:</label>
+                    <label for="operadorCeden">Operador Cedente</label>
                 </div>
                 
-                <div class="form-floating mb-3">                
+                <div class="form-floating mb-3 hidden" id="dmodalidad">                
                     <select class="form-select form-select-sm" name="modalidad" id="modalidad">
+                        <option value="---">---</option>
                         <option value="Postpago">Postpago</option>
                         <option value="Prepago">Prepago</option>
                     </select>
-                    <label for="modalidad">Modalidad:</label>
+                    <label for="modalidad">Modalidad</label>
                 </div>
                 
                 
-                <div class="form-floating mb-3">                
+                <div class="form-floating mb-3 hidden" id="dplan">                
                     <select class="form-select form-select-sm" name="plan" id="plan">
+                        <option value="---">---</option>
                         <option value="S/ 29.90 MAX">S/ 29.90 MAX</option>
                         <option value="S/ 39.90">S/ 39.90</option>
                         <option value="S/ 49.90">S/ 49.90</option>
@@ -165,48 +171,46 @@
                         <option value="S/ 115.00 MAX PLAY - NETFLIX">S/ 115.00 MAX PLAY - NETFLIX</option>
                         <option value="S/ 145.00 MAX PLAY - NETFLIX">S/ 145.00 MAX PLAY - NETFLIX</option>
                     </select>
-                    <label for="plan">Plan:</label>
+                    <label for="plan">Plan</label>
                 </div>
                 
-                <div class="form-floating mb-3">                
+                <div class="form-floating mb-3 hidden" id="dequipos">                
                     <select class="form-select form-select-sm" name="equipos" id="equipos">
+                        <option value="---">---</option>
                         <option value="Chip">Chip</option>
                     </select>
-                    <label for="equipos">Equipos:</label>
+                    <label for="equipos">Equipos</label>
                 </div>
                 
-                <div class="form-floating mb-3">                
+                <div class="form-floating mb-3 hidden" id="dformaPago">                
                     <select class="form-select form-select-sm" name="formaPago" id="formaPago">
+                        <option value="---">---</option>
                         <option value="Contado">Contado</option>
                         <option value="Cuotas">Cuotas</option>
                     </select>
-                    <label for="formaPago">Formas de Pago:</label>
+                    <label for="formaPago">Formas de Pago</label>
                 </div>
                 
-                <div class="form-floating mb-3">                
+                <div class="form-floating mb-3 hidden" id="dsec">                
                     <input class="form-control" autocomplete="off" type="text" name="sec" id="sec" placeholder="SEC..." oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
-                    <label for="sec">SEC:</label>
+                    <label for="sec">SEC</label>
                 </div>
                 
-                <div class="form-floating mb-3">                
-                    <select class="form-select form-select-sm" name="estado" id="estado">
-                        <option value="Pendiente">Pendiente</option>
-                        <option value="Concretado">Concretado</option>
-                        <option value="No Requiere">No Requiere</option>
-                    </select>
-                    <label for="estado">Estado:</label>
-                </div>
                 
-                <div class="form-floating mb-3">                
+                <div class="form-floating mb-3 hidden" id="dtipoFija">                
                     <select class="form-select form-select-sm" name="tipoFija" id="tipoFija">
+                        <option value="---" style="color: gray;">(vacio)</option>
+                        <option hidden selected>Seleccione Tipo de Fija</option>
                         <option value="Portabilidad">Portabilidad</option>
                         <option value="Alta">Alta</option>
                     </select>
-                    <label for="tipoFija">Tipo Fija:</label>
+                    <label for="tipoFija">Tipo Fija</label>
                 </div>
                 
-                <div class="form-floating mb-3">                
+                <div class="form-floating mb-3 hidden" id="dplanFija">                
                     <select class="form-select form-select-sm" name="planFija" id="planFija">
+                        <option value="---" style="color: gray;">(vacio)</option>
+                        <option hidden selected>Seleccione Plan de Fija</option>
                         <option value="1 Play - Telefonia">1 Play - Telefonia</option>
                         <option value="1 Play - Television">1 Play - Television</option>
                         <option value="1 Play - Internet">1 Play - Internet</option>
@@ -216,8 +220,21 @@
                         <option value="3 Play - Telefonia + Internet + Cable Avanzado">3 Play - Telefonia + Internet + Cable Avanzado</option>
                         <option value="3 Play - Telefonia + Internet + Cable Superior">3 Play - Telefonia + Internet + Cable Superior</option>
                     </select>
-                    <label for="planFija">Plan Fija:</label>
-                </div>         
+                    <label for="planFija">Plan Fija</label>
+                </div> 
+                
+                <div class="form-floating mb-3 hidden" id="destado">                
+                    <select class="form-select form-select-sm" name="estado" id="estado">
+                        <option value="---" style="color: gray;">(vacio)</option>
+                        <option value="---" hidden selected>Seleccione Estado</option>
+                        <option value="Pendiente">Pendiente</option>
+                        <option value="Concretado">Concretado</option>
+                        <option value="No Requiere">No Requiere</option>
+                    </select>
+                    <label for="estado">Estado</label>
+                </div>
+                
+
             </div>
             <div class="modal-footer">
             <button type="submit" class="btn btn-primary">Guardar</button>
@@ -226,3 +243,5 @@
       </div>
     </div>
   </div>
+
+  <script src="controller/whatsapp/validaciones.js"></script>

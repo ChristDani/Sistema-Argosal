@@ -45,7 +45,7 @@ $sLimite = " offset $inicio rows fetch next $limite rows only ";
 // cantidad de registros devueltos en la consulta
 $contar="select * from $tabla $where";
 
-$sql = "select ".implode(", ", $columnas)." from $tabla $where order by nombre $sLimite";
+$sql = "select ".implode(", ", $columnas)." from $tabla $where order by fechaRegistro $sLimite";
 // para verificar errores en la consulta
 // echo $sql;
 
@@ -88,14 +88,14 @@ if ($filas>0) {
 
         $output['data'].= "<tr>";
         $output['data'].= "<td align='center'>$i</td>";
-        $output['data'].= "<td align='center'>".$fila['asesor']."</td>";
+        // $output['data'].= "<td align='center'>".$fila['asesor']."</td>";
         $output['data'].= "<td align='center'>".$fila['nombre']."</td>";
         // $output['data'].= "<td align='center'>".$fila['dni']."</td>";
         $output['data'].= "<td align='center'>".$fila['telefono']."</td>";
         // $output['data'].= "<td align='center'>".$fila['producto']."</td>";
         // $output['data'].= "<td align='center'>".$fila['lineaProcedente']."</td>";
         // $output['data'].= "<td align='center'>".$fila['operadorCedente']."</td>";
-        $output['data'].= "<td align='center'>".$fila['modalidad']."</td>";
+        // $output['data'].= "<td align='center'>".$fila['modalidad']."</td>";
         // $output['data'].= "<td align='center'>".$fila['tipo']."</td>";
         // $output['data'].= "<td align='center'>".$fila['planR']."</td>";
         // $output['data'].= "<td align='center'>".$fila['equipo']."</td>";

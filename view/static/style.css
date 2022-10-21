@@ -8,6 +8,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
 }
 
 /* header */
@@ -51,6 +52,7 @@ height: 60px;
 
 body{
     background-color: whitesmoke;
+    overflow-y: scroll-top;
 }
 
 .modal-backdrop.show{
@@ -284,10 +286,6 @@ body{
     width: 100%;
 }
 
-.Scroll{
-    overflow-x: scroll;
-}
-
 table{
     border: solid 1px #035934;
     border-collapse: collapse;
@@ -370,3 +368,14 @@ table{
     background-color: darkred;
 }
 
+.hidden{
+    display: none;
+}
+
+/* estilos para celular */
+
+@media screen and (max-width:500px) {
+    .tabla{
+        overflow-x: scroll;
+    }
+}
