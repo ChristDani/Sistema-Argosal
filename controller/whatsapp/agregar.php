@@ -35,7 +35,7 @@ try {
 
     $con = $model->desconectar();
     
-    header("location: ../../index.php?pagina=clientes&dni=$dni"); 
+    header("location: ../../index.php?pagina=clientes&dni=$dni");
 
 } catch (\Throwable $th) {
     $html .= "<script>";

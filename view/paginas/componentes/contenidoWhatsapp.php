@@ -89,24 +89,23 @@
                     </div>
                 </div>                 
                 <div class="form-floating mb-3">
-                    <input class="form-control" autocomplete="off" type="text" name="nombre" id="nombre" placeholder="Nombre del cliente..." required>
+                    <input class="form-control" autocomplete="off" type="text" name="nombre" id="nombre" placeholder="Nombre del cliente..." onkeyup="mostrarDNI()" required>
                     <label for="nombre">Nombre</label>
                 </div>
                 
-                <div class="form-floating mb-3">                
-                    <input class="form-control" autocomplete="off" type="text" name="dni" id="dni" maxlength=8 placeholder="DNI del cliente..." required oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
+                <div class="form-floating mb-3 hidden" id="ddni">                
+                    <input class="form-control" autocomplete="off" type="text" name="dni" id="dni" maxlength=8 placeholder="DNI del cliente..." onkeyup="mostrarTelefono()" required oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
                     <label for="dni">DNI</label>
                 </div>
                 
-                <div class="form-floating mb-3">                
-                    <input class="form-control" autocomplete="off" type="tel" name="telefono" id="telefono" maxlength=9 placeholder="999 999 999" required oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
+                <div class="form-floating mb-3 hidden" id="dtelefono">                
+                    <input class="form-control" autocomplete="off" type="tel" name="telefono" id="telefono" maxlength=9 placeholder="999 999 999" onkeyup="mostrarProductos()" required oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
                     <label for="telefono">Telefono</label>
                 </div>
                 
-                <div class="form-floating mb-3">                
+                <div class="form-floating mb-3 hidden" id="dproducto">                
                     <select class="form-select form-select-sm" name="producto" id="producto">
                         <option value="---" style="color: gray;">(vacio)</option>
-                        <option hidden selected>Seleccione Producto</option>
                         <option value="Movil">Movil</option>
                         <option value="Fija">Fija</option>
                     </select>
@@ -116,7 +115,6 @@
                 <div class="form-floating mb-3 hidden" id="dtipo">                
                     <select class="form-select form-select-sm" name="tipo" id="tipo">
                         <option value="---" style="color: gray;">(vacio)</option>
-                        <option hidden selected>Seleccione Tipo</option>
                         <option value="Portabilidad">Portabilidad</option>
                         <option value="Renovacion">Renovacion</option>
                     </select>
@@ -126,7 +124,6 @@
                 <div class="form-floating mb-3 hidden" id="dlineaProce">                
                     <select class="form-select form-select-sm" name="lineaProce" id="lineaProce">
                         <option value="---" style="color: gray;">(vacio)</option>
-                        <option hidden selected>Seleccione Linea</option>
                         <option value="Postpago">Postpago</option>
                         <option value="Prepago">Prepago</option>
                     </select>
@@ -135,7 +132,7 @@
                 
                 <div class="form-floating mb-3 hidden" id="doperadorCeden">                
                     <select class="form-select form-select-sm" name="operadorCeden" id="operadorCeden">
-                        <option value="---">---</option>
+                        <option value="---" style="color: gray;">(vacio)</option>
                         <option value="Movistar">Movistar</option>
                         <option value="Entel">Entel</option>
                         <option value="Bitel">Bitel</option>
@@ -145,7 +142,7 @@
                 
                 <div class="form-floating mb-3 hidden" id="dmodalidad">                
                     <select class="form-select form-select-sm" name="modalidad" id="modalidad">
-                        <option value="---">---</option>
+                        <option value="---" style="color: gray;">(vacio)</option>
                         <option value="Postpago">Postpago</option>
                         <option value="Prepago">Prepago</option>
                     </select>
@@ -155,7 +152,7 @@
                 
                 <div class="form-floating mb-3 hidden" id="dplan">                
                     <select class="form-select form-select-sm" name="plan" id="plan">
-                        <option value="---">---</option>
+                        <option value="---" style="color: gray;">(vacio)</option>
                         <option value="S/ 29.90 MAX">S/ 29.90 MAX</option>
                         <option value="S/ 39.90">S/ 39.90</option>
                         <option value="S/ 49.90">S/ 49.90</option>
@@ -176,7 +173,7 @@
                 
                 <div class="form-floating mb-3 hidden" id="dequipos">                
                     <select class="form-select form-select-sm" name="equipos" id="equipos">
-                        <option value="---">---</option>
+                        <option value="---" style="color: gray;">(vacio)</option>
                         <option value="Chip">Chip</option>
                     </select>
                     <label for="equipos">Equipos</label>
@@ -184,7 +181,7 @@
                 
                 <div class="form-floating mb-3 hidden" id="dformaPago">                
                     <select class="form-select form-select-sm" name="formaPago" id="formaPago">
-                        <option value="---">---</option>
+                        <option value="---" style="color: gray;">(vacio)</option>
                         <option value="Contado">Contado</option>
                         <option value="Cuotas">Cuotas</option>
                     </select>
@@ -200,7 +197,6 @@
                 <div class="form-floating mb-3 hidden" id="dtipoFija">                
                     <select class="form-select form-select-sm" name="tipoFija" id="tipoFija">
                         <option value="---" style="color: gray;">(vacio)</option>
-                        <option hidden selected>Seleccione Tipo de Fija</option>
                         <option value="Portabilidad">Portabilidad</option>
                         <option value="Alta">Alta</option>
                     </select>
@@ -210,7 +206,6 @@
                 <div class="form-floating mb-3 hidden" id="dplanFija">                
                     <select class="form-select form-select-sm" name="planFija" id="planFija">
                         <option value="---" style="color: gray;">(vacio)</option>
-                        <option hidden selected>Seleccione Plan de Fija</option>
                         <option value="1 Play - Telefonia">1 Play - Telefonia</option>
                         <option value="1 Play - Television">1 Play - Television</option>
                         <option value="1 Play - Internet">1 Play - Internet</option>
@@ -226,7 +221,6 @@
                 <div class="form-floating mb-3 hidden" id="destado">                
                     <select class="form-select form-select-sm" name="estado" id="estado">
                         <option value="---" style="color: gray;">(vacio)</option>
-                        <option value="---" hidden selected>Seleccione Estado</option>
                         <option value="Pendiente">Pendiente</option>
                         <option value="Concretado">Concretado</option>
                         <option value="No Requiere">No Requiere</option>

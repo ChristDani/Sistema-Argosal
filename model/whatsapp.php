@@ -111,7 +111,7 @@ if ($filas>0) {
     }
 } else {
     $output['data'].= "<tr>";
-    $output['data'].= "<td align='center' colspan=all height='100px'>Sin Resultados...</td>";
+    $output['data'].= "<td align='center' colspan=7 height='100px'>Sin Resultados...</td>";
     $output['data'].= "</tr>";
 }
 
