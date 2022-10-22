@@ -87,12 +87,13 @@ if ($filas>0) {
         $fecha=$fila['fechaRegistro']-> format('d/m/Y');
 
         $output['data'].= "<tr>";
+        // $output['data'].= "<td align='center'><a href=''><span class='material-symbols-outlined'>info</span></a></td>";
         $output['data'].= "<td align='center'>$i</td>";
         // $output['data'].= "<td align='center'>".$fila['asesor']."</td>";
-        $output['data'].= "<td align='center'>".$fila['nombre']."</td>";
+        $output['data'].= "<td align='left'>".$fila['nombre']."</td>";
         // $output['data'].= "<td align='center'>".$fila['dni']."</td>";
         $output['data'].= "<td align='center'>".$fila['telefono']."</td>";
-        // $output['data'].= "<td align='center'>".$fila['producto']."</td>";
+        $output['data'].= "<td align='center'>".$fila['producto']."</td>";
         // $output['data'].= "<td align='center'>".$fila['lineaProcedente']."</td>";
         // $output['data'].= "<td align='center'>".$fila['operadorCedente']."</td>";
         // $output['data'].= "<td align='center'>".$fila['modalidad']."</td>";
@@ -105,13 +106,13 @@ if ($filas>0) {
         // $output['data'].= "<td align='center'>".$fila['planFija']."</td>";
         $output['data'].= "<td align='center'>".$fila['estado']."</td>";
         $output['data'].= "<td align='center'>".$fecha."</td>";
-        $output['data'].= "<td align='center'><a href=''><span class='material-symbols-outlined'>info</span></a></td>";
+        $output['data'].= "<td align='center'><label><span class='material-symbols-outlined'>info</span></label></td>";
         $output['data'].= "</tr>";
         $i+=1;
     }
 } else {
     $output['data'].= "<tr>";
-    $output['data'].= "<td align='center' colspan=7 height='100px'>Sin Resultados...</td>";
+    $output['data'].= "<td align='center' colspan=8 height='100px'>Sin Resultados...</td>";
     $output['data'].= "</tr>";
 }
 

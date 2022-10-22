@@ -24,7 +24,7 @@ drop table if exists whatsapp
 create table whatsapp
 (
 asesor char(15) not null,
-nombre char(25) not null,
+nombre char(50) not null,
 dni char(8) not null,
 telefono char(11) not null,
 producto char(5) not null,

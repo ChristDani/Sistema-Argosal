@@ -179,14 +179,15 @@
 
 /* Responsive */
 
-@media(max-width: 768px){
-    body{
+@media screen and (max-width: 768px){
+    .body{
         padding: 2rem 0;
+        overflow-x: hidden;
     }
 
-    .login-car{
-        width: 300px;
-        padding: 2rem;
+    .login-card{
+        width: 90%;
+        margin-left: 5%;
     }
 }
 

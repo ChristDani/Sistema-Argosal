@@ -19,6 +19,19 @@ function mostrarDNI() {
         document.getElementById('dtelefono').style.display='none';
         document.getElementById('telefono').value='';
         document.getElementById('dproducto').style.display='none';
+        document.getElementById('producto').selectedIndex = 0;
+
+        document.getElementById('dtipo').style.display='none';
+        document.getElementById('dlineaProce').style.display='none';
+        document.getElementById('doperadorCeden').style.display='none';
+        document.getElementById('dmodalidad').style.display='none';
+        document.getElementById('dplan').style.display='none';
+        document.getElementById('dequipos').style.display='none';
+        document.getElementById('dformaPago').style.display='none';
+        document.getElementById('dsec').style.display='none';
+        document.getElementById('dtipoFija').style.display='none';
+        document.getElementById('dplanFija').style.display='none';
+        document.getElementById('destado').style.display='none';
     }
 }
 
@@ -30,6 +43,7 @@ function mostrarTelefono() {
         document.getElementById('dtelefono').style.display='none';
         document.getElementById('telefono').value='';
         document.getElementById('dproducto').style.display='none';
+        document.getElementById('producto').selectedIndex = 0;
     }
 }
 

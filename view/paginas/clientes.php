@@ -1,7 +1,10 @@
 <?php 
     include_once "componentes/header.php";
     include_once "componentes/menuClientes.php";
-    include_once "componentes/contenidoWhatsapp.php";
-    include_once "componentes/contenidoMasiva.php";
-    include_once "componentes/contenidoLanding.php"; 
+    include_once "componentes/whatsapp/contenidoWhatsapp.php";
+    if ($tipoU == 'director')
+    {
+        include_once "componentes/masiva/contenidoMasiva.php";
+    }
+    include_once "componentes/landing/contenidoLanding.php"; 
 ?>

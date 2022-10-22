@@ -9,6 +9,7 @@
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
     scroll-behavior: smooth;
+    transition: all 300ms;
 }
 
 /* header */
@@ -43,68 +44,27 @@ header ul li a:hover{
     color: black;
 }
 
-.logo img{
+/* .logo img{
 width: 320px;
 height: 60px;
-}
+} */
 
 /* body */
 
 body{
-    background-color: whitesmoke;
-    overflow-y: scroll-top;
+    /* background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%); */
+    background: whitesmoke;
+    height: 100vh;
 }
 
 .modal-backdrop.show{
     z-index: 2;
 }
 
-/* login */
-
-.banner{
-    display: flex;
-    background:url(img/banner.webp) no-repeat center;
-    background-size: cover;
-    width: 65%;
-    position: absolute;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-}
-
-.banner img{
-    height: 25%;
-}
-
-.formLogin{
-    position: absolute;
-    width: 35%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    right: 0;
-    padding: 0 0 0 25px;
-}
-
-.formLogin a img{
-    height: 150px;
-}
-
-.formLogin form{
-    display: flex;
-    flex-direction: column;
-}
-
-.formLogin form label{
-    display: flex;
-    justify-content: space-between;
-}
-
 /* home */
 
 .menu{
+    position: relative;
     border: solid 1px darkred;
     border-radius: 20px;
     display: flex;
@@ -113,6 +73,10 @@ body{
     flex-direction: column;
     align-items: center;
     background-color: white;
+    /* background-color: #212121; */
+    /* color: white; */
+
+    z-index: 0;
 }
 
 .menu .botones{
@@ -146,6 +110,7 @@ body{
 } */
 
 .contenedor{
+    position: relative;
     display: none;
     border: solid 1px darkred;
     border-radius: 20px;
@@ -155,13 +120,15 @@ body{
     flex-direction: column;
     background-color: white;
 
+    z-index: 2;
 }
 
 .contenedor .campos .a{
     height: 10px;
 }
+
 .E{
-    display: block;
+    display: flex;
 }
 
 .contenedor .campos{
@@ -291,9 +258,25 @@ table{
     border-collapse: collapse;
 }
 
+table tbody tr td label{
+    color: #0d6efd;
+    cursor: pointer;
+}
+
+table tbody tr td label:hover{
+    color: #0aab45;
+}
+
+table tbody tr td label:active{
+    background: #fff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+}
+
 /* modal */
 
-.btnModal{
+/* .btnModal{
     padding: 10px 15px;
     background-color: #035934;
     color: white;
@@ -366,15 +349,82 @@ table{
 
 .modal .contenido .cerrar label:hover{
     background-color: darkred;
-}
+} */
 
 .hidden{
     display: none;
 }
 
+/* boton agregar para whatsapp */
+
+.btn{
+    border-radius: 2em;
+    border: #b71c1c;
+    background: #b71c1c;
+}
+
+.btn:hover{
+    background: #ee4545;
+
+}
+
+.agg{
+    margin-top: 10px;
+}
+
+.agg:hover{
+    font-size: large;
+    background: #ee4545;
+}
+
+.agg:active{
+    font-size: small;
+    background: #ee4545 !important;
+}
+
+.btnAggWhats{
+    position: absolute;
+    display: none;
+    top: 258px;
+    width: 180px;
+    height: 100px;
+    margin: 0 5%;
+    background: #b71c1c;
+    border-radius: 2em;
+    align-items: flex-start;
+    justify-content: center;
+
+    z-index: 0;
+}
+
+.btnAggWhats:hover{
+    top: 239px;
+    background: #ee4545;
+}
+
+.btnAggLand{
+    position: absolute;
+    display: none;
+    top: 258px; right: 0;
+    width: 180px;
+    height: 100px;
+    margin: 0 5% 10%;
+    background: #b71c1c;
+    border-radius: 2em;
+    align-items: flex-start;
+    justify-content: center;
+
+    z-index: 0;
+}
+
+.btnAggLand:hover{
+    top: 239px;
+    background: #ee4545;
+}
+
 /* estilos para celular */
 
-@media screen and (max-width:500px) {
+@media screen and (max-width:800px) {
     .tabla{
         overflow-x: scroll;
     }

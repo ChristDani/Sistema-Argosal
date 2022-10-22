@@ -37,12 +37,13 @@ try {
     
     header("location: ../../index.php?pagina=clientes&dni=$dni");
 
-} catch (\Throwable $th) {
+} catch (Exception $e) {
     $html .= "<script>";
-    $html .= "confirm('incorrecto')";
+    $html .= "alert('Operacion incorrecta, error: ".$e->getMessage()."')";
     $html .= "</script>";
 
     echo $html; 
+    die();
 } 
 
 ?>
