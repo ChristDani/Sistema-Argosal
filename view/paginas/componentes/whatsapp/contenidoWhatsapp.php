@@ -65,8 +65,8 @@
     </button>
 </div>
 
-<script src="controller/whatsapp/listarWhatsapp.js"></script>
-<script src="controller/whatsapp/modal.js"></script>
-
 <?php include_once "modalGuardarWhatsapp.php"; ?>
 <?php include_once "modalDetallesWhatsapp.php"; ?>
+
+<!-- <script src="controller/whatsapp/modal.js"></script> -->
+<script src="controller/whatsapp/listarWhatsapp.js"></script>

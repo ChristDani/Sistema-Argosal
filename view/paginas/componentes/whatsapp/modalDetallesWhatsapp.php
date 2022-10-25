@@ -11,4 +11,5 @@
   </div>
 </div>
 
-<script src="controller/whatsapp/validaciones.js"></script>
+<script src="controller/whatsapp/modal.js"></script>
+<!-- <script src="controller/whatsapp/validaciones.js"></script> -->
