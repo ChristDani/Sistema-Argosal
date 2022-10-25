@@ -89,13 +89,13 @@ if ($filas>0) {
         $output['data'].= "<td align='center'>".$fila['planes']."</td>";
         $output['data'].= "<td align='center'>".$fila['fechaRegistro']."</td>";
         $output['data'].= "<td align='center'>".$fila['estado']."</td>";
-        $output['data'].= "<td align='center'><a href=''>editar</a></td>";
+        $output['data'].= "<td align='center'><label><span class='material-symbols-outlined'>info</span></label></td>";
         $output['data'].= "</tr>";
         $i+=1;
     }
 } else {
     $output['data'].= "<tr>";
-    $output['data'].= "<td align='center' colspan=6 height='100px'>Sin Resultados...</td>";
+    $output['data'].= "<td align='center' colspan=7 height='100px'>Sin Resultados...</td>";
     $output['data'].= "</tr>";
 }
 

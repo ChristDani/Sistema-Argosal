@@ -276,80 +276,59 @@ table tbody tr td label:active{
 
 /* modal */
 
-/* .btnModal{
-    padding: 10px 15px;
-    background-color: #035934;
-    color: white;
-    border-radius: 4px;
+.btnModal{
+    display: block;
+    padding: 7px 0;
+    width: 100px;
+    border: 1px solid teal;
+    border-radius: 25px;
+    text-align: center;
+    text-decoration: none;
+    color: #283773;
+    background: #fff;
     cursor: pointer;
-    transition: all 300ms ease;
 }
 
-#btnModalW{
-    display: none;
+.cerrar{
+    position: absolute;
+    top: 8px; right: 8px;
+}
+
+.contenedorModal{
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0; left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 200;
 }
 
 .modal{
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    top: 0; left: 0;
-    background-color: rgba(144, 148, 150, 0.8);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
-}
-
-#btnModalW:checked ~ .modal{
+    width: 80%;
+    height: 65%;
+    background: #fff;
+    overflow: hidden;
+    text-align: center;
     display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: relative;
+    transition: transform 1s;
+    transform: translateY(0%);
+
 }
 
-.modal .contenido{
-    width: 100%;
-    max-width: 950px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
+.modalClose{
+    transform: translateY(-200%);
 }
 
-.modal .contenido hgroup{
-    margin-bottom: 15px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.modal .contenido form{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 4;
-}
-
-.modal .contenido form div{
-    padding: 2px;
-    margin: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.modal .contenido .cerrar{
-    width: 100%;
-    margin-top: 15px;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.modal .contenido .cerrar label{
-    padding: 7px 10px;
-    background-color: #d3142b;
-    color: white;
-    cursor: pointer;
-}
-
-.modal .contenido .cerrar label:hover{
-    background-color: darkred;
-} */
+/* ocultar elementos */
 
 .hidden{
     display: none;

@@ -18,18 +18,18 @@ function getDataL(pagina) {
     // console.log(pagina)
 
     // para mantener la pagina al cambiar el limite de datos
-    if (pagina != null) {
-        paginaActualL = pagina
-    }
+    // if (pagina != null) {
+    //     paginaActualL = pagina
+    // }
 
     // le damos el origen de los datos
     let url='model/landing.php';
     let formaData = new FormData()
     formaData.append('busqueda', input)
     formaData.append('registros', select)
-    // formaData.append('pagina', pagina)
+    formaData.append('pagina', pagina)
     // para mantener la pagina al cambiar el limite de datos
-    formaData.append('pagina', paginaActualL)
+    // formaData.append('pagina', paginaActualL)
 
     fetch(url,{
         method: "POST",

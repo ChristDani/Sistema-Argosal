@@ -10,27 +10,24 @@
             </select>
             <label for="numRegistrosL">Registros.</label>
         </div>
-        <button>Excel</button>
-        <div class='buscar'>
-            <label for='busquedaL'>Buscar:</label>
-            <input autocomplete="off" type="text" name="busquedaL" id="busquedaL" onkeyup="getDataL(1);">
+        <button onclick="exportTableToExcel('tablaLand', 'Data-Landing')">Excel</button>
+        <div class='buscar form-floating mb-3'>
+            <input class="a form-control form-control-sm" placeholder="Type to search..." autocomplete="off" type="text" name="busquedaL" id="busquedaL" onkeyup="getDataL(1);">
+            <label for='busquedaL' class="form-label">Buscar</label>
         </div>
     </div>
     <div class="tabla">
         <center>
-            <table border=1 width="100%">
-                <thead>
+            <table id="tablaLand" class="table table-responsive-sm table-striped table-hover">
+                <thead class="table-dark">
                     <tr>
-                        <th height=50px colspan=1>Agregar Venta</th>
-                        <th colspan=7>Tabla de Datos Provinientes de la Landing</th>
-                    </tr>
-                    <tr>
-                        <th width="6%">N°</th>
-                        <th width="10%">documento</th>
-                        <th width="10%">telefono</th>
-                        <th width="10%">planes</th>
-                        <th width="10%">fecha Registro</th>
-                        <th width="10%">estado</th>
+                        <th class="text-center">N°</th>
+                        <th class="text-center">DOCUMENTO</th>
+                        <th class="text-center">TELEFONO</th>
+                        <th class="text-center">PLANES</th>
+                        <th class="text-center">FECHA REGISTRO</th>
+                        <th class="text-center">ESTADO</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody id='resultadosL'>

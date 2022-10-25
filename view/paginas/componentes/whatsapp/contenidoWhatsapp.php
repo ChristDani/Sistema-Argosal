@@ -1,4 +1,3 @@
-
 <div id="whatsapp" class="contenedor">
     <div class="campos">
         <div class='mostrar'>
@@ -11,15 +10,15 @@
             </select>
             <label for="numRegistrosW">Registros.</label>            
         </div>
-        <button>Excel</button>
+        <button onclick="exportTableToExcel('tablaWhats', 'Data-Whatsapp')">Excel</button>
         <div class="buscar form-floating mb-3">                        
-            <input class="a form-control form-control-sm" placeholder="Type to search..." name="busquedaW" id="busquedaW" onkeyup="getDataW(1);">
+            <input class="a form-control form-control-sm" placeholder="Type to search..." autocomplete="off" type="text" name="busquedaW" id="busquedaW" onkeyup="getDataW(1);">
             <label for="busquedaW" class="form-label">Buscar</label>
         </div>
     </div>
     <div class="tabla">
         <center>
-            <table class="table table-responsive-sm table-striped table-hover ">
+            <table id="tablaWhats" class="table table-responsive-sm table-striped table-hover ">
                 <thead class="table-dark">
                     <tr>
                         <!-- <th ></th> -->
@@ -67,6 +66,7 @@
 </div>
 
 <script src="controller/whatsapp/listarWhatsapp.js"></script>
+<script src="controller/whatsapp/modal.js"></script>
 
 <?php include_once "modalGuardarWhatsapp.php"; ?>
 <?php include_once "modalDetallesWhatsapp.php"; ?>

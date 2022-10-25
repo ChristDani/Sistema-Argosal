@@ -120,3 +120,5 @@ function mostrarTipo(valor){
         document.getElementById('dlineaProce').style.display='none';
     }
 }
+
+// detalles y edicion

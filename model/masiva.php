@@ -85,7 +85,7 @@ if ($filas>0) {
         $output['data'].= "<tr>";
         $output['data'].= "<td align='center'>$i</td>";
         $output['data'].= "<td align='center'>".$fila['documento']."</td>";
-        $output['data'].= "<td align='center'>".$fila['nombre']."</td>";
+        $output['data'].= "<td align='left'>".$fila['nombre']."</td>";
         $output['data'].= "<td align='center'>".$fila['celular']."</td>";
         $output['data'].= "<td align='center'>".$fila['fecha_activacion']."</td>";
         $output['data'].= "<td align='center'>".$fila['operador']."</td>";
@@ -95,7 +95,7 @@ if ($filas>0) {
         $output['data'].= "<td align='center'>".$fila['provincia']."</td>";
         $output['data'].= "<td align='center'>".$fila['departamento']."</td>";
         $output['data'].= "<td align='center'>".$fila['estado']."</td>";
-        $output['data'].= "<td align='center'><a href=''>editar</a></td>";
+        $output['data'].= "<td align='center'><label><span class='material-symbols-outlined'>info</span></label></td>";
         $output['data'].= "</tr>";
         $i+=1;
     }
