@@ -9,7 +9,7 @@
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
     scroll-behavior: smooth;
-    transition: all 300ms;
+    transition: all 450ms;
 }
 
 /* header */
@@ -299,24 +299,26 @@ table tbody tr td label:active{
 .cerrar{
     position: absolute;
     top: 8px; right: 8px;
+    cursor: pointer;
 }
 
 .contenedorModal{
-    opacity: 0;
-    visibility: hidden;
+    /* opacity: 0;
+    visibility: hidden; */
     position: fixed;
     width: 100%;
     height: 100vh;
     top: 0; left: 0;
     background: rgba(0, 0, 0, 0.5);
-    display: flex;
+    /* display: flex; */
+    display: none;
     justify-content: center;
     align-items: center;
 
     z-index: 200;
 }
 
-.modal{
+.modalDetalle{
     width: 80%;
     height: 65%;
     background: #fff;
@@ -326,9 +328,28 @@ table tbody tr td label:active{
     flex-direction: column;
     justify-content: space-evenly;
     position: relative;
-    transition: transform 1s;
+    /* transition: transform 1s; */
     transform: translateY(0%);
 
+}
+
+.modalGuardar{
+    width: 40%;
+    max-height: 65%;
+    background: #fff;
+    /* overflow: hidden; */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: relative;
+    /* transition: transform 1s; */
+    transform: translateY(0%);
+
+}
+
+.modalGuardar .cuerpo{
+    overflow-y: scroll;
 }
 
 .modalClose{

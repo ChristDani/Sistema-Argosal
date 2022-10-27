@@ -46,10 +46,10 @@
     </div>
 </div>
 
-<div id="aggLand" class="btnAggLand">
+<!-- <div id="aggLand" class="btnAggLand">
     <button type="button" class="btn agg btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
         Agregar Venta
     </button>
-</div>
+</div> -->
 
 <script src="controller/landing/listarLanding.js"></script>

@@ -60,7 +60,10 @@
 </div>
 
 <div id="aggWhats" class="btnAggWhats">
-    <button type="button" class="btn agg btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <!-- <button type="button" class="btn agg btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Agregar Venta
+    </button> -->
+    <button type="button" class="btn agg btn-primary" onclick="abrirModalGuardar();">
         Agregar Venta
     </button>
 </div>
@@ -68,5 +71,6 @@
 <?php include_once "modalGuardarWhatsapp.php"; ?>
 <?php include_once "modalDetallesWhatsapp.php"; ?>
 
-<!-- <script src="controller/whatsapp/modal.js"></script> -->
 <script src="controller/whatsapp/listarWhatsapp.js"></script>
+<script src="controller/whatsapp/validaciones.js"></script>
+<script src="controller/whatsapp/modal.js"></script>

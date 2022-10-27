@@ -1,26 +1,59 @@
 
 // guardar
 
+let contenedorModalG = document.getElementById('contenedorModalGuardarWhats');
+let modalG = document.getElementById('modalGuardarWhats');
 
+function abrirModalGuardar() {
+    contenedorModalG.style.display='flex';
+    setTimeout(function () {
+        modalG.classList.toggle("modalClose");
+    },80)
+}
+
+function cerrarModalGuardar() {
+    modalG.classList.toggle("modalClose");
+    setTimeout(function () {
+        contenedorModalG.style.display='none';        
+    }, 200)
+}
 
 // detalles y edicion
 
-let cerrar = document.getElementById('cerrar');
-let abrir = document.getElementById('abrir');
-let modal = document.getElementById('modal');
-let contenedorModal = document.getElementById('contenedorModal');
+let modal = document.getElementById('modalDetalleWhats');
+let contenedorModal = document.getElementById('contenedorModalDetalleWhats');
 
-console.log(abrir)
+function abrirModalDetalle(numero) {
+    console.log(numero)
+    // obtenemos el div donde poner los datos
+    let contenidoD = document.getElementById('detallesWhats')
+    // abrimos el modal
+    console.log(contenidoD)
+    contenedorModal.style.display='flex';
+    setTimeout(function () {
+        modal.classList.toggle("modalClose");
+    },80)
 
-abrir.addEventListener("click", function(e){
-    e.preventDefault();
-    contenedorModal.style.opacity = "1";
-    contenedorModal.style.visibility = "visible";
+    //mandamos la posicion al controller
+    let url='controller/whatsapp/detalle.php';
+    let formaData = new FormData()
+    formaData.append('posicion', numero)
+
+    // traemos los datos del controller
+    fetch(url,{
+        method: "POST",
+        body: formaData
+    }).then(response=>response.json())
+    .then(data=>{
+        contenidoD.innerHTML=data.data
+        // document.getElementById('msgW').innerHTML = data.mensaje
+        // document.getElementById('munW').innerHTML = data.paginacion
+    }).catch(err=>console.log(err))
+}
+
+function cerrarModalDetalle() {
     modal.classList.toggle("modalClose");
-});
-
-// console.log(abrir)
-
-// abrir.addEventListener("click", function(){
-//     console.log("hola")
-// })
+    setTimeout(function () {
+        contenedorModal.style.display='none';        
+    }, 200)
+}

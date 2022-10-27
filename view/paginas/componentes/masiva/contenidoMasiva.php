@@ -28,10 +28,10 @@
                         <th class="text-center">ACTIVACION</th>
                         <th class="text-center">OPERADOR</th>
                         <th class="text-center">PLAN</th>
-                        <th class="text-center">DIRECCION</th>
-                        <th class="text-center">DISTRITO</th>
-                        <th class="text-center">PROVINCIA</th>
-                        <th class="text-center">DEPARTAMENTO</th>
+                        <!-- <th class="text-center">DIRECCION</th> -->
+                        <!-- <th class="text-center">DISTRITO</th> -->
+                        <!-- <th class="text-center">PROVINCIA</th> -->
+                        <!-- <th class="text-center">DEPARTAMENTO</th> -->
                         <th class="text-center">ESTADO</th>
                         <th></th>
                     </tr>

@@ -90,10 +90,10 @@ if ($filas>0) {
         $output['data'].= "<td align='center'>".$fila['fecha_activacion']."</td>";
         $output['data'].= "<td align='center'>".$fila['operador']."</td>";
         $output['data'].= "<td align='center'>".$fila['tipo_plan']."</td>";
-        $output['data'].= "<td align='center'>".$fila['direccion']."</td>";
-        $output['data'].= "<td align='center'>".$fila['distrito']."</td>";
-        $output['data'].= "<td align='center'>".$fila['provincia']."</td>";
-        $output['data'].= "<td align='center'>".$fila['departamento']."</td>";
+        // $output['data'].= "<td align='center'>".$fila['direccion']."</td>";
+        // $output['data'].= "<td align='center'>".$fila['distrito']."</td>";
+        // $output['data'].= "<td align='center'>".$fila['provincia']."</td>";
+        // $output['data'].= "<td align='center'>".$fila['departamento']."</td>";
         $output['data'].= "<td align='center'>".$fila['estado']."</td>";
         $output['data'].= "<td align='center'><label><span class='material-symbols-outlined'>info</span></label></td>";
         $output['data'].= "</tr>";

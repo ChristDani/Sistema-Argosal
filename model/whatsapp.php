@@ -106,7 +106,7 @@ if ($filas>0) {
         // $output['data'].= "<td align='center'>".$fila['planFija']."</td>";
         $output['data'].= "<td align='center'>".$fila['estado']."</td>";
         $output['data'].= "<td align='center'>".$fecha."</td>";
-        $output['data'].= "<td align='center'><label id='abrir'><span class='material-symbols-outlined'>info</span></label></td>";
+        $output['data'].= "<td align='center' id='abrir' onclick='abrirModalDetalle(".$i-1 .");'><label><span class='material-symbols-outlined'>info</span></label></td>";
         $output['data'].= "</tr>";
         $i+=1;
     }
