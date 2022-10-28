@@ -1,4 +1,4 @@
-<div id="whatsapp" class="contenedor">
+<div id="whatsapp" class="contenedor E">
     <div class="campos">
         <div class='mostrar'>
             <label for="numRegistrosW">Mostrar</label>

@@ -8,7 +8,7 @@ function abrirModalGuardar() {
     contenedorModalG.style.display='flex';
     setTimeout(function () {
         modalG.classList.toggle("modalClose");
-    },80)
+    },10)
 }
 
 function cerrarModalGuardar() {
@@ -24,11 +24,9 @@ let modal = document.getElementById('modalDetalleWhats');
 let contenedorModal = document.getElementById('contenedorModalDetalleWhats');
 
 function abrirModalDetalle(numero) {
-    console.log(numero)
     // obtenemos el div donde poner los datos
     let contenidoD = document.getElementById('detallesWhats')
     // abrimos el modal
-    console.log(contenidoD)
     contenedorModal.style.display='flex';
     setTimeout(function () {
         modal.classList.toggle("modalClose");
@@ -46,8 +44,6 @@ function abrirModalDetalle(numero) {
     }).then(response=>response.json())
     .then(data=>{
         contenidoD.innerHTML=data.data
-        // document.getElementById('msgW').innerHTML = data.mensaje
-        // document.getElementById('munW').innerHTML = data.paginacion
     }).catch(err=>console.log(err))
 }
 

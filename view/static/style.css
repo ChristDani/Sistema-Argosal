@@ -7,7 +7,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Montserrat', sans-serif; */
     scroll-behavior: smooth;
     transition: all 450ms;
 }
@@ -297,63 +297,114 @@ table tbody tr td label:active{
 }
 
 .cerrar{
-    position: absolute;
-    top: 8px; right: 8px;
     cursor: pointer;
+    font-size: 30px !important;
 }
 
 .contenedorModal{
-    /* opacity: 0;
-    visibility: hidden; */
+    display: none;
     position: fixed;
     width: 100%;
     height: 100vh;
     top: 0; left: 0;
     background: rgba(0, 0, 0, 0.5);
-    /* display: flex; */
-    display: none;
+    backdrop-filter: blur(5px);
     justify-content: center;
+    /* justify-content: flex-start; */
     align-items: center;
 
     z-index: 200;
 }
 
 .modalDetalle{
-    width: 80%;
-    height: 65%;
+    /* width: 80%; */
+    width: 30%;
+    /* height: 65%; */
+    /* height: 100vh; */
+    height: 80vh;
     background: #fff;
     overflow: hidden;
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
     position: relative;
     /* transition: transform 1s; */
     transform: translateY(0%);
-
+    /* transform: translateX(0%); */
+    border-radius: 10px;
+    /* box-shadow: 0 0 2rem 0.5rem rgb(255 255 255 / 35%); */
 }
 
-.modalGuardar{
+/* .modalDetalle .contenidoModalDetalles{
+    height: 100vh;
+} */
+
+.modalDetalle .contenidoModalDetalles .arribaModal{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px 0 10px;
+    border-bottom: 1px solid lightslategrey;
+    /* border-radius: 25px; */
+    margin: 10px 5px;
+    align-items: center;
+}
+
+.modalDetalle .contenidoModalDetalles .centroModal{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 15px;
+    height: 60vh;
+}
+
+.modalDetalle .contenidoModalDetalles .abajoModal{
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid lightslategrey;
+    padding: 10px 10px 0 10px;
+    margin: 10px 5px;
+}
+
+.modalDetalle .contenidoModalDetalles .abajoModal label{
+    cursor: pointer;
+    background: #b71c1c;
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 2rem;
+}
+
+.modalDetalle .contenidoModalDetalles .abajoModal label:hover{
+    background: #ee4545;
+}
+
+
+/* .modalDetalle .contenidoModalDetalles label{
+    border: 0.5px solid grey;
+} */
+
+/* .modalGuardar{
     width: 40%;
     max-height: 65%;
     background: #fff;
-    /* overflow: hidden; */
+    overflow: hidden; 
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     position: relative;
-    /* transition: transform 1s; */
+    transition: transform 1s; 
     transform: translateY(0%);
 
-}
+} */
 
-.modalGuardar .cuerpo{
+/* .modalGuardar .cuerpo{
     overflow-y: scroll;
-}
+} */
 
 .modalClose{
     transform: translateY(-200%);
+    /* transform: translateX(-200%); */
 }
 
 /* ocultar elementos */

@@ -23,7 +23,7 @@ function getDataW(pagina) {
     // }
 
     // le damos el origen de los datos
-    let url='model/whatsapp.php';
+    let url='controller/whatsapp/listar.php';
     let formaData = new FormData()
     formaData.append('busqueda', input)
     formaData.append('registros', select)
