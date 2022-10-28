@@ -8,16 +8,39 @@ $model = new conexion();
 $con = $model->conectar();
 
 $producto = $_POST['producto'];
+$dniC = $_POST['dniC'];
 if ($producto==="Movil") {
-    $plan = $_POST['plan'];
-    $sec = $_POST['sec'];
-    $estado = $_POST['estado'];
-    echo "$dni | $producto | $plan | $sec | $estado";
+    try {
+        $plan = $_POST['plan'];
+        $equipo = $_POST['equipo'];
+        $sec = $_POST['sec'];
+        $estado = $_POST['estado'];
+        echo "$dni | $dniC | $producto | $plan | $equipo | $sec | $estado";
+    
+        $sql="UPDATE whatsapp set planR='$plan', equipo='$equipo', sec='$sec', estado='$estado' where dni='$dniC' and producto='Movil'";
+    
+        $rs=sqlsrv_query($con,$sql);
+    
+        $con = $model->desconectar();
+        
+        // header("location: ../../index.php?pagina=clientes&dni=$dni");
+    } catch (Exception $e) {
+        echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+    }
+
 }else {
     $sec = $_POST['sec'];
     $estado = $_POST['estado'];
     $planFija = $_POST['planFija'];
-    echo "$dni | $producto | $planFija | $sec | $estado";
+    echo "$dni | $dniC | $producto | $planFija | $sec | $estado";
+
+    $sql="UPDATE whatsapp set planFija='$planFija', sec='$sec', estado='$estado' where dni='$dniC' and producto='Fija'";
+
+    $rs=sqlsrv_query($con,$sql);
+
+    $con = $model->desconectar();
+    
+    // header("location: ../../index.php?pagina=clientes&dni=$dni");
 }
 
 // echo $estado;
