@@ -20,7 +20,7 @@ function mostrarDNI() {
         document.getElementById('telefono').value='';
         document.getElementById('dproducto').style.display='none';
         document.getElementById('producto').selectedIndex = 0;
-
+        
         document.getElementById('dtipo').style.display='none';
         document.getElementById('dlineaProce').style.display='none';
         document.getElementById('doperadorCeden').style.display='none';
@@ -28,6 +28,8 @@ function mostrarDNI() {
         document.getElementById('dplan').style.display='none';
         document.getElementById('dequipos').style.display='none';
         document.getElementById('dformaPago').style.display='none';
+        document.getElementById('dtelefonoRef').style.display='none';
+        document.getElementById('telefonoRef').value='';
         document.getElementById('dsec').style.display='none';
         document.getElementById('dtipoFija').style.display='none';
         document.getElementById('dplanFija').style.display='none';
@@ -70,6 +72,7 @@ function mostrarProducto(valor){
         document.getElementById('dplan').style.display='block';
         document.getElementById('dequipos').style.display='block';
         document.getElementById('dformaPago').style.display='block';
+        document.getElementById('dtelefonoRef').style.display='block';
         document.getElementById('dsec').style.display='block';
         document.getElementById('destado').style.display='block';
 
@@ -88,6 +91,8 @@ function mostrarProducto(valor){
         document.getElementById('dplan').style.display='none';
         document.getElementById('dequipos').style.display='none';
         document.getElementById('dformaPago').style.display='none';
+        document.getElementById('dtelefonoRef').style.display='block';
+        document.getElementById('telefonoRef').value='';
         document.getElementById('dsec').style.display='none';
     }
     else if(valor == any){
@@ -98,6 +103,8 @@ function mostrarProducto(valor){
         document.getElementById('dplan').style.display='none';
         document.getElementById('dequipos').style.display='none';
         document.getElementById('dformaPago').style.display='none';
+        document.getElementById('dtelefonoRef').style.display='none';
+        document.getElementById('telefonoRef').value='';
         document.getElementById('dsec').style.display='none';
         document.getElementById('dtipoFija').style.display='none';
         document.getElementById('dplanFija').style.display='none';

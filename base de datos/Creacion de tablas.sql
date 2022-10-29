@@ -35,10 +35,11 @@ tipo char(15) not null,
 planR char(50) not null,
 equipo char(50) not null,
 formaDePago char(10) not null,
+numeroReferencia char(11) not null,
 sec char(15) null,
 tipoFija char(15) not null,
 planFija char(50) not null,
-estado char(10) not null,
+estado char(15) not null,
 fechaRegistro smalldatetime default getdate()
 )
 

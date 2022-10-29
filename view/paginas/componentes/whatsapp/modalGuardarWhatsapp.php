@@ -1,17 +1,17 @@
 
 <div id="contenedorModalGuardarWhats" class="modal contenedorModal">
-    <div id="modalGuardarWhats" class="modal-dialog modal-dialog-centered modal-dialog-scrollable modalClose">
+    <div id="modalGuardarWhats" class="modal-dialog modal-dialog-centered modal-dialog-scrollable modalClose" style="width: 40%;">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5">Registrar venta</h1>
                 <button type="button" class="btn-close" onclick="cerrarModalGuardar();"></button>
             </div>
             <div class="modal-body"> 
-                <?php echo "<form action='controller/whatsapp/agregar.php?dni=$dni' method='post'>"; ?>
+                <form action='controller/whatsapp/agregar.php?dni=<?php echo "$dni";?>' method='post'>
                     <div class="form-floating mb-3">                
                         <div class="col-xs-2">
                             <!-- valor para mostrar -->
-                            <center><label>Registrando venta como <?php echo "<em>$tusu</em>"; ?></label></center>
+                            <center><label>Registrando venta como <?php echo "<b><em>$tusu</em></b>"; ?></label></center>
                             <!-- valor para llevar datos -->
                             <input hidden  name="asesor" id="asesor" value="<?php echo $tusu; ?>"> 
                         </div>
@@ -77,7 +77,6 @@
                         <label for="modalidad">Modalidad</label>
                     </div>
                     
-                    
                     <div class="form-floating mb-3 hidden" id="dplan">                
                         <select class="form-select form-select-sm" name="plan" id="plan">
                             <option value="---" style="color: gray;">(vacio)</option>
@@ -114,6 +113,11 @@
                             <option value="Cuotas">Cuotas</option>
                         </select>
                         <label for="formaPago">Formas de Pago</label>
+                    </div>
+                    
+                    <div class="form-floating mb-3 hidden" id="dtelefonoRef">                
+                        <input class="form-control" autocomplete="off" type="tel" name="telefonoRef" id="telefonoRef" value="---" maxlength=9 placeholder="999 999 999" onkeyup="mostrarProductos()" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
+                        <label for="telefono">Telefono de Referencia</label>
                     </div>
                     
                     <div class="form-floating mb-3 hidden" id="dsec">                
@@ -156,12 +160,11 @@
                         <label for="estado">Estado</label>
                     </div>
                     
-    
-                </div>
-                <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Guardar</button>
-                </div>
-            </form>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>

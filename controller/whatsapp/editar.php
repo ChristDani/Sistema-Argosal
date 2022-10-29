@@ -23,7 +23,7 @@ if ($producto==="Movil") {
     
         $con = $model->desconectar();
         
-        // header("location: ../../index.php?pagina=clientes&dni=$dni");
+        header("location: ../../index.php?pagina=clientes&dni=$dni");
     } catch (Exception $e) {
         echo 'Excepción capturada: ',  $e->getMessage(), "\n";
     }
@@ -40,12 +40,12 @@ if ($producto==="Movil") {
 
     $con = $model->desconectar();
     
-    // header("location: ../../index.php?pagina=clientes&dni=$dni");
+    header("location: ../../index.php?pagina=clientes&dni=$dni");
 }
 
 // echo $estado;
 
-try {
+// try {
 
     // $model = new conexion();
     // $con = $model->conectar();
@@ -58,13 +58,13 @@ try {
     
     // header("location: ../../index.php?pagina=clientes&dni=$dni");
 
-} catch (Exception $e) {
-    $html .= "<script>";
-    $html .= "alert('Operacion incorrecta, error: ".$e->getMessage()."')";
-    $html .= "</script>";
+// } catch (Exception $e) {
+//     $html .= "<script>";
+//     $html .= "alert('Operacion incorrecta, error: ".$e->getMessage()."')";
+//     $html .= "</script>";
 
-    echo $html; 
-    die();
-} 
+//     echo $html; 
+//     die();
+// } 
 
 ?>

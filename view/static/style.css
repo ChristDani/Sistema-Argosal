@@ -318,7 +318,7 @@ table tbody tr td label:active{
 
 .modalDetalle{
     /* width: 80%; */
-    width: 30%;
+    width: 35%;
     /* height: 65%; */
     /* height: 100vh; */
     height: 80vh;
@@ -353,7 +353,6 @@ table tbody tr td label:active{
 .modalDetalle .contenidoModalDetalles .centroModal{
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     padding: 0 15px;
     height: 60vh;
     overflow-y: auto;
@@ -379,6 +378,18 @@ table tbody tr td label:active{
     background: #ee4545;
 }
 
+.modalDetalle .contenidoModalDetalles .abajoModal button{
+    cursor: pointer;
+    background: #b71c1c;
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 2rem;
+    border: none;
+}
+
+.modalDetalle .contenidoModalDetalles .abajoModal button:hover{
+    background: #ee4545;
+}
 
 /* .modalDetalle .contenidoModalDetalles label{
     border: 0.5px solid grey;
