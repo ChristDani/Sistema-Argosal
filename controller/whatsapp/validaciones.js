@@ -129,3 +129,79 @@ function mostrarTipo(valor){
 }
 
 // detalles y edicion
+
+function editar() {
+    const movilE = "Movil"
+    const fijaE = "Fija "
+
+    document.getElementById('cancel').classList.toggle("hidden");
+    document.getElementById('edit').classList.toggle("hidden");
+    document.getElementById('dsave').classList.toggle("hidden");
+
+
+    let prod = document.getElementById('productoEdit').value
+
+    if (prod == movilE) {
+        document.getElementById('planReEdit').classList.toggle("hidden");
+        document.getElementById('planReEditM').classList.toggle("hidden");
+        document.getElementById('equipoEdit').classList.toggle("hidden");
+        document.getElementById('equipoEditM').classList.toggle("hidden");
+        document.getElementById('formaPgEdit').classList.toggle("hidden");
+        document.getElementById('formaPgEditM').classList.toggle("hidden");
+        document.getElementById('telefRefEdit').classList.toggle("hidden");
+        document.getElementById('telefRefEditM').classList.toggle("hidden");
+        document.getElementById('secEdit').classList.toggle("hidden");
+        document.getElementById('secEditM').classList.toggle("hidden");
+        document.getElementById('estadoEdit').classList.toggle("hidden");
+        document.getElementById('estadoEditM').classList.toggle("hidden");
+    }
+    else if (prod == fijaE) {
+        document.getElementById('planFijaEdit').classList.toggle("hidden");
+        document.getElementById('planFijaEditM').classList.toggle("hidden");
+        document.getElementById('telefRefEdit').classList.toggle("hidden");
+        document.getElementById('telefRefEditM').classList.toggle("hidden");
+        document.getElementById('secEdit').classList.toggle("hidden");
+        document.getElementById('secEditM').classList.toggle("hidden");
+        document.getElementById('estadoEdit').classList.toggle("hidden");
+        document.getElementById('estadoEditM').classList.toggle("hidden");
+    }
+
+
+}
+
+function cancel() {
+    const movilE = "Movil"
+    const fijaE = "Fija "
+
+    document.getElementById('cancel').classList.toggle("hidden");
+    document.getElementById('edit').classList.toggle("hidden");
+    document.getElementById('dsave').classList.toggle("hidden");
+
+    let prod = document.getElementById('productoEdit').value
+
+    if (prod == movilE) {
+        document.getElementById('planReEdit').classList.toggle("hidden");
+        document.getElementById('planReEditM').classList.toggle("hidden");
+        document.getElementById('equipoEdit').classList.toggle("hidden");
+        document.getElementById('equipoEditM').classList.toggle("hidden");
+        document.getElementById('formaPgEdit').classList.toggle("hidden");
+        document.getElementById('formaPgEditM').classList.toggle("hidden");
+        document.getElementById('telefRefEdit').classList.toggle("hidden");
+        document.getElementById('telefRefEditM').classList.toggle("hidden");
+        document.getElementById('secEdit').classList.toggle("hidden");
+        document.getElementById('secEditM').classList.toggle("hidden");
+        document.getElementById('estadoEdit').classList.toggle("hidden");
+        document.getElementById('estadoEditM').classList.toggle("hidden");
+    }
+    else if (prod == fijaE) {
+        document.getElementById('planFijaEdit').classList.toggle("hidden");
+        document.getElementById('planFijaEditM').classList.toggle("hidden");
+        document.getElementById('telefRefEdit').classList.toggle("hidden");
+        document.getElementById('telefRefEditM').classList.toggle("hidden");
+        document.getElementById('secEdit').classList.toggle("hidden");
+        document.getElementById('secEditM').classList.toggle("hidden");
+        document.getElementById('estadoEdit').classList.toggle("hidden");
+        document.getElementById('estadoEditM').classList.toggle("hidden");
+    }
+
+}

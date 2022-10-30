@@ -5,7 +5,7 @@ $model=new conexion();
 $con=$model->conectar();
 
 // en el caso de solo querer determinadas columnas usar esto con el mismo nombre de las columnas...
-$columnas=['asesor','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','sec','tipoFija','planFija','estado','fechaRegistro'];
+$columnas=['codigo','asesor','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','numeroReferencia','sec','tipoFija','planFija','estado','fechaRegistro'];
 
 // tabla a seleccionar
 $tabla='whatsapp';
@@ -45,7 +45,7 @@ $sLimite = " offset $inicio rows fetch next $limite rows only ";
 // cantidad de registros devueltos en la consulta
 $contar="select * from $tabla $where";
 
-$sql = "select ".implode(", ", $columnas)." from $tabla $where order by fechaRegistro $sLimite";
+$sql = "select ".implode(", ", $columnas)." from $tabla $where order by codigo $sLimite";
 // para verificar errores en la consulta
 // echo $sql;
 
@@ -83,30 +83,19 @@ $output['paginacion']= '';
 if ($filas>0) {
     $i=$inicio+1;
     while ($fila=sqlsrv_fetch_array($resultado)) {
-
+        
+        $code = $fila['codigo'];
         $fecha=$fila['fechaRegistro']-> format('d/m/Y');
 
         $output['data'].= "<tr>";
-        // $output['data'].= "<td align='center'><a href=''><span class='material-symbols-outlined'>info</span></a></td>";
         $output['data'].= "<td align='center'>$i</td>";
-        // $output['data'].= "<td align='center'>".$fila['asesor']."</td>";
         $output['data'].= "<td align='left'>".$fila['nombre']."</td>";
-        // $output['data'].= "<td align='center'>".$fila['dni']."</td>";
         $output['data'].= "<td align='center'>".$fila['telefono']."</td>";
         $output['data'].= "<td align='center'>".$fila['producto']."</td>";
-        // $output['data'].= "<td align='center'>".$fila['lineaProcedente']."</td>";
-        // $output['data'].= "<td align='center'>".$fila['operadorCedente']."</td>";
-        // $output['data'].= "<td align='center'>".$fila['modalidad']."</td>";
-        // $output['data'].= "<td align='center'>".$fila['tipo']."</td>";
-        // $output['data'].= "<td align='center'>".$fila['planR']."</td>";
-        // $output['data'].= "<td align='center'>".$fila['equipo']."</td>";
-        // $output['data'].= "<td align='center'>".$fila['formaDePago']."</td>";
         $output['data'].= "<td align='center'>".$fila['sec']."</td>";
-        // $output['data'].= "<td align='center'>".$fila['tipoFija']."</td>";
-        // $output['data'].= "<td align='center'>".$fila['planFija']."</td>";
         $output['data'].= "<td align='center'>".$fila['estado']."</td>";
         $output['data'].= "<td align='center'>".$fecha."</td>";
-        $output['data'].= "<td align='center' id='abrir' onclick='abrirModalDetalle(".$i-1 .");'><label><span class='material-symbols-outlined'>info</span></label></td>";
+        $output['data'].= "<td align='center'><label onclick="."abrirModalDetalle('$code');"."><span class='material-symbols-outlined'>info</span></label></td>";
         $output['data'].= "</tr>";
         $i+=1;
     }

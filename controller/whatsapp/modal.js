@@ -23,7 +23,7 @@ function cerrarModalGuardar() {
 let modal = document.getElementById('modalDetalleWhats');
 let contenedorModal = document.getElementById('contenedorModalDetalleWhats');
 
-function abrirModalDetalle(numero) {
+function abrirModalDetalle(codigo) {
     // obtenemos el div donde poner los datos
     let contenidoD = document.getElementById('detallesWhats')
     // abrimos el modal
@@ -35,7 +35,7 @@ function abrirModalDetalle(numero) {
     //mandamos la posicion al controller
     let url='controller/whatsapp/detalle.php';
     let formaData = new FormData()
-    formaData.append('posicion', numero)
+    formaData.append('codigo', codigo)
 
     // traemos los datos del controller
     fetch(url,{

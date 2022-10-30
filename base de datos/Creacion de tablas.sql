@@ -23,6 +23,7 @@ fechaRegistro char(10) default'--/--/----'
 drop table if exists whatsapp
 create table whatsapp
 (
+codigo char(10) primary key,
 asesor char(15) not null,
 nombre char(50) not null,
 dni char(8) not null,

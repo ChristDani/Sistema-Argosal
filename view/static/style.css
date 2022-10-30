@@ -310,30 +310,21 @@ table tbody tr td label:active{
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
     justify-content: center;
-    /* justify-content: flex-start; */
     align-items: center;
 
     z-index: 200;
 }
 
 .modalDetalle{
-    /* width: 80%; */
     width: 35%;
-    /* height: 65%; */
-    /* height: 100vh; */
-    height: 80vh;
     background: #fff;
     overflow: hidden;
     text-align: center;
     display: flex;
     flex-direction: column;
-    /* justify-content: space-evenly; */
     position: relative;
-    /* transition: transform 1s; */
     transform: translateY(0%);
-    /* transform: translateX(0%); */
     border-radius: 10px;
-    /* box-shadow: 0 0 2rem 0.5rem rgb(255 255 255 / 35%); */
 }
 
 /* .modalDetalle .contenidoModalDetalles{
@@ -354,7 +345,7 @@ table tbody tr td label:active{
     display: flex;
     flex-direction: column;
     padding: 0 15px;
-    height: 60vh;
+    height: 70vh;
     overflow-y: auto;
 }
 
@@ -372,6 +363,7 @@ table tbody tr td label:active{
     color: #fff;
     padding: 4px 10px;
     border-radius: 2rem;
+    margin: 0 10px;
 }
 
 .modalDetalle .contenidoModalDetalles .abajoModal label:hover{
