@@ -25,7 +25,7 @@ create table whatsapp
 (
 codigo char(10) primary key,
 asesor char(15) not null,
-nombre char(50) not null,
+nombre char(50) COLLATE Latin1_General_100_CI_AI_SC_UTF8 not null,
 dni char(8) not null,
 telefono char(11) not null,
 producto char(5) not null,
@@ -41,6 +41,10 @@ sec char(15) null,
 tipoFija char(15) not null,
 planFija char(50) not null,
 estado char(15) not null,
+observaciones varchar(300) not null,
+promocion char(50) not null,
+ubicacion varchar(100) not null,
+distrito char(25) not null,
 fechaRegistro smalldatetime default getdate()
 )
 

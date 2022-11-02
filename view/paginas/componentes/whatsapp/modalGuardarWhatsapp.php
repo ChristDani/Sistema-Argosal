@@ -22,13 +22,13 @@
                     </div>
                     
                     <div class="form-floating mb-3 hidden" id="ddni">                
-                        <input class="form-control" autocomplete="off" type="text" name="dni" id="dni" maxlength=8 placeholder="DNI del cliente..." onkeyup="mostrarTelefono()" required oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
+                        <input class="form-control" autocomplete="off" type="text" name="dni" id="dni" maxlength=8 placeholder="DNI del cliente..." onkeyup="mostrarTelefonoRef()" required oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
                         <label for="dni">DNI</label>
                     </div>
                     
-                    <div class="form-floating mb-3 hidden" id="dtelefono">                
-                        <input class="form-control" autocomplete="off" type="tel" name="telefono" id="telefono" maxlength=9 placeholder="999 999 999" onkeyup="mostrarProductos()" required oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
-                        <label for="telefono">Telefono</label>
+                    <div class="form-floating mb-3 hidden" id="dtelefonoRef">                
+                        <input class="form-control" autocomplete="off" type="tel" name="telefonoRef" id="telefonoRef" value="---" maxlength=9 placeholder="999 999 999" onkeyup="mostrarProductos()" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
+                        <label for="telefono">Telefono de Referencia</label>
                     </div>
                     
                     <div class="form-floating mb-3 hidden" id="dproducto">                
@@ -43,12 +43,18 @@
                     <div class="form-floating mb-3 hidden" id="dtipo">                
                         <select class="form-select form-select-sm" name="tipo" id="tipo">
                             <option value="---" style="color: gray;">(vacio)</option>
+                            <option value="Linea Nueva">Linea Nueva</option>
                             <option value="Portabilidad">Portabilidad</option>
                             <option value="Renovacion">Renovacion</option>
                         </select>
                         <label for="tipo">Tipo</label>
                     </div>
                     
+                    <div class="form-floating mb-3 hidden" id="dtelefono">                
+                        <input class="form-control" autocomplete="off" type="tel" name="telefono" id="telefono" maxlength=9 placeholder="999 999 999" onkeyup="mostrarProductos()" required oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
+                        <label for="telefono">Telefono</label>
+                    </div>
+
                     <div class="form-floating mb-3 hidden" id="dlineaProce">                
                         <select class="form-select form-select-sm" name="lineaProce" id="lineaProce">
                             <option value="---" style="color: gray;">(vacio)</option>
@@ -115,13 +121,8 @@
                         <label for="formaPago">Formas de Pago</label>
                     </div>
                     
-                    <div class="form-floating mb-3 hidden" id="dtelefonoRef">                
-                        <input class="form-control" autocomplete="off" type="tel" name="telefonoRef" id="telefonoRef" value="---" maxlength=9 placeholder="999 999 999" onkeyup="mostrarProductos()" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
-                        <label for="telefono">Telefono de Referencia</label>
-                    </div>
-                    
                     <div class="form-floating mb-3 hidden" id="dsec">                
-                        <input class="form-control" autocomplete="off" type="text" name="sec" id="sec" placeholder="SEC..." oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
+                        <input class="form-control" autocomplete="off" type="text" name="sec" id="sec" placeholder="SEC..." maxlength=15 oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
                         <label for="sec">SEC</label>
                     </div>
                     
@@ -160,11 +161,11 @@
                         <label for="estado">Estado</label>
                     </div>
                     
+            </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Guardar</button>
                     </div>
                 </form>
-            </div>
         </div>
     </div>
 </div>

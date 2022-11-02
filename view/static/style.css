@@ -12,6 +12,10 @@
     transition: all 450ms;
 }
 
+::-webkit-scrollbar{
+    width: 0;
+}
+
 /* header */
 
 header{
@@ -316,7 +320,7 @@ table tbody tr td label:active{
 }
 
 .modalDetalle{
-    width: 35%;
+    width: 92%;
     background: #fff;
     overflow: hidden;
     text-align: center;
@@ -347,6 +351,12 @@ table tbody tr td label:active{
     padding: 0 15px;
     height: 70vh;
     overflow-y: auto;
+}
+
+.modalDetalle .contenidoModalDetalles .centroModal .detallitos{
+    display: grid;
+    grid-template-columns: repeat(3, 25rem);
+    grid-gap: 10px;
 }
 
 .modalDetalle .contenidoModalDetalles .abajoModal{
@@ -447,7 +457,7 @@ table tbody tr td label:active{
 .btnAggWhats{
     position: absolute;
     display: none;
-    top: 258px;
+    top: 258px; right: 0;
     width: 180px;
     height: 100px;
     margin: 0 5%;

@@ -1,14 +1,4 @@
 
-document.getElementById('producto').addEventListener("change", function() {
-    let valorP = document.getElementById('producto').value
-    mostrarProducto(valorP)
-}, false)
-
-// document.getElementById('tipo').addEventListener("change", function() {
-//     let valorT = document.getElementById('tipo').value
-//     mostrarTipo(valorT)
-// }, false)
-
 function mostrarDNI() {
     const nombre = document.getElementById('nombre').value.length
     if (nombre > 0) {
@@ -37,27 +27,36 @@ function mostrarDNI() {
     }
 }
 
-function mostrarTelefono() {
+function mostrarTelefonoRef() {
     const dni = document.getElementById('dni').value.length
-    if (dni > 0) {
-        document.getElementById('dtelefono').style.display='block';
+    if (dni == 8) {
+        document.getElementById('dtelefonoRef').style.display='block';
     }else{
-        document.getElementById('dtelefono').style.display='none';
-        document.getElementById('telefono').value='';
+        document.getElementById('dtelefonoRef').style.display='none';
+        document.getElementById('telefonoRef').value='';
         document.getElementById('dproducto').style.display='none';
         document.getElementById('producto').selectedIndex = 0;
+
+        // document.getElementById('dtelefono').style.display='none';
+        // document.getElementById('telefono').value='';
     }
 }
 
 function mostrarProductos() {
-    const telefono = document.getElementById('telefono').value.length
-    if (telefono > 0) {
+    const telefono = document.getElementById('telefonoRef').value.length
+    if (telefono == 9) {
         document.getElementById('dproducto').style.display='block';
     }else{
         document.getElementById('dproducto').style.display='none';
         document.getElementById('producto').selectedIndex = 0;
     }
 }
+
+// mostrar producto
+document.getElementById('producto').addEventListener("change", function() {
+    let valorP = document.getElementById('producto').value
+    mostrarProducto(valorP)
+}, false)
 
 function mostrarProducto(valor){
     const any = "---"
@@ -66,34 +65,31 @@ function mostrarProducto(valor){
 
     if (valor == movil){
         document.getElementById('dtipo').style.display='block';
-        document.getElementById('dlineaProce').style.display='block';
-        document.getElementById('doperadorCeden').style.display='block';
-        document.getElementById('dmodalidad').style.display='block';
-        document.getElementById('dplan').style.display='block';
-        document.getElementById('dequipos').style.display='block';
-        document.getElementById('dformaPago').style.display='block';
-        document.getElementById('dtelefonoRef').style.display='block';
-        document.getElementById('dsec').style.display='block';
-        document.getElementById('destado').style.display='block';
+        // document.getElementById('dlineaProce').style.display='block';
+        // document.getElementById('doperadorCeden').style.display='block';
+        // document.getElementById('dmodalidad').style.display='block';
+        // document.getElementById('dplan').style.display='block';
+        // document.getElementById('dequipos').style.display='block';
+        // document.getElementById('dformaPago').style.display='block';
+        // document.getElementById('dsec').style.display='block';
+        // document.getElementById('destado').style.display='block';
 
         document.getElementById('dtipoFija').style.display='none';
-        document.getElementById('dplanFija').style.display='none';
+        // document.getElementById('dplanFija').style.display='none';
     }
     else if(valor == fija){
         document.getElementById('dtipoFija').style.display='block';
-        document.getElementById('dplanFija').style.display='block';
-        document.getElementById('destado').style.display='block';
+        // document.getElementById('dplanFija').style.display='block';
+        // document.getElementById('destado').style.display='block';
 
         document.getElementById('dtipo').style.display='none';
-        document.getElementById('dlineaProce').style.display='none';
-        document.getElementById('doperadorCeden').style.display='none';
-        document.getElementById('dmodalidad').style.display='none';
-        document.getElementById('dplan').style.display='none';
-        document.getElementById('dequipos').style.display='none';
-        document.getElementById('dformaPago').style.display='none';
-        document.getElementById('dtelefonoRef').style.display='block';
-        document.getElementById('telefonoRef').value='';
-        document.getElementById('dsec').style.display='none';
+        // document.getElementById('dlineaProce').style.display='none';
+        // document.getElementById('doperadorCeden').style.display='none';
+        // document.getElementById('dmodalidad').style.display='none';
+        // document.getElementById('dplan').style.display='none';
+        // document.getElementById('dequipos').style.display='none';
+        // document.getElementById('dformaPago').style.display='none';
+        // document.getElementById('dsec').style.display='none';
     }
     else if(valor == any){
         document.getElementById('dtipo').style.display='none';
@@ -103,8 +99,6 @@ function mostrarProducto(valor){
         document.getElementById('dplan').style.display='none';
         document.getElementById('dequipos').style.display='none';
         document.getElementById('dformaPago').style.display='none';
-        document.getElementById('dtelefonoRef').style.display='none';
-        document.getElementById('telefonoRef').value='';
         document.getElementById('dsec').style.display='none';
         document.getElementById('dtipoFija').style.display='none';
         document.getElementById('dplanFija').style.display='none';
@@ -112,19 +106,49 @@ function mostrarProducto(valor){
     }
 }
 
+// mostrar tipo
+document.getElementById('tipo').addEventListener("change", function() {
+    let valorT = document.getElementById('tipo').value
+    mostrarTipo(valorT)
+}, false)
+
 function mostrarTipo(valor){
     const any = "---"
+    const newline = "Linea Nueva"
     const porta = "Portabilidad"
     const reno = "Renovacion"
     
-    if (valor == porta){
+    if(valor == newline){
+        document.getElementById('dtelefono').style.display='none';
+        document.getElementById('telefono').value='---';
+        document.getElementById('dlineaProce').style.display='none';
+        document.getElementById('lineaProce').selectedIndex = 0;
+        document.getElementById('doperadorCeden').style.display='none';
+        document.getElementById('operadorCeden').selectedIndex = 0;
+    }
+    else if (valor == porta){
+        document.getElementById('dtelefono').style.display='block';
+        document.getElementById('telefono').value='';
         document.getElementById('dlineaProce').style.display='block';
+        document.getElementById('lineaProce').selectedIndex = 0;
+        document.getElementById('doperadorCeden').style.display='block';
+        document.getElementById('operadorCeden').selectedIndex = 0;
     }
     else if(valor == reno){
-        document.getElementById('dlineaProce').style.display='block';
+        document.getElementById('dtelefono').style.display='block';
+        document.getElementById('telefono').value='';
+        document.getElementById('dlineaProce').style.display='none';
+        document.getElementById('lineaProce').selectedIndex = 1;
+        document.getElementById('doperadorCeden').style.display='none';
+        document.getElementById('operadorCeden').selectedIndex = 0;
     }
     else if(valor == any){
+        document.getElementById('dtelefono').style.display='none';
+        document.getElementById('telefono').value='---';
         document.getElementById('dlineaProce').style.display='none';
+        document.getElementById('lineaProce').selectedIndex = 0;
+        document.getElementById('doperadorCeden').style.display='none';
+        document.getElementById('operadorCeden').selectedIndex = 0;
     }
 }
 

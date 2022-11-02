@@ -22,3 +22,13 @@ function mostrarLand(){
     // document.getElementById('aggLand').style.display='flex';
     document.getElementById('masiva').style.display='none';
 }
+
+// function scroll(){
+//     console.log('hjsjd')
+//     let scroll = document.getElementById('scroll');
+//     console.log(scroll)
+
+//     scroll.scrollTop = scroll.scrollHeight;
+// }
+
+// scroll();

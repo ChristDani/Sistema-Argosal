@@ -26,7 +26,7 @@
                         <!-- <th class="text-center">asesor</th> -->
                         <th class="text-center">NOMBRE</th>
                         <!-- <th class="text-center">dni</th> -->
-                        <th class="text-center">TELEFONO</th>
+                        <th class="text-center">TELEFONO DE REFERENCIA</th>
                         <th class="text-center">PRODUCTO</th>
                         <!-- <th class="text-center">lineaProcedente</th>  -->
                         <!-- <th class="text-center">operadorCedente</th> -->

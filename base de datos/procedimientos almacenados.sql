@@ -36,10 +36,14 @@ create procedure sp_insertar_whatsapp
 @sec char(15),
 @tipoFija char(15),
 @planFija char(50),
-@estado char(15)
+@estado char(15),
+@observacion varchar(300),
+@promocion char(50),
+@ubicacion char(100),
+@distrito char(25)
 as
 begin
-	insert into whatsapp(codigo,asesor,nombre,dni,telefono,producto,lineaProcedente,operadorCedente,modalidad,tipo,planR,equipo,formaDePago,numeroReferencia,sec,tipoFija,planFija,estado) values(@codigo,@asesor,@nombre,@dni,@telefono,@producto,@lineaProcedente,@operadorCedente,@modalidad,@tipo,@planR,@equipo,@formaDePago,@numeroReferencia,@sec,@tipoFija,@planFija,@estado)
+	insert into whatsapp(codigo,asesor,nombre,dni,telefono,producto,lineaProcedente,operadorCedente,modalidad,tipo,planR,equipo,formaDePago,numeroReferencia,sec,tipoFija,planFija,estado,observaciones,promocion,ubicacion,distrito) values(@codigo,@asesor,@nombre,@dni,@telefono,@producto,@lineaProcedente,@operadorCedente,@modalidad,@tipo,@planR,@equipo,@formaDePago,@numeroReferencia,@sec,@tipoFija,@planFija,@estado,@observacion,@promocion,@ubicacion,@distrito)
 end 
 go
 

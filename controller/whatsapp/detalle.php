@@ -72,12 +72,15 @@ if ($filas>0) {
         $output['data'].= "<div class='centroModal'>";
 
         // asesor
+        $output['data'].= "<hgroup>";
         $output['data'].= "<div class='form-floating mb-3'>";
         $output['data'].= "<div class='col-xs-2'>";
         $output['data'].= "<center><label>Venta Registrada por <b><em>$asesor</em></b></label></center>";
         $output['data'].= "</div> ";
         $output['data'].= "</div> ";
-
+        $output['data'].= "</hgroup>";
+        
+        $output['data'].= "<div class='detallitos'>";
         // codigo
         // dato para mostrar
         // $output['data'].= "<div class='form-floating mb-3'>";
@@ -101,12 +104,18 @@ if ($filas>0) {
         $output['data'].= "<input disabled class='form-control' type='text' name='dnicl' id='dnicl' value='$dni'>";
         $output['data'].= "<label for='dnicl'>DNI</label>";
         $output['data'].= "</div> ";
-        
-        // telefono
-        $output['data'].= "<div class='form-floating mb-3'>";
-        $output['data'].= "<input disabled class='form-control' type='text' name='telecl' id='telecl' value='$telefono'>";
-        $output['data'].= "<label for='telecl'>Telefono</label>";
+
+        // numero de referencia
+        //dato para mostrar
+        $output['data'].= "<div id='telefRefEdit' class='form-floating mb-3'>";
+        $output['data'].= "<input disabled class='form-control' type='text' name='teleRefecl' id='teleRefecl' value='$telefonoRef'>";
+        $output['data'].= "<label for='teleRefecl'>Número de Referencia</label>";
         $output['data'].= "</div> ";
+        // dato para llevar
+        $output['data'].= "<div id='telefRefEditM' class='form-floating mb-3 hidden'>";
+        $output['data'].= "<input class='form-control' type='tel' name='telref' id='telref' value='$telefonoRef' maxlength=9 oninput="."this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');".">";
+        $output['data'].= "<label for='telref'>Número de Referencia</label>";
+        $output['data'].= "</div>";
         
         // producto
         // dato para llevar
@@ -237,18 +246,12 @@ if ($filas>0) {
             $output['data'].= "</div> ";
             $output['data'].= "</div> ";
         }
-
-        // numero de referencia
-        //dato para mostrar
-        $output['data'].= "<div id='telefRefEdit' class='form-floating mb-3'>";
-        $output['data'].= "<input disabled class='form-control' type='text' name='teleRefecl' id='teleRefecl' value='$telefonoRef'>";
-        $output['data'].= "<label for='teleRefecl'>Número de Referencia</label>";
+        
+        // telefono
+        $output['data'].= "<div class='form-floating mb-3'>";
+        $output['data'].= "<input disabled class='form-control' type='text' name='telecl' id='telecl' value='$telefono'>";
+        $output['data'].= "<label for='telecl'>Telefono</label>";
         $output['data'].= "</div> ";
-        // dato para llevar
-        $output['data'].= "<div id='telefRefEditM' class='form-floating mb-3 hidden'>";
-        $output['data'].= "<input class='form-control' type='tel' name='telref' id='telref' value='$telefonoRef' maxlength=9 oninput="."this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');".">";
-        $output['data'].= "<label for='telref'>Número de Referencia</label>";
-        $output['data'].= "</div>";
 
         // sec
         //dato para mostrar
@@ -258,7 +261,7 @@ if ($filas>0) {
         $output['data'].= "</div> ";
         // dato para llevar
         $output['data'].= "<div id='secEditM' class='form-floating mb-3 hidden'>";
-        $output['data'].= "<input class='form-control' type='text' name='sec' id='sec' value='$sec'>";
+        $output['data'].= "<input class='form-control' maxlength=15 type='text' name='sec' id='sec' value='$sec'>";
         $output['data'].= "<label for='sec'>SEC</label>";
         $output['data'].= "</div>";
 
@@ -282,6 +285,7 @@ if ($filas>0) {
         $output['data'].= "<label for='fechacl'>Fecha</label>";
         $output['data'].= "</div> ";
 
+        $output['data'].= "</div>";
         $output['data'].= "</div>";
 
         // inicio foother

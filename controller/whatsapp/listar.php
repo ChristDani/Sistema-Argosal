@@ -90,7 +90,7 @@ if ($filas>0) {
         $output['data'].= "<tr>";
         $output['data'].= "<td align='center'>$i</td>";
         $output['data'].= "<td align='left'>".$fila['nombre']."</td>";
-        $output['data'].= "<td align='center'>".$fila['telefono']."</td>";
+        $output['data'].= "<td align='center'>".$fila['numeroReferencia']."</td>";
         $output['data'].= "<td align='center'>".$fila['producto']."</td>";
         $output['data'].= "<td align='center'>".$fila['sec']."</td>";
         $output['data'].= "<td align='center'>".$fila['estado']."</td>";
