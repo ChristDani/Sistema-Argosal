@@ -45,7 +45,8 @@ observaciones varchar(300) not null,
 promocion char(50) not null,
 ubicacion varchar(100) not null,
 distrito char(25) not null,
-fechaRegistro smalldatetime default getdate()
+fechaRegistro datetime default getdate(),
+fechaActualizacion datetime default getDate()
 )
 
 drop table if exists landing

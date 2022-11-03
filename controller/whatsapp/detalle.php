@@ -5,7 +5,7 @@ $model=new conexion();
 $con=$model->conectar();
 
 // en el caso de solo querer determinadas columnas usar esto con el mismo nombre de las columnas...
-$columnas=['codigo','asesor','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','numeroReferencia','sec','tipoFija','planFija','estado','fechaRegistro'];
+$columnas=['codigo','asesor','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','numeroReferencia','sec','tipoFija','planFija','estado','observaciones','promocion','ubicacion','distrito','fechaRegistro','fechaActualizacion'];
 
 // tabla a seleccionar
 $tabla='whatsapp';
@@ -57,8 +57,13 @@ if ($filas>0) {
         $tipoFija = $fila['tipoFija'];
         $planFija = $fila['planFija'];
         $estado = $fila['estado'];
+        $observaciones = $fila['observaciones'];
+        $promocion = $fila['promocion'];
+        $ubicacion = $fila['ubicacion'];
+        $distrito = $fila['distrito'];
         // $fecha = $fila['fechaRegistro']-> format('d/m/Y');
         $fecha = $fila['fechaRegistro']-> format('l j \of F Y h:i:s A');
+        $fechaUdp = $fila['fechaActualizacion']-> format('l j \of F Y h:i:s A');
 
         // encabezado
 
@@ -279,10 +284,40 @@ if ($filas>0) {
         $output['data'].= "<label for='estado'>Estado</label>";            
         $output['data'].= "</div>";            
 
-        // fecha
+        // observaciones
+        $output['data'].= "<div class='form-floating mb-3'>";
+        $output['data'].= "<input disabled class='form-control' type='text' name='obsercl' id='obsercl' value='$observaciones'>";
+        $output['data'].= "<label for='obsercl'>Observaciones</label>";
+        $output['data'].= "</div> ";
+
+        // promocion
+        $output['data'].= "<div class='form-floating mb-3'>";
+        $output['data'].= "<input disabled class='form-control' type='text' name='promocl' id='promocl' value='$promocion'>";
+        $output['data'].= "<label for='promocl'>Promocion</label>";
+        $output['data'].= "</div> ";
+
+        // ubicacion
+        $output['data'].= "<div class='form-floating mb-3'>";
+        $output['data'].= "<input disabled class='form-control' type='text' name='ubicl' id='ubicl' value='$ubicacion'>";
+        $output['data'].= "<label for='ubicl'>Ubicacion</label>";
+        $output['data'].= "</div> ";
+
+        // distrito
+        $output['data'].= "<div class='form-floating mb-3'>";
+        $output['data'].= "<input disabled class='form-control' type='text' name='fechacl' id='distrcl' value='$distrito'>";
+        $output['data'].= "<label for='distrcl'>Distrito</label>";
+        $output['data'].= "</div> ";
+
+        // fecha de registro
         $output['data'].= "<div class='form-floating mb-3'>";
         $output['data'].= "<input disabled class='form-control' type='text' name='fechacl' id='fechacl' value='$fecha'>";
-        $output['data'].= "<label for='fechacl'>Fecha</label>";
+        $output['data'].= "<label for='fechacl'>Fecha de Registro</label>";
+        $output['data'].= "</div> ";
+        
+        // fecha de actualizacion
+        $output['data'].= "<div class='form-floating mb-3'>";
+        $output['data'].= "<input disabled class='form-control' type='text' name='fechaudpcl' id='fechaudpcl' value='$fechaUdp'>";
+        $output['data'].= "<label for='fechaudpcl'>Fecha de Actualización</label>";
         $output['data'].= "</div> ";
 
         $output['data'].= "</div>";
