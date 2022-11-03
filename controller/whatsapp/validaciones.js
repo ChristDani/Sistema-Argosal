@@ -43,8 +43,8 @@ function mostrarTelefonoRef() {
 }
 
 function mostrarProductos() {
-    const telefono = document.getElementById('telefonoRef').value.length
-    if (telefono == 9) {
+    const telefonoref = document.getElementById('telefonoRef').value.length
+    if (telefonoref == 9) {
         document.getElementById('dproducto').style.display='block';
     }else{
         document.getElementById('dproducto').style.display='none';
@@ -125,6 +125,8 @@ function mostrarTipo(valor){
         document.getElementById('lineaProce').selectedIndex = 0;
         document.getElementById('doperadorCeden').style.display='none';
         document.getElementById('operadorCeden').selectedIndex = 0;
+        document.getElementById('dmodalidad').style.display='block';
+        document.getElementById('modalidad').selectedIndex = 0;
     }
     else if (valor == porta){
         document.getElementById('dtelefono').style.display='block';
@@ -133,6 +135,8 @@ function mostrarTipo(valor){
         document.getElementById('lineaProce').selectedIndex = 0;
         document.getElementById('doperadorCeden').style.display='block';
         document.getElementById('operadorCeden').selectedIndex = 0;
+        document.getElementById('dmodalidad').style.display='block';
+        document.getElementById('modalidad').selectedIndex = 1;
     }
     else if(valor == reno){
         document.getElementById('dtelefono').style.display='block';
@@ -141,6 +145,8 @@ function mostrarTipo(valor){
         document.getElementById('lineaProce').selectedIndex = 1;
         document.getElementById('doperadorCeden').style.display='none';
         document.getElementById('operadorCeden').selectedIndex = 0;
+        document.getElementById('dmodalidad').style.display='none';
+        document.getElementById('modalidad').selectedIndex = 1;
     }
     else if(valor == any){
         document.getElementById('dtelefono').style.display='none';
@@ -149,6 +155,38 @@ function mostrarTipo(valor){
         document.getElementById('lineaProce').selectedIndex = 0;
         document.getElementById('doperadorCeden').style.display='none';
         document.getElementById('operadorCeden').selectedIndex = 0;
+        document.getElementById('dmodalidad').style.display='none';
+        document.getElementById('modalidad').selectedIndex = 0;
+    }
+}
+
+document.getElementById('modalidad').addEventListener("change", function() {
+    let valorA = document.getElementById('modalidad').value
+    mostrarNewLine(valorA)
+}, false)
+
+function mostrarNewLine(val){
+    const post = "Postpago"
+    const prep = "Prepago"
+    const any2 = "---"
+
+    if (val == post) {
+        
+    }
+    else if (val == prep) {
+        document.getElementById('dplan').style.display='block';
+        document.getElementById('plan').selectedIndex = 1;
+        document.getElementById('dequipos').style.display='block';
+        document.getElementById('equipos').selectedIndex = 1;
+        document.getElementById('dformaPago').style.display='block';
+        document.getElementById('formaPago').selectedIndex = 1;
+        document.getElementById('dsec').style.display='block';
+        document.getElementById('sec').selectedIndex = 1;
+        document.getElementById('destado').style.display='block';
+        document.getElementById('estado').selectedIndex = 1;
+    }
+    else if (val == any2) {
+        
     }
 }
 
