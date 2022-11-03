@@ -10,26 +10,28 @@
             </select>
             <label for="numRegistrosE">Registros.</label>
         </div>
-        <button>Excel</button>
-        <div class='buscar'>
-            <label for='busquedaE'>Buscar:</label>
-            <input autocomplete="off" type="text" name="busquedaE" id="busquedaE" onkeyup="getDataE(1);">
+        <button onclick="exportTableToExcel('tablaProduc', 'Data-Productos')">Excel</button>
+        <div class='buscar form-floating mb-3'>
+            <input class="a form-control form-control-sm" placeholder="Type to search..."  autocomplete="off" type="text" name="busquedaE" id="busquedaE" onkeyup="getDataE(1);">
+            <label for='busquedaE' class="form-label">Buscar</label>
         </div>
     </div>
     <div class="tabla">
         <center>
-            <table border=1 width="100%">
-                <thead>
+            <table id="tablaProduc" class="table table-responsive-sm table-striped table-hover ">
+                <thead class="table-dark">
                     <tr>
-                    <th width="6%">N°</th>
-                    <th width="10%">Telefono</th>
-                    <th width="30%">Nombre</th>
-                    <th width="10%">Documento</th>
-                    <th width="20%">Producto Solicitado</th>
-                    <th width="5%">Promoción</th>
-                    <th width="5%">Opción</th>
-                    <th width="10%">Fecha</th>
-                    <th width="10%">Estado</th>
+                    <th class="text-center">N°</th>
+                    <th class="text-center">region</th>
+                    <th class="text-center">nombre</th>
+                    <th class="text-center">centro</th>
+                    <th class="text-center">almacen</th>
+                    <th class="text-center">nombreAlmacen</th>
+                    <th class="text-center">material</th>
+                    <th class="text-center">descripcion</th>
+                    <th class="text-center">libres</th>
+                    <th class="text-center">bloqueados</th>
+                    <th class="text-center">Total</th>
                     </tr>
                 </thead>
                 <tbody id='resultadosE'>

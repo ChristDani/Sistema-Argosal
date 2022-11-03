@@ -58,19 +58,18 @@ fechaRegistro smalldatetime default getdate(),
 estado char(10) default 'sin procesar'
 )
 
-drop table if exists equipos
-create table equipos
+drop table if exists productos
+create table productos
 (
 region char(10) null,
-nombre_centro char(25) null,
-ce char(10) null,
-alm char(10) null,
-almacen char(25) null,
+nombre char(50) null,
+centro char(10) null,
+almacen char(10) null,
+nombreAlmacen char(50) null,
 material char(20) null,
 descripcion char(50) null,
-libres char(4) null,
-bloqueados char(4) null,
-stockTotal char(4) null
+libres char(5) null,
+bloqueados char(5) null
 )
 
 drop table if exists usuarios
