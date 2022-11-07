@@ -355,8 +355,9 @@ table tbody tr td label:active{
 
 .modalDetalle .contenidoModalDetalles .centroModal .detallitos{
     display: grid;
-    grid-template-columns: repeat(3, 25rem);
+    grid-template-columns: repeat(3, 33%);
     grid-gap: 10px;
+    margin: 0 10px 0 0;
 }
 
 .modalDetalle .contenidoModalDetalles .abajoModal{
