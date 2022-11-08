@@ -47,6 +47,10 @@
             {
                 include_once "paginas/equipos.php";
             }
+            elseif ($_GET["pagina"]==="metas") 
+            {
+                include_once "paginas/metas.php";
+            }
             else {
                 session_destroy();
                 header("location: ./");

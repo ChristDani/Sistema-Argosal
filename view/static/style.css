@@ -496,6 +496,14 @@ table tbody tr td label:active{
     background: #ee4545;
 }
 
+.buscadores{
+    display: flex;
+}
+
+.buscadores div{
+    margin-left: 10px;
+}
+
 /* estilos para celular */
 
 @media screen and (max-width:900px) {
