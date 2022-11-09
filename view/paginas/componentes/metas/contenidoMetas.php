@@ -1,8 +1,11 @@
 <div class="contenedor E">
     aca va la tabla de metas
 </div>
+<!-- <div class="contenedor E">
+    <h3>Tabla de Ventas Concluidas</h3>
+</div> -->
 <div class="contenedor E">
-<div class="campos">
+    <div class="campos">
         <div class='mostrar'>
             <label for="numRegistrosVC">Mostrar</label>
             <select name="numRegistrosVC" id="numRegistrosVC">
@@ -50,7 +53,7 @@
     </div>
 </div>
 
-<?php //include_once "whatsapp/modalDetallesWhatsapp.php"; ?>
+<?php include_once "modalDetallesMetas.php"; ?>
 
 <script src="controller/metas/listarVentasConc.js"></script>
-<!-- <script src="controller/whatsapp/modal.js"></script> -->
+<script src="controller/metas/modal.js"></script>

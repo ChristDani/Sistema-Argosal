@@ -19,41 +19,108 @@
 /* header */
 
 header{
-    position: relative;
-    width: 100%;
-    height: 100px;
+    top: 0; left: 0;
+    position: absolute;
+    width: 15%;
+    height: 100vh;
     background: #d3142b;
-    display: flex;
-    justify-content: space-around;
+    /* display: flex;
+    flex-direction: column; */
+    /* justify-content: space-around; */
     align-items: center;
 }
 
-header ul{
-display: flex;
-flex-direction: row;
-justify-content: space-around;
-list-style: none;
-}
+/* header ul{
+    margin-right: 30px;
+} */
 
 header ul li{
-padding-left: 10px;
+    color: #fff;
+    background: #f03a3a;
+    /* width: 100%; */
+    height: 30px;
+    display: flex;
+    margin-bottom: 4px;
+    padding-left: 20px;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 2px solid darkred;
+    border-right: 2px solid darkred;
+    /* border-radius: 40px; */
+}
+
+header ul li:hover{
+    background: darkred;
+    border-top: 1px solid #dd3939;
+    border-left: 1px solid #dd3939;
+}
+
+header ul li span{
+    padding-right: 8px;
 }
 
 header ul li a{
-text-decoration: none;
-color: #fff;
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
 }
 
 header ul li a:hover{
-    color: black;
+    color: white;
 }
 
-/* .logo img{
-width: 320px;
-height: 60px;
-} */
+.logo{
+    margin: 0;
+    height: 15vh;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid white;
+}
 
-/* body */
+.listado{
+    padding-top: 4px;
+    margin: 0px;
+    height: 70vh;
+    margin-right: 10px;
+}
+
+.saliiir{
+    border-top: 1px solid white;
+    padding-top: 4px;
+    margin: 0;
+    height: 15vh;
+    bottom: 0;
+    padding-right: 10px;
+}
+
+.contboton{
+    left: 200px;
+    position: absolute;
+    background: #035934;
+    padding: 4px;
+}
+
+.boton
+{
+    /* display: none; */
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.boton span
+{
+    display: block;
+    width: 90%;
+    background: #162a43;
+    height: 2px;
+    margin: 6px 5% 0 5%;
+    transition: all 300ms;
+    transform-origin: 1.5px 100%;
+    /* box-shadow: 0 0 2rem 0.5rem rgb(255 255 255 / 35%); */
+}
 
 body{
     /* background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%); */
@@ -61,6 +128,17 @@ body{
     background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
     background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
     height: 100vh;
+    top: 0;
+}
+
+.contenPage{
+    position: absolute;
+    margin: 0;
+    top: 0;
+    margin-left: 15%;
+    width: 85%;
+    height: 100vh;
+    overflow-y: auto;
 }
 
 .modal-backdrop.show{
@@ -394,29 +472,6 @@ table tbody tr td label:active{
     background: #ee4545;
 }
 
-/* .modalDetalle .contenidoModalDetalles label{
-    border: 0.5px solid grey;
-} */
-
-/* .modalGuardar{
-    width: 40%;
-    max-height: 65%;
-    background: #fff;
-    overflow: hidden; 
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    position: relative;
-    transition: transform 1s; 
-    transform: translateY(0%);
-
-} */
-
-/* .modalGuardar .cuerpo{
-    overflow-y: scroll;
-} */
-
 .modalClose{
     transform: translateY(-200%);
     /* transform: translateX(-200%); */
@@ -458,7 +513,7 @@ table tbody tr td label:active{
 .btnAggWhats{
     position: absolute;
     display: none;
-    top: 258px; right: 0;
+    top: 168px; right: 0;
     width: 180px;
     height: 100px;
     margin: 0 5%;
@@ -472,7 +527,7 @@ table tbody tr td label:active{
 }
 
 .btnAggWhats:hover{
-    top: 239px;
+    top: 139px;
     background: #ee4545;
 }
 
