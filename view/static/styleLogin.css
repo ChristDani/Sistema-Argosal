@@ -191,25 +191,12 @@
     }
 }
 
-/* animaciones */
-
-/* #triangulo{
-    width: 200px;
-    height: 200px;
-    margin-right: 100px;
-    background: #aaa;
-    border-radius: 50%;
-    animation-name: logo;
-    animation-duration: 4s;
-    position: relative;
-    animation-direction: reverse;
-    animation-timing-function: ease;
+.two #second{
+    font-size: larger;
+    font-weight: bolder;
 }
 
-@keyframes logo {
-    0% {background: #35339a; right: 0; top: 0px;}
-    25% {background: #aaa; right: 300px; top: 0;}
-    50% {background: #93291E;right: 300px; top: 300px;}
-    75% {background: #c87a71;right: 0px; top: 300px;}
-    100% {background: #1e0806;right: 0px; top: 0px;}
-} */
+.two #pre{
+    font-size: medium;
+    font-weight:normal;
+}

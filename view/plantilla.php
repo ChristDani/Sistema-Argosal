@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="view/static/style.css">
     <link rel="stylesheet" href="view/static/reset.css">
     <script src="view/static/script.js"></script>
-    <script src="view/static/login.js"></script>
+
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     
