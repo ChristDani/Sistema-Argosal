@@ -504,6 +504,10 @@ table tbody tr td label:active{
     margin-left: 10px;
 }
 
+.region{
+    width: 135px !important;
+}
+
 /* estilos para celular */
 
 @media screen and (max-width:900px) {

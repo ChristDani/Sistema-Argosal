@@ -12,9 +12,15 @@
         </div>
         <button onclick="exportTableToExcel('tablaProduc', 'Data-Productos')">Excel</button>
         <div class="buscadores">
-            <div class='buscar form-floating mb-3'>
-                <input class="a form-control form-control-sm" placeholder="Type to search..."  autocomplete="off" type="text" name="busquedaER" id="busquedaER" onkeyup="getDataE(1);">
-                <label for='busquedaER' class="form-label">Buscar Region</label>
+            <div class="form-floating">                
+                <select class="region form-select form-select-sm" name="busquedaER" id="busquedaER">
+                    <option value="---" style="color: gray;">---</option>
+                    <option value="Norte">Norte</option>
+                    <option value="Lima">Lima</option>
+                    <option value="Sur">Sur</option>
+                    <option value="Centro">Centro</option>
+                </select>
+                <label for="busquedaER">Buscar Region</label>
             </div>
             <div class='buscar form-floating mb-3'>
                 <input class="a form-control form-control-sm" placeholder="Type to search..."  autocomplete="off" type="text" name="busquedaEC" id="busquedaEC" onkeyup="getDataE(1);">

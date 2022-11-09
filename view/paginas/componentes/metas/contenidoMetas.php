@@ -1,4 +1,5 @@
 <div class="contenedor E">
+    aca va la tabla de metas
 </div>
 <div class="contenedor E">
 <div class="campos">
@@ -49,4 +50,7 @@
     </div>
 </div>
 
+<?php //include_once "whatsapp/modalDetallesWhatsapp.php"; ?>
+
 <script src="controller/metas/listarVentasConc.js"></script>
+<!-- <script src="controller/whatsapp/modal.js"></script> -->

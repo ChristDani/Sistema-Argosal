@@ -39,6 +39,16 @@
                         </select>
                         <label for="producto">Producto</label>
                     </div>
+                    
+                    <div class="form-floating mb-3" id="dpromocion">                
+                        <select class="form-select form-select-sm" name="promocion" id="promocion">
+                            <option value="---" style="color: gray;">(vacio)</option>
+                            <option value="50% de Descuento con Lineas Adicionales">50% de Descuento con Lineas Adicionales</option>
+                            <option value="20% de Descuento en Portabilidad Movil">20% de Descuento en Portabilidad Movil</option>
+                            <option value="50% de Descuento en Planes Fija">50% de Descuento en Planes Fija</option>
+                        </select>
+                        <label for="promocion">Promoción</label>
+                    </div>
     
                     <div class="form-floating mb-3 hidden" id="dtipo">                
                         <select class="form-select form-select-sm" name="tipo" id="tipo">
@@ -149,7 +159,22 @@
                             <option value="3 Play - Telefonia + Internet + Cable Superior">3 Play - Telefonia + Internet + Cable Superior</option>
                         </select>
                         <label for="planFija">Plan Fija</label>
-                    </div> 
+                    </div>
+
+                    <div class="form-floating mb-3" id="dubicacion">
+                        <input class="form-control" autocomplete="off" type="text" name="ubicacion" id="ubicacion" placeholder="Ubicación del cliente...">
+                        <label for="ubicacion">Ubicación</label>
+                    </div>
+
+                    <div class="form-floating mb-3" id="ddistrito">
+                        <input class="form-control" autocomplete="off" type="text" name="distrito" id="distrito" placeholder="Distrito del cliente...">
+                        <label for="distrito">Distrito</label>
+                    </div>
+
+                    <div class="form-floating mb-3" id="dobservacion">
+                        <textarea class="form-control" autocomplete="off" type="text" name="observaciones" id="observaciones" placeholder="Leave a comment here"></textarea>
+                        <label for="observaciones">Observaciones</label>
+                    </div>
                     
                     <div class="form-floating mb-3 hidden" id="destado">                
                         <select class="form-select form-select-sm" name="estado" id="estado">

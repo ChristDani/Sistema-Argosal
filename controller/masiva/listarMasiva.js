@@ -23,7 +23,7 @@ function getDataM(pagina) {
     // }
 
     // le damos el origen de los datos
-    let url='model/masiva.php';
+    let url='controller/masiva/listar.php';
     let formaData = new FormData()
     formaData.append('busqueda', input)
     formaData.append('registros', select)

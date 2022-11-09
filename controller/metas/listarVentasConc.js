@@ -1,16 +1,16 @@
-let paginaActualW = 1
+let paginaActualVC = 1
 
-getDataW(paginaActualW)
+getDataVC(paginaActualVC)
 
-document.getElementById('numRegistrosW').addEventListener("change", function() {
-    getDataW(paginaActualW)
+document.getElementById('numRegistrosVC').addEventListener("change", function() {
+    getDataVC(paginaActualVC)
 }, false)
 
-function getDataW(pagina) {
+function getDataVC(pagina) {
 
-    let input = document.getElementById('busquedaW').value
-    let select = document.getElementById('numRegistrosW').value
-    let contenido=document.getElementById('resultadosW')
+    let input = document.getElementById('busquedaVC').value
+    let select = document.getElementById('numRegistrosVC').value
+    let contenido=document.getElementById('resultadosVC')
     // verificar si trae los valores
 
     // console.log(input)
@@ -18,7 +18,7 @@ function getDataW(pagina) {
     // console.log(pagina)
 
     // le damos el origen de los datos
-    let url='controller/whatsapp/listar.php';
+    let url='controller/metas/listar.php';
     let formaData = new FormData()
     formaData.append('busqueda', input)
     formaData.append('registros', select)
@@ -30,7 +30,7 @@ function getDataW(pagina) {
     }).then(response=>response.json())
     .then(data=>{
         contenido.innerHTML=data.data
-        document.getElementById('msgW').innerHTML = data.mensaje
-        document.getElementById('munW').innerHTML = data.paginacion
+        document.getElementById('msgVC').innerHTML = data.mensaje
+        document.getElementById('munVC').innerHTML = data.paginacion
     }).catch(err=>console.log(err))
 }

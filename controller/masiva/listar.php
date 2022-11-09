@@ -5,28 +5,26 @@ $model=new conexion();
 $con=$model->conectar();
 
 // en el caso de solo querer determinadas columnas usar esto con el mismo nombre de las columnas...
-$columnas=['codigo','asesor','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','numeroReferencia','sec','tipoFija','planFija','estado','observaciones','promocion','ubicacion','distrito','fechaRegistro','fechaActualizacion'];
-$columnasBus=['codigo','asesor','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','numeroReferencia','sec','tipoFija','planFija','observaciones','promocion','ubicacion','distrito','fechaRegistro','fechaActualizacion'];
+$columnas=['documento',	'nombre',	'celular',	'fecha_activacion',	'operador',	'tipo_plan',	'direccion',	'distrito',	'provincia',	'departamento',	'estado'];
 
 // tabla a seleccionar
-$tabla='whatsapp';
+$tabla='personas';
 
 // $buscar=isset($_POST['busqueda']) ? $con->mssql_escape($_POST['busqueda']) : null;
 $buscar= isset($_POST['busqueda']) ? $_POST['busqueda'] : null;
 
 // busqueda de datos
 $where='';
-$where.="where estado='Concretado'";
 
 if ($buscar!=null) {
-    // $buscar=' ';
-    $where=" and ";
-    $cont= count($columnasBus);
+    // $buscar='jorge';
+    $where="where (";
+    $cont= count($columnas);
     for ($i=0; $i < $cont; $i++) { 
-        $where.=$columnasBus[$i]." like '%".$buscar."%' or ";
+        $where.=$columnas[$i]." like '%".$buscar."%' or ";
     }
     $where=substr_replace($where, "", -3);
-    // $where.=")";
+    $where.=")";
 }
 
 // limite de registros
@@ -47,7 +45,7 @@ $sLimite = " offset $inicio rows fetch next $limite rows only ";
 // cantidad de registros devueltos en la consulta
 $contar="select * from $tabla $where";
 
-$sql = "select ".implode(", ", $columnas)." from $tabla $where order by codigo $sLimite";
+$sql = "select ".implode(", ", $columnas)." from $tabla $where order by documento $sLimite";
 // para verificar errores en la consulta
 // echo $sql;
 
@@ -56,7 +54,6 @@ $sql = "select ".implode(", ", $columnas)." from $tabla $where order by codigo $
 $resulContar=sqlsrv_query($con,$contar, array(), array("Scrollable"=>SQLSRV_CURSOR_KEYSET));
 
 $resultado=sqlsrv_query($con,$sql, array(), array("Scrollable"=>"buffered"));
-// $resultado=sqlsrv_query($con,$sql, array(), array("Scrollable"=>SQLSRV_CURSOR_KEYSET));
 // para saber el numero de filas
 
 $totalContar = sqlsrv_num_rows($resulContar);
@@ -85,25 +82,26 @@ $output['paginacion']= '';
 if ($filas>0) {
     $i=$inicio+1;
     while ($fila=sqlsrv_fetch_array($resultado)) {
-        
-        $code = $fila['codigo'];
-        $fecha=$fila['fechaRegistro']-> format('d/m/Y');
-
         $output['data'].= "<tr>";
         $output['data'].= "<td align='center'>$i</td>";
+        $output['data'].= "<td align='center'>".$fila['documento']."</td>";
         $output['data'].= "<td align='left'>".$fila['nombre']."</td>";
-        $output['data'].= "<td align='center'>".$fila['numeroReferencia']."</td>";
-        $output['data'].= "<td align='center'>".$fila['producto']."</td>";
-        $output['data'].= "<td align='center'>".$fila['sec']."</td>";
+        $output['data'].= "<td align='center'>".$fila['celular']."</td>";
+        $output['data'].= "<td align='center'>".$fila['fecha_activacion']."</td>";
+        $output['data'].= "<td align='center'>".$fila['operador']."</td>";
+        $output['data'].= "<td align='center'>".$fila['tipo_plan']."</td>";
+        // $output['data'].= "<td align='center'>".$fila['direccion']."</td>";
+        // $output['data'].= "<td align='center'>".$fila['distrito']."</td>";
+        // $output['data'].= "<td align='center'>".$fila['provincia']."</td>";
+        // $output['data'].= "<td align='center'>".$fila['departamento']."</td>";
         $output['data'].= "<td align='center'>".$fila['estado']."</td>";
-        $output['data'].= "<td align='center'>".$fecha."</td>";
-        $output['data'].= "<td align='center'><label onclick="."abrirModalDetalle('$code');"."><span class='material-symbols-outlined'>info</span></label></td>";
+        $output['data'].= "<td align='center'><label><span class='material-symbols-outlined'>info</span></label></td>";
         $output['data'].= "</tr>";
         $i+=1;
     }
 } else {
     $output['data'].= "<tr>";
-    $output['data'].= "<td align='center' colspan=8 height='100px'>Sin Resultados...</td>";
+    $output['data'].= "<td align='center' colspan=13 height='100px'>Sin Resultados...</td>";
     $output['data'].= "</tr>";
 }
 
@@ -133,9 +131,9 @@ if ($totalContar===1) {
         // activacion del boton anterior
     
         if ($pagina==$pagInicio) {
-            $output['paginacion'] .= "<button disabled onclick='getDataW(".$pagina-1 .");'>Anterior</button>";
+            $output['paginacion'] .= "<button disabled onclick='getDataM(".$pagina-1 .");'>Anterior</button>";
         } else {
-            $output['paginacion'] .= "<button class='activo' onclick='getDataW(".$pagina-1 .");'>Anterior</button>";
+            $output['paginacion'] .= "<button class='activo' onclick='getDataM(".$pagina-1 .");'>Anterior</button>";
         }
     
         $output['paginacion'] .= "<ul>";
@@ -144,7 +142,7 @@ if ($totalContar===1) {
         // pagina inicial anclada
     
         if ($pagInicio>2) {
-            $output['paginacion'] .= "<li><a href='#' onclick='getDataW(1);'>1</a></li>";
+            $output['paginacion'] .= "<li><a href='#' onclick='getDataM(1);'>1</a></li>";
             $output['paginacion'] .= "<li class='ancla'><a>...</a></li>";
         }
     
@@ -154,7 +152,7 @@ if ($totalContar===1) {
             if ($pagina==$i) {
                 $output['paginacion'] .= "<li class='actual'><a>$i</a></li>";
             }else {
-                $output['paginacion'] .= "<li><a href='#' onclick='getDataW($i);'>$i</a></li>";
+                $output['paginacion'] .= "<li><a href='#' onclick='getDataM($i);'>$i</a></li>";
             }
         }
     
@@ -162,7 +160,7 @@ if ($totalContar===1) {
     
         if ($pagFinal<($paginasTotal-1)) {
             $output['paginacion'] .= "<li class='ancla'><a>...</a></li>";
-            $output['paginacion'] .= "<li><a href='#' onclick='getDataW($paginasTotal);'>$paginasTotal</a></li>";
+            $output['paginacion'] .= "<li><a href='#' onclick='getDataM($paginasTotal);'>$paginasTotal</a></li>";
         }
     
         $output['paginacion'] .= "</ul>";
@@ -170,9 +168,9 @@ if ($totalContar===1) {
         // activacion del boton siguiente
     
         if ($pagina==$pagFinal) {
-            $output['paginacion'] .= "<button disabled onclick='getDataW(".$pagina+1 .");'>Siguiente</button>";
+            $output['paginacion'] .= "<button disabled onclick='getDataM(".$pagina+1 .");'>Siguiente</button>";
         } else {
-            $output['paginacion'] .= "<button class='activo' onclick='getDataW(".$pagina+1 .");'>Siguiente</button>";
+            $output['paginacion'] .= "<button class='activo' onclick='getDataM(".$pagina+1 .");'>Siguiente</button>";
         }
     }
 
@@ -180,5 +178,10 @@ if ($totalContar===1) {
 }
 
 echo json_encode($output, JSON_UNESCAPED_UNICODE); //por si viene con 'ñ' o tildes...
+
+class Masiva
+{
+
+}
 
 ?>
