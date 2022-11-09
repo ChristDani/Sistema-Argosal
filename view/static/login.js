@@ -1,5 +1,4 @@
 let date = document.getElementById('date');
-let logo = document.getElementById('logo');
 let img = document.getElementById('imagen')
 
 var x = Math.ceil(Math.random()*13);
@@ -8,14 +7,6 @@ img.style.background = "url(view/static/imgLoginLib/"+x+".jpg)";
 img.style.backgroundPosition = "center";
 img.style.backgroundSize = "cover";
 img.style.backgroundRepeat = "no-repeat";
-
-
-let windowscale = window.screen.width;
-
-if (windowscale < 800) {
-    date.style.display = "none";
-    logo.style.display = "block";
-}
 
 (function(){
 
@@ -59,6 +50,3 @@ if (windowscale < 800) {
     var intervalo = setInterval(actualizarHora, 100)
 
 }())
-
-
-console.log(tiempo)

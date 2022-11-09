@@ -27,14 +27,14 @@
                     <div class="card-body date">
                         <div class="row  align-items-center">
                             <div class="col">
-                                <h1 id="hora">1</h1>
+                                <h1 id="hora"></h1>
                             </div>
                             <div class="col">
-                                <h1 id="min">2</h1>
+                                <h1 id="min"></h1>
                             </div>
                             <div class="col two text-center">
-                                <h1 id="second">2</h1>                            
-                                <h1 id="pre">pm</h1>
+                                <h1 id="second"></h1>                            
+                                <h1 id="pre"></h1>
                             </div>
                         </div>                        
                     </div>
@@ -43,31 +43,5 @@
         </div>
     </div>
 </div>
-
-<!-- <div class="body d-flex">
-    <div class="row">
-    </div>   
-
-    <div class="row">
-        <div class="col d-flex mx-5">
-            <div class="card text-center" id="date" style="width:18rem;">
-                <div class="card-body date">
-                    <div class="row align-items-center">
-                        <div class="col">
-                            <h1 id="hora"></h1>
-                        </div>
-                        <div class="col">
-                            <h1 id="min"></h1>
-                        </div>
-                        <div class="two col text-center">
-                            <h1 id="second"></h1>                            
-                            <h1 id="pre"></h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> 
-</div> -->
 
 <script src="view/static/login.js"></script>

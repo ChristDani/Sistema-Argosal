@@ -11,6 +11,9 @@ $columnas=['region',	'nombre',	'centro',	'almacen',	'nombreAlmacen',	'material',
 $tabla='productos';
 
 // $buscar=isset($_POST['busqueda']) ? $con->mssql_escape($_POST['busqueda']) : null;
+$buscarRegion= isset($_POST['busqueda']) ? $_POST['busqueda'] : null;
+$buscarCac= isset($_POST['busqueda']) ? $_POST['busqueda'] : null;
+$buscarEquipo= isset($_POST['busqueda']) ? $_POST['busqueda'] : null;
 $buscar= isset($_POST['busqueda']) ? $_POST['busqueda'] : null;
 
 // busqueda de datos
