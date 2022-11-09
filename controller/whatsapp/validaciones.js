@@ -1,3 +1,19 @@
+function limpiar() {
+    document.getElementById('dtipo').style.display='none';
+    document.getElementById('dlineaProce').style.display='none';
+    document.getElementById('doperadorCeden').style.display='none';
+    document.getElementById('dmodalidad').style.display='none';
+    document.getElementById('dplan').style.display='none';
+    document.getElementById('dequipos').style.display='none';
+    document.getElementById('dformaPago').style.display='none';
+    document.getElementById('dtelefonoRef').style.display='none';
+    document.getElementById('telefonoRef').value='';
+    document.getElementById('dsec').style.display='none';
+    document.getElementById('dtipoFija').style.display='none';
+    document.getElementById('dplanFija').style.display='none';
+    document.getElementById('destado').style.display='none';
+}
+
 
 function mostrarDNI() {
     const nombre = document.getElementById('nombre').value.length
@@ -11,19 +27,7 @@ function mostrarDNI() {
         document.getElementById('dproducto').style.display='none';
         document.getElementById('producto').selectedIndex = 0;
         
-        document.getElementById('dtipo').style.display='none';
-        document.getElementById('dlineaProce').style.display='none';
-        document.getElementById('doperadorCeden').style.display='none';
-        document.getElementById('dmodalidad').style.display='none';
-        document.getElementById('dplan').style.display='none';
-        document.getElementById('dequipos').style.display='none';
-        document.getElementById('dformaPago').style.display='none';
-        document.getElementById('dtelefonoRef').style.display='none';
-        document.getElementById('telefonoRef').value='';
-        document.getElementById('dsec').style.display='none';
-        document.getElementById('dtipoFija').style.display='none';
-        document.getElementById('dplanFija').style.display='none';
-        document.getElementById('destado').style.display='none';
+        limpiar();
     }
 }
 
@@ -75,7 +79,7 @@ function mostrarProducto(valor){
         // document.getElementById('destado').style.display='block';
 
         document.getElementById('dtipoFija').style.display='none';
-        // document.getElementById('dplanFija').style.display='none';
+        document.getElementById('dplanFija').style.display='none';
     }
     else if(valor == fija){
         document.getElementById('dtipoFija').style.display='block';
@@ -83,15 +87,17 @@ function mostrarProducto(valor){
         // document.getElementById('destado').style.display='block';
 
         document.getElementById('dtipo').style.display='none';
-        // document.getElementById('dlineaProce').style.display='none';
-        // document.getElementById('doperadorCeden').style.display='none';
-        // document.getElementById('dmodalidad').style.display='none';
-        // document.getElementById('dplan').style.display='none';
-        // document.getElementById('dequipos').style.display='none';
-        // document.getElementById('dformaPago').style.display='none';
-        // document.getElementById('dsec').style.display='none';
+        document.getElementById('dlineaProce').style.display='none';
+        document.getElementById('doperadorCeden').style.display='none';
+        document.getElementById('dmodalidad').style.display='none';
+        document.getElementById('dplan').style.display='none';
+        document.getElementById('dequipos').style.display='none';
+        document.getElementById('dformaPago').style.display='none';
+        document.getElementById('dsec').style.display='none';
     }
     else if(valor == any){
+        document.getElementById('dtelefono').style.display='none';
+        document.getElementById('telefono').value='';
         document.getElementById('dtipo').style.display='none';
         document.getElementById('dlineaProce').style.display='none';
         document.getElementById('doperadorCeden').style.display='none';
@@ -135,6 +141,54 @@ function mostrarTipo(valor){
         document.getElementById('formaPago').selectedIndex = 0;
         document.getElementById('dsec').style.display='none';
         document.getElementById('sec').value = '';
+
+        document.getElementById('modalidad').addEventListener("change", function() {
+            let valorA = document.getElementById('modalidad').value
+            mostrarNewLine(valorA)
+        }, false)
+        
+        function mostrarNewLine(val){
+            const post = "Postpago"
+            const prep = "Prepago"
+            const any2 = "---"
+        
+            if (val == post) {
+                document.getElementById('dplan').style.display='block';
+                document.getElementById('plan').selectedIndex = 0;
+                document.getElementById('dequipos').style.display='block';
+                document.getElementById('equipos').selectedIndex = 0;
+                document.getElementById('dformaPago').style.display='block';
+                document.getElementById('formaPago').selectedIndex = 0;
+                document.getElementById('dsec').style.display='block';
+                document.getElementById('sec').value = '';
+                // document.getElementById('destado').style.display='block';
+                // document.getElementById('estado').selectedIndex = 0;
+            }
+            else if (val == prep) {
+                document.getElementById('dplan').style.display='none';
+                document.getElementById('plan').selectedIndex = 0;
+                document.getElementById('dequipos').style.display='block';
+                document.getElementById('equipos').selectedIndex = 0;
+                document.getElementById('dformaPago').style.display='none';
+                document.getElementById('formaPago').selectedIndex = 1;
+                document.getElementById('dsec').style.display='block';
+                document.getElementById('sec').value = '';
+                // document.getElementById('destado').style.display='block';
+                // document.getElementById('estado').selectedIndex = 0;
+            }
+            else if (val == any2) {
+                document.getElementById('dplan').style.display='none';
+                document.getElementById('plan').selectedIndex = 0;
+                document.getElementById('dequipos').style.display='none';
+                document.getElementById('equipos').selectedIndex = 0;
+                document.getElementById('dformaPago').style.display='none';
+                document.getElementById('formaPago').selectedIndex = 0;
+                document.getElementById('dsec').style.display='none';
+                document.getElementById('sec').value = '';
+                // document.getElementById('destado').style.display='none';
+                // document.getElementById('estado').selectedIndex = 0;        
+            }
+        }
     }
     else if (valor == porta){
         document.getElementById('dtelefono').style.display='block';
@@ -153,6 +207,54 @@ function mostrarTipo(valor){
         document.getElementById('formaPago').selectedIndex = 0;
         document.getElementById('dsec').style.display='none';
         document.getElementById('sec').value = '';
+
+        document.getElementById('modalidad').addEventListener("change", function() {
+            let valorB = document.getElementById('modalidad').value
+            mostrarPorta(valorB)
+        }, false)
+        
+        function mostrarPorta(val){
+            const post = "Postpago"
+            const prep = "Prepago"
+            const any2 = "---"
+        
+            if (val == post) {
+                document.getElementById('dplan').style.display='block';
+                document.getElementById('plan').selectedIndex = 0;
+                document.getElementById('dequipos').style.display='block';
+                document.getElementById('equipos').selectedIndex = 0;
+                document.getElementById('dformaPago').style.display='block';
+                document.getElementById('formaPago').selectedIndex = 0;
+                document.getElementById('dsec').style.display='block';
+                document.getElementById('sec').value = '';
+                // document.getElementById('destado').style.display='block';
+                // document.getElementById('estado').selectedIndex = 0;
+            }
+            else if (val == prep) {
+                document.getElementById('dplan').style.display='none';
+                document.getElementById('plan').selectedIndex = 0;
+                document.getElementById('dequipos').style.display='block';
+                document.getElementById('equipos').selectedIndex = 0;
+                document.getElementById('dformaPago').style.display='none';
+                document.getElementById('formaPago').selectedIndex = 1;
+                document.getElementById('dsec').style.display='block';
+                document.getElementById('sec').value = '';
+                // document.getElementById('destado').style.display='block';
+                // document.getElementById('estado').selectedIndex = 0;
+            }
+            else if (val == any2) {
+                document.getElementById('dplan').style.display='none';
+                document.getElementById('plan').selectedIndex = 0;
+                document.getElementById('dequipos').style.display='none';
+                document.getElementById('equipos').selectedIndex = 0;
+                document.getElementById('dformaPago').style.display='none';
+                document.getElementById('formaPago').selectedIndex = 0;
+                document.getElementById('dsec').style.display='none';
+                document.getElementById('sec').value = '';
+                // document.getElementById('destado').style.display='none';
+                // document.getElementById('estado').selectedIndex = 0;        
+            }
+        }
     }
     else if(valor == reno){
         document.getElementById('dtelefono').style.display='block';
@@ -163,9 +265,9 @@ function mostrarTipo(valor){
         document.getElementById('operadorCeden').selectedIndex = 0;
         document.getElementById('dmodalidad').style.display='none';
         document.getElementById('modalidad').selectedIndex = 1;
-        document.getElementById('dplan').style.display='none';
+        document.getElementById('dplan').style.display='block';
         document.getElementById('plan').selectedIndex = 0;
-        document.getElementById('dequipos').style.display='none';
+        document.getElementById('dequipos').style.display='block';
         document.getElementById('equipos').selectedIndex = 0;
         document.getElementById('dformaPago').style.display='none';
         document.getElementById('formaPago').selectedIndex = 0;
@@ -192,101 +294,7 @@ function mostrarTipo(valor){
     }
 }
 
-document.getElementById('modalidad').addEventListener("change", function() {
-    let valorA = document.getElementById('modalidad').value
-    mostrarNewLine(valorA)
-}, false)
 
-function mostrarNewLine(val){
-    const post = "Postpago"
-    const prep = "Prepago"
-    const any2 = "---"
-
-    if (val == post) {
-        document.getElementById('dplan').style.display='block';
-        document.getElementById('plan').selectedIndex = 0;
-        document.getElementById('dequipos').style.display='block';
-        document.getElementById('equipos').selectedIndex = 0;
-        document.getElementById('dformaPago').style.display='block';
-        document.getElementById('formaPago').selectedIndex = 0;
-        document.getElementById('dsec').style.display='block';
-        document.getElementById('sec').value = '';
-        // document.getElementById('destado').style.display='block';
-        // document.getElementById('estado').selectedIndex = 0;
-    }
-    else if (val == prep) {
-        document.getElementById('dplan').style.display='none';
-        document.getElementById('plan').selectedIndex = 0;
-        document.getElementById('dequipos').style.display='block';
-        document.getElementById('equipos').selectedIndex = 0;
-        document.getElementById('dformaPago').style.display='none';
-        document.getElementById('formaPago').selectedIndex = 1;
-        document.getElementById('dsec').style.display='block';
-        document.getElementById('sec').value = '';
-        // document.getElementById('destado').style.display='block';
-        // document.getElementById('estado').selectedIndex = 0;
-    }
-    else if (val == any2) {
-        document.getElementById('dplan').style.display='none';
-        document.getElementById('plan').selectedIndex = 0;
-        document.getElementById('dequipos').style.display='none';
-        document.getElementById('equipos').selectedIndex = 0;
-        document.getElementById('dformaPago').style.display='none';
-        document.getElementById('formaPago').selectedIndex = 0;
-        document.getElementById('dsec').style.display='none';
-        document.getElementById('sec').value = '';
-        // document.getElementById('destado').style.display='none';
-        // document.getElementById('estado').selectedIndex = 0;        
-    }
-}
-
-document.getElementById('modalidad').addEventListener("change", function() {
-    let valorB = document.getElementById('modalidad').value
-    mostrarPorta(valorB)
-}, false)
-
-function mostrarPorta(val){
-    const post = "Postpago"
-    const prep = "Prepago"
-    const any2 = "---"
-
-    if (val == post) {
-        document.getElementById('dplan').style.display='block';
-        document.getElementById('plan').selectedIndex = 0;
-        document.getElementById('dequipos').style.display='block';
-        document.getElementById('equipos').selectedIndex = 0;
-        document.getElementById('dformaPago').style.display='block';
-        document.getElementById('formaPago').selectedIndex = 0;
-        document.getElementById('dsec').style.display='block';
-        document.getElementById('sec').value = '';
-        // document.getElementById('destado').style.display='block';
-        // document.getElementById('estado').selectedIndex = 0;
-    }
-    else if (val == prep) {
-        document.getElementById('dplan').style.display='none';
-        document.getElementById('plan').selectedIndex = 0;
-        document.getElementById('dequipos').style.display='block';
-        document.getElementById('equipos').selectedIndex = 0;
-        document.getElementById('dformaPago').style.display='none';
-        document.getElementById('formaPago').selectedIndex = 1;
-        document.getElementById('dsec').style.display='block';
-        document.getElementById('sec').value = '';
-        // document.getElementById('destado').style.display='block';
-        // document.getElementById('estado').selectedIndex = 0;
-    }
-    else if (val == any2) {
-        document.getElementById('dplan').style.display='none';
-        document.getElementById('plan').selectedIndex = 0;
-        document.getElementById('dequipos').style.display='none';
-        document.getElementById('equipos').selectedIndex = 0;
-        document.getElementById('dformaPago').style.display='none';
-        document.getElementById('formaPago').selectedIndex = 0;
-        document.getElementById('dsec').style.display='none';
-        document.getElementById('sec').value = '';
-        // document.getElementById('destado').style.display='none';
-        // document.getElementById('estado').selectedIndex = 0;        
-    }
-}
 
 // detalles y edicion
 

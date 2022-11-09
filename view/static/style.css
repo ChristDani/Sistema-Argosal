@@ -563,10 +563,19 @@ table tbody tr td label:active{
     width: 135px !important;
 }
 
+.mgw{
+    width: 40% !important;
+}
+
 /* estilos para celular */
 
 @media screen and (max-width:900px) {
     .tabla{
         overflow-x: scroll;
     }
+
+    .mgw{
+        width: 90% !important;
+    }
+
 }

@@ -1,6 +1,6 @@
 
 <div id="contenedorModalGuardarWhats" class="modal contenedorModal">
-    <div id="modalGuardarWhats" class="modal-dialog modal-dialog-centered modal-dialog-scrollable modalClose" style="width: 40%;">
+    <div id="modalGuardarWhats" class="mgw modal-dialog modal-dialog-centered modal-dialog-scrollable modalClose">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5">Registrar venta</h1>
@@ -40,7 +40,7 @@
                         <label for="producto">Producto</label>
                     </div>
                     
-                    <div class="form-floating mb-3" id="dpromocion">                
+                    <div class="form-floating mb-3 hidden" id="dpromocion">                
                         <select class="form-select form-select-sm" name="promocion" id="promocion">
                             <option value="---" style="color: gray;">(vacio)</option>
                             <option value="50% de Descuento con Lineas Adicionales">50% de Descuento con Lineas Adicionales</option>
@@ -161,17 +161,17 @@
                         <label for="planFija">Plan Fija</label>
                     </div>
 
-                    <div class="form-floating mb-3" id="dubicacion">
+                    <div class="form-floating mb-3 hidden" id="dubicacion">
                         <input class="form-control" autocomplete="off" type="text" name="ubicacion" id="ubicacion" placeholder="Ubicación del cliente...">
                         <label for="ubicacion">Ubicación</label>
                     </div>
 
-                    <div class="form-floating mb-3" id="ddistrito">
+                    <div class="form-floating mb-3 hidden" id="ddistrito">
                         <input class="form-control" autocomplete="off" type="text" name="distrito" id="distrito" placeholder="Distrito del cliente...">
                         <label for="distrito">Distrito</label>
                     </div>
 
-                    <div class="form-floating mb-3" id="dobservacion">
+                    <div class="form-floating mb-3 hidden" id="dobservacion">
                         <textarea class="form-control" autocomplete="off" type="text" name="observaciones" id="observaciones" placeholder="Leave a comment here"></textarea>
                         <label for="observaciones">Observaciones</label>
                     </div>
