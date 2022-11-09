@@ -14,7 +14,7 @@
         <div class="buscadores">
             <div class="form-floating">                
                 <select class="region form-select form-select-sm" name="busquedaER" id="busquedaER">
-                    <option value="---" style="color: gray;">---</option>
+                    <option value="" style="color: gray;">---</option>
                     <option value="Norte">Norte</option>
                     <option value="Lima">Lima</option>
                     <option value="Sur">Sur</option>

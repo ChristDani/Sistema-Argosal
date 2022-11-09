@@ -5,29 +5,42 @@ $model=new conexion();
 $con=$model->conectar();
 
 // en el caso de solo querer determinadas columnas usar esto con el mismo nombre de las columnas...
-$columnas=['region',	'nombre',	'centro',	'almacen',	'nombreAlmacen',	'material',	'descripcion',	'libres',	'bloqueados'];
+$columnas=['region', 'nombre', 'centro', 'almacen',	'nombreAlmacen', 'material', 'descripcion', 'libres', 'bloqueados'];
 
 // tabla a seleccionar
 $tabla='productos';
 
 // $buscar=isset($_POST['busqueda']) ? $con->mssql_escape($_POST['busqueda']) : null;
-$buscarRegion= isset($_POST['busqueda']) ? $_POST['busqueda'] : null;
-$buscarCac= isset($_POST['busqueda']) ? $_POST['busqueda'] : null;
-$buscarEquipo= isset($_POST['busqueda']) ? $_POST['busqueda'] : null;
+$buscarRegion= isset($_POST['BusReg']) ? $_POST['BusReg'] : null;
+$buscarCac= isset($_POST['busCac']) ? $_POST['busCac'] : null;
 $buscar= isset($_POST['busqueda']) ? $_POST['busqueda'] : null;
 
 // busqueda de datos
-$where='';
+$where="";
 
-if ($buscar!=null) {
-    // $buscar='jorge';
-    $where="where (";
-    $cont= count($columnas);
-    for ($i=0; $i < $cont; $i++) { 
-        $where.=$columnas[$i]." like '%".$buscar."%' or ";
+if ($buscarRegion!=null) {
+    if ($buscarRegion!='---') {
+        $where.="where region like '%".$buscarRegion."%'";
+        if ($buscarCac!=null) {
+            $where.=" and nombre like '%".$buscarCac."%'";
+            if ($buscar!=null) {
+                $where.=" and descripcion like '%".$buscar."%'";
+            }
+        }
+        elseif ($buscar!=null) {
+            $where.=" and descripcion like '%".$buscar."%'";
+        }
     }
-    $where=substr_replace($where, "", -3);
-    $where.=")";
+}
+elseif ($buscarCac!=null and $buscarRegion==null) {
+    $where.="where nombre like '%".$buscarCac."%'";
+        if ($buscar!=null) {
+            $where.=" and descripcion like '%".$buscar."%'";
+        }
+}
+elseif ($buscar!=null and $buscarCac==null and $buscarRegion==null) {
+    $where.="where descripcion like '%".$buscar."%'";
+
 }
 
 // limite de registros
@@ -51,6 +64,8 @@ $contar="select * from $tabla $where";
 $sql = "select ".implode(", ", $columnas)." from $tabla $where order by region $sLimite";
 // para verificar errores en la consulta
 // echo $sql;
+// echo "<br>";
+// echo "<br>";
 
 
 // $resulContar=sqlsrv_query($con,$contar, array(), array("Scrollable"=>"buffered"));
