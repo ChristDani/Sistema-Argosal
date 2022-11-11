@@ -301,6 +301,7 @@ function mostrarTipo(valor){
 function editar() {
     const movilE = "Movil"
     const fijaE = "Fija "
+    const lineE = "---            "
 
     document.getElementById('cancel').classList.toggle("hidden");
     document.getElementById('edit').classList.toggle("hidden");
@@ -308,8 +309,19 @@ function editar() {
 
 
     let prod = document.getElementById('productoEdit').value
+    let type = document.getElementById('tipolinea').value
+
+    console.log(prod,type)
 
     if (prod == movilE) {
+        if (type == lineE) 
+        {
+            document.getElementById('promocionEdit').classList.toggle("hidden");
+            document.getElementById('promocionEditM').classList.toggle("hidden");
+            document.getElementById('typeEdit').classList.toggle("hidden");
+            document.getElementById('typeEditM').classList.toggle("hidden");
+    
+        }
         document.getElementById('planReEdit').classList.toggle("hidden");
         document.getElementById('planReEditM').classList.toggle("hidden");
         document.getElementById('equipoEdit').classList.toggle("hidden");
@@ -322,6 +334,12 @@ function editar() {
         document.getElementById('secEditM').classList.toggle("hidden");
         document.getElementById('estadoEdit').classList.toggle("hidden");
         document.getElementById('estadoEditM').classList.toggle("hidden");
+        document.getElementById('obsEdit').classList.toggle("hidden");
+        document.getElementById('obsEditM').classList.toggle("hidden");
+        document.getElementById('ubiEdit').classList.toggle("hidden");
+        document.getElementById('ubiEditM').classList.toggle("hidden");
+        document.getElementById('disEdit').classList.toggle("hidden");
+        document.getElementById('disEditM').classList.toggle("hidden");
     }
     else if (prod == fijaE) {
         document.getElementById('planFijaEdit').classList.toggle("hidden");
@@ -332,6 +350,16 @@ function editar() {
         document.getElementById('secEditM').classList.toggle("hidden");
         document.getElementById('estadoEdit').classList.toggle("hidden");
         document.getElementById('estadoEditM').classList.toggle("hidden");
+        document.getElementById('obsEdit').classList.toggle("hidden");
+        document.getElementById('obsEditM').classList.toggle("hidden");
+        document.getElementById('ubiEdit').classList.toggle("hidden");
+        document.getElementById('ubiEditM').classList.toggle("hidden");
+        document.getElementById('disEdit').classList.toggle("hidden");
+        document.getElementById('disEditM').classList.toggle("hidden");
+    }
+    else{
+        document.getElementById('producEdit').classList.toggle("hidden");
+        document.getElementById('producEditM').classList.toggle("hidden");
     }
 
 
@@ -340,14 +368,24 @@ function editar() {
 function cancel() {
     const movilE = "Movil"
     const fijaE = "Fija "
+    const lineE = "---            "
 
     document.getElementById('cancel').classList.toggle("hidden");
     document.getElementById('edit').classList.toggle("hidden");
     document.getElementById('dsave').classList.toggle("hidden");
 
     let prod = document.getElementById('productoEdit').value
+    let type = document.getElementById('tipolinea').value
 
     if (prod == movilE) {
+        if (type == lineE) 
+        {
+            document.getElementById('promocionEdit').classList.toggle("hidden");
+            document.getElementById('promocionEditM').classList.toggle("hidden");
+            document.getElementById('typeEdit').classList.toggle("hidden");
+            document.getElementById('typeEditM').classList.toggle("hidden");
+    
+        }
         document.getElementById('planReEdit').classList.toggle("hidden");
         document.getElementById('planReEditM').classList.toggle("hidden");
         document.getElementById('equipoEdit').classList.toggle("hidden");
@@ -360,6 +398,12 @@ function cancel() {
         document.getElementById('secEditM').classList.toggle("hidden");
         document.getElementById('estadoEdit').classList.toggle("hidden");
         document.getElementById('estadoEditM').classList.toggle("hidden");
+        document.getElementById('obsEdit').classList.toggle("hidden");
+        document.getElementById('obsEditM').classList.toggle("hidden");
+        document.getElementById('ubiEdit').classList.toggle("hidden");
+        document.getElementById('ubiEditM').classList.toggle("hidden");
+        document.getElementById('disEdit').classList.toggle("hidden");
+        document.getElementById('disEditM').classList.toggle("hidden");
     }
     else if (prod == fijaE) {
         document.getElementById('planFijaEdit').classList.toggle("hidden");
@@ -370,6 +414,16 @@ function cancel() {
         document.getElementById('secEditM').classList.toggle("hidden");
         document.getElementById('estadoEdit').classList.toggle("hidden");
         document.getElementById('estadoEditM').classList.toggle("hidden");
+        document.getElementById('obsEdit').classList.toggle("hidden");
+        document.getElementById('obsEditM').classList.toggle("hidden");
+        document.getElementById('ubiEdit').classList.toggle("hidden");
+        document.getElementById('ubiEditM').classList.toggle("hidden");
+        document.getElementById('disEdit').classList.toggle("hidden");
+        document.getElementById('disEditM').classList.toggle("hidden");
+    }
+    else{
+        document.getElementById('producEdit').classList.toggle("hidden");
+        document.getElementById('producEditM').classList.toggle("hidden");
     }
 
 }

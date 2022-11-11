@@ -4,13 +4,13 @@ require_once 'conexion.php';
 class Whatsapp
 {
 
-    public function agregarWhatsapp($asesor,$nombreC,$dniC,$telefono,$producto,$lineaProce,$operadorCeden,$modalidad,$tipo,$plan,$equipos,$formaPago,$telefonoRef,$sec,$tipoFija,$planFija,$estado)
+    public function agregarWhatsapp($asesor,$nombreC,$dniC,$telefono,$producto,$lineaProce,$operadorCeden,$modalidad,$tipo,$plan,$equipos,$formaPago,$telefonoRef,$sec,$tipoFija,$planFija,$estado,$observacion,$promocion,$ubicacion,$distrito)
     {
 
         $model=new conexion();
         $con=$model->conectar();
         
-        $sql="declare @codigo char(10); set @codigo = dbo.Gencodwhats(); exec sp_insertar_whatsapp @codigo,'$asesor','$nombreC','$dniC','$telefono','$producto','$lineaProce','$operadorCeden','$modalidad','$tipo','$plan','$equipos','$formaPago','$telefonoRef','$sec','$tipoFija','$planFija','$estado'";
+        $sql="declare @codigo char(10); set @codigo = dbo.Gencodwhats(); exec sp_insertar_whatsapp @codigo,'$asesor','$nombreC','$dniC','$telefono','$producto','$lineaProce','$operadorCeden','$modalidad','$tipo','$plan','$equipos','$formaPago','$telefonoRef','$sec','$tipoFija','$planFija','$estado','$observacion','$promocion','$ubicacion','$distrito'";
 
 		$rs=sqlsrv_query($con,$sql);
 
