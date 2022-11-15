@@ -82,6 +82,7 @@ function mostrarProducto(valor){
         document.getElementById('dplanFija').style.display='none';
     }
     else if(valor == fija){
+        document.getElementById('promocion').selectedIndex = 3;
         document.getElementById('dtipoFija').style.display='block';
         // document.getElementById('dplanFija').style.display='block';
         // document.getElementById('destado').style.display='block';
@@ -303,24 +304,29 @@ function editar() {
     const fijaE = "Fija "
     const lineE = "---            "
 
-    document.getElementById('cancel').classList.toggle("hidden");
     document.getElementById('edit').classList.toggle("hidden");
     document.getElementById('dsave').classList.toggle("hidden");
 
 
     let prod = document.getElementById('productoEdit').value
-    let type = document.getElementById('tipolinea').value
-
-    console.log(prod,type)
-
+    
+    
     if (prod == movilE) {
+        let type = document.getElementById('tipolinea').value
         if (type == lineE) 
         {
             document.getElementById('promocionEdit').classList.toggle("hidden");
             document.getElementById('promocionEditM').classList.toggle("hidden");
             document.getElementById('typeEdit').classList.toggle("hidden");
             document.getElementById('typeEditM').classList.toggle("hidden");
-    
+            document.getElementById('telefEdit').classList.toggle("hidden");
+            document.getElementById('telefEditM').classList.toggle("hidden");
+            document.getElementById('lineProceEdit').classList.toggle("hidden");
+            document.getElementById('lineProceEditM').classList.toggle("hidden");
+            document.getElementById('operaCedenEdit').classList.toggle("hidden");
+            document.getElementById('operaCedenEditM').classList.toggle("hidden");
+            document.getElementById('modalEdit').classList.toggle("hidden");
+            document.getElementById('modalEditM').classList.toggle("hidden");
         }
         document.getElementById('planReEdit').classList.toggle("hidden");
         document.getElementById('planReEditM').classList.toggle("hidden");
@@ -342,70 +348,17 @@ function editar() {
         document.getElementById('disEditM').classList.toggle("hidden");
     }
     else if (prod == fijaE) {
-        document.getElementById('planFijaEdit').classList.toggle("hidden");
-        document.getElementById('planFijaEditM').classList.toggle("hidden");
-        document.getElementById('telefRefEdit').classList.toggle("hidden");
-        document.getElementById('telefRefEditM').classList.toggle("hidden");
-        document.getElementById('secEdit').classList.toggle("hidden");
-        document.getElementById('secEditM').classList.toggle("hidden");
-        document.getElementById('estadoEdit').classList.toggle("hidden");
-        document.getElementById('estadoEditM').classList.toggle("hidden");
-        document.getElementById('obsEdit').classList.toggle("hidden");
-        document.getElementById('obsEditM').classList.toggle("hidden");
-        document.getElementById('ubiEdit').classList.toggle("hidden");
-        document.getElementById('ubiEditM').classList.toggle("hidden");
-        document.getElementById('disEdit').classList.toggle("hidden");
-        document.getElementById('disEditM').classList.toggle("hidden");
-    }
-    else{
-        document.getElementById('producEdit').classList.toggle("hidden");
-        document.getElementById('producEditM').classList.toggle("hidden");
-    }
-
-
-}
-
-function cancel() {
-    const movilE = "Movil"
-    const fijaE = "Fija "
-    const lineE = "---            "
-
-    document.getElementById('cancel').classList.toggle("hidden");
-    document.getElementById('edit').classList.toggle("hidden");
-    document.getElementById('dsave').classList.toggle("hidden");
-
-    let prod = document.getElementById('productoEdit').value
-    let type = document.getElementById('tipolinea').value
-
-    if (prod == movilE) {
-        if (type == lineE) 
+        let typef = document.getElementById('tipoFijaEdit').value
+        if (typef == lineE) 
         {
             document.getElementById('promocionEdit').classList.toggle("hidden");
             document.getElementById('promocionEditM').classList.toggle("hidden");
-            document.getElementById('typeEdit').classList.toggle("hidden");
-            document.getElementById('typeEditM').classList.toggle("hidden");
-    
+            document.getElementById('typeFijaEdit').classList.toggle("hidden");
+            document.getElementById('typeFijaEditM').classList.toggle("hidden");
+            document.getElementById('telefFijaEdit').classList.toggle("hidden");
+            document.getElementById('telefFijaEditM').classList.toggle("hidden");
+            // document.getElementById('promoEdit').selectedIndex = 3;
         }
-        document.getElementById('planReEdit').classList.toggle("hidden");
-        document.getElementById('planReEditM').classList.toggle("hidden");
-        document.getElementById('equipoEdit').classList.toggle("hidden");
-        document.getElementById('equipoEditM').classList.toggle("hidden");
-        document.getElementById('formaPgEdit').classList.toggle("hidden");
-        document.getElementById('formaPgEditM').classList.toggle("hidden");
-        document.getElementById('telefRefEdit').classList.toggle("hidden");
-        document.getElementById('telefRefEditM').classList.toggle("hidden");
-        document.getElementById('secEdit').classList.toggle("hidden");
-        document.getElementById('secEditM').classList.toggle("hidden");
-        document.getElementById('estadoEdit').classList.toggle("hidden");
-        document.getElementById('estadoEditM').classList.toggle("hidden");
-        document.getElementById('obsEdit').classList.toggle("hidden");
-        document.getElementById('obsEditM').classList.toggle("hidden");
-        document.getElementById('ubiEdit').classList.toggle("hidden");
-        document.getElementById('ubiEditM').classList.toggle("hidden");
-        document.getElementById('disEdit').classList.toggle("hidden");
-        document.getElementById('disEditM').classList.toggle("hidden");
-    }
-    else if (prod == fijaE) {
         document.getElementById('planFijaEdit').classList.toggle("hidden");
         document.getElementById('planFijaEditM').classList.toggle("hidden");
         document.getElementById('telefRefEdit').classList.toggle("hidden");

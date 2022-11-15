@@ -1,5 +1,5 @@
 
-<div id="contenedorModalGuardarWhats" class="modal contenedorModal">
+<div id="contenedorModalGuardarWhats" class="modal contenedorModal" onclick="cerrarModalGuardar();">
     <div id="modalGuardarWhats" class="mgw modal-dialog modal-dialog-centered modal-dialog-scrollable modalClose">
         <div class="modal-content">
             <div class="modal-header">
