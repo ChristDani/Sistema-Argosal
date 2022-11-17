@@ -11,19 +11,26 @@
         </div>
         <div class="card" style="width: 15rem;">
             <div class="card-body">
-                <h5 class="card-title">Ventas Concretadas</h5>
-                <p class="card-text" id="vc"><?php echo $ventasConcretadas; ?></p>
+                <h5 class="card-title">Concretadas</h5>
+                <div class='left'>
+                    <p class='card-text' id="vc"><?php echo $ventasConcretadas; ?></p>
+                </div>
+                <div class='rigt'>
+                    <svg>
+                        <circle cx="50" cy="50" r="40" stroke-width="3" fill="red"></circle>
+                    </svg>
+                </div>
             </div>
         </div>
         <div class="card" style="width: 15rem;">
             <div class="card-body">
-                <h5 class="card-title">Ventas Pendientes</h5>
+                <h5 class="card-title">Pendientes</h5>
                 <p class="card-text" id="vp"><?php echo $ventasPendientes; ?></p>
             </div>
         </div>
         <div class="card" style="width: 15rem;">
             <div class="card-body">
-                <h5 class="card-title">Ventas Rechazadas</h5>
+                <h5 class="card-title">Rechazadas</h5>
                 <p class="card-text" id="vr"><?php echo $ventasRechazadas; ?></p>
             </div>
         </div>
@@ -51,7 +58,7 @@
                 {
                     echo "<div class='progresoAsesor'>";
                     echo "<hgroup>";
-                        echo "Asesor <em>$x[1]</em>";
+                        echo "<b>$x[3]</b> <em>$x[1]</em>";
                     echo "</hgroup>";
                     // ventas totales asesor
                     $sqla = "select * from whatsapp where asesor='".$x[1]."'";
@@ -60,8 +67,13 @@
 
                     echo "<div class='card' style='width: 20rem;'>";
                         echo "<div class='card-body'>";
-                            echo "<h5 class='card-title'>Ventas Totales</h5>";
-                            echo "<p class='card-text'>$ventasTotalesAsesor</p>";
+                        echo "<h5 class='card-title'>Ventas Totales</h5>";
+                            echo "<div class='left'>";
+                                echo "<p class='card-text'>$ventasTotalesAsesor</p>";
+                            echo "</div>";
+                            echo "<div class='rigt'>";
+                                echo "<p class='card-text'>$ventasTotalesAsesor</p>";
+                            echo "</div>";
                         echo "</div>";
                     echo "</div>";
                     // ventas concretadas asesor
@@ -109,7 +121,7 @@
                 {
                     echo "<div class='progresoAsesor'>";
                     echo "<hgroup>";
-                        echo "Asesor <em>$x[1]</em>";
+                        echo "<b>$x[3]</b> <em>$x[1]</em>";
                     echo "</hgroup>";
                     // ventas totales asesor
                     $sqla = "select * from whatsapp where asesor='".$x[1]."'";

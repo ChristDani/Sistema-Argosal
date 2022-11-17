@@ -10,11 +10,25 @@ let vr = document.getElementById('vr').textContent;
 new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['V. Totales', 'V. Concretadas', 'V. Pendientes', 'V. Rechazadas'],
+        labels: ['Gestión de Venta', 'Concretadas', 'Pendientes', 'Rechazadas'],
         datasets: [{
-            label: 'Ventas del Mes',
+            label: 'Gestión',
             data: [vt, vc, vp, vr],
-            borderWidth: 1
+            borderWidth: 1,
+            borderColor:
+                [
+                    'rgb(54, 162, 235)',
+                    'rgb(75, 192, 192)',
+                    'rgb(255, 205, 86)',
+                    'rgb(255, 99, 132)'
+                ],
+            backgroundColor:
+                [
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(255, 205, 86, 0.2)',
+                    'rgba(255, 99, 132, 0.2)'
+                ]
         }]
     },
     options: {
