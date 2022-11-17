@@ -95,33 +95,6 @@ header ul li a:hover{
     padding-right: 10px;
 }
 
-.contboton{
-    left: 200px;
-    position: absolute;
-    background: #035934;
-    padding: 4px;
-}
-
-.boton
-{
-    /* display: none; */
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-}
-
-.boton span
-{
-    display: block;
-    width: 90%;
-    background: #162a43;
-    height: 2px;
-    margin: 6px 5% 0 5%;
-    transition: all 300ms;
-    transform-origin: 1.5px 100%;
-    /* box-shadow: 0 0 2rem 0.5rem rgb(255 255 255 / 35%); */
-}
-
 body{
     /* background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%); */
     background: whitesmoke;
@@ -566,6 +539,28 @@ table tbody tr td label:active{
 .mgw{
     width: 40% !important;
 }
+
+.progresoTotal .contenidoPT{
+    display: flex;
+    justify-content: center;
+}
+.progresoIndividual .contenidoPI{
+    display: flex;
+    justify-content: center;
+}
+
+.progresoIndividual .contenidoPI .progresoAsesor{
+    border: 1px solid darkred;
+    border-radius: 20px;
+    padding: 5px 10px;
+    margin: 10px 10px;
+}
+
+.grafico{
+    width: 40vw;
+    height: 50vh;
+}
+
 
 /* estilos para celular */
 

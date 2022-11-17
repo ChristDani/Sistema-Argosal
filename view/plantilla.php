@@ -21,6 +21,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     
     <!-- <script src="controller/whatsapp/modal.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <?php 
@@ -51,6 +52,10 @@
             elseif ($_GET["pagina"]==="metas") 
             {
                 include_once "paginas/metas.php";
+            }
+            elseif ($_GET["pagina"]==="progreso") 
+            {
+                include_once "paginas/progreso.php";
             }
             else {
                 session_destroy();

@@ -1,5 +1,5 @@
 
-<div id="contenedorModalGuardarWhats" class="modal contenedorModal" onclick="cerrarModalGuardar();">
+<div id="contenedorModalGuardarWhats" class="modal contenedorModal">
     <div id="modalGuardarWhats" class="mgw modal-dialog modal-dialog-centered modal-dialog-scrollable modalClose">
         <div class="modal-content">
             <div class="modal-header">
@@ -27,7 +27,7 @@
                     </div>
                     
                     <div class="form-floating mb-3 hidden" id="dtelefonoRef">                
-                        <input class="form-control" autocomplete="off" type="tel" name="telefonoRef" id="telefonoRef" maxlength=9 placeholder="999 999 999" onkeyup="mostrarProductos()" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
+                        <input required class="form-control" autocomplete="off" type="tel" name="telefonoRef" id="telefonoRef" maxlength=9 placeholder="999 999 999" onkeyup="mostrarProductos()" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
                         <label for="telefono">Telefono de Referencia</label>
                     </div>
                     
