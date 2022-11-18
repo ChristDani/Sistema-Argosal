@@ -10,7 +10,7 @@ let vr = document.getElementById('vr').textContent;
 new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Gestión de Venta', 'Concretadas', 'Pendientes', 'Rechazadas'],
+        labels: ['Gestión Total', 'Concretadas', 'Pendientes', 'Rechazadas'],
         datasets: [{
             label: 'Gestión',
             data: [vt, vc, vp, vr],
@@ -39,3 +39,16 @@ new Chart(ctx, {
         }
     }
 });
+
+let number = document.getElementById("number");
+let counter = 0;
+
+setInterval(() => {
+    if (counter == 40) {
+        clearInterval();
+    }
+    else{
+        counter += 1;
+        number.innerHTML = counter + "%";
+    }
+}, 40);

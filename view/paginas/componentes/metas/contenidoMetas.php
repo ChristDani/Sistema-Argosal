@@ -1,10 +1,172 @@
 <div class="contenedor E">
-    aca va la tabla de metas
+    <hgroup>
+        <h3>Meta en Ventas del Mes</h3>
+    </hgroup>
+    <div class="meta">
+
+        <div class="card" style="width: 11%;">
+            <div class="card-body">
+                <h6 class="card-title">Meta Total de Ventas</h6>
+                <p class="card-text">75</p>
+                <div>
+                    <progress value="100" max="100" min="0"></progress>
+                    <small class="porcent">100%</small>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 11%;">
+            <div class="card-body">
+                <h6 class="card-title">Portabilidades Menores a S/69.90</h6>
+                <p class="card-text">22</p>
+                <div>
+                    <progress value="29.3" max="100" min="0"></progress>
+                    <small class="porcent">29.3%</small>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 11%;">
+            <div class="card-body">
+                <h6 class="card-title">Portabilidades Mayores a S/69.90</h6>
+                <p class="card-text">25</p>
+                <div>
+                    <progress value="33.3" max="100" min="0"></progress>
+                    <small class="porcent">33.3%</small>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 11%;">
+            <div class="card-body">
+                <h6 class="card-title">Altas Postpago</h6>
+                <p class="card-text">5</p>
+                <div>
+                    <progress value="6.7" max="100" min="0"></progress>
+                    <small class="porcent">6.7%</small>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 11%;">
+            <div class="card-body">
+                <h6 class="card-title">Alta Prepago</h6>
+                <p class="card-text">1</p>
+                <div>
+                    <progress value="1.3" max="100" min="0"></progress>
+                    <small class="porcent">1.3%</small>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 11%;">
+            <div class="card-body">
+                <h6 class="card-title">Portabilidad Prepago</h6>
+                <p class="card-text">1</p>
+                <div>
+                    <progress value="1.3" max="100" min="0"></progress>
+                    <small class="porcent">1.3%</small>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 11%;">
+            <div class="card-body">
+                <h6 class="card-title">Renovación</h6>
+                <p class="card-text">10</p>
+                <div>
+                    <progress value="13.3" max="100" min="0"></progress>
+                    <small class="porcent">13.3%</small>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 11%;">
+            <div class="card-body">
+                <h6 class="card-title">HFC (Inc. FTTH)</h6>
+                <p class="card-text">10</p>
+                <div>
+                    <progress value="13.3" max="100" min="0"></progress>
+                    <small class="porcent">13.3%</small>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="width: 11%;">
+            <div class="card-body">
+                <h6 class="card-title">IFI</h6>
+                <p class="card-text">1</p>
+                <div>
+                    <progress value="1.3" max="100" min="0"></progress>
+                    <small class="porcent">1.3%</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="contenedor E">
+    <hgroup>
+        <h3>Progreso en Ventas del Mes</h3>
+    </hgroup>
+    <div class="meta">
+
+        <div class="card" style="width: 11%;">
+            <div class="card-body">
+                <h6 class="card-title">Progreso en la Meta Total de Ventas</h6>
+                <p class="card-text"><?php echo $ventasTotalesPr; ?></p>
+            </div>
+        </div>
+        <div class="card" style="width: 11%;">
+            <div class="card-body">
+                <h6 class="card-title">Progreso en Portabilidades Menores a S/69.90</h6>
+                <p class="card-text"><?php echo $ventasMen69; ?></p>
+            </div>
+        </div>
+        <div class="card" style="width: 11%;">
+            <div class="card-body">
+                <h6 class="card-title">Progreso en Portabilidades Mayores a S/69.90</h6>
+                <p class="card-text"><?php echo $ventasMay69; ?></p>
+            </div>
+        </div>
+        <div class="card" style="width: 11%;">
+            <div class="card-body">
+                <h6 class="card-title">Progreso en Altas Postpago</h6>
+                <p class="card-text"><?php echo $ventasAltPost; ?></p>
+            </div>
+        </div>
+        <div class="card" style="width: 11%;">
+            <div class="card-body">
+                <h6 class="card-title">Progreso en Alta Prepago</h6>
+                <p class="card-text"><?php echo $ventasAltPre; ?></p>
+            </div>
+        </div>
+        <div class="card" style="width: 11%;">
+            <div class="card-body">
+                <h6 class="card-title">Progreso en Portabilidad Prepago</h6>
+                <p class="card-text"><?php echo $ventasPortPre; ?></p>
+            </div>
+        </div>
+        <div class="card" style="width: 11%;">
+            <div class="card-body">
+                <h6 class="card-title">Progreso en Renovación</h6>
+                <p class="card-text"><?php echo $ventasReno; ?></p>
+            </div>
+        </div>
+        <div class="card" style="width: 11%;">
+            <div class="card-body">
+                <h6 class="card-title">Progreso en HFC (Inc. FTTH)</h6>
+                <p class="card-text"><?php echo $ventasFijaFtth; ?></p>
+            </div>
+        </div>
+        <div class="card" style="width: 11%;">
+            <div class="card-body">
+                <h6 class="card-title">Progreso en IFI</h6>
+                <p class="card-text"><?php echo $ventasFijaIfi; ?></p>
+            </div>
+        </div>
+    </div>
 </div>
 <!-- <div class="contenedor E">
     <h3>Tabla de Ventas Concluidas</h3>
 </div> -->
 <div class="contenedor E">
+    <hgroup>
+        <h3>
+            Detalles de Ventas
+        </h3>
+    </hgroup>
     <div class="campos">
         <div class='mostrar'>
             <label for="numRegistrosVC">Mostrar</label>

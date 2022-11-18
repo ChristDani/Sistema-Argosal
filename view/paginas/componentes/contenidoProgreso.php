@@ -5,21 +5,34 @@
     <div class="contenidoPT">
         <div class="card" style="width: 15rem;">
             <div class="card-body">
-                <h5 class="card-title">Ventas Totales</h5>
+                <h5 class="card-title">Gestión Total</h5>
                 <p class="card-text" id="vt"><?php echo $ventasTotales; ?></p>
             </div>
         </div>
         <div class="card" style="width: 15rem;">
             <div class="card-body">
                 <h5 class="card-title">Concretadas</h5>
-                <div class='left'>
-                    <p class='card-text' id="vc"><?php echo $ventasConcretadas; ?></p>
-                </div>
-                <div class='rigt'>
-                    <svg>
-                        <circle cx="50" cy="50" r="40" stroke-width="3" fill="red"></circle>
-                    </svg>
-                </div>
+                <p class='card-text' id="vc"><?php echo $ventasConcretadas; ?></p>
+                <!-- <div class="contenidoPr">
+                    <div class="barrapr">
+                        <div class="fuera">
+                            <div class="dentro">
+                                <div id="number">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                            <defs>
+                                <linearGradient id="GradientColor">
+                                    <stop offset="0%" stop-color="#e91e63"/>
+                                    <stop offset="100%" stop-color="#673ab7"/>
+                                </linearGradient>
+                            </defs>
+                            <circle cx="80" cy="80" r="70" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                </div> -->
             </div>
         </div>
         <div class="card" style="width: 15rem;">
@@ -67,13 +80,11 @@
 
                     echo "<div class='card' style='width: 20rem;'>";
                         echo "<div class='card-body'>";
-                        echo "<h5 class='card-title'>Ventas Totales</h5>";
-                            echo "<div class='left'>";
-                                echo "<p class='card-text'>$ventasTotalesAsesor</p>";
-                            echo "</div>";
-                            echo "<div class='rigt'>";
-                                echo "<p class='card-text'>$ventasTotalesAsesor</p>";
-                            echo "</div>";
+                            echo "<h5 class='card-title'>Ventas Totales</h5>";
+                            echo "<p class='card-text'>$ventasTotalesAsesor</p>";
+                            // echo "<div class='contenidoPr'>";
+                            //     echo "<p class='card-text'>$ventasTotalesAsesor</p>";
+                            // echo "</div>";
                         echo "</div>";
                     echo "</div>";
                     // ventas concretadas asesor
