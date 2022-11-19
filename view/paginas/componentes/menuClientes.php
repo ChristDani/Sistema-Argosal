@@ -3,7 +3,7 @@
     <div class="botones">
         <button onclick="mostrarWhats();">Whatsapp</button>
         <?php
-            if ($tipoU == 'director') {
+            if ($tipoU == 'Administrador') {
                 echo "<button onclick='mostrarMasi();'>Masiva</button>";
             }
         ?>

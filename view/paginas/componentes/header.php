@@ -6,7 +6,7 @@
     <?php
         echo "<li><a href='index.php?pagina=clientes&dni=$dni'><span class='material-symbols-outlined'>groups</span>Clientes</a></li>";
         echo "<li><a href='index.php?pagina=equipos&dni=$dni'><span class='material-symbols-outlined'>inventory</span>Productos</a></li>";
-    if ($tipoU == 'director') {
+    if ($tipoU == 'Administrador') {
         echo "<li><a href='index.php?pagina=metas&dni=$dni'><span class='material-symbols-outlined'>monitoring</span>Metas</a></li>";
         echo "<li><a href='index.php?pagina=progreso&dni=$dni'><span class='material-symbols-outlined'> insights</span>Progreso</a></li>";
     }
