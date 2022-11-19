@@ -1,6 +1,8 @@
-<div class="progresoTotal">
+<div class="progresoTotal contenedor E">
     <hgroup>
-        Progreso General de la Empresa
+        <h3>
+            Progreso General de la Empresa
+        </h3>
     </hgroup>
     <div class="contenidoPT">
         <div class="card" style="width: 15rem;">
@@ -49,17 +51,21 @@
         </div>
     </div>
 </div>
-<div class="card grafico">
+<div class="grafico">
     <hgroup>
-        Gráfica de Ventas
+        <h3>
+            Gráfica de Ventas
+        </h3>
     </hgroup>
     <div class="card-body chart-container" style="position: relative; max-height:40vh;">
         <canvas id="myChart"></canvas>
     </div>
 </div>
-<div class="progresoIndividual">
+<div class="progresoIndividual contenedor E">
     <hgroup>
-        Progreso Individual por Asesor
+        <h3>
+            Progreso Individual por Asesor
+        </h3>
     </hgroup>
     <div class="contenidoPI">
         <?php

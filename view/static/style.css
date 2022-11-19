@@ -559,7 +559,13 @@ table tbody tr td label:active{
 .meta{
     display: flex;
     flex-wrap: wrap;
+    width: -webkit-fill-available;
 }
+
+.meta .card{
+    margin: 10px;
+}
+
 progress{
     width: 60%;
 }
