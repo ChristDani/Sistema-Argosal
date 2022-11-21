@@ -1,3 +1,10 @@
+// colores
+let rojo = "background: #f35252;color: black;";
+let naranja = "background: rgb(255 135 65);color: black;";
+let amarillo = "background: #eff59a;color: black;";
+let verdeC = "background: #bff8c2;color: black;";
+let verdeO = "background: #8af18f;color: black;";
+
 // valores estaticos
 let totalVentas = document.getElementById("totven").textContent;
 let ventasPortmen69 = document.getElementById("portmen69").textContent;
@@ -13,235 +20,215 @@ let ventasifi = document.getElementById("ifi").textContent;
 // progreso total
 let progreTotalVentas = document.getElementById("progreTotVen").textContent;
 let barraProgreTotalVentas = document.getElementById("BarraProgreTotVen");
-let txtProgreTotalVentas = document.getElementById("textProgreTotVen");
 
 progreTotal = (progreTotalVentas*100)/totalVentas;
 
-barraProgreTotalVentas.value = progreTotal;
-txtProgreTotalVentas.innerHTML = progreTotal.toFixed(1) + "%";
+barraProgreTotalVentas.innerHTML = progreTotal.toFixed(1) + "%";
+
+if (progreTotal >= 0 && progreTotal < 20) {
+    barraProgreTotalVentas.style="width: "+progreTotal+"%;"+rojo;
+}
+else if (progreTotal >= 20 && progreTotal < 40) {
+    barraProgreTotalVentas.style="width: "+progreTotal+"%;"+naranja;
+}
+else if (progreTotal >= 40 && progreTotal < 60) {
+    barraProgreTotalVentas.style="width: "+progreTotal+"%;"+amarillo;
+}
+else if (progreTotal >= 60 && progreTotal < 90) {
+    barraProgreTotalVentas.style="width: "+progreTotal+"%;"+verdeC;
+}
+else if (progreTotal >= 90) {
+    barraProgreTotalVentas.style="width: "+progreTotal+"%;"+verdeO;
+}
 
 // progreso portabilidad menor a 69
 let progreportmen69 = document.getElementById("progrevenprotmen69").textContent;
 let barraProgreportmen69 = document.getElementById("BarraProgrevenprotmen69");
-let txtProgreportmen69 = document.getElementById("textProgrevenprotmen69");
 
 progportmen69 = (progreportmen69*100)/ventasPortmen69;
 
-barraProgreportmen69.value = progportmen69;
-txtProgreportmen69.innerHTML = progportmen69.toFixed(1) + "%";
+barraProgreportmen69.innerHTML = progportmen69.toFixed(1) + "%";
+
+if (progportmen69 >= 0 && progportmen69 < 20) {
+    barraProgreportmen69.style="width: "+progportmen69+"%;"+rojo;
+}
+else if (progportmen69 >= 20 && progportmen69 < 40) {
+    barraProgreportmen69.style="width: "+progportmen69+"%;"+naranja;
+}
+else if (progportmen69 >= 40 && progportmen69 < 60) {
+    barraProgreportmen69.style="width: "+progportmen69+"%;"+amarillo;
+}
+else if (progportmen69 >= 60 && progportmen69 < 90) {
+    barraProgreportmen69.style="width: "+progportmen69+"%;"+verdeC;
+}
+else if (progportmen69 >= 90) {
+    barraProgreportmen69.style="width: "+progportmen69+"%;"+verdeO;
+}
 
 // progreso portabilidad mayor a 69
 let progreportmay69 = document.getElementById("progrevenprotmay69").textContent;
 let barraProgreportmay69 = document.getElementById("BarraProgrevenprotmay69");
-let txtProgreportmay69 = document.getElementById("textProgrevenprotmay69");
 
 progportmay69 = (progreportmay69*100)/ventasPortmay69;
 
-barraProgreportmay69.value = progportmay69;
-txtProgreportmay69.innerHTML = progportmay69.toFixed(1) + "%";
+barraProgreportmay69.innerHTML = progportmay69.toFixed(1) + "%";
+
+if (progportmay69 >= 0 && progportmay69 < 20) {
+    barraProgreportmay69.style="width: "+progportmay69+"%;"+rojo;
+}
+else if (progportmay69 >= 20 && progportmay69 < 40) {
+    barraProgreportmay69.style="width: "+progportmay69+"%;"+naranja;
+}
+else if (progportmay69 >= 40 && progportmay69 < 60) {
+    barraProgreportmay69.style="width: "+progportmay69+"%;"+amarillo;
+}
+else if (progportmay69 >= 60 && progportmay69 < 90) {
+    barraProgreportmay69.style="width: "+progportmay69+"%;"+verdeC;
+}
+else if (progportmay69 >= 90) {
+    barraProgreportmay69.style="width: "+progportmay69+"%;"+verdeO;
+}
 
 // progreso altas postpago
 let porgrealtpost = document.getElementById("progrevenaltpost").textContent;
 let barraporgrealtpost = document.getElementById("Barraprogrevenaltpost");
-let txtporgrealtpost = document.getElementById("textprogrevenaltpost");
 
 Paltpostpa = (porgrealtpost*100)/ventasaltpost;
 
-barraporgrealtpost.value = Paltpostpa;
-txtporgrealtpost.innerHTML = Paltpostpa.toFixed(1) + "%";
+barraporgrealtpost.innerHTML = Paltpostpa.toFixed(1) + "%";
+
+if (Paltpostpa >= 0 && Paltpostpa < 20) {
+    barraporgrealtpost.style="width: "+Paltpostpa+"%;"+rojo;
+}
+else if (Paltpostpa >= 20 && Paltpostpa < 40) {
+    barraporgrealtpost.style="width: "+Paltpostpa+"%;"+naranja;
+}
+else if (Paltpostpa >= 40 && Paltpostpa < 60) {
+    barraporgrealtpost.style="width: "+Paltpostpa+"%;"+amarillo;
+}
+else if (Paltpostpa >= 60 && Paltpostpa < 90) {
+    barraporgrealtpost.style="width: "+Paltpostpa+"%;"+verdeC;
+}
+else if (Paltpostpa >= 90) {
+    barraporgrealtpost.style="width: "+Paltpostpa+"%;"+verdeO;
+}
 
 // progreso altas prepago
 let progreVentasAltPre = document.getElementById("progrevenaltpre").textContent;
 let barraProgreVentasAltPre = document.getElementById("BarraProgreVenAltPre");
-let txtProgreVentasAltPre = document.getElementById("textProgreVenAltPre");
 
 altPre = (progreVentasAltPre*100)/ventasAltPrepa;
 
-barraProgreVentasAltPre.value = altPre;
-txtProgreVentasAltPre.innerHTML = altPre.toFixed(1) + "%";
+barraProgreVentasAltPre.innerHTML = altPre.toFixed(1) + "%";
+
+if (altPre >= 0 && altPre < 20) {
+    barraProgreVentasAltPre.style="width: "+altPre+"%;"+rojo;
+}
+else if (altPre >= 20 && altPre < 40) {
+    barraProgreVentasAltPre.style="width: "+altPre+"%;"+naranja;
+}
+else if (altPre >= 40 && altPre < 60) {
+    barraProgreVentasAltPre.style="width: "+altPre+"%;"+amarillo;
+}
+else if (altPre >= 60 && altPre < 90) {
+    barraProgreVentasAltPre.style="width: "+altPre+"%;"+verdeC;
+}
+else if (altPre >= 90) {
+    barraProgreVentasAltPre.style="width: "+altPre+"%;"+verdeO;
+}
 
 // progreso portabilidad prepago
 let progreportprepago = document.getElementById("progreportprepa").textContent;
 let barraProgreportprepa = document.getElementById("BarraProgreportprepa");
-let txtProgreportprepa = document.getElementById("textProgreportprepa");
 
 portprepa = (progreportprepago*100)/ventasportpre;
 
-barraProgreportprepa.value = portprepa;
-txtProgreportprepa.innerHTML = portprepa.toFixed(1) + "%";
+barraProgreportprepa.innerHTML = portprepa.toFixed(1) + "%";
+
+if (portprepa >= 0 && portprepa < 20) {
+    barraProgreportprepa.style="width: "+portprepa+"%;"+rojo;
+}
+else if (portprepa >= 20 && portprepa < 40) {
+    barraProgreportprepa.style="width: "+portprepa+"%;"+naranja;
+}
+else if (portprepa >= 40 && portprepa < 60) {
+    barraProgreportprepa.style="width: "+portprepa+"%;"+amarillo;
+}
+else if (portprepa >= 60 && portprepa < 90) {
+    barraProgreportprepa.style="width: "+portprepa+"%;"+verdeC;
+}
+else if (portprepa >= 90) {
+    barraProgreportprepa.style="width: "+portprepa+"%;"+verdeO;
+}
 
 // progreso renovacion
 let progrecentreno = document.getElementById("progrevenrenova").textContent;
 let barraProgrecentreno = document.getElementById("BarraProgrevenrenova");
-let txtProgrecentreno = document.getElementById("textProgrevenrenova");
 
 proventreno = (progrecentreno*100)/ventasreno;
 
-barraProgrecentreno.value = proventreno;
-txtProgrecentreno.innerHTML = proventreno.toFixed(1) + "%";
+barraProgrecentreno.innerHTML = proventreno.toFixed(1) + "%";
+
+if (proventreno >= 0 && proventreno < 20) {
+    barraProgrecentreno.style="width: "+proventreno+"%;"+rojo;
+}
+else if (proventreno >= 20 && proventreno < 40) {
+    barraProgrecentreno.style="width: "+proventreno+"%;"+naranja;
+}
+else if (proventreno >= 40 && proventreno < 60) {
+    barraProgrecentreno.style="width: "+proventreno+"%;"+amarillo;
+}
+else if (proventreno >= 60 && proventreno < 90) {
+    barraProgrecentreno.style="width: "+proventreno+"%;"+verdeC;
+}
+else if (proventreno >= 90) {
+    barraProgrecentreno.style="width: "+proventreno+"%;"+verdeO;
+}
 
 // progreso fija ftth
 let progrefijaftth = document.getElementById("progrevenfijaftth").textContent;
 let barraProgrefijaftth = document.getElementById("BarraProgrevenfijaftth");
-let txtProgrefijaftth = document.getElementById("textProgrevenfijaftth");
 
 provenfijaftth = (progrefijaftth*100)/ventasftth;
 
-barraProgrefijaftth.value = provenfijaftth;
-txtProgrefijaftth.innerHTML = provenfijaftth.toFixed(1) + "%";
+barraProgrefijaftth.innerHTML = provenfijaftth.toFixed(1) + "%";
+
+if (provenfijaftth >= 0 && provenfijaftth < 20) {
+    barraProgrefijaftth.style="width: "+provenfijaftth+"%;"+rojo;
+}
+else if (provenfijaftth >= 20 && provenfijaftth < 40) {
+    barraProgrefijaftth.style="width: "+provenfijaftth+"%;"+naranja;
+}
+else if (provenfijaftth >= 40 && provenfijaftth < 60) {
+    barraProgrefijaftth.style="width: "+provenfijaftth+"%;"+amarillo;
+}
+else if (provenfijaftth >= 60 && provenfijaftth < 90) {
+    barraProgrefijaftth.style="width: "+provenfijaftth+"%;"+verdeC;
+}
+else if (provenfijaftth >= 90) {
+    barraProgrefijaftth.style="width: "+provenfijaftth+"%;"+verdeO;
+}
 
 // progreso fija ifi
 let progrefijaifi = document.getElementById("progrevenfijaifi").textContent;
 let barraProgrefijaifi = document.getElementById("BarraProgrevenfijaifi");
-let txtProgrefijaifi = document.getElementById("textProgrevenfijaifi");
 
 provenfijaifi = (progrefijaifi*100)/ventasifi;
 
-barraProgrefijaifi.value = provenfijaifi;
-txtProgrefijaifi.innerHTML = provenfijaifi.toFixed(1) + "%";
+barraProgrefijaifi.innerHTML = provenfijaifi.toFixed(1) + "%";
 
-// estilos de cartas
-// total
-
-let cardtotal = document.getElementById("cartatotaal");
-if (progreTotal >= 0 && progreTotal < 30) {
-    cardtotal.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(231, 29, 29);background: #f35252;color: white;";
+if (provenfijaifi >= 0 && provenfijaifi < 20) {
+    barraProgrefijaifi.style="width: "+provenfijaifi+"%;"+rojo;
 }
-else if (progreTotal >= 30 && progreTotal < 70) {
-    cardtotal.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(253, 250, 89);background: #eff59a;color: black;"
+else if (provenfijaifi >= 20 && provenfijaifi < 40) {
+    barraProgrefijaifi.style="width: "+provenfijaifi+"%;"+naranja;
 }
-else if (progreTotal >= 70 && progreTotal < 100) {
-    cardtotal.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(123, 245, 164);background: #bff8c2;color: black;"
+else if (provenfijaifi >= 40 && provenfijaifi < 60) {
+    barraProgrefijaifi.style="width: "+provenfijaifi+"%;"+amarillo;
 }
-else if (progreTotal >= 100) {
-    cardtotal.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(59, 240, 119);background: #8af18f;color: black;"
+else if (provenfijaifi >= 60 && provenfijaifi < 90) {
+    barraProgrefijaifi.style="width: "+provenfijaifi+"%;"+verdeC;
 }
-
-// portabilidades menores a 69
-
-let cardPortMen69 = document.getElementById("cartaPortMen69");
-if (progportmen69 >= 0 && progportmen69 < 30) {
-    cardPortMen69.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(231, 29, 29);background: #f35252;color: white;";
-}
-else if (progportmen69 >= 30 && progportmen69 < 70) {
-    cardPortMen69.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(253, 250, 89);background: #eff59a;color: black;"
-}
-else if (progportmen69 >= 70 && progportmen69 < 100) {
-    cardPortMen69.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(123, 245, 164);background: #bff8c2;color: black;"
-}
-else if (progportmen69 >= 100) {
-    cardPortMen69.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(59, 240, 119);background: #8af18f;color: black;"
-}
-
-// portabilidades mayores a 69
-
-let cardPortMAy69 = document.getElementById("cartaPortMay69");
-if (progportmay69 >= 0 && progportmay69 < 30) {
-    cardPortMAy69.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(231, 29, 29);background: #f35252;color: white;";
-}
-else if (progportmay69 >= 30 && progportmay69 < 70) {
-    cardPortMAy69.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(253, 250, 89);background: #eff59a;color: black;"
-}
-else if (progportmay69 >= 70 && progportmay69 < 100) {
-    cardPortMAy69.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(123, 245, 164);background: #bff8c2;color: black;"
-}
-else if (progportmay69 >= 100) {
-    cardPortMAy69.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(59, 240, 119);background: #8af18f;color: black;"
-}
-
-// altas postpago
-
-let cardaltPost = document.getElementById("cartaAltPost");
-if (Paltpostpa >= 0 && Paltpostpa < 30) {
-    cardaltPost.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(231, 29, 29);background: #f35252;color: white;";
-}
-else if (Paltpostpa >= 30 && Paltpostpa < 70) {
-    cardaltPost.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(253, 250, 89);background: #eff59a;color: black;"
-}
-else if (Paltpostpa >= 70 && Paltpostpa < 100) {
-    cardaltPost.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(123, 245, 164);background: #bff8c2;color: black;"
-}
-else if (Paltpostpa >= 100) {
-    cardaltPost.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(59, 240, 119);background: #8af18f;color: black;"
-}
-
-// altas prepago
-
-let cardaltPrepa = document.getElementById("cartaAltPre");
-if (altPre >= 0 && altPre < 30) {
-    cardaltPrepa.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(231, 29, 29);background: #f35252;color: white;";
-}
-else if (altPre >= 30 && altPre < 70) {
-    cardaltPrepa.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(253, 250, 89);background: #eff59a;color: black;"
-}
-else if (altPre >= 70 && altPre < 100) {
-    cardaltPrepa.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(123, 245, 164);background: #bff8c2;color: black;"
-}
-else if (altPre >= 100) {
-    cardaltPrepa.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(59, 240, 119);background: #8af18f;color: black;"
-}
-
-// portabilidad prepago
-
-let cardPortPrepa = document.getElementById("cartaPortPre");
-if (portprepa >= 0 && portprepa < 30) {
-    cardPortPrepa.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(231, 29, 29);background: #f35252;color: white;";
-}
-else if (portprepa >= 30 && portprepa < 70) {
-    cardPortPrepa.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(253, 250, 89);background: #eff59a;color: black;"
-}
-else if (portprepa >= 70 && portprepa < 100) {
-    cardPortPrepa.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(123, 245, 164);background: #bff8c2;color: black;"
-}
-else if (portprepa >= 100) {
-    cardPortPrepa.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(59, 240, 119);background: #8af18f;color: black;"
-}
-
-// renovacion
-
-let cardReno = document.getElementById("cartaReno");
-if (proventreno >= 0 && proventreno < 30) {
-    cardReno.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(231, 29, 29);background: #f35252;color: white;";
-}
-else if (proventreno >= 30 && proventreno < 70) {
-    cardReno.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(253, 250, 89);background: #eff59a;color: black;"
-}
-else if (proventreno >= 70 && proventreno < 100) {
-    cardReno.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(123, 245, 164);background: #bff8c2;color: black;"
-}
-else if (proventreno >= 100) {
-    cardReno.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(59, 240, 119);background: #8af18f;color: black;"
-}
-
-// ftth
-
-let cardFtth = document.getElementById("cartaFtth");
-if (provenfijaftth >= 0 && provenfijaftth < 30) {
-    cardFtth.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(231, 29, 29);background: #f35252;color: white;";
-}
-else if (provenfijaftth >= 30 && provenfijaftth < 70) {
-    cardFtth.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(253, 250, 89);background: #eff59a;color: black;"
-}
-else if (provenfijaftth >= 70 && provenfijaftth < 100) {
-    cardFtth.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(123, 245, 164);background: #bff8c2;color: black;"
-}
-else if (provenfijaftth >= 100) {
-    cardFtth.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(59, 240, 119);background: #8af18f;color: black;"
-}
-
-// ifi
-
-let cardIfi = document.getElementById("cartaIfi");
-
-if (provenfijaifi >= 0 && provenfijaifi < 30) {
-    cardIfi.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(231, 29, 29);background: #f35252;color: white;";
-}
-else if (provenfijaifi >= 30 && provenfijaifi < 70) {
-    cardIfi.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(253, 250, 89);background: #eff59a;color: black;"
-}
-else if (provenfijaifi >= 70 && provenfijaifi < 100) {
-    cardIfi.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(123, 245, 164);background: #bff8c2;color: black;"
-}
-else if (provenfijaifi >= 100) {
-    cardIfi.style="width: 15%;box-shadow: 6px 6px 10px 1px rgb(59, 240, 119);background: #8af18f;color: black;"
+else if (provenfijaifi >= 90) {
+    barraProgrefijaifi.style="width: "+provenfijaifi+"%;"+verdeO;
 }

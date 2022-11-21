@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;  
+    text-decoration: none;  
+}
+
+input:focus, select:focus, select, input.form-control:focus, .form-floating select:focus{
+    outline:none !important;
+    outline-width: 0 !important;
+    border: 0.3px solid var(--color-danger);
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+:root{
+    --color-primary: #7380ec;
+    --color-danger: #fc3747;
+    --color-success: #41f1b6;
+    --color-warning: #ffbb55;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+    --color-dark: #363949;
+    --color-light: rgba(132,139,200,0.18);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+    --card-padding: 1.8rem 1.8rem 0.5rem 2rem;
+    --padding-1: 1.2rem;
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+.dark-theme-variables{
+    --color-background: #181a1e;
+    --color-white: #202528;
+    --color-dark: #edeffd;
+    --color-dark-variant: #a3bdcc;
+    --color-light: rgba(0,0,0,0.4);
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+body{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 0.88rem;
+    background: var(--color-background);
+    color: var(--color-dark);
+}
+
+.card{
+    background: none;
+    border: none;
+}
+
+.card-body, .card-header {
+    background: var(--color-white);
+    border: none;
+    padding: 0;
+}
+
+.card a{
+    color: var(--color-dark);
+    text-decoration: none;
+}
+
+h1{
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+
+h2{
+    font-size: 1.4rem;
+}
+
+h3{
+    font-size: 0.87rem;
+}
+
+.container-fluid h3{
+    font-weight: 700;    
+}
+
+h4{
+    font-size: 0.8rem;
+}
+
+h5{
+    font-size: 0.77rem;
+}
+
+small{
+    font-size: 0.75rem;
+}
+
+.profile-photo{
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.text-muted{
+    color: var(--color-info-dark);
+}
+
+p{
+    color: var(--color-dark-variant);
+    margin: 0;
+}
+
+b{
+    color: var(--color-dark);
+}
+
+.color{
+    color: var(--color-dark);
+}
+
+.primary{
+    color: var(--color-primary);
+}
+
+.danger{
+    color: var(--color-danger);
+}
+
+.success{
+    color: var(--color-success);
+}
+
+.warning{
+    color: var(--color-warning);
+}
+
+.bg{
+    background: var(--color-white);
+}
+
+.primary-bg{
+    background: var(--color-primary);
+}
+
+.danger-bg{
+    background: var(--color-danger);
+}
+
+.danger-bg:hover{
+    background: var(--color-danger);
+    box-shadow: var(--box-shadow);
+}
+
+.success-bg{
+    background: var(--color-success);
+}
+
+.success-bg:hover{
+    background: var(--color-success);
+    box-shadow: var(--box-shadow);
+}
+
+.warning-bg{
+    background: var(--color-warning);
+}
+
+.bare{
+    background: var(--color-white);
+    border-radius: var(--border-radius-1);
+    padding: var(--padding-1);
+}
+
+.sb-topnav{
+    background: var(--color-background);
+}
+
+
+.sb-topnav button{
+    background: var(--color-white);
+    box-shadow: var(--box-shadow);
+}
+
+.sb-topnav button ion-icon{
+    font-size: 1.4rem;
+}
+
+.sb-topnav button:hover{
+    background: var(--color-info-light);
+}
+
+.nav .top{
+    font-family: 'Pacifico', cursive;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.4rem;
+    color: var(--color-dark);
+}
+
+.sb-sidenav{
+    background: var(--color-background);
+}
+
+.sb-sidenav-footer{
+    background: var(--color-white);
+    border-radius: 10px 10px 0 0;
+}
+
+.nav a{
+    display: flex;
+    color: var(--color-info-dark);
+    margin-left: 1rem;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+    height: 3.7rem;
+    transition: all 300ms ease;
+}
+
+.nav a.active{
+    background: var(--color-light);
+    color: var(--color-danger);
+    margin-left: 0;
+}
+
+.nav a.active:before{
+    content: '';
+    width: 6px;
+    height: 165%;
+    background: var(--color-danger);
+}
+
+.nav a.active ion-icon{
+    color: var(--color-danger);
+    margin-left: calc(1rem - 3px);
+}
+.nav a:hover{
+    color: var(--color-danger);
+}
+
+.nav a:hover ion-icon{
+    margin-left: 1rem;    
+}
+
+
+.nav a ion-icon, .sb-sidenav-footer a ion-icon, .d-flex a ion-icon{
+
+    font-size: 1.6rem;
+    transition: all 300ms ease;
+}
+
+.card > .card-header{
+    /* background: var(--color-white); */
+    border-radius: var(--card-border-radius);
+    margin-top: 1rem;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+
+
+.card > .card-body, .card a > .card-body{
+    /* background: var(--color-white); */
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin-top: 1rem;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+
+.card > .card-body:hover, .card a > .card-body:hover{
+    box-shadow: none;
+}
+
+.card > .card-body ion-icon{
+    background: var(--color-primary);
+    pad: 0.5rem;
+    border-radius: 50%;
+    color: var(--color-white);
+    font-size: 2rem;
+}
+
+.card > .card-body.wait ion-icon{
+    background: var(--color-warning);
+}
+
+.card > .card-body.income ion-icon{
+    background: var(--color-success);
+}
+
+.card > .card-body.expenses ion-icon{
+    background: var(--color-danger);
+}
+
+.card > .card-body .middle{
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.card > .card-body .middle h1{
+    display: flex;
+    justify-content: center;
+
+}
+
+.card h3{
+    /* margin: 1rem 0 0.6rem; */
+    font-size: 1rem;
+}
+
+.card-header p{
+    margin-top: 10px;
+}
+
+.offcanvas{
+    background: var(--color-background);
+    border: none;
+}
+
+.offcanvas.offcanvas-end{
+    border: none;
+}
+
+.offcanvas-backdrop{
+    background: none;
+}
+
+.desaparecido{
+    display: none !important;
+}

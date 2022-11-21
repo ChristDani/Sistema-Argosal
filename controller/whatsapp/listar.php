@@ -5,7 +5,7 @@ $model=new conexion();
 $con=$model->conectar();
 
 // en el caso de solo querer determinadas columnas usar esto con el mismo nombre de las columnas...
-$columnas=['codigo','asesor','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','numeroReferencia','sec','tipoFija','planFija','estado','fechaRegistro'];
+$columnas=['codigo','asesor','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','numeroReferencia','sec','tipoFija','planFija','estado','observaciones','promocion','fechaRegistro'];
 
 // tabla a seleccionar
 $tabla='whatsapp';
@@ -68,11 +68,11 @@ $msg = '';
 if ($totalContar===0) {
     $msg = '';
 } elseif ($totalContar===1) {
-    $msg = "Mostrando 1 Registro de un Total de 1 Registro.";
+    $msg = "Mostrando 1 de 1.";
 } elseif ($inicio+$limite>$totalContar) {
-    $msg = "Mostrando Registros del ".$inicio+1 ." al $totalContar de un Total de $totalContar Registros.";
+    $msg = "Mostrando del ".$inicio+1 ." al $totalContar de $totalContar Registros.";
 } else {
-    $msg = "Mostrando Registros del ".$inicio+1 ." al ".$inicio+$limite." de un Total de $totalContar Registros.";
+    $msg = "Mostrando del ".$inicio+1 ." al ".$inicio+$limite." de $totalContar Registros.";
 }
 
 $output=[];
@@ -85,18 +85,55 @@ if ($filas>0) {
     while ($fila=sqlsrv_fetch_array($resultado)) {
         
         $code = $fila['codigo'];
-        $fecha=$fila['fechaRegistro']-> format('d/m/Y');
+        $fecha=$fila['fechaRegistro']-> format('l j \of F Y h:i:s A');
 
-        $output['data'].= "<tr>";
-        $output['data'].= "<td align='center'>$i</td>";
-        $output['data'].= "<td align='left'>".$fila['nombre']."</td>";
-        $output['data'].= "<td align='center'>".$fila['numeroReferencia']."</td>";
-        $output['data'].= "<td align='center'>".$fila['producto']."</td>";
-        $output['data'].= "<td align='center'>".$fila['sec']."</td>";
-        $output['data'].= "<td align='center'>".$fila['estado']."</td>";
-        $output['data'].= "<td align='center'>".$fecha."</td>";
-        $output['data'].= "<td align='center'><label onclick="."abrirModalDetalle('$code');"."><span class='material-symbols-outlined'>info</span></label></td>";
-        $output['data'].= "</tr>";
+        $output['data'].= "<div class='col-xl-2 col-md-6'>";
+        $output['data'].= "<div class='card'>";
+        $output['data'].= "<a href='#' type='button' data-bs-toggle='modal' data-bs-target='#Detalles'>";
+        $output['data'].= "<div class='card-body'>";
+        $output['data'].= "<div class='head d-flex justify-content-around'>";
+        $output['data'].= "<p>".$fila['promocion']."</p>";
+        $output['data'].= "<p></p>";
+        $output['data'].= "<p></p>";
+        $output['data'].= "<p>".$fila['estado']."</p>";
+        $output['data'].= "<p></p>";
+        $output['data'].= "<p></p>";
+        $output['data'].= "<p>".$fila['dni']."</p>";
+        $output['data'].= "</div>";
+        $output['data'].= "<div class='body'>";
+        $output['data'].= "<div class='row my-2'>";
+        $output['data'].= "<h4 class='text-center'>".$fila['nombre']."</h4>";
+        $output['data'].= "</div>";
+        $output['data'].= "<div class='row text-center'>";
+        $output['data'].= "<div class='col'>";
+        $output['data'].= "<p>".$fila['modalidad']."</p>";
+        $output['data'].= "</div>";
+        $output['data'].= "<div class='col'>";
+        $output['data'].= "<p>".$fila['numeroReferencia']."</p>";
+        $output['data'].= "</div>";
+        $output['data'].= "<div class='col'>";
+        $output['data'].= "<p>".$fila['planR']."</p>";
+        $output['data'].= "</div>";
+        $output['data'].= "</div>";
+        $output['data'].= "<div class='row text-center' style='border-top: 1px solid #b9b9b9;'>";
+        $output['data'].= "<p class='my-1 text-muted'>".$fecha."</p>";
+        $output['data'].= "</div>";
+        $output['data'].= "</div>";
+        $output['data'].= "</div>";
+        $output['data'].= "</a>";
+        $output['data'].= "</div>";
+        $output['data'].= "</div>   ";
+
+        // $output['data'].= "<tr>";
+        // $output['data'].= "<td align='center'>$i</td>";
+        // $output['data'].= "<td align='left'>".$fila['nombre']."</td>";
+        // $output['data'].= "<td align='center'>".$fila['numeroReferencia']."</td>";
+        // $output['data'].= "<td align='center'>".$fila['producto']."</td>";
+        // $output['data'].= "<td align='center'>".$fila['sec']."</td>";
+        // $output['data'].= "<td align='center'>".$fila['estado']."</td>";
+        // $output['data'].= "<td align='center'>".$fecha."</td>";
+        // $output['data'].= "<td align='center'><label onclick="."abrirModalDetalle('$code');"."><span class='material-symbols-outlined'>info</span></label></td>";
+        // $output['data'].= "</tr>";
         $i+=1;
     }
 } else {
