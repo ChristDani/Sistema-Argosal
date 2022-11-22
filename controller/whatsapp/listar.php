@@ -28,7 +28,7 @@ if ($buscar!=null) {
 }
 
 // limite de registros
-$limite = isset($_POST['registros']) ? $_POST['registros'] : 10;
+$limite = isset($_POST['registros']) ? $_POST['registros'] : 12;
 $pagina = isset($_POST['pagina']) ? $_POST['pagina'] : 0;
 
 if (!$pagina) {
@@ -81,15 +81,15 @@ $output['data']= '';
 $output['paginacion']= '';
 
 if ($filas>0) {
-    $i=$inicio+1;
+    
     while ($fila=sqlsrv_fetch_array($resultado)) {
         
         $code = $fila['codigo'];
         $fecha=$fila['fechaRegistro']-> format('l j \of F Y h:i:s A');
 
-        $output['data'].= "<div class='col-xl-2 col-md-6'>";
+        $output['data'].= "<div class='col-xl-3 col-md-6'>";
         $output['data'].= "<div class='card'>";
-        $output['data'].= "<a href='#' type='button' data-bs-toggle='modal' data-bs-target='#Detalles'>";
+        $output['data'].= "<a href='#' type='button' data-bs-toggle='modal' data-bs-target='#DetallesWhatsapp'>";
         $output['data'].= "<div class='card-body'>";
         $output['data'].= "<div class='head d-flex justify-content-around'>";
         $output['data'].= "<p>".$fila['promocion']."</p>";
@@ -122,24 +122,12 @@ if ($filas>0) {
         $output['data'].= "</div>";
         $output['data'].= "</a>";
         $output['data'].= "</div>";
-        $output['data'].= "</div>   ";
-
-        // $output['data'].= "<tr>";
-        // $output['data'].= "<td align='center'>$i</td>";
-        // $output['data'].= "<td align='left'>".$fila['nombre']."</td>";
-        // $output['data'].= "<td align='center'>".$fila['numeroReferencia']."</td>";
-        // $output['data'].= "<td align='center'>".$fila['producto']."</td>";
-        // $output['data'].= "<td align='center'>".$fila['sec']."</td>";
-        // $output['data'].= "<td align='center'>".$fila['estado']."</td>";
-        // $output['data'].= "<td align='center'>".$fecha."</td>";
-        // $output['data'].= "<td align='center'><label onclick="."abrirModalDetalle('$code');"."><span class='material-symbols-outlined'>info</span></label></td>";
-        // $output['data'].= "</tr>";
-        $i+=1;
+        $output['data'].= "</div>";
     }
 } else {
-    $output['data'].= "<tr>";
-    $output['data'].= "<td align='center' colspan=8 height='100px'>Sin Resultados...</td>";
-    $output['data'].= "</tr>";
+    $output['data'].= "<div>";
+    $output['data'].= "<h1 class='text-muted text-center my-5'>Sin Resultados...</h1>";
+    $output['data'].= "</div>";
 }
 
 // paginacion

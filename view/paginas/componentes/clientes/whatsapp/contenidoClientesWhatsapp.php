@@ -3,9 +3,9 @@
         <div class="d-flex justify-content-center align-items-baseline">
             <p for="numRegistrosW">Mostrar</p>
             <select name="numRegistrosW" id="numRegistrosW" class="form-select" aria-label="Default select example">
-                <option value="10">10</option>
-                <option value="25">25</option>
-                <option value="50">50</option>
+                <option value="12">12</option>
+                <option value="28">28</option>
+                <option value="52">52</option>
                 <option value="100">100</option>
             </select>
             <p for="numRegistrosW">Registros</p>
@@ -24,7 +24,7 @@
 
     <div class="col d-flex justify-content-end align-items-center">
         <div class="form-floating">
-            <input type="text" class="form-control" id="busquedaW" placeholder="Buscar">
+            <input type="text" class="form-control" id="busquedaW" placeholder="Buscar" onkeyup="getDataW(1);">
             <label for="busquedaW">Buscar</label>
         </div>
     </div>
@@ -43,6 +43,8 @@
 </div>
 
 <?php include_once "contenidoModalAgregarWhatsapp.php"; ?>
-<?php //include_once "modalDetallesWhatsapp.php"; ?>
+<?php include_once "contenidoModalDetalleWhatsapp.php"; ?>
 
-<script src="controller/whatsapp/listarWhatsapp.js"></script>     
+<script src="controller/whatsapp/listarWhatsapp.js"></script>  
+<!-- <script src="controller/whatsapp/validaciones.js"></script>
+<script src="controller/whatsapp/modal.js"></script>    -->

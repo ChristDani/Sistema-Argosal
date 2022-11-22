@@ -1,4 +1,4 @@
-<h1>PRODUCTOS</h1>
+<h1>UBICACIONES</h1>
 
 <div class="card">
     <div class="bare row d-flex justify-content-center align-items-center">
@@ -49,6 +49,3 @@
         </div>
     </div>
 </div>
-
-<script src="controller/equipos/listarEquipos.js"></script>
-     

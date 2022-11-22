@@ -2,6 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap');
 
 
+::-webkit-scrollbar{
+    width: 0;
+}
+
+.hidden{
+    display: none;
+}
+
 *{
     margin: 0;
     padding: 0;  
@@ -69,6 +77,11 @@ body{
 .card a{
     color: var(--color-dark);
     text-decoration: none;
+}
+
+.dropdown a{
+    text-decoration: none;
+    color: var(--color-dark);
 }
 
 h1{

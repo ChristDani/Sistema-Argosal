@@ -61,7 +61,6 @@ if ($filas>0) {
         $promocion = $fila['promocion'];
         $ubicacion = $fila['ubicacion'];
         $distrito = $fila['distrito'];
-        // $fecha = $fila['fechaRegistro']-> format('d/m/Y');
         $fecha = $fila['fechaRegistro']-> format('l j \of F Y h:i:s A');
         $fechaUdp = $fila['fechaActualizacion']-> format('l j \of F Y h:i:s A');
 

@@ -44,7 +44,7 @@ elseif ($buscar!=null and $buscarCac==null and $buscarRegion==null) {
 }
 
 // limite de registros
-$limite = isset($_POST['registros']) ? $_POST['registros'] : 10;
+$limite = isset($_POST['registros']) ? $_POST['registros'] : 12;
 $pagina = isset($_POST['pagina']) ? $_POST['pagina'] : 0;
 
 if (!$pagina) {
@@ -86,11 +86,11 @@ $msg = '';
 if ($totalContar===0) {
     $msg = '';
 } elseif ($totalContar===1) {
-    $msg = "Mostrando 1 Registro de un Total de 1 Registro.";
+    $msg = "Mostrando 1 de 1 .";
 } elseif ($inicio+$limite>$totalContar) {
-    $msg = "Mostrando Registros del ".$inicio+1 ." al $totalContar de un Total de $totalContar Registros.";
+    $msg = "Mostrando del ".$inicio+1 ." al $totalContar de $totalContar Registros.";
 } else {
-    $msg = "Mostrando Registros del ".$inicio+1 ." al ".$inicio+$limite." de un Total de $totalContar Registros.";
+    $msg = "Mostrando del ".$inicio+1 ." al ".$inicio+$limite." de $totalContar Registros.";
 }
 
 $output=[];
@@ -99,29 +99,48 @@ $output['data']= '';
 $output['paginacion']= '';
 
 if ($filas>0) {
-    $i=$inicio+1;
     while ($fila=sqlsrv_fetch_array($resultado)) {
         $total = $fila['libres']+$fila['bloqueados'];
-        $output['data'].= "<tr>";
-        $output['data'].= "<td align='center'>$i</td>";
-        $output['data'].= "<td align='center'>".$fila['region']."</td>";
-        $output['data'].= "<td align='center'>".$fila['nombre']."</td>";
-        $output['data'].= "<td align='center'>".$fila['centro']."</td>";
-        $output['data'].= "<td align='center'>".$fila['almacen']."</td>";
-        $output['data'].= "<td align='center'>".$fila['nombreAlmacen']."</td>";
-        $output['data'].= "<td align='center'>".$fila['material']."</td>";
-        $output['data'].= "<td align='center'>".$fila['descripcion']."</td>";
-        $output['data'].= "<td align='center'>".$fila['libres']."</td>";
-        $output['data'].= "<td align='center'>".$fila['bloqueados']."</td>";
-        $output['data'].= "<td align='center'>$total</td>";
-        // $output['data'].= "<td align='center'><a href=''>editar</a></td>";
-        $output['data'].= "</tr>";
-        $i+=1;
+
+        $output['data'] .= "<div class='col-xl-3 col-md-6'>";
+        $output['data'] .= "<div class='card'>";
+        $output['data'] .= "<div class='card-body'>";
+        $output['data'] .= "<div class='head d-flex justify-content-around'>";
+        $output['data'] .= "<p>".$fila['region']."</p>";
+        $output['data'] .= "<p></p>";
+        $output['data'] .= "<p>".$fila['nombre']."</p>";
+        $output['data'] .= "<p></p>";
+        $output['data'] .= "<p>".$fila['centro']."</p>";
+        $output['data'] .= "<p></p>";
+        $output['data'] .= "<p>".$fila['almacen']."</p>";
+        $output['data'] .= "</div>";
+        $output['data'] .= "<div class='body'>";
+        $output['data'] .= "<div class='row my-2'>";
+        $output['data'] .= "<h4 class='text-center'>".$fila['descripcion']."</h4>";
+        $output['data'] .= "</div>";
+        $output['data'] .= "<div class='row text-center'>";
+        $output['data'] .= "<div class='col'>";
+        $output['data'] .= "<p class='success'>".$fila['libres']."</p>";
+        $output['data'] .= "</div>";
+        $output['data'] .= "<div class='col'>";
+        $output['data'] .= "<p class='danger'>".$fila['bloqueados']."</p>";
+        $output['data'] .= "</div>";
+        $output['data'] .= "<div class='col'>";
+        $output['data'] .= "<p>$total</p>";
+        $output['data'] .= "</div>";
+        $output['data'] .= "</div>";
+        $output['data'] .= "<div class='row text-center' style='border-top: 1px solid #b9b9b9;'>";
+        $output['data'] .= "<p class='my-1 text-muted'>".$fila['nombreAlmacen']."</p>";
+        $output['data'] .= "</div>";
+        $output['data'] .= "</div>";
+        $output['data'] .= "</div>";
+        $output['data'] .= "</div>";
+        $output['data'] .= "</div>";
     }
 } else {
-    $output['data'].= "<tr>";
-    $output['data'].= "<td align='center' colspan=13 height='100px'>Sin Resultados...</td>";
-    $output['data'].= "</tr>";
+    $output['data'].= "<div>";
+    $output['data'].= "<h1 class='text-muted text-center my-5'>Sin Resultados...</h1>";
+    $output['data'].= "</div>";
 }
 
 // paginacion

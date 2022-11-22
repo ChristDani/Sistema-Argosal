@@ -4,20 +4,18 @@ go
 drop table if exists masiva
 create table masiva
 (
-documento char(12) default'---',
-nombre char(50) default'---',
-tel_Fijo char(10) default'---',
-celular char(11) default'---',
-fechaActivacion char(10) default'--/--/----',
-operador char(10) default'---',
-tipo_plan char(25) default'---',
-direccion char(50) default'---',
-distrito char(25) default'---',
-provincia char(25) default'---',
-departamento char(25) default'---',
-estado char(15) default 'Sin Procesar',
-Asesor char(25) default 'Argosal',
-fechaRegistro char(10) default'--/--/----'
+documento char(12),
+nombre char(50),
+tel_Fijo char(10),
+celular char(11),
+fechaActivacion datetime,
+operador char(10),
+tipo_plan char(25),
+direccion char(50),
+distrito char(25),
+provincia char(25),
+departamento char(25),
+fechaRegistro datetime default getDate()
 )
 
 drop table if exists whatsapp
