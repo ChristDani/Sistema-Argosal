@@ -55,7 +55,7 @@ if (isset($_GET["pagina"]))
         header("index.php?pagina=404");
     }
 }else {
-    include_once "paginas/dashboard.php";    
+    include_once "paginas/login.php";    
 }
 
 ?>

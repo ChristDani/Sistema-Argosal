@@ -84,7 +84,7 @@ $totalClientesMenu = sqlsrv_num_rows($resultado);
                             <p>Administrador<?php //echo $nombre ; ?></p>
                         </div>
                         <div class="col d-flex justify-content-end">
-                            <a class="danger" href="logout.php">
+                            <a class="danger" href="controller/acceso/logout.php">
                                 <ion-icon name="log-out-outline"></ion-icon>
                             </a>
                         </div>                            

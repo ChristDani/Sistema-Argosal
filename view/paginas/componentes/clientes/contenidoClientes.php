@@ -16,6 +16,8 @@
 <?php include_once "landing/contenidoClientesLanding.php"; ?>
 </div>
 
+<script src="view/static/js/clientes.js"></script>
+
 <!-- <div class="modal fade" id="Editar" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">

@@ -79,7 +79,18 @@ nombre char(25) not null,
 clave char(6) not null,
 tipo char(1) not null,
 foto char(30) not null,
-fechaRegistro smalldatetime default getdate()
+fechaRegistro datetime default getdate(),
+estado char(1) not null
+)
+
+drop table if exists iniciosSesion
+create table iniciosSesion
+(
+dni char(8) not null,
+entrada datetime default getdate(),
+salida datetime,
+
+constraint fk_dniUser foreign key(dni) references usuarios(dni)
 )
 
 

@@ -4,14 +4,14 @@
     <div class="bare row d-flex justify-content-center align-items-center">
         <div class="col d-flex justify-content-start align-items-center">
             <div class="d-flex justify-content-center align-items-baseline">
-                <p for="numRegistrosE">Mostrando</p>
-                <select name="numRegistrosE" id="numRegistrosE" class="form-select" aria-label="Default select example">
+                <p class="mx-1" for="numRegistrosE">Mostrar</p>
+                <select name="numRegistrosE" id="numRegistrosE" class="mx-1 form-select" aria-label="Default select example">
                     <option value="12">12</option>
                     <option value="28">28</option>
                     <option value="52">52</option>
                     <option value="100">100</option>
                 </select>
-                <p for="numRegistrosE">Registros</p>
+                <p class="mx-1" for="numRegistrosE">Registros</p>
             </div>
         </div>
         <div class="col d-flex justify-content-end">
@@ -42,7 +42,7 @@
     </div>
     <div class="paginacion">
         <div class="mensaje">
-            <label id="msgE"></label>
+            <h3 class="text-muted m-3" id="msgE"></h3>
         </div>
         <div id="munE" class="pasar">
 

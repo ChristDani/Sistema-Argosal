@@ -80,23 +80,51 @@ $output['data']= '';
 $output['paginacion']= '';
 
 if ($filas>0) {
-    $i=$inicio+1;
     while ($fila=sqlsrv_fetch_array($resultado)) {
-        $output['data'].= "<tr>";
-        $output['data'].= "<td align='center'>$i</td>";
-        $output['data'].= "<td align='center'>".$fila['documento']."</td>";
-        $output['data'].= "<td align='center'>".$fila['telefono']."</td>";
-        $output['data'].= "<td align='center'>".$fila['planes']."</td>";
-        $output['data'].= "<td align='center'>".$fila['fechaRegistro']."</td>";
-        $output['data'].= "<td align='center'>".$fila['estado']."</td>";
-        $output['data'].= "<td align='center'><label><span class='material-symbols-outlined'>info</span></label></td>";
-        $output['data'].= "</tr>";
-        $i+=1;
+        
+        $fecha=$fila['fechaRegistro']-> format('l j \of F Y h:i:s A');
+
+        $output['data'] .= "<div class='col-xl-3 col-md-6'>";
+        $output['data'] .= "<div class='card'>";
+        $output['data'] .= "<a href='#' type='button' data-bs-toggle='modal' data-bs-target='#Detalles'>";
+        $output['data'] .= "<div class='card-body'>";
+        $output['data'] .= "<div class='head d-flex justify-content-around'>";
+        $output['data'] .= "<p>Giftcard</p>";
+        $output['data'] .= "<p></p>";
+        $output['data'] .= "<p></p>";
+        $output['data'] .= "<p></p>";
+        $output['data'] .= "<p></p>";
+        $output['data'] .= "<p></p>";
+        $output['data'] .= "<p>".$fila['documento']."</p>";
+        $output['data'] .= "</div>";
+        $output['data'] .= "<div class='body'>";
+        $output['data'] .= "<div class='row my-2'>";
+        $output['data'] .= "<h4 class='text-center'>Oliver Delgado Gonzales</h4>";
+        $output['data'] .= "</div>";
+        $output['data'] .= "<div class='row text-center'>";
+        $output['data'] .= "<div class='col'>";
+        $output['data'] .= "<p>Postpago</p>";
+        $output['data'] .= "</div>";
+        $output['data'] .= "<div class='col'>";
+        $output['data'] .= "<p>".$fila['telefono']."</p>";
+        $output['data'] .= "</div>";
+        $output['data'] .= "<div class='col'>";
+        $output['data'] .= "<p>".$fila['planes']."</p>";
+        $output['data'] .= "</div>";
+        $output['data'] .= "</div>";
+        $output['data'] .= "<div class='row text-center' style='border-top: 1px solid #b9b9b9;'>";
+        $output['data'] .= "<p class='my-1 text-muted'>$fecha</p>";
+        $output['data'] .= "</div>";
+        $output['data'] .= "</div>";
+        $output['data'] .= "</div>";
+        $output['data'] .= "</a>";
+        $output['data'] .= "</div>";
+        $output['data'] .= "</div>";
     }
 } else {
-    $output['data'].= "<tr>";
-    $output['data'].= "<td align='center' colspan=7 height='100px'>Sin Resultados...</td>";
-    $output['data'].= "</tr>";
+    $output['data'].= "<div>";
+    $output['data'].= "<h1 class='text-muted text-center my-5'>Sin Resultados...</h1>";
+    $output['data'].= "</div>";
 }
 
 // paginacion

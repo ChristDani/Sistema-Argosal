@@ -1,14 +1,14 @@
 <div class="bare row d-flex justify-content-center align-items-center" id="headerWhatsapp">
     <div class="col d-flex justify-content-start align-items-center">
         <div class="d-flex justify-content-center align-items-baseline">
-            <p for="numRegistrosW">Mostrar</p>
-            <select name="numRegistrosW" id="numRegistrosW" class="form-select" aria-label="Default select example">
+            <p class="mx-1" for="numRegistrosW">Mostrar</p>
+            <select name="numRegistrosW" id="numRegistrosW" class="mx-1 form-select" aria-label="Default select example">
                 <option value="12">12</option>
                 <option value="28">28</option>
                 <option value="52">52</option>
                 <option value="100">100</option>
             </select>
-            <p for="numRegistrosW">Registros</p>
+            <p class="mx-1" for="numRegistrosW">Registros</p>
         </div>
     </div>
     <div class="col d-flex justify-content-between align-items-center">
@@ -33,9 +33,9 @@
 <div class="row mb-4" id="resultadosW">
     
 </div>
-<div class="paginacion">
+<div class="paginacion" id="paginacionW">
     <div class="mensaje">
-        <label id="msgW"></label>
+        <h3 class="text-muted m-3" id="msgW"></h3>
     </div>
     <div id="munW" class="pasar">
 

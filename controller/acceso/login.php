@@ -32,8 +32,8 @@ if(($dni==$tdni) && ($clave == $tclave))
 
 	session_start();
 	$_SESSION["user"]=$tusu;
-	header("location:../../index.php?pagina=clientes&dni=$tdni");
-	session_destroy();
+	$activarEstado = $consultas->activarEstado($dni);
+	header("location:../../index.php?pagina=Dashboard");
 
 
 }
