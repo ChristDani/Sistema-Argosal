@@ -30,7 +30,14 @@
         $nombreUsuario = $_SESSION["user"];
         $tipoUsuario = $_SESSION["tipo"];
 
-        include_once "paginas/dashboard.php";
+        if($tipoUsuario === "1") 
+        {
+            include_once "paginas/dashboard.php";
+        }			
+        elseif ($tipoUsuario === "0") 
+        {
+            include_once "paginas/clientes.php";
+        }
     }
     elseif (isset($_SESSION["user"]) && isset($_GET["pagina"])) 
     {
@@ -38,37 +45,75 @@
         $nombreUsuario = $_SESSION["user"];
         $tipoUsuario = $_SESSION["tipo"];
 
-        if($_GET["pagina"]==="Dashboard")
+        if($tipoUsuario === "1") 
         {
-            include_once "paginas/dashboard.php";
-        }
-        elseif ($_GET["pagina"]==="Clientes") 
+            if($_GET["pagina"]==="Dashboard")
+            {
+                include_once "paginas/dashboard.php";
+            }
+            elseif ($_GET["pagina"]==="Clientes") 
+            {
+                include_once "paginas/clientes.php";
+            }
+            elseif ($_GET["pagina"]==="Datos") 
+            {
+                include_once "paginas/datos.php";
+            }
+            elseif ($_GET["pagina"]==="Productos") 
+            {
+                include_once "paginas/productos.php";
+            }
+            elseif ($_GET["pagina"]==="Ubicaciones") 
+            {
+                include_once "paginas/ubicaciones.php";
+            }
+            elseif ($_GET["pagina"]==="Reportes") 
+            {
+                include_once "paginas/reportes.php";
+            }
+            elseif ($_GET["pagina"]==="Configuracion") 
+            {
+                include_once "paginas/configuracion.php";
+            }
+            else 
+            {
+                include_once "paginas/404.php";
+            }
+        }			
+        elseif ($tipoUsuario === "0") 
         {
-            include_once "paginas/clientes.php";
-        }
-        elseif ($_GET["pagina"]==="Datos") 
-        {
-            include_once "paginas/datos.php";
-        }
-        elseif ($_GET["pagina"]==="Productos") 
-        {
-            include_once "paginas/productos.php";
-        }
-        elseif ($_GET["pagina"]==="Ubicaciones") 
-        {
-            include_once "paginas/ubicaciones.php";
-        }
-        elseif ($_GET["pagina"]==="Reportes") 
-        {
-            include_once "paginas/reportes.php";
-        }
-        elseif ($_GET["pagina"]==="Configuracion") 
-        {
-            include_once "paginas/configuracion.php";
-        }
-        else 
-        {
-            include_once "paginas/404.php";
+            if($_GET["pagina"]==="Dashboard")
+            {
+                include_once "paginas/401.php";
+            }
+            elseif ($_GET["pagina"]==="Clientes") 
+            {
+                include_once "paginas/clientes.php";
+            }
+            elseif ($_GET["pagina"]==="Datos") 
+            {
+                include_once "paginas/401.php";
+            }
+            elseif ($_GET["pagina"]==="Productos") 
+            {
+                include_once "paginas/productos.php";
+            }
+            elseif ($_GET["pagina"]==="Ubicaciones") 
+            {
+                include_once "paginas/ubicaciones.php";
+            }
+            elseif ($_GET["pagina"]==="Reportes") 
+            {
+                include_once "paginas/401.php";
+            }
+            elseif ($_GET["pagina"]==="Configuracion") 
+            {
+                include_once "paginas/401.php";
+            }
+            else 
+            {
+                include_once "paginas/404.php";
+            }
         }
     }
 ?>

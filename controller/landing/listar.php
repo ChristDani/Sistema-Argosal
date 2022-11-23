@@ -149,61 +149,52 @@ if ($totalContar===1) {
         if ($pagFinal>$paginasTotal) {
             $pagFinal =  $paginasTotal;
         }
+
+        $output['paginacion'] .= "<div class='btn-toolbar mb-3' role='toolbar'><div class='btn-group me-2' role='group'>";
     
         // activacion del boton anterior
-    
-        if ($pagina==$pagInicio) {
-            $output['paginacion'] .= "<button disabled onclick='getDataL(".$pagina-1 .");'>Anterior</button>";
-        } else {
-            $output['paginacion'] .= "<button class='activo' onclick='getDataL(".$pagina-1 .");'>Anterior</button>";
+        if ($pagina==$pagInicio) 
+        {
+            $output['paginacion'] .= "<button type='button' class='rounded-5 btn disabled mx-1 d-flex justify-content-center align-items-center'><ion-icon name='arrow-back-outline'></ion-icon></button>";
+        }
+        else 
+        {
+            $output['paginacion'] .= "<button type='button' onclick='getDataL(".$pagina-1 .");' class='btn btn-outline-secondary rounded-5 mx-1 d-flex justify-content-center align-items-center'><ion-icon name='arrow-back-outline'></ion-icon></button>";
         }
     
-        $output['paginacion'] .= "<ul>";
-    
-    
         // pagina inicial anclada
-    
         if ($pagInicio>2) {
-            $output['paginacion'] .= "<li><a href='#' onclick='getDataL(1);'>1</a></li>";
-            $output['paginacion'] .= "<li class='ancla'><a>...</a></li>";
+            $output['paginacion'] .= "<button type='button' class='btn btn-outline-secondary mx-1 rounded-5' onclick='getDataL(1);'>1</button>";
+            $output['paginacion'] .= "<button type='button' class='btn btn-outline-secondary mx-1 disabled'>...</button>";
         }
     
         // paginas dinamicas
-    
         for ($i = $pagInicio; $i <= $pagFinal; $i++) {
-            if ($pagina==$i) {
-                $output['paginacion'] .= "<li class='actual'><a>$i</a></li>";
-            }else {
-                $output['paginacion'] .= "<li><a href='#' onclick='getDataL($i);'>$i</a></li>";
+            if ($pagina==$i) 
+            {
+                $output['paginacion'] .= "<button type='button' class='btn btn-outline-secondary rounded-5 mx-1 active'>$i</button>";
+            }
+            else 
+            {
+                $output['paginacion'] .= "<button type='button' class='btn btn-outline-secondary mx-1 rounded-5' onclick='getDataL($i);'>$i</button>";
             }
         }
     
         // pagina final anclada
-    
         if ($pagFinal<($paginasTotal-1)) {
-            $output['paginacion'] .= "<li class='ancla'><a>...</a></li>";
-            $output['paginacion'] .= "<li><a href='#' onclick='getDataL($paginasTotal);'>$paginasTotal</a></li>";
+            $output['paginacion'] .= "<button type='button' class='btn btn-outline-secondary mx-1 disabled'>...</button>";
+            $output['paginacion'] .= "<button type='button' class='btn btn-outline-secondary mx-1 rounded-5' onclick='getDataL($paginasTotal);'>$paginasTotal</button>";
         }
-    
-        $output['paginacion'] .= "</ul>";
-    
-        // activacion del boton siguiente
-    
+
+        // activacion del boton siguiente    
         if ($pagina==$pagFinal) {
-            $output['paginacion'] .= "<button disabled onclick='getDataL(".$pagina+1 .");'>Siguiente</button>";
+            $output['paginacion'] .= "<button type='button' class='btn disabled d-flex justify-content-center mx-1 rounded-5 align-items-center'><ion-icon name='arrow-forward-outline'></ion-icon></button>";
         } else {
-            $output['paginacion'] .= "<button class='activo' onclick='getDataL(".$pagina+1 .");'>Siguiente</button>";
+            $output['paginacion'] .= "<button type='button' onclick='getDataL(".$pagina+1 .");' class='btn btn-outline-secondary mx-1 d-flex justify-content-center rounded-5 align-items-center'><ion-icon name='arrow-forward-outline'></ion-icon></button>";
         }
+        $output['paginacion'] .= "</div>";
     }
-
-
 }
 
 echo json_encode($output, JSON_UNESCAPED_UNICODE); //por si viene con 'ñ' o tildes...
-
-class Landing
-{
-
-}
-
 ?>

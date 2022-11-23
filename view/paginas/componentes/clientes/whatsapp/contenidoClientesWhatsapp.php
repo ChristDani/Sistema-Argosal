@@ -34,27 +34,14 @@
     
 </div>
 
-<!-- <div class="collapse navbar-collapse">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        aa
-      </ul>
-
-    </div> -->
-
-
-    <!-- esto de aca es el js -->
-<!-- de aca es lo de la paginacion -->
-<div class="paginacion" id="paginacionW">
-    <!-- aca salen los mensajes -->
+<div class="bare d-flex justify-content-between mb-3" id="paginacionW">
     <div class="mensaje">
         <h3 class="text-muted m-3" id="msgW"></h3>
     </div>
-    <!-- aca salen los numeros de las paginas -->
-    <div id="munW" class="pasar">
+    <div id="munW">
 
     </div>
 </div>
-<!-- hasta aca, esto es la estructura que escribe el js -->
 
 <?php include_once "contenidoModalAgregarWhatsapp.php"; ?>
 <?php include_once "contenidoModalDetalleWhatsapp.php"; ?>

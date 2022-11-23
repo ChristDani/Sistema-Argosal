@@ -32,11 +32,12 @@
 <div class="row mb-4 desaparecido" id="resultadosL">
     
 </div>
-<div class="paginacion desaparecido" id="paginacionL">
+
+<div class="bare d-flex justify-content-between mb-3 desaparecido" id="paginacionL">
     <div class="mensaje">
         <h3 class="text-muted m-3" id="msgL"></h3>
     </div>
-    <div id="munL" class="pasar">
+    <div id="munL">
 
     </div>
 </div>

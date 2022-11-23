@@ -26,12 +26,13 @@ $totalClientesMenu = sqlsrv_num_rows($resultado);
                 </div>
             </button>
         </div>
-        <ul class="navbar-nav ml-auto mr-0 mr-md-3 my-2 my-md-0">
-
-            <button class="mx-2 btn btn-link btn-sm d-flex justify-content-center" data-bs-toggle="offcanvas" data-bs-target="#Metas" aria-controls="offcanvasRight">
-                <ion-icon name="analytics-outline"></ion-icon>
-            </button>  
-        </ul>       
+        <?php if($tipoUsuario == "1") { ?>
+            <ul class="navbar-nav ml-auto mr-0 mr-md-3 my-2 my-md-0">
+                <button class="mx-2 btn btn-link btn-sm d-flex justify-content-center" data-bs-toggle="offcanvas" data-bs-target="#Metas" aria-controls="offcanvasRight">
+                    <ion-icon name="analytics-outline"></ion-icon>
+                </button>  
+            </ul>      
+        <?php } ?>			 
     </nav>
     <?php require_once 'contenidoMetas.php'; ?>
     <div id="layoutSidenav">
@@ -42,21 +43,23 @@ $totalClientesMenu = sqlsrv_num_rows($resultado);
                         <div class="top mb-4">
                             <h2>AR<span class="danger">GO</span></h2>
                         </div>
-                        <a class="nav-link" href="index.php?pagina=Dashboard">
-                            <div class="sb-nav-link-icon"><ion-icon name="speedometer-outline"></ion-icon></div>
-                            Dashboard
-                        </a>							
-                        <?php //if($tipo_usuario == 1) { ?>
-                            <a class="nav-link" href="index.php?pagina=Clientes">
-                                <div class="sb-nav-link-icon"><ion-icon name="people-outline"></ion-icon></div>
-                                Clientes	<span class="badge danger-bg"><?php echo $totalClientesMenu; ?></span>							
-                            </a>
+                        <?php if($tipoUsuario === "1") { ?>
+                            <a class="nav-link" href="index.php?pagina=Dashboard">
+                                <div class="sb-nav-link-icon"><ion-icon name="speedometer-outline"></ion-icon></div>
+                                Dashboard
+                            </a>	
+                        <?php } ?>					
+                        <a class="nav-link" href="index.php?pagina=Clientes">
+                            <div class="sb-nav-link-icon"><ion-icon name="people-outline"></ion-icon></div>
+                            Clientes	<span class="badge danger-bg"><?php echo $totalClientesMenu; ?></span>							
+                        </a>
+                        <?php if($tipoUsuario === "1") { ?>
                             <a class="nav-link" href="index.php?pagina=Datos">
                                 <div class="sb-nav-link-icon"><ion-icon name="document-text-outline"></ion-icon></div>
                                 Datos
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>										
-                        <?php //} ?>			
+                        <?php } ?>			
                         <a class="nav-link" href="index.php?pagina=Productos">
                             <div class="sb-nav-link-icon"><ion-icon name="phone-portrait-outline"></ion-icon></div>
                             Productos
@@ -65,23 +68,30 @@ $totalClientesMenu = sqlsrv_num_rows($resultado);
                             <div class="sb-nav-link-icon"><ion-icon name="map-outline"></ion-icon></div>
                                 Ubicaciones
                         </a>
-                        <a class="nav-link" href="index.php?pagina=Reportes">
-                            <div class="sb-nav-link-icon"><ion-icon name="newspaper-outline"></ion-icon></div>
-                                Reportes
-                        </a>
-                        <a class="nav-link" href="index.php?pagina=Configuracion">
-                            <div class="sb-nav-link-icon"> <ion-icon name="cog-outline"></ion-icon></div>
-                                Configuracion
-                        </a>
+                        <?php if($tipoUsuario === "1") { ?>
+                            <a class="nav-link" href="index.php?pagina=Reportes">
+                                <div class="sb-nav-link-icon"><ion-icon name="newspaper-outline"></ion-icon></div>
+                                    Reportes
+                            </a>
+                            <a class="nav-link" href="index.php?pagina=Configuracion">
+                                <div class="sb-nav-link-icon"> <ion-icon name="cog-outline"></ion-icon></div>
+                                    Configuracion
+                            </a>
+                        <?php } ?>			
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
                     <div class="row">
-                        <h2>Un Usuario<?php //echo $nombreu ; ?></h2>
+                        <h2><?php echo $nombreUsuario ; ?></h2>
                     </div>
                     <div class="row"> 
                         <div class="col d-flex justify-content-start">
-                            <p>Administrador<?php //echo $nombre ; ?></p>
+                            <?php if ($tipoUsuario === "1") { ?>
+                                <p>Administrador</p>
+                                <?php } 
+                            elseif ($tipoUsuario === "0") { ?>
+                                <p>Asesor</p>
+                            <?php } ?>
                         </div>
                         <div class="col d-flex justify-content-end">
                             <a class="danger" href="controller/acceso/logout.php">
