@@ -76,7 +76,7 @@ create table usuarios
 (
 dni char(8) primary key,
 nombre char(25) not null,
-clave char(6) not null,
+clave char(40) not null,
 tipo char(1) not null,
 foto char(30) not null,
 fechaRegistro datetime default getdate(),
