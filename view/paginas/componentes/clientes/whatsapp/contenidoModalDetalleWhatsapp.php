@@ -1,5 +1,5 @@
 <div class="modal fade" id="DetallesWhatsapp" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Detalles</h1>

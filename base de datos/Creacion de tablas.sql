@@ -71,6 +71,71 @@ libres char(5) null,
 bloqueados char(5) null
 )
 
+drop table if exists cac
+create table cac
+(
+region char(15) null,
+pdv char(10) null,
+nombre char(50) null,
+entrega char(20) null,
+direccion char(255) null,
+distrito char(30) null,
+provincia char(20) null,
+departamento char(20) null,
+horario char(100) null
+)
+
+drop table if exists dac
+create table dac
+(
+nombre char(100) null,
+distrito char(30) null,
+provincia char(30) null,
+departamento char(30) null,
+region char(20) null,
+direccion char(255) null,
+descripcion char(100) null
+)
+
+drop table if exists acd
+create table acd
+(
+region char(20) null,
+pdv char(10) null,
+nombre char(100) null,
+entrega char(20) null,
+pdvsisact char(100) null,
+codpdv char(10) null,
+descripcion char(100) null,
+direccion char(255) null,
+
+distrito char(5) null,
+provincia char(5) null,
+departamento char(5) null,
+horario char(5) null,
+estado char(5) null,
+alta char(15) null,
+baja char(15) null
+)
+
+drop table if exists cadena
+create table cadena
+(
+region char(10) null,
+razonsocial char(50) null,
+codigointer char(10) null,
+codpdv char(10) null,
+pdvsisact char(50) null,
+entrega char(20) null,
+direccion char(50) null,
+distrito char(5) null,
+provincia char(5) null,
+departamento char(5) null,
+dias char(5) null,
+horario char(5) null,
+estado char(5) null
+)
+
 drop table if exists usuarios
 create table usuarios
 (
@@ -82,26 +147,6 @@ foto char(30) not null,
 fechaRegistro datetime default getdate(),
 estado char(1) not null
 )
-
-drop table if exists iniciosSesion
-create table iniciosSesion
-(
-dni char(8) not null,
-entrada datetime default getdate(),
-salida datetime,
-
-constraint fk_dniUser foreign key(dni) references usuarios(dni)
-)
-
-
-
-drop table personas
-
-select * from personas
-
-delete from personas
-print getdate()
-select * from personas where documento like'%'
 
 select w.codigo, u.nombre from whatsapp as w inner join usuarios as u on u.nombre=w.asesor where u.dni='73179455'
 

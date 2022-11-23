@@ -34,11 +34,8 @@
     
 </div>
 
-<div class="bare d-flex justify-content-between mb-3" id="paginacionW">
-    <div class="mensaje">
-        <h3 class="text-muted m-3" id="msgW"></h3>
-    </div>
-    <div id="munW">
+<div class="bare row d-flex justify-content-between mb-3" id="paginacionW">
+    <div id="munW" class="col">
 
     </div>
 </div>

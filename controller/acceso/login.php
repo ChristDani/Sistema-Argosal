@@ -24,7 +24,7 @@ if ($filas2 != null)
 		$_SESSION["user"]=$tusu;
 		$_SESSION["tipo"]=$ttipo;
 		// // $activarEstado = $consultas->activarEstado($dni);
-		header("location:../../index.php");
+		header("location:../../index.php?pagina=Dashboard");
 	}
 	else
 	{

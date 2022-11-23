@@ -64,17 +64,6 @@ if ($filas>0) {
         $fecha = $fila['fechaRegistro']-> format('l j \of F Y h:i:s A');
         $fechaUdp = $fila['fechaActualizacion']-> format('l j \of F Y h:i:s A');
 
-        // encabezado
-
-        $output['data'].= "<div class='arribaModal'>";
-        $output['data'].= "<h4>Detalles de Venta Whatsapp</h4>";
-        $output['data'].= "<span id='cerrar' class='cerrar material-symbols-outlined' onclick='cerrarModalDetalle();'>close</span>";
-        $output['data'].= "</div>";
-
-        // inicio del cuerpo
-
-        $output['data'].= "<div class='centroModal'>";
-
         // asesor
         $output['data'].= "<hgroup>";
         $output['data'].= "<div class='form-floating mb-3'>";
@@ -402,18 +391,6 @@ if ($filas>0) {
         $output['data'].= "<label for='fechaudpcl'>Fecha de Actualización</label>";
         $output['data'].= "</div> ";
 
-        $output['data'].= "</div>";
-        $output['data'].= "</div>";
-
-        // inicio foother
-
-        $output['data'].= "<div class='abajoModal'>";
-        $output['data'].= "<div id='dsave' class='btnSave hidden'>";
-        $output['data'].= "<button type='submit' id='bsave'>Guardar</button>";
-        $output['data'].= "</div>";
-        $output['data'].= "<div id='edit' class='btnEdit'>";
-        $output['data'].= "<label onclick='editar()';>Editar</label>";
-        $output['data'].= "</div>";
         $output['data'].= "</div>";
 
     }
