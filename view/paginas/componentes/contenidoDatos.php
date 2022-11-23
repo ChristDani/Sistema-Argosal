@@ -29,12 +29,12 @@
     <div class="row mb-4" id="resultadosM">
         
     </div>
-    <div class="paginacion">
+    <div class="bare d-flex justify-content-between mb-3">
         <div class="mensaje">
             <h3 class="text-muted m-3" id="msgM"></h3>
         </div>
-        <div id="munM" class="pasar">
-
+        <div id="munM">
+            
         </div>
     </div>
 </div>

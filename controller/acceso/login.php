@@ -32,7 +32,7 @@ if(($dni==$tdni) && ($clave == $tclave))
 
 	session_start();
 	$_SESSION["user"]=$tusu;
-	$activarEstado = $consultas->activarEstado($dni);
+	// $activarEstado = $consultas->activarEstado($dni);
 	header("location:../../index.php?pagina=Dashboard");
 
 

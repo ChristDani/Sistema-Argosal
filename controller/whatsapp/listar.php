@@ -152,22 +152,26 @@ if ($totalContar===1) {
         if ($pagFinal>$paginasTotal) {
             $pagFinal =  $paginasTotal;
         }
-    
+        // $output['paginacion'] .= "<button disabled onclick='getDataW(".$pagina-1 .");'>Anterior</button>";
+        
+        
+        // $output['paginacion'] .= "<button class='activo' onclick='getDataW(".$pagina-1 .");'>Anterior</button>";
+        
+        $output['paginacion'] .= "<ul class='pagination justify-content-center'>";
+        
         // activacion del boton anterior
-    
         if ($pagina==$pagInicio) {
-            $output['paginacion'] .= "<button disabled onclick='getDataW(".$pagina-1 .");'>Anterior</button>";
+            $output['paginacion'] .= "<li class='page-items disabled'><a class='page-link' onclick='getDataW(".$pagina-1 .");>Anterior</a></li>";
+
         } else {
-            $output['paginacion'] .= "<button class='activo' onclick='getDataW(".$pagina-1 .");'>Anterior</button>";
-        }
-    
-        $output['paginacion'] .= "<ul>";
-    
+            $output['paginacion'] .= "<li class='page-items'><a class='page-link' onclick='getDataW(".$pagina-1 .");>Anterior</a></li>";
+
+        }    
     
         // pagina inicial anclada
     
         if ($pagInicio>2) {
-            $output['paginacion'] .= "<li><a href='#' onclick='getDataW(1);'>1</a></li>";
+            $output['paginacion'] .= "<li class='page-items'><a class='page-links' href='#' onclick='getDataW(1);'>1</a></li>";
             $output['paginacion'] .= "<li class='ancla'><a>...</a></li>";
         }
     
