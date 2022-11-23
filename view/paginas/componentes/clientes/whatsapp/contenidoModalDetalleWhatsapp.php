@@ -5,7 +5,7 @@
         <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Detalles</h1>
         <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div id="detallesWhats" class="modal-body">
         Aqui van los detalles
       </div>
       <div class="modal-footer">

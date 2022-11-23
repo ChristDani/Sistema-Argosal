@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title id="tituloPagina">Argosal</title>
+    <title id="tituloPagina">Argo</title>
     <link rel="icon" href="view/static/img/icono.png">
     <link rel="stylesheet" href="view/static/css/styles.css">
     <!-- CSS only -->

@@ -22,7 +22,7 @@ drop table if exists whatsapp
 create table whatsapp
 (
 codigo char(10) primary key,
-asesor char(15) not null,
+asesor char(50) not null,
 nombre char(50) COLLATE Latin1_General_100_CI_AI_SC_UTF8 not null,
 dni char(8) not null,
 telefono char(11) not null,
@@ -75,7 +75,7 @@ drop table if exists usuarios
 create table usuarios
 (
 dni char(8) primary key,
-nombre char(25) not null,
+nombre char(50) not null,
 clave char(40) not null,
 tipo char(1) not null,
 foto char(30) not null,
@@ -102,3 +102,7 @@ select * from personas
 delete from personas
 print getdate()
 select * from personas where documento like'%'
+
+select w.codigo, u.nombre from whatsapp as w inner join usuarios as u on u.nombre=w.asesor where u.dni='73179455'
+
+update whatsapp set asesor='Christian Campaña' where asesor='Christian'

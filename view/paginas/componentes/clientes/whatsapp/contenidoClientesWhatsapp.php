@@ -47,5 +47,5 @@
 <?php include_once "contenidoModalDetalleWhatsapp.php"; ?>
 
 <script src="controller/whatsapp/listarWhatsapp.js"></script>  
-<!-- <script src="controller/whatsapp/validaciones.js"></script>
-<script src="controller/whatsapp/modal.js"></script>    -->
+<!-- <script src="controller/whatsapp/validaciones.js"></script> -->
+<script src="controller/whatsapp/modal.js"></script>

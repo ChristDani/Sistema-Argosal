@@ -13,7 +13,7 @@
             if (this.search === path) {
                 $(this).addClass("active");
                 let tituloPagina = document.getElementById('tituloPagina');
-                tituloPagina.innerHTML = "Argosal | "+params.get('pagina');
+                tituloPagina.innerHTML = "Argo | "+params.get('pagina');
             }
         });
 

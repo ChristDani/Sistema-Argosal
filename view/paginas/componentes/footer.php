@@ -12,8 +12,8 @@
 
         </script>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
-        <script src="view/static/js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="view/static/js/scripts.js"></script>
         <script src="view/static/js/script.js"></script>
 </body>
 </html>
