@@ -3,13 +3,13 @@
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Detalles</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         Aqui van los detalles
       </div>
       <div class="modal-footer">
-        <button class="btn danger-bg" data-bs-target="#EditarWhatsapp" data-bs-toggle="modal">Editar</button>
+        <button class="btn btn-primary" data-bs-target="#EditarWhatsapp" data-bs-toggle="modal">Editar</button>
       </div>
     </div>
   </div>

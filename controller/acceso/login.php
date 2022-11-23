@@ -26,12 +26,11 @@ else{
 
 if(($dni==$tdni) && ($clave == $tclave))
 {
-
 	session_start();
 	$_SESSION["dni"]=$tdni;
 	$_SESSION["user"]=$tusu;
 	$_SESSION["tipo"]=$ttipo;
-	// $activarEstado = $consultas->activarEstado($dni);
+	// // $activarEstado = $consultas->activarEstado($dni);
 	header("location:../../index.php?pagina=Dashboard");
 
 

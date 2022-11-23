@@ -83,7 +83,7 @@ if ($filas>0) {
     
     while ($fila=sqlsrv_fetch_array($resultado)) {
 
-        $output['data'].= "<div class='col-xl-3 col-md-6'>";
+        $output['data'].= "<div class='col-xl-3 col-md-6 my-3'>";
         $output['data'].= "<div class='card'>";
         $output['data'].= "<div class='card-body'>";
         $output['data'].= "<div class='head d-flex justify-content-around'>";
@@ -146,51 +146,55 @@ if ($totalContar===1) {
         if ($pagFinal>$paginasTotal) {
             $pagFinal =  $paginasTotal;
         }
+        
+        // $output['paginacion'] .= "<button disabled onclick='getDataM(".$pagina-1 .");'>Anterior</button>";
+        // $output['paginacion'] .= "<button class='activo' onclick='getDataM(".$pagina-1 .");'>Anterior</button>";
+
+        $output['paginacion'] .= "<div class='btn-toolbar mb-3' role='toolbar'><div class='btn-group me-2' role='group'>";
     
         // activacion del boton anterior
     
         if ($pagina==$pagInicio) {
-            $output['paginacion'] .= "<button disabled onclick='getDataM(".$pagina-1 .");'>Anterior</button>";
+            $output['paginacion'] .= "<button type='button' onclick='getDataM(".$pagina-1 .");' class='rounded-5 btn disabled mx-1 d-flex justify-content-center align-items-center'><ion-icon name='arrow-back-outline'></ion-icon></button>";
         } else {
-            $output['paginacion'] .= "<button class='activo' onclick='getDataM(".$pagina-1 .");'>Anterior</button>";
-        }
-    
-        $output['paginacion'] .= "<ul>";
-    
+            $output['paginacion'] .= "<button type='button' onclick='getDataM(".$pagina-1 .");' class='btn btn-outline-secondary rounded-5 mx-1 d-flex justify-content-center align-items-center'><ion-icon name='arrow-back-outline'></ion-icon></button>";
+        }   
+
+        
     
         // pagina inicial anclada
     
         if ($pagInicio>2) {
-            $output['paginacion'] .= "<li><a href='#' onclick='getDataM(1);'>1</a></li>";
-            $output['paginacion'] .= "<li class='ancla'><a>...</a></li>";
+            $output['paginacion'] .= "<button type='button' class='btn btn-outline-secondary mx-1 rounded-5' onclick='getDataM(1);'>1</button>";
+            $output['paginacion'] .= "<button type='button' class='btn btn-outline-secondary mx-1 disabled'>...</button>";
         }
     
         // paginas dinamicas
     
         for ($i = $pagInicio; $i <= $pagFinal; $i++) {
             if ($pagina==$i) {
-                $output['paginacion'] .= "<li class='actual'><a>$i</a></li>";
+                $output['paginacion'] .= "<button type='button' class='btn btn-outline-secondary rounded-5 mx-1 active'>$i</button>";
             }else {
-                $output['paginacion'] .= "<li><a href='#' onclick='getDataM($i);'>$i</a></li>";
+                $output['paginacion'] .= "<button type='button' class='btn btn-outline-secondary mx-1 rounded-5' onclick='getDataM($i);'>$i</button>";
             }
         }
     
         // pagina final anclada
     
         if ($pagFinal<($paginasTotal-1)) {
-            $output['paginacion'] .= "<li class='ancla'><a>...</a></li>";
-            $output['paginacion'] .= "<li><a href='#' onclick='getDataM($paginasTotal);'>$paginasTotal</a></li>";
+            $output['paginacion'] .= "<button type='button' class='btn btn-outline-secondary mx-1 disabled'>...</button>";
+            $output['paginacion'] .= "<button type='button' class='btn btn-outline-secondary mx-1 rounded-5' onclick='getDataM($paginasTotal);'>$paginasTotal</button>";
         }
     
-        $output['paginacion'] .= "</ul>";
-    
+        
         // activacion del boton siguiente
-    
+        
         if ($pagina==$pagFinal) {
-            $output['paginacion'] .= "<button disabled onclick='getDataM(".$pagina+1 .");'>Siguiente</button>";
+            $output['paginacion'] .= "<button type='button' onclick='getDataM(".$pagina+1 .");' class='btn disabled d-flex justify-content-center mx-1 rounded-5 align-items-center'><ion-icon name='arrow-forward-outline'></ion-icon></button>";
         } else {
-            $output['paginacion'] .= "<button class='activo' onclick='getDataM(".$pagina+1 .");'>Siguiente</button>";
+            $output['paginacion'] .= "<button type='button' onclick='getDataM(".$pagina+1 .");' class='btn btn-outline-secondary mx-1 d-flex justify-content-center rounded-5 align-items-center'><ion-icon name='arrow-forward-outline'></ion-icon></button>";
         }
+        $output['paginacion'] .= "</ul>";
     }
 
 

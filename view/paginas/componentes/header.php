@@ -20,13 +20,13 @@ $totalClientesMenu = sqlsrv_num_rows($resultado);
             <button class="mx-2 btn btn-link btn-sm d-flex justify-content-center" id="sidebarToggle">
                 <ion-icon name="menu-outline"></ion-icon>
             </button>
-        </div>
-        <ul class="navbar-nav ml-auto mr-0 mr-md-3 my-2 my-md-0">
-            <button class="almrda btn Buttone d-flex justify-content-center align-items-center">
+            <button class="almrda Buttone mx-2 btn btn-link btn-sm d-flex justify-content-center">
                 <div class="color d-flex justify-content-center align-items-center">
                     <ion-icon name="moon-outline"></ion-icon>
                 </div>
             </button>
+        </div>
+        <ul class="navbar-nav ml-auto mr-0 mr-md-3 my-2 my-md-0">
 
             <button class="mx-2 btn btn-link btn-sm d-flex justify-content-center" data-bs-toggle="offcanvas" data-bs-target="#Metas" aria-controls="offcanvasRight">
                 <ion-icon name="analytics-outline"></ion-icon>

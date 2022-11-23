@@ -48,7 +48,7 @@ $ventasFijaIfi = sqlsrv_num_rows($resultado3);
 <div class="offcanvas offcanvas-end" tabindex="-1" id="Metas" aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header">
     <h1 class="offcanvas-title" id="offcanvasRightLabel">Progreso del Mes</h1>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <button type="button" class="btn-close bg-danger" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
     <div class="row">
