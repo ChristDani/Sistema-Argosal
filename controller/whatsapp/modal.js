@@ -29,7 +29,7 @@ function abrirModalEditar(codigo) {
     let contenidoD = document.getElementById('editarWhats');
 
     //mandamos la posicion al controller
-    let url = 'controller/whatsapp/detalle.php';
+    let url = 'controller/whatsapp/edit.php';
     let formaData = new FormData();
     formaData.append('codigo', codigo)
 

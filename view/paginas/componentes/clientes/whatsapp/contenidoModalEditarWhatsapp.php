@@ -5,12 +5,14 @@
         <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Editar</h1>
         <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div id="editarWhats" class="modal-body">
+      <div class="modal-body">
+        <form id="editarWhats" action="controller/whatsapp/editar.php" method="post">
         
       </div>
       <div class="modal-footer d-flex justify-content-between">
         <button class="btn btn-secondary" data-bs-target="#DetallesWhatsapp" data-bs-toggle="modal">Volver</button>
-        <button class="btn btn-primary">Guardar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </form>
       </div>
     </div>
   </div>|

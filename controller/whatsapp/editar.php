@@ -21,7 +21,7 @@ if ($producto==="Movil") {
     
     $model->actualizarWhatsappMovil($codigo,$plan,$equipo,$formaPago,$telRef,$sec,$estado);
     
-    header("location: ../../index.php?pagina=clientes&dni=$dni");
+    header("location: ../../index.php?pagina=Clientes");
     
 }else {
     
@@ -29,7 +29,7 @@ if ($producto==="Movil") {
     
     $model->actualizarWhatsappFija($codigo,$planFija,$telRef,$sec,$estado);
 
-    header("location: ../../index.php?pagina=clientes&dni=$dni");
+    header("location: ../../index.php?pagina=Clientes");
 
 }
 ?>
