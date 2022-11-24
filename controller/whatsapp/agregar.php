@@ -2,12 +2,9 @@
 
 require_once '../../model/whatsapp.php';
 
-// $dni = $_GET['dni'];
-
 $model = new Whatsapp();
 
-// $asesor = $_POST['asesor'];
-$asesor = 'ni idea';
+$asesor = $_POST['asesor'];
 $nombreC = $_POST['nombre'];
 $dniC = $_POST['dni'];
 $telefono = !empty($_POST['telefono']) ? $_POST['telefono'] : "---";
@@ -32,6 +29,6 @@ $planFija = $_POST['planFija'];
 
 $model->agregarWhatsapp($asesor,$nombreC,$dniC,$telefono,$producto,$lineaProce,$operadorCeden,$modalidad,$tipo,$plan,$equipos,$formaPago,$telefonoRef,$sec,$tipoFija,$planFija,$estado,$observacion,$promocion,$ubicacion,$distrito);
 
-header("location: ../../index.php?pagina=Dashboard");
+header("location: ../../index.php?pagina=Clientes");
 
 ?>

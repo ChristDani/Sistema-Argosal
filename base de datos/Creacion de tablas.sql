@@ -22,7 +22,7 @@ drop table if exists whatsapp
 create table whatsapp
 (
 codigo char(10) primary key,
-asesor char(50) not null,
+dniAsesor char(8) not null,
 nombre char(50) COLLATE Latin1_General_100_CI_AI_SC_UTF8 not null,
 dni char(8) not null,
 telefono char(11) not null,
@@ -44,7 +44,9 @@ promocion char(50) not null,
 ubicacion varchar(100) not null,
 distrito char(25) not null,
 fechaRegistro datetime default getdate(),
-fechaActualizacion datetime default getDate()
+fechaActualizacion datetime default getDate(),
+
+constraint fk_dniAsesor foreign key(dniAsesor) references usuarios(dni)
 )
 
 drop table if exists landing

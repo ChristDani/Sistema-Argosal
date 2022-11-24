@@ -6,10 +6,10 @@
         <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div id="detallesWhats" class="modal-body">
-        Aqui van los detalles
+        
       </div>
       <div class="modal-footer">
-        <button class="btn btn-primary" data-bs-target="#EditarWhatsapp" data-bs-toggle="modal">Editar</button>
+        <button id="btnEdit" class="btn btn-primary" data-bs-target="#EditarWhatsapp" data-bs-toggle="modal">Editar</button>
       </div>
     </div>
   </div>
