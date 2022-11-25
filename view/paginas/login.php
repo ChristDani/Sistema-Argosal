@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="view/static/css/styleLogin.css">
     <link rel="stylesheet" href="view/static/css/reset.css">
 </head>
-<body>
+<body id="imagen" class="body card d-flex flex-wrap justify-content-center align-items-center" style="height:100vh;">
 
-<div id="imagen" class="body card d-flex flex-wrap justify-content-center align-items-center" style="height:100vh;">
+<div >
     <div class="container-fluid d-flex flex-wrap justify-content-center align-items-center">
         <div class="row">
             <div class="col mb-3 d-flex flex-wrap justify-content-center align-items-center">
