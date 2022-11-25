@@ -12,7 +12,9 @@
     </div>        
 </div>
 <div class="card">
+<?php //if ($tipoUsuario === "1") { ?>
 <?php include_once "whatsapp/contenidoClientesWhatsapp.php"; ?>
+<?php //} ?>
 <?php include_once "landing/contenidoClientesLanding.php"; ?>
 </div>
 

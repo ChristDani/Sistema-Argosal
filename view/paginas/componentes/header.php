@@ -28,10 +28,20 @@ $listar = $model->listar();
 $cone = new conexion();
 $consulta = $cone->conectar();
 
-// ventas totales
-$sql = "select * from whatsapp";
-$resultado = sqlsrv_query($consulta,$sql, array(), array("Scrollable"=>"buffered"));
-$totalClientesMenu = sqlsrv_num_rows($resultado);
+if ($tipoUsuario === "1") 
+{ 
+    // ventas totales para admin
+    $sql = "select * from whatsapp";
+    $resultado = sqlsrv_query($consulta,$sql, array(), array("Scrollable"=>"buffered"));
+    $totalClientesMenu = sqlsrv_num_rows($resultado);
+}
+elseif ($tipoUsuario === "0") 
+{ 
+    // ventas totales para admin
+    $sql = "select * from whatsapp where dniAsesor='$dniUsuario'";
+    $resultado = sqlsrv_query($consulta,$sql, array(), array("Scrollable"=>"buffered"));
+    $totalClientesMenu = sqlsrv_num_rows($resultado);
+}
 ?>
 
 <body class="sb-nav-fixed">
@@ -91,11 +101,11 @@ $totalClientesMenu = sqlsrv_num_rows($resultado);
                                 <div class="sb-nav-link-icon"><ion-icon name="newspaper-outline"></ion-icon></div>
                                     Reportes
                             </a>
-                            <a class="nav-link" href="index.php?pagina=Configuracion">
-                                <div class="sb-nav-link-icon"> <ion-icon name="cog-outline"></ion-icon></div>
-                                    Configuracion
-                            </a>
                         <?php } ?>			
+                        <a class="nav-link" href="index.php?pagina=Configuracion">
+                            <div class="sb-nav-link-icon"> <ion-icon name="cog-outline"></ion-icon></div>
+                                Configuracion
+                        </a>
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">

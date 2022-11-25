@@ -31,7 +31,7 @@
                             </div>
                             <div class="form-item mb-3">
                                 <ion-icon name="lock-closed-outline"></ion-icon>
-                                <input class="form-control" type="password" name="clave" id="clave" maxlength="6" required autocomplete='off' oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" placeholder="Ingresa tu clave">
+                                <input class="form-control" type="password" name="clave" id="clave" required autocomplete='off' placeholder="Ingresa tu clave">
                             </div>
                             <button type="submit">Entrar</button>
                         </form>

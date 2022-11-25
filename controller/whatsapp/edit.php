@@ -5,7 +5,7 @@ $model=new conexion();
 $con=$model->conectar();
 
 // en el caso de solo querer determinadas columnas usar esto con el mismo nombre de las columnas...
-$columnas=['codigo','asesor','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','numeroReferencia','sec','tipoFija','planFija','estado','observaciones','promocion','ubicacion','distrito','fechaRegistro','fechaActualizacion'];
+$columnas=['codigo','dniAsesor','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','numeroReferencia','sec','tipoFija','planFija','estado','observaciones','promocion','ubicacion','distrito','fechaRegistro','fechaActualizacion'];
 
 // tabla a seleccionar
 $tabla='whatsapp';
@@ -40,7 +40,7 @@ if ($filas>0) {
         // variables asignadas de la base de datos
 
         $codigo = $fila['codigo'];
-        $asesor = $fila['asesor'];
+        $asesor = $fila['dniAsesor'];
         $nombre = $fila['nombre'];
         $dni = $fila['dni'];
         $telefono = $fila['telefono'];

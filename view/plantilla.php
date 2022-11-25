@@ -10,14 +10,7 @@
         $nombreUsuario = $_SESSION["user"];
         $tipoUsuario = $_SESSION["tipo"];
 
-        if($tipoUsuario === "1") 
-        {
-            include_once "paginas/dashboard.php";
-        }			
-        elseif ($tipoUsuario === "0") 
-        {
-            include_once "paginas/clientes.php";
-        }
+        include_once "paginas/dashboard.php";
     }
     elseif (isset($_SESSION["user"]) && isset($_GET["pagina"])) 
     {
@@ -88,7 +81,7 @@
             }
             elseif ($_GET["pagina"]==="Configuracion") 
             {
-                include_once "paginas/401.php";
+                include_once "paginas/configuracion.php";
             }
             else 
             {

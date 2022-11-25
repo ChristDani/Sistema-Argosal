@@ -5,10 +5,10 @@ $model=new conexion();
 $con=$model->conectar();
 
 // en el caso de solo querer determinadas columnas usar esto con el mismo nombre de las columnas...
-$columnas=['codigo','asesor','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','numeroReferencia','sec','tipoFija','planFija','estado','observaciones','promocion','fechaRegistro'];
+$columnas=['w.codigo','u.nombre','w.nombre','w.dni','w.telefono','w.producto','w.lineaProcedente','w.operadorCedente','w.modalidad','w.tipo','w.planR','w.equipo','w.formaDePago','w.numeroReferencia','w.sec','w.tipoFija','w.planFija','w.estado','observaciones','w.promocion','w.ubicacion','w.distrito','w.fechaRegistro','w.fechaActualizacion'];
 
 // tabla a seleccionar
-$tabla='whatsapp';
+$tabla='whatsapp as w inner join usuarios as u on w.dniAsesor=u.dni';
 
 // $buscar=isset($_POST['busqueda']) ? $con->mssql_escape($_POST['busqueda']) : null;
 $buscar= isset($_POST['busqueda']) ? $_POST['busqueda'] : null;
@@ -45,9 +45,9 @@ $sLimite = " offset $inicio rows fetch next $limite rows only ";
 // cantidad de registros devueltos en la consulta
 $contar="select * from $tabla $where";
 
-$sql = "select ".implode(", ", $columnas)." from $tabla $where order by codigo $sLimite";
+$sql = "select ".implode(", ", $columnas)." from $tabla $where order by w.fechaRegistro $sLimite";
 // para verificar errores en la consulta
-// echo $sql;
+// echo "$sql<br>";
 
 
 // $resulContar=sqlsrv_query($con,$contar, array(), array("Scrollable"=>"buffered"));
