@@ -147,7 +147,8 @@ clave char(40) not null,
 tipo char(1) not null,
 foto char(30) not null,
 fechaRegistro datetime default getdate(),
-estado char(1) not null
+estado char(1) not null,
+fotoPerfil char(30) null
 )
 
 select w.codigo, u.nombre from whatsapp as w inner join usuarios as u on u.nombre=w.asesor where u.dni='73179455'
