@@ -5,17 +5,17 @@ $model=new conexion();
 $con=$model->conectar();
 
 // en el caso de solo querer determinadas columnas usar esto con el mismo nombre de las columnas...
-$columnas=['codigo','dniAsesor','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','numeroReferencia','sec','tipoFija','planFija','estado','observaciones','promocion','ubicacion','distrito','fechaRegistro','fechaActualizacion'];
+$columnas=['w.codigo','u.nombre','w.nombre','w.dni','w.telefono','w.producto','w.lineaProcedente','w.operadorCedente','w.modalidad','w.tipo','w.planR','w.equipo','w.formaDePago','w.numeroReferencia','w.sec','w.tipoFija','w.planFija','w.modoFija','w.estado','observaciones','w.promocion','w.ubicacion','w.distrito','w.fechaRegistro','w.fechaActualizacion'];
 
 // tabla a seleccionar
-$tabla='whatsapp';
+$tabla='whatsapp as w inner join usuarios as u on w.dniAsesor=u.dni';
 
 // posicion de registro
 $codigo = isset($_POST['codigo']) ? $_POST['codigo'] : 'WP00000001';
 
 
 // llamamos al registro
-$sql = "select ".implode(", ", $columnas)." from $tabla where codigo='".$codigo."'";
+$sql = "select ".implode(", ", $columnas)." from $tabla where w.codigo='".$codigo."'";
 // para verificar errores en la consulta
 // echo $sql;
 
@@ -40,7 +40,7 @@ if ($filas>0) {
         // variables asignadas de la base de datos
 
         $codigo = $fila['codigo'];
-        $asesor = $fila['dniAsesor'];
+        $asesor = $fila[1];
         $nombre = $fila['nombre'];
         $dni = $fila['dni'];
         $telefono = $fila['telefono'];
@@ -56,6 +56,7 @@ if ($filas>0) {
         $sec = $fila['sec'];
         $tipoFija = $fila['tipoFija'];
         $planFija = $fila['planFija'];
+        $modoFija = $fila['modoFija'];
         $estado = $fila['estado'];
         $observaciones = $fila['observaciones'];
         $promocion = $fila['promocion'];
@@ -64,16 +65,17 @@ if ($filas>0) {
         $fecha = $fila['fechaRegistro']-> format('l j \of F Y h:i:s A');
         $fechaUdp = $fila['fechaActualizacion']-> format('l j \of F Y h:i:s A');
 
-        // asesor
-        $output['data'].= "<hgroup>";
-        $output['data'].= "<div class='form-floating mb-3'>";
-        $output['data'].= "<div class='col-xs-2'>";
-        $output['data'].= "<center><label>Venta Registrada por <b><em>$asesor</em></b></label></center>";
-        $output['data'].= "</div> ";
-        $output['data'].= "</div> ";
-        $output['data'].= "</hgroup>";
-        
-        $output['data'].= "<div class='detallitos'>";
+        // if ($tipoUsuario === "1") 
+        // {
+            // asesor
+            $output['data'].= "<hgroup>";
+            $output['data'].= "<div class='form-floating mb-3'>";
+            $output['data'].= "<div class='col-xs-2'>";
+            $output['data'].= "<center><label>Venta Registrada por <b><em>$asesor</em></b></label></center>";
+            $output['data'].= "</div> ";
+            $output['data'].= "</div> ";
+            $output['data'].= "</hgroup>";
+        // }
         
         // codigo
         $output['data'].= "<div class='form-floating mb-3 hidden'>";
@@ -94,8 +96,8 @@ if ($filas>0) {
         $output['data'].= "</div> ";
 
         // numero de referencia
-        $output['data'].= "<div id='telefRefEditM' class='form-floating mb-3 hidden'>";
-        $output['data'].= "<input class='form-control' type='tel' name='telref' id='telref' value='$telefonoRef' maxlength=9 oninput="."this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');".">";
+        $output['data'].= "<div id='telefRefEditM' class='form-floating mb-3'>";
+        $output['data'].= "<input disabled class='form-control' type='text' name='prodcl' id='prodcl' value='$telefonoRef'>";
         $output['data'].= "<label for='telref'>Número de Referencia</label>";
         $output['data'].= "</div>";
         
@@ -118,23 +120,26 @@ if ($filas>0) {
             $output['data'].= "<input disabled class='form-control' type='text' name='typecl' id='typecl' value='$tipoFija'>";
             $output['data'].= "<label for='typecl'>Tipo</label>";
             $output['data'].= "</div> ";
-        
-            // telefono
-            $output['data'].= "<div id='telefFijaEditM' class='form-floating mb-3'>";
-            $output['data'].= "<input disabled class='form-control' type='text' name='telecl' id='telecl' value='$telefono'>";
-            $output['data'].= "<label for='telecl'>Telefono</label>";
-            $output['data'].= "</div> ";
+
+            if ($tipoFija === "Portabilidad   ") 
+            {
+                // telefono
+                $output['data'].= "<div id='telefFijaEditM' class='form-floating mb-3'>";
+                $output['data'].= "<input disabled class='form-control' type='text' name='telecl' id='telecl' value='$telefono'>";
+                $output['data'].= "<label for='telecl'>Telefono</label>";
+                $output['data'].= "</div> ";
+            }        
 
             // plan de fija
             $output['data'].= "<div id='planFijaEdit' class='form-floating mb-3'>";
-            $output['data'].= "<input disabled class='form-control' type='text' name='planFijacl' id='planFijacl' value='$planFija'>";
-            $output['data'].= "<label for='planFijacl'>Plan</label>";
+            $output['data'].= "<input disabled class='form-control' type='text' name='modoFijacl' id='modoFijacl' value='$planFija'>";
+            $output['data'].= "<label for='modoFijacl'>Plan</label>";
             $output['data'].= "</div> ";
 
-            // forma de pago
-            $output['data'].= "<div  id='formaPgEditM' class='form-floating mb-3'>";
-            $output['data'].= "<input disabled class='form-control' type='text' name='formPagcl' id='formPagcl' value='$formaPago'>";
-            $output['data'].= "<label for='formPagcl'>Forma de Pago</label>";
+            // modo de fija
+            $output['data'].= "<div id='planFijaEdit' class='form-floating mb-3'>";
+            $output['data'].= "<input disabled class='form-control' type='text' name='planFijacl' id='planFijacl' value='$modoFija'>";
+            $output['data'].= "<label for='planFijacl'>Modo de Fija</label>";
             $output['data'].= "</div> ";
         } 
         elseif ($producto === $movil) 
@@ -167,19 +172,13 @@ if ($filas>0) {
                 $output['data'].= "<input disabled class='form-control' type='text' name='equipocl' id='equipocl' value='$equipo'>";
                 $output['data'].= "<label for='equipocl'>Equipo</label>";
                 $output['data'].= "</div> ";
-
-                //forma de pago
-                $output['data'].= "<div id='formaPgEdit' class='form-floating mb-3'>";
-                $output['data'].= "<input disabled class='form-control' type='text' name='formPagcl' id='formPagcl' value='$formaPago'>";
-                $output['data'].= "<label for='formPagcl'>Forma de Pago</label>";
-                $output['data'].= "</div> ";
             }
             elseif ($tipo == "Portabilidad   ") 
             {
                 // telefono
                 $output['data'].= "<div id='telefEditM' class='form-floating mb-3'>";
                 $output['data'].= "<input disabled class='form-control' type='text' name='telecl' id='telecl' value='$telefono'>";
-                $output['data'].= "<label for='telecl'>Telefono</label>";
+                $output['data'].= "<label for='telecl'>Telefono a Portar</label>";
                 $output['data'].= "</div> ";
 
                 // linea procedente
@@ -214,59 +213,57 @@ if ($filas>0) {
                 $output['data'].= "<input disabled class='form-control' type='text' name='equipocl' id='equipocl' value='$equipo'>";
                 $output['data'].= "<label for='equipocl'>Equipo</label>";
                 $output['data'].= "</div> ";
-
-                //forma de pago
-                $output['data'].= "<div id='formaPgEdit' class='form-floating mb-3'>";
-                $output['data'].= "<input disabled class='form-control' type='text' name='formPagcl' id='formPagcl' value='$formaPago'>";
-                $output['data'].= "<label for='formPagcl'>Forma de Pago</label>";
-                $output['data'].= "</div> ";
             }
             elseif ($tipo == "Renovacion     ") 
             {
                 // telefono
                 $output['data'].= "<div id='telefEditM' class='form-floating mb-3'>";
                 $output['data'].= "<input disabled class='form-control' type='text' name='telecl' id='telecl' value='$telefono'>";
-                $output['data'].= "<label for='telecl'>Telefono</label>";
-                $output['data'].= "</div> ";
+                $output['data'].= "<label for='telecl'>Telefono a Renovar</label>";
+                $output['data'].= "</div>";
 
                 // linea procedente
                 $output['data'].= "<div id='lineProceEditM' class='form-floating mb-3'>";
                 $output['data'].= "<input disabled class='form-control' type='text' name='lineProcecl' id='lineProcecl' value='$lineaProce'>";
                 $output['data'].= "<label for='lineProcecl'>Linea Procedente</label>";
-                $output['data'].= "</div> ";
+                $output['data'].= "</div>";
 
                 // modalidad
                 $output['data'].= "<div id='modalEditM' class='form-floating mb-3'>";
                 $output['data'].= "<input disabled class='form-control' type='text' name='modcl' id='modcl' value='$modalidad'>";
                 $output['data'].= "<label for='modcl'>Modalidad</label>";
-                $output['data'].= "</div> ";
+                $output['data'].= "</div>";
 
-                // plan requerido
-                $output['data'].= "<div id='planReEdit' class='form-floating mb-3'>";
-                $output['data'].= "<input disabled class='form-control' type='text' name='planRcl' id='planRcl' value='$planR'>";
-                $output['data'].= "<label for='planRcl'>Plan Requerido</label>";
-                $output['data'].= "</div> ";
+                if ($modalidad == "Postpago") 
+                {
+                    // plan requerido
+                    $output['data'].= "<div id='planReEdit' class='form-floating mb-3'>";
+                    $output['data'].= "<input disabled class='form-control' type='text' name='planRcl' id='planRcl' value='$planR'>";
+                    $output['data'].= "<label for='planRcl'>Plan Requerido</label>";
+                    $output['data'].= "</div> ";
+                }
                 
                 // equipo
                 $output['data'].= "<div id='equipoEdit' class='form-floating mb-3'>";
                 $output['data'].= "<input disabled class='form-control' type='text' name='equipocl' id='equipocl' value='$equipo'>";
                 $output['data'].= "<label for='equipocl'>Equipo</label>";
-                $output['data'].= "</div> ";
-
-                //forma de pago
-                $output['data'].= "<div id='formaPgEdit' class='form-floating mb-3'>";
-                $output['data'].= "<input disabled class='form-control' type='text' name='formPagcl' id='formPagcl' value='$formaPago'>";
-                $output['data'].= "<label for='formPagcl'>Forma de Pago</label>";
-                $output['data'].= "</div> ";
+                $output['data'].= "</div>";
             }
         }
-        else {
+        else 
+        {
             $output['data'].= "<div class='form-floating mb-3'>";
             $output['data'].= "<div class='col-xs-2'>";
             $output['data'].= "<center><label><em>Elija un producto a vender, actualice y vuelva generar los detalles...</em></label></center>";
             $output['data'].= "</div> ";
             $output['data'].= "</div> ";
         }
+        
+        //forma de pago
+        $output['data'].= "<div id='formaPgEdit' class='form-floating mb-3'>";
+        $output['data'].= "<input disabled class='form-control' type='text' name='formPagcl' id='formPagcl' value='$formaPago'>";
+        $output['data'].= "<label for='formPagcl'>Forma de Pago</label>";
+        $output['data'].= "</div> ";
 
         // sec
         $output['data'].= "<div id='secEdit' class='form-floating mb-3'>";
@@ -309,9 +306,6 @@ if ($filas>0) {
         $output['data'].= "<input disabled class='form-control' type='text' name='fechaudpcl' id='fechaudpcl' value='$fechaUdp'>";
         $output['data'].= "<label for='fechaudpcl'>Fecha de Actualización</label>";
         $output['data'].= "</div> ";
-
-        $output['data'].= "</div>";
-
     }
 }
 

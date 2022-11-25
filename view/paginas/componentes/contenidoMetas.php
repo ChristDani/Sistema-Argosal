@@ -37,11 +37,11 @@ $sql3 = "select * from whatsapp where producto='movil' and tipo='Renovacion' and
 $resultado3 = sqlsrv_query($consulta,$sql3, array(), array("Scrollable"=>"buffered"));
 $ventasReno = sqlsrv_num_rows($resultado3);
 // progreso fija ftth
-$sql3 = "select * from whatsapp where producto='Fija' and planFija='HFC(FTH)' and estado='Concretado'";
+$sql3 = "select * from whatsapp where producto='Fija' and (modoFija='HFC' or modoFija='FTTH') and estado='Concretado'";
 $resultado3 = sqlsrv_query($consulta,$sql3, array(), array("Scrollable"=>"buffered"));
 $ventasFijaFtth = sqlsrv_num_rows($resultado3);
 // progreso fija ifi
-$sql3 = "select * from whatsapp where producto='Fija' and estado='Concretado'";
+$sql3 = "select * from whatsapp where producto='Fija' and modoFija='IFI' and estado='Concretado'";
 $resultado3 = sqlsrv_query($consulta,$sql3, array(), array("Scrollable"=>"buffered"));
 $ventasFijaIfi = sqlsrv_num_rows($resultado3);
 ?>

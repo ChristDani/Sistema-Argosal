@@ -37,7 +37,6 @@ function getDataE(pagina) {
     }).then(response=>response.json())
     .then(data=>{
         contenido.innerHTML=data.data
-        document.getElementById('msgE').innerHTML = data.mensaje
         document.getElementById('munE').innerHTML = data.paginacion
     }).catch(err=>console.log(err))
 }

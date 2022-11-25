@@ -60,22 +60,7 @@ $totalContar = sqlsrv_num_rows($resulContar);
 
 $filas = sqlsrv_num_rows($resultado);
 
-// validacion del mensaje
-
-$msg = '';
-
-if ($totalContar===0) {
-    $msg = '';
-} elseif ($totalContar===1) {
-    $msg = "Mostrando 1 de 1 .";
-} elseif ($inicio+$limite>$totalContar) {
-    $msg = "Mostrando del ".$inicio+1 ." al $totalContar de $totalContar Registros.";
-} else {
-    $msg = "Mostrando del ".$inicio+1 ." al ".$inicio+$limite." de $totalContar Registros.";
-}
-
 $output=[];
-$output['mensaje']= $msg;
 $output['data']= '';
 $output['paginacion']= '';
 
@@ -147,17 +132,13 @@ if ($totalContar===1) {
             $pagFinal =  $paginasTotal;
         }
 
-        $output['paginacion'] .= "<div class='btn-toolbar mb-3' role='toolbar'><div class='btn-group me-2' role='group'>";
+        $output['paginacion'] .= "<div class='btn-toolbar mb-3' role='toolbar'><div class='btn-group btn-group-sm' role='group'>";
     
         // activacion del boton anterior
-        if ($pagina==$pagInicio) 
+        if ($pagina!=$pagInicio) 
         {
-            $output['paginacion'] .= "<button type='button' class='rounded-5 btn disabled mx-1 d-flex justify-content-center align-items-center'><ion-icon name='arrow-back-outline'></ion-icon></button>";
-        } 
-        else 
-        {
-            $output['paginacion'] .= "<button type='button' onclick='getDataM(".$pagina-1 .");' class='btn btn-outline-secondary rounded-5 mx-1 d-flex justify-content-center align-items-center'><ion-icon name='arrow-back-outline'></ion-icon></button>";
-        }   
+            $output['paginacion'] .= "<button type='button' onclick='getDataM(".$pagina-1 .");' class='btn rounded-5 mx-1 d-flex justify-content-center align-items-center'><ion-icon name='arrow-back-outline'></ion-icon></button>";
+        }
 
         // pagina inicial anclada
         if ($pagInicio>2) {
@@ -184,10 +165,9 @@ if ($totalContar===1) {
         }
     
         // activacion del boton siguiente
-        if ($pagina==$pagFinal) {
-            $output['paginacion'] .= "<button type='button' class='btn disabled d-flex justify-content-center mx-1 rounded-5 align-items-center'><ion-icon name='arrow-forward-outline'></ion-icon></button>";
-        } else {
-            $output['paginacion'] .= "<button type='button' onclick='getDataM(".$pagina+1 .");' class='btn btn-outline-secondary mx-1 d-flex justify-content-center rounded-5 align-items-center'><ion-icon name='arrow-forward-outline'></ion-icon></button>";
+        if ($pagina!=$pagFinal) 
+        {
+            $output['paginacion'] .= "<button type='button' onclick='getDataM(".$pagina+1 .");' class='btn mx-1 d-flex justify-content-center rounded-5 align-items-center'><ion-icon name='arrow-forward-outline'></ion-icon></button>";
         }
         $output['paginacion'] .= "</div>";
     }

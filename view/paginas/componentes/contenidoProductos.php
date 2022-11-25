@@ -42,10 +42,7 @@
 
     </div>
 
-    <div class="bare d-flex justify-content-between mb-3">
-        <div class="mensaje">
-            <h3 class="text-muted m-3" id="msgE"></h3>
-        </div>
+    <div class="bare row d-flex justify-content-between mb-3">
         <div id="munE">
 
         </div>
