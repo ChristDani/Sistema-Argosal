@@ -22,6 +22,10 @@ input:focus, select:focus, select, input.form-control:focus, .form-floating sele
     -webkit-box-shadow: none;
 }
 
+.btn{
+    border: none;
+}
+
 :root{
     --color-primary: #7380ec;
     --color-danger: #fc3747;
@@ -49,11 +53,15 @@ input:focus, select:focus, select, input.form-control:focus, .form-floating sele
     --color-white: #202528;
     --color-dark: #edeffd;
     --color-primary:#0d6efd;
+    --color-warning: #e9a033 ;
+    --color-success: #02c181;
+    --color-danger: #d32331;
     --color-primary-variant: #7380ec;
     --color-dark-variant: #a3bdcc;
     --color-light: rgba(0,0,0,0.4);
     --box-shadow: 0 2rem 3rem var(--color-light);
 }
+
 
 .userdefault{
     --color-primary:#7380ec;
@@ -167,6 +175,11 @@ small{
     color: var(--color-white);
 }
 
+.modal-content .modal-body{
+    background: var(--color-background);
+    border-radius: var(--border-radius-1);
+}
+
 .modal-content > .modal-header, .modal-content > .modal-footer{
     border: none;
 }
@@ -187,10 +200,12 @@ small{
 .form-floating > input{
     background: var(--color-background);
     border:1px solid var(--color-light);
+    color: var(--color-dark);
 }
 
 .form-floating > input:focus{
     background: var(--color-background);
+    color: var(--color-dark);
 }
 
 
@@ -231,11 +246,11 @@ b{
     background: var(--color-white);
 }
 
-.primary-bg{
+.primary-bg, .btn-primary{
     background: var(--color-primary);
 }
 
-.danger-bg{
+.danger-bg,.btn-danger{
     background: var(--color-danger);
 }
 
@@ -256,6 +271,8 @@ b{
 .warning-bg{
     background: var(--color-warning);
 }
+
+
 
 .bare{
     background: var(--color-white);
