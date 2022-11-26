@@ -17,7 +17,7 @@
         </a>
     </div>
     <div class="col d-flex justify-content-center align-items-center" id="wsp">
-        <a href="#" class="btn success-bg" onclick="exportTableToExcel('tablaWhats', 'Data-Whatsapp')">
+        <a href="#" class="btn success-bg" onclick="exportTableToExcel('tablaWhats', 'Data-Whatsapp');">
             <div>Excel</div>
         </a>
     </div>
@@ -51,3 +51,4 @@
 <?php } ?>
 <script src="controller/whatsapp/validaciones.js"></script>
 <script src="controller/whatsapp/modal.js"></script>
+<!-- <script src="controller/xportExcelMasiva.js"></script> -->
