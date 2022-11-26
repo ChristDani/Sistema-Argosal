@@ -150,7 +150,7 @@ if ($totalContar===1) {
             $pagFinal =  $paginasTotal;
         }
 
-        $output['paginacion'] .= "<div class='btn-toolbar mb-3' role='toolbar'><div class='btn-group me-2' role='group'>";
+        $output['paginacion'] .= "<div class='btn-toolbar mb-3 justify-content-end' role='toolbar'><div class='btn-group me-2' role='group'>";
     
         // activacion del boton anterior
         if ($pagina==$pagInicio) 
@@ -165,7 +165,7 @@ if ($totalContar===1) {
         // pagina inicial anclada
         if ($pagInicio>2) {
             $output['paginacion'] .= "<button type='button' class='btn btn-outline-secondary mx-1 rounded-5' onclick='getDataL(1);'>1</button>";
-            $output['paginacion'] .= "<button type='button' class='btn btn-outline-secondary mx-1 disabled'>...</button>";
+            // $output['paginacion'] .= "<button type='button' class='btn btn-outline-secondary mx-1 disabled'>...</button>";
         }
     
         // paginas dinamicas
@@ -182,7 +182,7 @@ if ($totalContar===1) {
     
         // pagina final anclada
         if ($pagFinal<($paginasTotal-1)) {
-            $output['paginacion'] .= "<button type='button' class='btn btn-outline-secondary mx-1 disabled'>...</button>";
+            // $output['paginacion'] .= "<button type='button' class='btn btn-outline-secondary mx-1 disabled'>...</button>";
             $output['paginacion'] .= "<button type='button' class='btn btn-outline-secondary mx-1 rounded-5' onclick='getDataL($paginasTotal);'>$paginasTotal</button>";
         }
 

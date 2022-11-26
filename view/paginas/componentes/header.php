@@ -79,7 +79,7 @@ elseif ($tipoUsuario === "0")
                         </a>				
                         <a class="nav-link" href="index.php?pagina=Clientes">
                             <div class="sb-nav-link-icon"><ion-icon name="people-outline"></ion-icon></div>
-                            Clientes	<span class="badge danger-bg"><?php echo $totalClientesMenu; ?></span>							
+                            Clientes	<span class="badge primary-bg"><?php echo $totalClientesMenu; ?></span>							
                         </a>
                         <?php if($tipoUsuario === "1") { ?>
                             <a class="nav-link" href="index.php?pagina=Datos">
