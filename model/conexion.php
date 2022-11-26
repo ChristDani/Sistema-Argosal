@@ -5,7 +5,7 @@
 
 		public function conectar()
 		{
-			// $ipsrv =  $_SERVER["REMOTE_ADDR"];
+			
 			// alejandro
 			$server= "192.168.0.41";
 			$conexion=array("Database"=>"Argosal",
