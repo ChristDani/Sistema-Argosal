@@ -143,61 +143,413 @@ go
 		
 		-- venta de movil en linea nueva --
 			
+			-- linea nueva en postpago --
+			--drop procedure if exists sp_insertar_whatsapp_movil_lineanueva_postpago
+			create procedure sp_insertar_whatsapp_movil_lineanueva_postpago
+			@codigo char(10),
+			@dniasesor char(8),
+			@nombre char(50),
+			@dni char(8),
+			@numeroReferencia char(11),
+			@producto char(5),
+			@promocion char(50),
+			@tipo char(15),
+			@modalidad char(8),
+			@planR char(50),
+			@equipo char(50),
+			@formaDePago char(10),
+			@sec char(15),
+			@estado char(15),
+			@observacion varchar(300),
+			@ubicacion char(100),
+			@distrito char(25)
+			as
+			begin
+				insert into whatsapp(codigo,dniAsesor,nombre,dni,telefono,producto,lineaProcedente,operadorCedente,modalidad,tipo,planR,equipo,formaDePago,numeroReferencia,sec,tipoFija,planFija,modoFija,estado,observaciones,promocion,ubicacion,distrito) values(@codigo,@dniasesor,@nombre,@dni,'---',@producto,'---','---',@modalidad,@tipo,@planR,@equipo,@formaDePago,@numeroReferencia,@sec,'---','---','---',@estado,@observacion,@promocion,@ubicacion,@distrito)
+			end 
+			go
+
 			-- linea nueva en prepago --
+			--drop procedure if exists sp_insertar_whatsapp_movil_lineanueva_prepago
+			create procedure sp_insertar_whatsapp_movil_lineanueva_prepago
+			@codigo char(10),
+			@dniasesor char(8),
+			@nombre char(50),
+			@dni char(8),
+			@numeroReferencia char(11),
+			@producto char(5),
+			@promocion char(50),
+			@tipo char(15),
+			@modalidad char(8),
+			@equipo char(50),
+			@formaDePago char(10),
+			@sec char(15),
+			@estado char(15),
+			@observacion varchar(300),
+			@ubicacion char(100),
+			@distrito char(25)
+			as
+			begin
+				insert into whatsapp(codigo,dniAsesor,nombre,dni,telefono,producto,lineaProcedente,operadorCedente,modalidad,tipo,planR,equipo,formaDePago,numeroReferencia,sec,tipoFija,planFija,modoFija,estado,observaciones,promocion,ubicacion,distrito) values(@codigo,@dniasesor,@nombre,@dni,'---',@producto,'---','---',@modalidad,@tipo,'---',@equipo,@formaDePago,@numeroReferencia,@sec,'---','---','---',@estado,@observacion,@promocion,@ubicacion,@distrito)
+			end 
+			go
+
+		-- venta de movil en portabilidad --
+			
+			-- portabilidad en postpago --
+			--drop procedure if exists sp_insertar_whatsapp_movil_portabilidad_postpago
+			create procedure sp_insertar_whatsapp_movil_portabilidad_postpago
+			@codigo char(10),
+			@dniasesor char(8),
+			@nombre char(50),
+			@dni char(8),
+			@numeroReferencia char(11),
+			@producto char(5),
+			@promocion char(50),
+			@tipo char(15),
+			@telefono char(11),
+			@lineaProcedente char(8),
+			@operadorCedente char(15),
+			@modalidad char(8),
+			@planR char(50),
+			@equipo char(50),
+			@formaDePago char(10),
+			@sec char(15),
+			@estado char(15),
+			@observacion varchar(300),
+			@ubicacion char(100),
+			@distrito char(25)
+			as
+			begin
+				insert into whatsapp(codigo,dniAsesor,nombre,dni,telefono,producto,lineaProcedente,operadorCedente,modalidad,tipo,planR,equipo,formaDePago,numeroReferencia,sec,tipoFija,planFija,modoFija,estado,observaciones,promocion,ubicacion,distrito) values(@codigo,@dniasesor,@nombre,@dni,@telefono,@producto,@lineaProcedente,@operadorCedente,@modalidad,@tipo,@planR,@equipo,@formaDePago,@numeroReferencia,@sec,'---','---','---',@estado,@observacion,@promocion,@ubicacion,@distrito)
+			end 
+			go
+
+			-- portabilidad en prepago --
+			--drop procedure if exists sp_insertar_whatsapp_movil_portabilidad_prepago
+			create procedure sp_insertar_whatsapp_movil_portabilidad_prepago
+			@codigo char(10),
+			@dniasesor char(8),
+			@nombre char(50),
+			@dni char(8),
+			@numeroReferencia char(11),
+			@producto char(5),
+			@promocion char(50),
+			@tipo char(15),
+			@telefono char(11),
+			@lineaProcedente char(8),
+			@operadorCedente char(15),
+			@modalidad char(8),
+			@equipo char(50),
+			@formaDePago char(10),
+			@sec char(15),
+			@estado char(15),
+			@observacion varchar(300),
+			@ubicacion char(100),
+			@distrito char(25)
+			as
+			begin
+				insert into whatsapp(codigo,dniAsesor,nombre,dni,telefono,producto,lineaProcedente,operadorCedente,modalidad,tipo,planR,equipo,formaDePago,numeroReferencia,sec,tipoFija,planFija,modoFija,estado,observaciones,promocion,ubicacion,distrito) values(@codigo,@dniasesor,@nombre,@dni,@telefono,@producto,@lineaProcedente,@operadorCedente,@modalidad,@tipo,'---',@equipo,@formaDePago,@numeroReferencia,@sec,'---','---','---',@estado,@observacion,@promocion,@ubicacion,@distrito)
+			end 
+			go
+
+		-- venta de movil en renovacion --
+			
+			-- renovacion en postpago --
+			--drop procedure if exists sp_insertar_whatsapp_movil_renovacion_postpago
+			create procedure sp_insertar_whatsapp_movil_renovacion_postpago
+			@codigo char(10),
+			@dniasesor char(8),
+			@nombre char(50),
+			@dni char(8),
+			@numeroReferencia char(11),
+			@producto char(5),
+			@promocion char(50),
+			@tipo char(15),
+			@telefono char(11),
+			@lineaProcedente char(8),
+			@modalidad char(8),
+			@planR char(50),
+			@equipo char(50),
+			@formaDePago char(10),
+			@sec char(15),
+			@estado char(15),
+			@observacion varchar(300),
+			@ubicacion char(100),
+			@distrito char(25)
+			as
+			begin
+				insert into whatsapp(codigo,dniAsesor,nombre,dni,telefono,producto,lineaProcedente,operadorCedente,modalidad,tipo,planR,equipo,formaDePago,numeroReferencia,sec,tipoFija,planFija,modoFija,estado,observaciones,promocion,ubicacion,distrito) values(@codigo,@dniasesor,@nombre,@dni,@telefono,@producto,@lineaProcedente,'---',@modalidad,@tipo,@planR,@equipo,@formaDePago,@numeroReferencia,@sec,'---','---','---',@estado,@observacion,@promocion,@ubicacion,@distrito)
+			end 
+			go
+
+			--renovacion en prepago --
+			--drop procedure if exists sp_insertar_whatsapp_movil_renovacion_prepago
+			create procedure sp_insertar_whatsapp_movil_renovacion_prepago
+			@codigo char(10),
+			@dniasesor char(8),
+			@nombre char(50),
+			@dni char(8),
+			@numeroReferencia char(11),
+			@producto char(5),
+			@promocion char(50),
+			@tipo char(15),
+			@telefono char(11),
+			@lineaProcedente char(8),
+			@modalidad char(8),
+			@equipo char(50),
+			@formaDePago char(10),
+			@sec char(15),
+			@estado char(15),
+			@observacion varchar(300),
+			@ubicacion char(100),
+			@distrito char(25)
+			as
+			begin
+				insert into whatsapp(codigo,dniAsesor,nombre,dni,telefono,producto,lineaProcedente,operadorCedente,modalidad,tipo,planR,equipo,formaDePago,numeroReferencia,sec,tipoFija,planFija,modoFija,estado,observaciones,promocion,ubicacion,distrito) values(@codigo,@dniasesor,@nombre,@dni,@telefono,@producto,@lineaProcedente,'---',@modalidad,@tipo,'---',@equipo,@formaDePago,@numeroReferencia,@sec,'---','---','---',@estado,@observacion,@promocion,@ubicacion,@distrito)
+			end 
+			go
 
 
 
+-- edicion de ventas whatsapp --
 
+	-- edicion de whatsapp fija --
 
+		-- venta de fija portabilidad --
+		--drop procedure if exists sp_editar_whatsapp_fija_portabilidad
+		create procedure sp_editar_whatsapp_fija_portabilidad
+		@codigo char(10),
+		@dniasesor char(8),
+		@nombre char(50),
+		@dni char(8),
+		@numeroReferencia char(11),
+		@producto char(5),
+		@promocion char(50),
+		@tipoFija char(15),
+		@telefono char(11),
+		@planFija char(50),
+		@modofija char(4),
+		@formaDePago char(10),
+		@sec char(15),
+		@estado char(15),
+		@observacion varchar(300),
+		@ubicacion char(100),
+		@distrito char(25)
+		as
+		begin
+			declare @fechaUpdate datetime;
+			set @fechaUpdate = getdate();
+			update whatsapp set dniAsesor=@dniasesor, nombre=@nombre, dni=@dni, numeroReferencia=@numeroReferencia, producto=@producto, promocion=@promocion, tipoFija=@tipoFija, telefono=@telefono, planFija=@planFija, modoFija=@modofija, formaDePago=@formaDePago, sec=@sec, estado=@estado, observaciones=@observacion, ubicacion=@ubicacion, distrito=@distrito, fechaActualizacion=@fechaUpdate where codigo=@codigo
+		end 
+		go
 
--- pruebas --
-declare @codigo char(10);
-set @codigo = dbo.Gencodwhats();
-print @codigo;
-exec sp_insertar_whatsapp @codigo,'Christian','juan jose','73179455','985478547','Fija','---','---','---','---','---','---','Contado','---','---','Alta','1 Play','Pendiente'
+		-- venta de fija linea nueva --
+		--drop procedure if exists sp_editar_whatsapp_fija_lineanueva
+		create procedure sp_editar_whatsapp_fija_lineanueva
+		@codigo char(10),
+		@dniasesor char(8),
+		@nombre char(50),
+		@dni char(8),
+		@numeroReferencia char(11),
+		@producto char(5),
+		@promocion char(50),
+		@tipoFija char(15),
+		@planFija char(50),
+		@modofija char(4),
+		@formaDePago char(10),
+		@sec char(15),
+		@estado char(15),
+		@observacion varchar(300),
+		@ubicacion char(100),
+		@distrito char(25)
+		as
+		begin
+			declare @fechaUpdate datetime;
+			set @fechaUpdate = getdate();
+			update whatsapp set dniAsesor=@dniasesor, nombre=@nombre, dni=@dni, numeroReferencia=@numeroReferencia, producto=@producto, promocion=@promocion, tipoFija=@tipoFija, planFija=@planFija, modoFija=@modofija, formaDePago=@formaDePago, sec=@sec, estado=@estado, observaciones=@observacion, ubicacion=@ubicacion, distrito=@distrito, fechaActualizacion=@fechaUpdate where codigo=@codigo
+		end 
+		go
 
-select * from whatsapp
+	-- edicion de whatsapp movil --
+		
+		-- venta de movil en linea nueva --
+			
+			-- linea nueva en postpago --
+			--drop procedure if exists sp_editar_whatsapp_movil_lineanueva_postpago
+			create procedure sp_editar_whatsapp_movil_lineanueva_postpago
+			@codigo char(10),
+			@dniasesor char(8),
+			@nombre char(50),
+			@dni char(8),
+			@numeroReferencia char(11),
+			@producto char(5),
+			@promocion char(50),
+			@tipo char(15),
+			@modalidad char(8),
+			@planR char(50),
+			@equipo char(50),
+			@formaDePago char(10),
+			@sec char(15),
+			@estado char(15),
+			@observacion varchar(300),
+			@ubicacion char(100),
+			@distrito char(25)
+			as
+			begin
+				declare @fechaUpdate datetime;
+				set @fechaUpdate = getdate();
+				update whatsapp set dniAsesor=@dniasesor, nombre=@nombre, dni=@dni, numeroReferencia=@numeroReferencia, producto=@producto, promocion=@promocion, tipo=@tipo, modalidad=@modalidad, planR=@planR, equipo=@equipo, formaDePago=@formaDePago, sec=@sec, estado=@estado, observaciones=@observacion, ubicacion=@ubicacion, distrito=@distrito, fechaActualizacion=@fechaUpdate where codigo=@codigo
+			end 
+			go
 
+			-- linea nueva en prepago --
+			--drop procedure if exists sp_editar_whatsapp_movil_lineanueva_prepago
+			create procedure sp_editar_whatsapp_movil_lineanueva_prepago
+			@codigo char(10),
+			@dniasesor char(8),
+			@nombre char(50),
+			@dni char(8),
+			@numeroReferencia char(11),
+			@producto char(5),
+			@promocion char(50),
+			@tipo char(15),
+			@modalidad char(8),
+			@equipo char(50),
+			@formaDePago char(10),
+			@sec char(15),
+			@estado char(15),
+			@observacion varchar(300),
+			@ubicacion char(100),
+			@distrito char(25)
+			as
+			begin
+				declare @fechaUpdate datetime;
+				set @fechaUpdate = getdate();
+				update whatsapp set dniAsesor=@dniasesor, nombre=@nombre, dni=@dni, numeroReferencia=@numeroReferencia, producto=@producto, promocion=@promocion, tipo=@tipo, modalidad=@modalidad, equipo=@equipo, formaDePago=@formaDePago, sec=@sec, estado=@estado, observaciones=@observacion, ubicacion=@ubicacion, distrito=@distrito, fechaActualizacion=@fechaUpdate where codigo=@codigo
+			end 
+			go
 
+		-- venta de movil en portabilidad --
+			
+			-- portabilidad en postpago --
+			--drop procedure if exists sp_editar_whatsapp_movil_portabilidad_postpago
+			create procedure sp_editar_whatsapp_movil_portabilidad_postpago
+			@codigo char(10),
+			@dniasesor char(8),
+			@nombre char(50),
+			@dni char(8),
+			@numeroReferencia char(11),
+			@producto char(5),
+			@promocion char(50),
+			@tipo char(15),
+			@telefono char(11),
+			@lineaProcedente char(8),
+			@operadorCedente char(15),
+			@modalidad char(8),
+			@planR char(50),
+			@equipo char(50),
+			@formaDePago char(10),
+			@sec char(15),
+			@estado char(15),
+			@observacion varchar(300),
+			@ubicacion char(100),
+			@distrito char(25)
+			as
+			begin
+				declare @fechaUpdate datetime;
+				set @fechaUpdate = getdate();
+				update whatsapp set dniAsesor=@dniasesor, nombre=@nombre, dni=@dni, numeroReferencia=@numeroReferencia, producto=@producto, promocion=@promocion, tipo=@tipo, telefono=@telefono, lineaProcedente=@lineaProcedente, operadorCedente=@operadorCedente, modalidad=@modalidad, planR=@planR, equipo=@equipo, formaDePago=@formaDePago, sec=@sec, estado=@estado, observaciones=@observacion, ubicacion=@ubicacion, distrito=@distrito, fechaActualizacion=@fechaUpdate where codigo=@codigo
+			end 
+			go
 
--- editar whatsapp --
--- fija --
+			-- portabilidad en prepago --
+			--drop procedure if exists sp_editar_whatsapp_movil_portabilidad_prepago
+			create procedure sp_editar_whatsapp_movil_portabilidad_prepago
+			@codigo char(10),
+			@dniasesor char(8),
+			@nombre char(50),
+			@dni char(8),
+			@numeroReferencia char(11),
+			@producto char(5),
+			@promocion char(50),
+			@tipo char(15),
+			@telefono char(11),
+			@lineaProcedente char(8),
+			@operadorCedente char(15),
+			@modalidad char(8),
+			@equipo char(50),
+			@formaDePago char(10),
+			@sec char(15),
+			@estado char(15),
+			@observacion varchar(300),
+			@ubicacion char(100),
+			@distrito char(25)
+			as
+			begin
+				declare @fechaUpdate datetime;
+				set @fechaUpdate = getdate();
+				update whatsapp set dniAsesor=@dniasesor, nombre=@nombre, dni=@dni, numeroReferencia=@numeroReferencia, producto=@producto, promocion=@promocion, tipo=@tipo, telefono=@telefono, lineaProcedente=@lineaProcedente, operadorCedente=@operadorCedente, modalidad=@modalidad, equipo=@equipo, formaDePago=@formaDePago, sec=@sec, estado=@estado, observaciones=@observacion, ubicacion=@ubicacion, distrito=@distrito, fechaActualizacion=@fechaUpdate where codigo=@codigo
+			end 
+			go
 
-drop procedure if exists sp_editar_whatsapp_fija
-create procedure sp_editar_whatsapp_fija
-@codigo char(10),
-@numeroReferencia char(11),
-@sec char(15),
-@planFija char(50),
-@estado char(15)
-as
-begin
-	update whatsapp set numeroReferencia=@numeroReferencia, sec=@sec, planFija=@planFija, estado=@estado where codigo=@codigo
-end 
-go
+		-- venta de movil en renovacion --
+			
+			-- renovacion en postpago --
+			--drop procedure if exists sp_editar_whatsapp_movil_renovacion_postpago
+			create procedure sp_editar_whatsapp_movil_renovacion_postpago
+			@codigo char(10),
+			@dniasesor char(8),
+			@nombre char(50),
+			@dni char(8),
+			@numeroReferencia char(11),
+			@producto char(5),
+			@promocion char(50),
+			@tipo char(15),
+			@telefono char(11),
+			@lineaProcedente char(8),
+			@modalidad char(8),
+			@planR char(50),
+			@equipo char(50),
+			@formaDePago char(10),
+			@sec char(15),
+			@estado char(15),
+			@observacion varchar(300),
+			@ubicacion char(100),
+			@distrito char(25)
+			as
+			begin
+				declare @fechaUpdate datetime;
+				set @fechaUpdate = getdate();
+				update whatsapp set dniAsesor=@dniasesor, nombre=@nombre, dni=@dni, numeroReferencia=@numeroReferencia, producto=@producto, promocion=@promocion, tipo=@tipo, telefono=@telefono, lineaProcedente=@lineaProcedente, modalidad=@modalidad, planR=@planR, equipo=@equipo, formaDePago=@formaDePago, sec=@sec, estado=@estado, observaciones=@observacion, ubicacion=@ubicacion, distrito=@distrito, fechaActualizacion=@fechaUpdate where codigo=@codigo
+			end 
+			go
 
-exec sp_editar_whatsapp_fija 'WP00000004','','602145754','','Concretado'
-
-select * from whatsapp
-
-
--- movil --
-
-drop procedure if exists sp_editar_whatsapp_movil
-create procedure sp_editar_whatsapp_movil
-@codigo char(10),
-@planR char(50),
-@equipo char(50),
-@formaDePago char(10),
-@numeroReferencia char(11),
-@sec char(15),
-@estado char(15)
-as
-begin
-	update whatsapp set planR=@planR, equipo=@equipo, formaDePago=@formaDePago, numeroReferencia=@numeroReferencia, sec=@sec, estado=@estado where codigo=@codigo
-end 
-go
-
-exec sp_editar_whatsapp_movil 'WP00000007','sin plan','Samsung S20+','Cuotas','922456854','86954575','Concretado'
-
-select * from whatsapp
+			-- renovacion en prepago --
+			--drop procedure if exists sp_editar_whatsapp_movil_renovacion_prepago
+			create procedure sp_editar_whatsapp_movil_renovacion_prepago
+			@codigo char(10),
+			@dniasesor char(8),
+			@nombre char(50),
+			@dni char(8),
+			@numeroReferencia char(11),
+			@producto char(5),
+			@promocion char(50),
+			@tipo char(15),
+			@telefono char(11),
+			@lineaProcedente char(8),
+			@modalidad char(8),
+			@equipo char(50),
+			@formaDePago char(10),
+			@sec char(15),
+			@estado char(15),
+			@observacion varchar(300),
+			@ubicacion char(100),
+			@distrito char(25)
+			as
+			begin
+				declare @fechaUpdate datetime;
+				set @fechaUpdate = getdate();
+				update whatsapp set dniAsesor=@dniasesor, nombre=@nombre, dni=@dni, numeroReferencia=@numeroReferencia, producto=@producto, promocion=@promocion, tipo=@tipo, telefono=@telefono, lineaProcedente=@lineaProcedente, modalidad=@modalidad, equipo=@equipo, formaDePago=@formaDePago, sec=@sec, estado=@estado, observaciones=@observacion, ubicacion=@ubicacion, distrito=@distrito, fechaActualizacion=@fechaUpdate where codigo=@codigo
+			end 
+			go
