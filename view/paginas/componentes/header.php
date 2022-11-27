@@ -110,7 +110,60 @@ elseif ($tipoUsuario === "0")
                 </div>
                 <div class="sb-sidenav-footer">
                     <div class="row">
-                        <h2><?php echo $nombreUsuario ; ?></h2>
+                        <h2><?php echo $nombreUsuario; ?></h2>
+                    </div>
+                    <div class="row">
+                        <?php if ($listar != null) 
+                            {
+                                foreach ($listar as $x) 
+                                { 
+                                    if ($x[0] === $dniUsuario) 
+                                    { 
+                                        if ($x[6] === "0") 
+                                        {?>
+                                            <div class="dropdown">
+                                                <a class="dropdown-toggle d-flex align-items-baseline mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <h4 id="Mostrarestado"><span class="danger">Desconectado<span></h4>
+                                                </a>
+
+                                                <ul class="dropdown-menu" id="estados">
+                                                    <li><a class="dropdown-item" href="controller/usuario/conectarUsuario.php?dni=<?php echo $dniUsuario;?>"><span class="success">Conectado<span></a></li>
+                                                    <li><a class="dropdown-item" href="controller/usuario/reposarUsuario.php?dni=<?php echo $dniUsuario;?>"><span class="warning">En Reposo<span></a></li>
+                                                </ul>
+                                            </div> 
+                                            <!-- <h4 class="danger">Desconctado</h4> -->
+                                <?php   }
+                                        elseif ($x[6] === "1") 
+                                        {?>
+                                            <div class="dropdown">
+                                                <a class="dropdown-toggle d-flex align-items-baseline mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <h4 id="Mostrarestado"><span class="success">Conectado<span></h4>
+                                                </a>
+
+                                                <ul class="dropdown-menu" id="estados">
+                                                    <li><a class="dropdown-item" href="controller/usuario/reposarUsuario.php?dni=<?php echo $dniUsuario;?>"><span class="warning">En Reposo<span></a></li>
+                                                    <li><a class="dropdown-item" href="controller/usuario/desconectarUsuario.php?dni=<?php echo $dniUsuario;?>"><span class="danger">Desconectado<span></a></li>
+                                                </ul>
+                                            </div> 
+                                            <!-- <h4 class="success">Conectado</h4> -->
+                                <?php   }
+                                        elseif ($x[6] === "2") 
+                                        {?>
+                                            <div class="dropdown">
+                                                <a class="dropdown-toggle d-flex align-items-baseline mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <h4 id="Mostrarestado"><span class="warning">En Reposo<span></h4>
+                                                </a>
+
+                                                <ul class="dropdown-menu" id="estados">
+                                                    <li><a class="dropdown-item" href="controller/usuario/conectarUsuario.php?dni=<?php echo $dniUsuario;?>"><span class="success">Conectado<span></a></li>
+                                                    <li><a class="dropdown-item" href="controller/usuario/desconectarUsuario.php?dni=<?php echo $dniUsuario;?>"><span class="danger">Desconectado<span></a></li>
+                                                </ul>
+                                            </div> 
+                                            <!-- <h4 class="warning">En Reposo</h4> -->
+                                <?php   }
+                                    }
+                                }
+                            }?>
                     </div>
                     <div class="row"> 
                         <div class="col d-flex justify-content-start">
@@ -122,7 +175,7 @@ elseif ($tipoUsuario === "0")
                             <?php } ?>
                         </div>
                         <div class="col d-flex justify-content-end">
-                            <a class="danger" href="controller/acceso/logout.php">
+                            <a class="danger" href="controller/acceso/logout.php?dni=<?php echo $dniUsuario;?>">
                                 <ion-icon name="log-out-outline"></ion-icon>
                             </a>
                         </div>                            

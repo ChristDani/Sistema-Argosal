@@ -1,9 +1,5 @@
 <?php 
 require_once "model/conexion.php";
-require_once "model/usuarios.php";
-
-$model = new user();
-$listar = $model->listar();
 
 $cone = new conexion();
 $consulta = $cone->conectar();

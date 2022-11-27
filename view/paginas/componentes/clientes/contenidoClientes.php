@@ -6,7 +6,6 @@
         </a>
 
         <ul class="dropdown-menu" id="origenClientes">
-            <!-- <li><a class="dropdown-item" href="#" onclick="mostrarOrigenWhastapp();">WHATSAPP</a></li> -->
             <li><a class="dropdown-item" href="#" onclick="mostrarOrigenLanding();">LANDING</a></li>
         </ul>
     </div>        

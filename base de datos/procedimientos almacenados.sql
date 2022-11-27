@@ -16,7 +16,7 @@ go
 	end 
 	go
 
--- edición de usuario --
+-- ediciÃ³n de usuario --
 
 	-- editar usuario completo --
 	--drop procedure if exists sp_editar_usuario
