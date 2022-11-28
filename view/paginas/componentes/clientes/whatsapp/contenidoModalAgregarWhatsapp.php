@@ -1,3 +1,17 @@
+<?php
+require_once 'model/conexion.php';
+$model=new conexion();
+$conp=$model->conectar();
+// productos
+$const = "select descripcion from productos GROUP BY descripcion HAVING COUNT(*)>=1 order by descripcion asc";
+$rs=sqlsrv_query($conp,$const);
+$productsMov=null;
+while($row=sqlsrv_fetch_array($rs))
+{
+    $productsMov[]=$row;
+}
+$con=$model->desconectar();
+?>
 <div class="modal fade" id="AgregarWhatsapp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
@@ -124,8 +138,16 @@
                     
                     <div class="form-floating mb-3 hidden" id="dequipos">                
                         <select class="form-select form-select-sm" name="equipos" id="equipos">
-                            <option value="---" style="color: gray;">(vacio)</option>
-                            <option value="Chip">Chip</option>
+                            <option select value="Chip">Chip</option>
+                            <?php
+                                if ($productsMov != null) 
+                                {
+                                    foreach ($productsMov as $pr) 
+                                    {
+                                        echo "<option value='".$pr[0]."'>".$pr[0]."</option>";
+                                    }
+                                }
+                            ?>
                         </select>
                         <label for="equipos">Equipos</label>
                     </div>

@@ -13,23 +13,21 @@ $telRef = $_POST['telref'];
 $sec = $_POST['sec'];
 $estado = $_POST['estado'];
 
-if ($producto==="Movil") {
-    
+if ($producto==="Movil") 
+{    
     $plan = $_POST['plan'];
     $equipo = $_POST['equipo'];
     $formaPago = $_POST['formaPago'];
     
-    $model->actualizarWhatsappMovil($codigo,$plan,$equipo,$formaPago,$telRef,$sec,$estado);
-    
-    header("location: ../../index.php?pagina=Clientes");
-    
-}else {
-    
+    $model->actualizarWhatsappMovil($codigo,$plan,$equipo,$formaPago,$telRef,$sec,$estado);    
+}
+else 
+{
     $planFija = $_POST['planFija'];
     
     $model->actualizarWhatsappFija($codigo,$planFija,$telRef,$sec,$estado);
-
-    header("location: ../../index.php?pagina=Clientes");
-
 }
 ?>
+<script>
+    window.history.back();
+</script>

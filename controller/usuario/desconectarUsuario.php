@@ -5,7 +5,7 @@ $dni = $_GET['dni'];
 
 $model = new user();
 $model->desactivarEstado($dni);
-
-header("location: ../../index.php?pagina=Dashboard");
-
 ?>
+<script>
+    window.history.back();
+</script>

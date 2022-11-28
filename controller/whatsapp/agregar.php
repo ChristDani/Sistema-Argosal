@@ -28,7 +28,7 @@ $planFija = $_POST['planFija'];
 
 
 $model->agregarWhatsapp($asesor,$nombreC,$dniC,$telefono,$producto,$lineaProce,$operadorCeden,$modalidad,$tipo,$plan,$equipos,$formaPago,$telefonoRef,$sec,$tipoFija,$planFija,$estado,$observacion,$promocion,$ubicacion,$distrito);
-
-header("location: ../../index.php?pagina=Clientes");
-
 ?>
+<script>
+    window.history.back();
+</script>

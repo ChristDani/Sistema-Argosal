@@ -6,20 +6,30 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center">
-                            <h1>Usuario</h1>    
+                            <h1>Tus Datos</h1>    
                         </div>
                         <div class="row row-cols-lg-2">
                             <div class="col mb-3 d-flex justify-content-center align-items-center my-2">
-                                <img src="view/static/ProfileIMG/ProfileDefault.png" style="height:200px; border-radius:100px;">
+                                <img src="view/static/ProfileIMG/<?php echo $configfotoUser; ?>" style="height:200px; border-radius:100px;">
                             </div>
                             <div class="gap-3 col-xl-6 my-2 d-grid align-items-center">
-                                <h2>Nombre del usuario</h2>
-                                <h2>Tipo de usuario</h2>
-                                <h2>Estado</h2>
+                                <h2><?php echo $configNombreUser; ?></h2>
+                                <?php if ($configTipoUser === "1") { ?>
+                                    <h2>Administrador</h2>
+                                <?php }elseif ($configTipoUser === "0") { ?>
+                                    <h2>Asesor</h2>
+                                <?php } ?>
+                                <?php if ($configEstadoUser === "0") { ?>
+                                    <h2 class="danger">Desconectado</h2>
+                                <?php }elseif ($configEstadoUser === "1") { ?>
+                                    <h2 class="success">Conectado</h2>
+                                <?php }elseif ($configEstadoUser === "2") { ?>
+                                    <h2 class="warning">En Reposo</h2>
+                                <?php } ?>
                             </div>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
-                            <h4 class="text-muted text-center">Fecha de registro</h4>
+                            <h4 class="text-muted text-center">Registrado con nosotros desde:<?php echo " $configFechaUser"; ?></h4>
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditarUsuario">
                                 Editar
                             </button>
@@ -27,22 +37,47 @@
                     </div>
                 </div>
             </div>
+            <?php if ($tipoUsuario === "1") { ?>
             <div class="col-xl-6">
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center">
                             <h1>Lista de usuarios</h1>
                         </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h2>Juanito mendez</h2>
-                            <button type="submit" class="btn btn-danger mb-3" data-bs-toggle="modal" data-bs-target="#Eliminar">Eliminar</button>
-                        </div>
+                        <?php if ($listaUsuarios != null) 
+                                {
+                                    foreach ($listaUsuarios as $u) 
+                                    { 
+                                        if ($u[0] != $dniUsuario) 
+                                        {?>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <h2><?php echo $u[1]; ?></h2>
+                                                <h2>/</h2>
+                                                <?php if ($u[3] === "1") { ?>
+                                                    <h2>Administrador</h2>
+                                                <?php }elseif ($u[3] === "0") { ?>
+                                                    <h2>Asesor</h2>
+                                                <?php } ?>
+                                                <h2>/</h2>
+                                                <?php if ($u[6] === "0") { ?>
+                                                    <h2 class="danger">Desconectado</h2>
+                                                <?php }elseif ($u[6] === "1") { ?>
+                                                    <h2 class="success">Conectado</h2>
+                                                <?php }elseif ($u[6] === "2") { ?>
+                                                    <h2 class="warning">En Reposo</h2>
+                                                <?php } ?>
+                                                <button type="submit" class="btn btn-danger mb-3" data-bs-toggle="modal" data-bs-target="#Eliminar">Eliminar</button>
+                                            </div>
+                        <?php           }
+                                    }
+                                } ?>
                         <div class="d-flex justify-content-end mt-1">
                             <button type="submit" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#Añadir">Añadir Usuario</button>
                         </div>
                     </div>
                 </div>
             </div>
+            <?php } ?>
             <div class="row mx-auto">
                 <div class="col-lg-3">
                     <div class="card">
@@ -125,7 +160,7 @@
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">EDITAR</h1>
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Registrar nuevo Usuario</h1>
         <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">

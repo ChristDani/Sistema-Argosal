@@ -68,7 +68,7 @@ if ($filas>0) {
         // if ($tipoUsuario === "1") 
         // {
             // asesor
-            $output['data'].= "<div class='my-3'><h3 class='text-center'>$asesor</h3></div>";
+            $output['data'].= "<div class='my-3'><h3 class='text-center'>Venta Registrada por <em>$asesor</em></h3></div>";
 
         // }
         

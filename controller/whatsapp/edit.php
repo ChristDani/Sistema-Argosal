@@ -1,8 +1,22 @@
 <?php
 require_once '../../model/conexion.php';
+require_once '../../model/usuarios.php';
 
 $model=new conexion();
 $con=$model->conectar();
+
+// usuarios
+$user = new user();
+$listUser = $user->listar();
+
+// productos
+$const = "select descripcion from productos GROUP BY descripcion HAVING COUNT(*)>=1 order by descripcion asc";
+$rs=sqlsrv_query($con,$const);
+$productsMov=null;
+while($row=sqlsrv_fetch_array($rs))
+{
+    $productsMov[]=$row;
+}
 
 // en el caso de solo querer determinadas columnas usar esto con el mismo nombre de las columnas...
 $columnas=['codigo','dniAsesor','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','numeroReferencia','sec','tipoFija','planFija','modoFija','estado','observaciones','promocion','ubicacion','distrito','fechaRegistro','fechaActualizacion'];
@@ -65,14 +79,33 @@ if ($filas>0) {
         $fecha = $fila['fechaRegistro']-> format('l j \of F Y h:i:s A');
         $fechaUdp = $fila['fechaActualizacion']-> format('l j \of F Y h:i:s A');
 
+        // $output['data'].= "<hgroup>";
+        // $output['data'].= "</hgroup>";
         // asesor
-        $output['data'].= "<hgroup>";
-        $output['data'].= "<div class='form-floating mb-3'>";
-        $output['data'].= "<div class='col-xs-2'>";
-        $output['data'].= "<center><label>Venta Registrada por <b><em>$asesor</em></b></label></center>";
-        $output['data'].= "</div> ";
-        $output['data'].= "</div> ";
-        $output['data'].= "</hgroup>";
+        $output['data'].= "<div id='promocionEdit' class='form-floating mb-3'>";
+        $output['data'].= "<select class='form-select form-select-sm' name='asesor' id='asesor'>";
+        if ($listUser != null) 
+        {
+            foreach ($listUser as $x) 
+            {
+                if ($x[0] === $asesor)
+                {
+                    $output['data'] .= "<option selected hidden value='".$x[0]."'>".$x[1]."</option>";
+                }
+                elseif ($x[0] != $asesor)
+                {
+                    $output['data'] .= "<option value='".$x[0]."'>".$x[1]."</option>";
+                }
+            }
+        }
+        $output['data'] .= "</select>";
+        $output['data'] .= "<label for='asesor'>Asesor</label>";
+        $output['data'] .= "</div> ";
+        // $output['data'].= "<div class='form-floating mb-3'>";
+        // $output['data'].= "<div class='col-xs-2'>";
+        // $output['data'].= "<center><label>Venta Registrada por <b><em>$asesor</em></b></label></center>";
+        // $output['data'].= "</div> ";
+        // $output['data'].= "</div> ";
         
         // codigo
         $output['data'].= "<div class='form-floating mb-3 hidden'>";
@@ -94,14 +127,13 @@ if ($filas>0) {
 
         // numero de referencia
         $output['data'].= "<div id='telefRefEditM' class='form-floating mb-3'>";
-        $output['data'].= "<input class='form-control' type='tel' name='telref' id='telref' value='$telefonoRef' maxlength=9 oninput="."this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');".">";
+        $output['data'].= "<input class='form-control' type='tel' name='telref' id='telref' value='$telefonoRef' maxlength=11 oninput="."this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');".">";
         $output['data'].= "<label for='telref'>Número de Referencia</label>";
         $output['data'].= "</div>";
         
         // producto
         $output['data'].= "<div id='producEdit' class='form-floating mb-3'>";
-        $output['data'].= "<select class='form-select form-select-sm' name='productoEdit' id='productoEdit'> <option hidden value='$producto'>$producto</option> <option value='Movil'>Movil</option>
-        <option value='Fija'>Fija</option> </select>";
+        $output['data'].= "<select class='form-select form-select-sm' name='productoEdit' id='productoEdit'> <option value='$producto'>$producto</option></select>";
         $output['data'].= "<label for='productoEdit'>Producto</label>";
         $output['data'].= "</div> ";
 
@@ -201,8 +233,15 @@ if ($filas>0) {
 
                 // equipo
                 $output['data'].= "<div id='equipoEditM' class='form-floating mb-3'>";
-                $output['data'].= "<select class='form-select form-select-sm' name='equipo' id='equipo'> <option hidden value='$equipo'>$equipo</option>
-                <option value='Chip'>Chip</option> </select>";
+                $output['data'].= "<select class='form-select form-select-sm' name='equipo' id='equipo'> <option hidden value='$equipo'>$equipo</option><option value='Chip'>Chip</option>";
+                if ($productsMov != null) 
+                {
+                    foreach ($productsMov as $pr) 
+                    {
+                        $output['data'] .= "<option value='".$pr[0]."'>".$pr[0]."</option>";
+                    }
+                }
+                $output['data'].= "</select>";
                 $output['data'].= "<label for='equipo'>Equipo</label>";
                 $output['data'].= "</div>";
 
