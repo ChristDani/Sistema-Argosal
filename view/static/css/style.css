@@ -2,12 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap');
 
 
-
-
-.hidden{
-    display: none;
-}
-
 *{
     margin: 0;
     padding: 0;  
@@ -108,6 +102,22 @@ body{
     font-size: 0.88rem;
     background: var(--color-background);
     color: var(--color-dark);
+}
+
+.dropdown-menu.show{
+    background: var(--color-background);
+    color: var(--color-dark);
+    border-radius: var(--card-border-radius);
+}
+
+.dropdown-divider{
+    border-top: 1px solid var(--color-dark);
+}
+
+.dropdown-menu.show li a:hover{
+    background: var(--color-light);
+    color: var(--color-dark);
+    border-radius: var(--card-border-radius);
 }
 
 
