@@ -109,8 +109,18 @@ elseif ($tipoUsuario === "0")
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
-                    <div class="row">
-                        <h2><?php echo $nombreUsuario; ?></h2>
+                    <div class="row mb-1">
+                        <div class="col d-flex gap-2 align-items-end">
+                            <?php if ($listar != null)
+                                {
+                                    foreach ($listar as $x)
+                                    {
+                                        if ($x[0] === $dniUsuario)
+                                        { $fotoUsuario = $x[7];?>
+                                <?php } } } ?>
+                                <div class="usercong" style="background-image:url(view/static/ProfileIMG/<?php echo $fotoUsuario; ?>);"></div>
+                                <h3><?php echo $nombreUsuario; ?></h3>
+                        </div>
                     </div>
                     <div class="align-items-end d-flex row"> 
                         <div class="col d-flex justify-content-start">

@@ -10,7 +10,7 @@
         
       </div>
       <div class="modal-footer d-flex justify-content-between">
-        <button class="btn btn-secondary" data-bs-target="#DetallesWhatsapp" data-bs-toggle="modal">Volver</button>
+        <div class="btn btn-secondary" data-bs-target="#DetallesWhatsapp" data-bs-toggle="modal">Volver</div>
         <button type="submit" class="btn btn-primary">Guardar</button>
       </form>
       </div>

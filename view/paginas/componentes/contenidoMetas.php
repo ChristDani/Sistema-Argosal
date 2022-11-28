@@ -17,7 +17,7 @@ $sql1 = "select * from whatsapp where producto='movil' and tipo='Portabilidad' a
 $resultado1 = sqlsrv_query($consulta,$sql1, array(), array("Scrollable"=>"buffered"));
 $ventasMen69 = sqlsrv_num_rows($resultado1);
 // progreso portabilidades mayores a 69
-$sql2 = "select * from whatsapp where producto='movil' and tipo='Portabilidad' and(planR!='S/ 29.90 MAX' and planR!='S/ 39.90' and planR!='S/ 49.90' and planR!='S/ 55.90') and estado='Concretado'";
+$sql2 = "select * from whatsapp where producto='movil' and tipo='Portabilidad' and(planR!='S/ 29.90 MAX' and planR!='S/ 39.90' and planR!='S/ 49.90' and planR!='S/ 55.90' and planR!='---') and estado='Concretado'";
 $resultado2 = sqlsrv_query($consulta,$sql2, array(), array("Scrollable"=>"buffered"));
 $ventasMay69 = sqlsrv_num_rows($resultado2);
 // progreso altas postpago

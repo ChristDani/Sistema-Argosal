@@ -10,7 +10,8 @@
                         </div>
                         <div class="row row-cols-lg-2">
                             <div class="col mb-3 d-flex justify-content-center align-items-center my-2">
-                                <img src="view/static/ProfileIMG/<?php echo $configfotoUser; ?>" style="height:200px; border-radius:100px;">
+                                <!-- <ion-icon name="person-circle-outline"></ion-icon> -->
+                                <div class="profilecong" style="background-image: url(view/static/ProfileIMG/<?php echo $configfotoUser;?>);"></div>
                             </div>
                             <div class="gap-3 col-xl-6 my-2 d-grid align-items-center">
                                 <h2><?php echo $configNombreUser; ?></h2>
@@ -28,8 +29,8 @@
                                 <?php } ?>
                             </div>
                         </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h4 class="text-muted text-center">Registrado con nosotros desde:<?php echo " $configFechaUser"; ?></h4>
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <h4 class="text-muted text-center">Desde<?php echo " $configFechaUser"; ?></h4>
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditarUsuario">
                                 Editar
                             </button>
@@ -46,27 +47,41 @@
                         </div>
                         <?php if ($listaUsuarios != null) 
                                 {
-                                    foreach ($listaUsuarios as $u) 
-                                    { 
-                                        if ($u[0] != $dniUsuario) 
-                                        {?>
+                                foreach ($listaUsuarios as $u) 
+                                { 
+                                    if ($u[0] != $dniUsuario) 
+                                    {?>
                                             <div class="d-flex justify-content-between align-items-center">
-                                                <h2><?php echo $u[1]; ?></h2>
-                                                <h2>/</h2>
-                                                <?php if ($u[3] === "1") { ?>
-                                                    <h2>Administrador</h2>
-                                                <?php }elseif ($u[3] === "0") { ?>
-                                                    <h2>Asesor</h2>
-                                                <?php } ?>
-                                                <h2>/</h2>
-                                                <?php if ($u[6] === "0") { ?>
-                                                    <h2 class="danger">Desconectado</h2>
-                                                <?php }elseif ($u[6] === "1") { ?>
-                                                    <h2 class="success">Conectado</h2>
-                                                <?php }elseif ($u[6] === "2") { ?>
-                                                    <h2 class="warning">En Reposo</h2>
-                                                <?php } ?>
-                                                <button type="submit" class="btn btn-danger mb-3" data-bs-toggle="modal" data-bs-target="#Eliminar">Eliminar</button>
+                                                <div class="row d-grid justify-content-arround">
+                                                    <a class="btn d-flex gap-1 " data-bs-toggle="modal" data-bs-target="#Eliminar">
+                                                    <?php if ($u[6] === "0") { ?>
+                                                        <div class="content bg-secondary d-flex align-items-center">
+                                                            <div class="usercong" style="background-image: url(view/static/ProfileIMG/<?php echo $u[7];?>);"></div>
+                                                        </div>
+                                                    <?php }elseif ($u[6] === "1") { ?>
+                                                        <div class="content bg-success d-flex align-items-center">
+                                                            <div class="usercong" style="background-image: url(view/static/ProfileIMG/<?php echo $u[7];?>);"></div>
+                                                        </div>
+                                                    <?php }elseif ($u[6] === "2") { ?>
+                                                        <div class="content bg-warning d-flex align-items-center">
+                                                            <div class="usercong" style="background-image: url(view/static/ProfileIMG/<?php echo $u[7];?>);"></div>
+                                                        </div>
+                                                    <?php }elseif ($u[6] === "3") { ?>
+                                                        <div class="content bg-danger d-flex align-items-center">
+                                                            <div class="usercong" style="background-image: url(view/static/ProfileIMG/<?php echo $u[7];?>);"></div>
+                                                        </div>
+                                                    <?php } ?>
+                                                    <!-- <div class="usercong" style="background-image: url(view/static/ProfileIMG/<?php echo $u[7];?>);"></div> -->
+                                                    <div class="">
+                                                        <h2><?php echo strtoupper($u[1]); ?></h2>            
+                                                        <?php if ($u[3] === "1") { ?>
+                                                        <h4 class="text-muted">Administrador</h4>
+                                                        <?php }elseif ($u[3] === "0") { ?>
+                                                        <h4 class="text-muted">Asesor</h4>
+                                                        <?php } ?>
+                                                    </div>
+                                                    </a>
+                                                </div>                                                
                                             </div>
                         <?php           }
                                     }

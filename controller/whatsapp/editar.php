@@ -2,8 +2,6 @@
 
 require_once '../../model/whatsapp.php';
 
-$dni = $_GET['dni'];
-
 $model = new Whatsapp();
 
 $codigo = $_POST['codigoC'];

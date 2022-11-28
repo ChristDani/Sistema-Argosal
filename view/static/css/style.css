@@ -133,6 +133,13 @@ body{
     padding: 0;
 }
 
+/* .col ion-icon{
+    background: var(--color-light) !important;
+    color: var(--color-dark) !important;
+    width: 72%;
+    height: 100%;
+} */
+
 .card a{
     color: var(--color-dark);
     text-decoration: none;
@@ -199,6 +206,40 @@ small{
     height: 2.8rem;
     border-radius: 50%;
     overflow: hidden;
+}
+
+.content{
+    border-radius: 50px;
+
+}
+
+.usercong{
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    margin:2px 6px;
+}
+
+.contornoRojo{
+    border: 5px solid red;
+}
+.contornoVerde{
+    border: 5px solid green;
+}
+.contornoNaranja{
+    border: 5px solid orange;
+}
+
+
+.profilecong{
+    overflow:hidden; 
+    height:200px;
+    width: 200px;
+    border-radius:100%;
+    background-size: cover;
+    background-position: center;
 }
 
 .bare select{
