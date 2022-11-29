@@ -30,36 +30,36 @@ $con=$model->desconectar();
         <form action='controller/whatsapp/agregar.php' method='post'>
                     <?php if ($tipoUsuario === "0") {?>
                         <div class="form-floating mb-3">                
-                    <div class="form-floating mb-3">                
-                        <div class="form-floating mb-3">                
-                            <div class="col-xs-2">
-                                <!-- valor para mostrar -->
-                                <center><label>Registrando venta como <?php echo "<b><em>$nombreUsuario</em></b>"; ?></label></center>
-                                <!-- valor para llevar datos -->
-                                <input hidden  name="asesor" id="asesor" value="<?php echo $dniUsuario; ?>"> 
-                            </div>
-                        </div>                 
-                    </div>                 
+                            <div class="form-floating mb-3">                
+                                <div class="form-floating mb-3">                
+                                    <div class="col-xs-2">
+                                        <!-- valor para mostrar -->
+                                        <center><label>Registrando venta como <?php echo "<b><em>$nombreUsuario</em></b>"; ?></label></center>
+                                        <!-- valor para llevar datos -->
+                                        <input hidden  name="asesor" id="asesor" value="<?php echo $dniUsuario; ?>"> 
+                                    </div>
+                                </div>                 
+                            </div>                 
                         </div>                 
                     <?php } elseif ($tipoUsuario === "1") {?>
-                        <div id='asesorEdit' class='form-floating mb-3'>
-                        <select class='form-select form-select-sm' name='asesor' id='asesor'>
-                       <?php if ($listUser != null) 
-                        {
-                            foreach ($listUser as $x) 
+                        <div class='form-floating mb-3'>
+                            <select class='form-select form-select-sm' name='asesor' id='asesor'>
+                        <?php if ($listUser != null) 
                             {
-                                if ($x[0] === $dniUsuario)
-                                {?>
-                                    <option selected hidden value="<?php echo $x[0]; ?>"><?php echo $x[1]; ?></option>
-                            <?php    }
-                                elseif ($x[0] != $dniUsuario)
-                                {?>
-                                    <option value="<?php echo $x[0]; ?>"><?php echo $x[1]; ?></option>
-                    <?php            }
-                            }
-                        }?>
-                        </select>
-                        <label for='asesor'>Asesor</label>
+                                foreach ($listUser as $x) 
+                                {
+                                    if ($x[0] === $dniUsuario)
+                                    {?>
+                                        <option selected hidden value="<?php echo $x[0]; ?>"><?php echo $x[1]; ?></option>
+                                <?php    }
+                                    elseif ($x[0] != $dniUsuario)
+                                    {?>
+                                        <option value="<?php echo $x[0]; ?>"><?php echo $x[1]; ?></option>
+                        <?php            }
+                                }
+                            }?>
+                            </select>
+                            <label for='asesor'>Asesor</label>
                         </div> 
                     <?php } ?>
                     <div class="form-floating mb-3">
@@ -116,12 +116,13 @@ $con=$model->desconectar();
                     </div>
                     
                     <div class="form-floating mb-3 d-none" id="dtelefono">                
-                        <input class="form-control" autocomplete="off" type="tel" name="telefono" id="telefono" maxlength=9 placeholder="999 999 999" onkeyup="mostrarProductos()" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
+                        <input class="form-control" autocomplete="off" type="tel" name="telefono" id="telefono" maxlength=9 placeholder="999 999 999" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
                         <label for="telefono">Telefono</label>
                     </div>
 
                     <div class="form-floating mb-3 d-none" id="dlineaProce">                
                         <select class="form-select form-select-sm" name="lineaProce" id="lineaProce">
+                            <option value="---" style="color: gray;">(vacio)</option>
                             <option value="Postpago">Postpago</option>
                             <option value="Prepago">Prepago</option>
                         </select>
@@ -130,6 +131,7 @@ $con=$model->desconectar();
                     
                     <div class="form-floating mb-3 d-none" id="doperadorCeden">                
                         <select class="form-select form-select-sm" name="operadorCeden" id="operadorCeden">
+                            <option value="---" style="color: gray;">(vacio)</option>
                             <option value="Movistar">Movistar</option>
                             <option value="Entel">Entel</option>
                             <option value="Bitel">Bitel</option>
@@ -148,6 +150,7 @@ $con=$model->desconectar();
                     
                     <div class="form-floating mb-3 d-none" id="dplan">                
                         <select class="form-select form-select-sm" name="plan" id="plan">
+                            <option value="---" style="color: gray;">(vacio)</option>
                             <option value="S/ 29.90 MAX">S/ 29.90 MAX</option>
                             <option value="S/ 39.90">S/ 39.90</option>
                             <option value="S/ 49.90">S/ 49.90</option>
@@ -184,6 +187,7 @@ $con=$model->desconectar();
                     
                     <div class="form-floating mb-3 d-none" id="dplanFija">                
                         <select class="form-select form-select-sm" name="planFija" id="planFija">
+                            <option value="---" style="color: gray;">(vacio)</option>
                             <option value="1 Play - Telefonia">1 Play - Telefonia</option>
                             <option value="1 Play - Television">1 Play - Television</option>
                             <option value="1 Play - Internet">1 Play - Internet</option>
@@ -198,6 +202,7 @@ $con=$model->desconectar();
 
                     <div class="form-floating mb-3 d-none" id="dmodoFija">                
                         <select class="form-select form-select-sm" name="modoFija" id="modoFija">
+                            <option value="---" style="color: gray;">(vacio)</option>
                             <option value="HFC">HFC</option>
                             <option value="FTTH">FTTH</option>
                             <option value="IFI">IFI</option>
@@ -207,6 +212,7 @@ $con=$model->desconectar();
                     
                     <div class="form-floating mb-3 d-none" id="dformaPago">                
                         <select class="form-select form-select-sm" name="formaPago" id="formaPago">
+                            <option value="---" style="color: gray;">(vacio)</option>
                             <option value="Contado">Contado</option>
                             <option value="Cuotas">Cuotas</option>
                         </select>
@@ -244,8 +250,7 @@ $con=$model->desconectar();
                     
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary">Agregar</button>
         </form>
       </div>
     </div>

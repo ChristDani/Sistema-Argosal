@@ -142,7 +142,6 @@ function mostrarTipoFija(valor)
         document.getElementById('dsec').classList.remove('d-none');
         document.getElementById('sec').value = '';
         document.getElementById('destado').classList.remove('d-none');
-        document.getElementById('estado').selectedIndex = 0;
         document.getElementById('dobservacion').classList.remove('d-none');
         document.getElementById('dubicacion').classList.remove('d-none');
         document.getElementById('ddistrito').classList.remove('d-none');
@@ -160,7 +159,6 @@ function mostrarTipoFija(valor)
         document.getElementById('dsec').classList.remove('d-none');
         document.getElementById('sec').value = '';
         document.getElementById('destado').classList.remove('d-none');
-        document.getElementById('estado').selectedIndex = 0;
         document.getElementById('dobservacion').classList.remove('d-none');
         document.getElementById('dubicacion').classList.remove('d-none');
         document.getElementById('ddistrito').classList.remove('d-none');
@@ -179,7 +177,7 @@ function mostrarTipoFija(valor)
         document.getElementById('dsec').classList.add('d-none');
         document.getElementById('sec').value = '';
         document.getElementById('destado').classList.add('d-none');
-        document.getElementById('estado').selectedIndex = 0;
+        document.getElementById('estado').selectedIndex = 2;
         document.getElementById('dobservacion').classList.add('d-none');
         document.getElementById('dubicacion').classList.add('d-none');
         document.getElementById('ddistrito').classList.add('d-none');        
@@ -256,7 +254,6 @@ function mostrarModalidadMovil(valor)
         document.getElementById('dsec').classList.remove('d-none');
         document.getElementById('sec').selectedIndex = 0;
         document.getElementById('destado').classList.remove('d-none');
-        document.getElementById('estado').selectedIndex = 0;
         document.getElementById('dobservacion').classList.remove('d-none');
         document.getElementById('observaciones').selectedIndex = 0;
         document.getElementById('dubicacion').classList.remove('d-none');
@@ -275,7 +272,6 @@ function mostrarModalidadMovil(valor)
         document.getElementById('dsec').classList.remove('d-none');
         document.getElementById('sec').selectedIndex = 0;
         document.getElementById('destado').classList.remove('d-none');
-        document.getElementById('estado').selectedIndex = 0;
         document.getElementById('dobservacion').classList.remove('d-none');
         document.getElementById('observaciones').selectedIndex = 0;
         document.getElementById('dubicacion').classList.remove('d-none');
@@ -294,7 +290,7 @@ function mostrarModalidadMovil(valor)
         document.getElementById('dsec').classList.add('d-none');
         document.getElementById('sec').selectedIndex = 0;
         document.getElementById('destado').classList.add('d-none');
-        document.getElementById('estado').selectedIndex = 0;
+        document.getElementById('estado').selectedIndex = 2;
         document.getElementById('dobservacion').classList.add('d-none');
         document.getElementById('observaciones').selectedIndex = 0;
         document.getElementById('dubicacion').classList.add('d-none');
