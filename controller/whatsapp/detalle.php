@@ -255,7 +255,18 @@ if ($filas>0) {
         
         // estado
         $output['data'].= "<div id='estadoEdit' class='form-floating mb-3'>";
-        $output['data'].= "<input disabled class='form-control' type='text' name='statecl' id='statecl' value='$estado'>";
+        if ($estado === "0") 
+        {
+            $output['data'].= "<input disabled class='form-control' type='text' name='statecl' id='statecl' value='No Requiere'>";
+        }
+        elseif ($estado === "1") 
+        {
+            $output['data'].= "<input disabled class='form-control' type='text' name='statecl' id='statecl' value='Concretado'>";
+        }
+        elseif ($estado === "2") 
+        {
+            $output['data'].= "<input disabled class='form-control' type='text' name='statecl' id='statecl' value='Pendiente'>";
+        }
         $output['data'].= "<label for='statecl'>Estado</label>";
         $output['data'].= "</div> ";         
         

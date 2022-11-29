@@ -120,49 +120,116 @@ class Whatsapp
     // ediciones
 
     // fija en alta
-
-
-
-
-
-
-
-
-    
-
-
-
-    
-    public function actualizarWhatsappFija($codigo,$planFija,$telRef,$sec,$estado)
+    public function editarFijaAlta($codigo,$asesor,$nombre,$dni,$telefonoRef,$producto,$promocion,$tipoFija,$planFija,$modoFija,$formaPago,$sec,$estado,$observacion,$ubicacion,$distrito)
     {
-
         $model=new conexion();
         $con=$model->conectar();
 
-        $sql="exec sp_editar_whatsapp_fija '$codigo','$telRef','$sec','$planFija','$estado'";
+        $sql="exec sp_editar_whatsapp_fija_lineanueva '$codigo','$asesor','$nombre','$dni','$telefonoRef','$producto','$promocion','$tipoFija','$planFija','$modoFija','$formaPago','$sec','$estado','$observacion','$ubicacion','$distrito'";
 
         $rs=sqlsrv_query($con,$sql);
 
 		$con=$model->desconectar();
         return "Venta Actualizada Satisfactoriamente...";
-
     }
 
-    public function actualizarWhatsappMovil($codigo,$plan,$equipo,$formaPago,$telRef,$sec,$estado)
+    // fija en porta
+    public function editarFijaPortabilidad($codigo,$asesor,$nombre,$dni,$telefonoRef,$producto,$promocion,$tipoFija,$telefono,$planFija,$modoFija,$formaPago,$sec,$estado,$observacion,$ubicacion,$distrito)
     {
-
         $model=new conexion();
         $con=$model->conectar();
 
-        $sql="exec sp_editar_whatsapp_movil '$codigo','$plan','$equipo','$formaPago','$telRef','$sec','$estado'";
+        $sql="exec sp_editar_whatsapp_fija_portabilidad '$codigo','$asesor','$nombre','$dni','$telefonoRef','$producto','$promocion','$tipoFija','$telefono','$planFija','$modoFija','$formaPago','$sec','$estado','$observacion','$ubicacion','$distrito'";
 
         $rs=sqlsrv_query($con,$sql);
 
 		$con=$model->desconectar();
         return "Venta Actualizada Satisfactoriamente...";
-
     }
 
+    // movil en alta pre
+    public function editarMovilNewPre($codigo,$asesor,$nombre,$dni,$telefonoRef,$producto,$promocion,$tipo,$modalidad,$equipos,$formaPago,$sec,$estado,$observacion,$ubicacion,$distrito)
+    {
+        $model=new conexion();
+        $con=$model->conectar();
+
+        $sql="exec sp_editar_whatsapp_movil_lineanueva_prepago '$codigo','$asesor','$nombre','$dni','$telefonoRef','$producto','$promocion','$tipo','$modalidad','$equipos','$formaPago','$sec','$estado','$observacion','$ubicacion','$distrito'";
+
+        $rs=sqlsrv_query($con,$sql);
+
+		$con=$model->desconectar();
+        return "Venta Actualizada Satisfactoriamente...";
+    }
+
+    // movil en alta post
+    public function editarMovilNewPost($codigo,$asesor,$nombre,$dni,$telefonoRef,$producto,$promocion,$tipo,$modalidad,$plan,$equipos,$formaPago,$sec,$estado,$observacion,$ubicacion,$distrito)
+    {
+        $model=new conexion();
+        $con=$model->conectar();
+
+        $sql="exec sp_editar_whatsapp_movil_lineanueva_postpago '$codigo','$asesor','$nombre','$dni','$telefonoRef','$producto','$promocion','$tipo','$modalidad','$plan','$equipos','$formaPago','$sec','$estado','$observacion','$ubicacion','$distrito'";
+
+        $rs=sqlsrv_query($con,$sql);
+
+		$con=$model->desconectar();
+        return "Venta Actualizada Satisfactoriamente...";
+    }
+
+    // movil en porta pre
+    public function editarMovilPortaPre($codigo,$asesor,$nombre,$dni,$telefonoRef,$producto,$promocion,$tipo,$telefono,$lineaProce,$operadorCeden,$modalidad,$equipos,$formaPago,$sec,$estado,$observacion,$ubicacion,$distrito)
+    {
+        $model=new conexion();
+        $con=$model->conectar();
+
+        $sql="exec sp_editar_whatsapp_movil_portabilidad_prepago '$codigo','$asesor','$nombre','$dni','$telefonoRef','$producto','$promocion','$tipo','$telefono','$lineaProce','$operadorCeden','$modalidad','$equipos','$formaPago','$sec','$estado','$observacion','$ubicacion','$distrito'";
+
+        $rs=sqlsrv_query($con,$sql);
+
+		$con=$model->desconectar();
+        return "Venta Actualizada Satisfactoriamente...";
+    }
+
+    // movil en porta post
+    public function editarMovilPortaPost($codigo,$asesor,$nombre,$dni,$telefonoRef,$producto,$promocion,$tipo,$telefono,$lineaProce,$operadorCeden,$modalidad,$plan,$equipos,$formaPago,$sec,$estado,$observacion,$ubicacion,$distrito)
+    {
+        $model=new conexion();
+        $con=$model->conectar();
+
+        $sql="exec sp_editar_whatsapp_movil_portabilidad_postpago '$codigo','$asesor','$nombre','$dni','$telefonoRef','$producto','$promocion','$tipo','$telefono','$lineaProce','$operadorCeden','$modalidad','$plan','$equipos','$formaPago','$sec','$estado','$observacion','$ubicacion','$distrito'";
+
+        $rs=sqlsrv_query($con,$sql);
+
+		$con=$model->desconectar();
+        return "Venta Actualizada Satisfactoriamente...";
+    }
+
+    // movil en reno pre
+    public function editarMovilRenoPre($codigo,$asesor,$nombre,$dni,$telefonoRef,$producto,$promocion,$tipo,$telefono,$lineaProce,$modalidad,$equipos,$formaPago,$sec,$estado,$observacion,$ubicacion,$distrito)
+    {
+        $model=new conexion();
+        $con=$model->conectar();
+
+        $sql="exec sp_editar_whatsapp_movil_renovacion_prepago '$codigo','$asesor','$nombre','$dni','$telefonoRef','$producto','$promocion','$tipo','$telefono','$lineaProce','$modalidad','$equipos','$formaPago','$sec','$estado','$observacion','$ubicacion','$distrito'";
+
+        $rs=sqlsrv_query($con,$sql);
+
+		$con=$model->desconectar();
+        return "Venta Actualizada Satisfactoriamente...";
+    }
+
+    // movil en reno post
+    public function editarMovilRenoPost($codigo,$asesor,$nombre,$dni,$telefonoRef,$producto,$promocion,$tipo,$telefono,$lineaProce,$modalidad,$plan,$equipos,$formaPago,$sec,$estado,$observacion,$ubicacion,$distrito)
+    {
+        $model=new conexion();
+        $con=$model->conectar();
+
+        $sql="exec sp_editar_whatsapp_movil_renovacion_postpago '$codigo','$asesor','$nombre','$dni','$telefonoRef','$producto','$promocion','$tipo','$telefono','$lineaProce','$modalidad','$plan','$equipos','$formaPago','$sec','$estado','$observacion','$ubicacion','$distrito'";
+
+        $rs=sqlsrv_query($con,$sql);
+
+		$con=$model->desconectar();
+        return "Venta Actualizada Satisfactoriamente...";
+    }
 }
 
 ?>

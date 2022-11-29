@@ -93,8 +93,8 @@
                     </div>
                 </div>
             </div>
-            <?php } ?>
-            <div class="row mx-auto">
+            <?php //} ?>
+            <!-- <div class="row mx-auto">
                 <div class="col-lg-3">
                     <div class="card">
                         <div class="card-body d-grid justify-content-center align-items-center">
@@ -128,7 +128,8 @@
                         </div>
                     </div>
                 </div>                
-            </div>
+            </div> -->
+            <?php } ?>
         </div>
     </div>
 </div>

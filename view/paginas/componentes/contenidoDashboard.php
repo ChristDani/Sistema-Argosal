@@ -72,15 +72,15 @@ if ($listar != null)
             $resultadoa = sqlsrv_query($consulta,$sqla, array(), array("Scrollable"=>"buffered"));
             $ventasTotalesAsesor = sqlsrv_num_rows($resultadoa);
             // ventas pendientes asesor
-            $sql2 = "select * from whatsapp where estado='Pendiente' and dniAsesor='".$x[0]."'";
+            $sql2 = "select * from whatsapp where estado='2' and dniAsesor='".$x[0]."'";
             $resultado2 = sqlsrv_query($consulta,$sql2, array(), array("Scrollable"=>"buffered"));
             $ventasPendientesAsesor = sqlsrv_num_rows($resultado2);
             // ventas concretadas asesor
-            $sql1 = "select * from whatsapp where estado='Concretado' and dniAsesor='".$x[0]."'";
+            $sql1 = "select * from whatsapp where estado='1' and dniAsesor='".$x[0]."'";
             $resultado1 = sqlsrv_query($consulta,$sql1, array(), array("Scrollable"=>"buffered"));
             $ventasConcretadasAsesor = sqlsrv_num_rows($resultado1);
             // ventas rechazadas asesor
-            $sql3 = "select * from whatsapp where estado='No Requiere' and dniAsesor='".$x[0]."'";
+            $sql3 = "select * from whatsapp where estado='0' and dniAsesor='".$x[0]."'";
             $resultado3 = sqlsrv_query($consulta,$sql3, array(), array("Scrollable"=>"buffered"));
             $ventasRechazadasAsesor = sqlsrv_num_rows($resultado3);
 ?>
@@ -145,15 +145,15 @@ if ($tipoUsuario === "1")
                 $resultadoa = sqlsrv_query($consulta,$sqla, array(), array("Scrollable"=>"buffered"));
                 $ventasTotalesAsesor = sqlsrv_num_rows($resultadoa);
                 // ventas pendientes asesor
-                $sql2 = "select * from whatsapp where estado='Pendiente' and dniAsesor='".$x[0]."'";
+                $sql2 = "select * from whatsapp where estado='2' and dniAsesor='".$x[0]."'";
                 $resultado2 = sqlsrv_query($consulta,$sql2, array(), array("Scrollable"=>"buffered"));
                 $ventasPendientesAsesor = sqlsrv_num_rows($resultado2);
                 // ventas concretadas asesor
-                $sql1 = "select * from whatsapp where estado='Concretado' and dniAsesor='".$x[0]."'";
+                $sql1 = "select * from whatsapp where estado='1' and dniAsesor='".$x[0]."'";
                 $resultado1 = sqlsrv_query($consulta,$sql1, array(), array("Scrollable"=>"buffered"));
                 $ventasConcretadasAsesor = sqlsrv_num_rows($resultado1);
                 // ventas rechazadas asesor
-                $sql3 = "select * from whatsapp where estado='No Requiere' and dniAsesor='".$x[0]."'";
+                $sql3 = "select * from whatsapp where estado='0' and dniAsesor='".$x[0]."'";
                 $resultado3 = sqlsrv_query($consulta,$sql3, array(), array("Scrollable"=>"buffered"));
                 $ventasRechazadasAsesor = sqlsrv_num_rows($resultado3);
 ?>

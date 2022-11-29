@@ -23,9 +23,9 @@ $modoFija = $_POST['modoFija'];
 $formaPago = $_POST['formaPago'];
 $sec = !empty($_POST['sec']) ? $_POST['sec'] : "---";
 $estado = $_POST['estado'];
-$observacion = $_POST['observaciones'];
-$ubicacion = $_POST['ubicacion'];
-$distrito = $_POST['distrito'];
+$observacion = !empty($_POST['observaciones']) ? $_POST['observaciones'] : "---";
+$ubicacion = !empty($_POST['ubicacion']) ? $_POST['ubicacion'] : "---";
+$distrito = !empty($_POST['distrito']) ? $_POST['distrito'] : "---";
 
 if ($producto === "Fija") 
 {

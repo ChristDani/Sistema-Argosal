@@ -256,5 +256,3 @@ $con=$model->desconectar();
     </div>
   </div>
 </div>
-
-<!-- <script src="controller/whatsapp/validaciones.js"></script> -->
