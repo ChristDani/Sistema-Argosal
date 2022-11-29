@@ -16,7 +16,7 @@ input:focus, select:focus, select, input.form-control:focus {
 
 }
 
-.body{
+body{
     font-family: 'Poppins', sans-serif;
     border: none;
     border-radius: 0px;
@@ -28,30 +28,9 @@ input:focus, select:focus, select, input.form-control:focus {
     backdrop-filter: blur(8px);
     padding: 2rem 0rem;
     border-radius: 20px;
-    z-index: 2;
+    /* box-shadow: 2px 2px 2px 2px black; */
 }
 
-/* .login-card::before {
-    content: '';
-    position: absolute;
-    background: rgba(0, 0, 0, 0.1);
-    backdrop-filter:blur(8px);
-    inset: 0;
-    transform: rotate(-5deg);
-    border-radius: 20px;
-    z-index: -1;
-}
-
-.login-card::after {
-    content: '';
-    position: absolute;
-    background: rgba(255, 255, 255, 0);
-    backdrop-filter:blur(8px);
-    inset: 0;
-    transform: rotate(-10deg);
-    border-radius: 20px;
-    z-index: -1;
-} */
 
 .login-card-header, .login-card-footer{
     text-align: center;
@@ -89,12 +68,6 @@ input:focus, select:focus, select, input.form-control:focus {
     left: 1.4rem;
     font-size: 1.3rem;
     opacity: .4;
-}
-
-.login-card-form .checkbox{
-    display: flex;
-    align-items: center;
-    gap: 7px;
 }
 
 .login-card-form .form-item-other{
@@ -179,10 +152,14 @@ input:focus, select:focus, select, input.form-control:focus {
     transform: scale(1.1);    
 }
 
-.date{
+.card{
+    box-shadow: 2px 2px 2px 2px rgb(48 47 47 /75%);
+
+}
+
+.hours{
     color: rgb(196, 196, 196);
-    margin: 1% 0% -1% 0%;
-    box-shadow: 2px 2px 2px 2px black;
+    /* margin: 1% 0% -1% 0%; */
     border-radius: 10px;
     border: none;
     background: transparent;

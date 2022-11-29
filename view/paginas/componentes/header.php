@@ -118,7 +118,9 @@ elseif ($tipoUsuario === "0")
                                         if ($x[0] === $dniUsuario)
                                         { $fotoUsuario = $x[7];?>
                                 <?php } } } ?>
-                                <div class="usercong" style="background-image:url(view/static/ProfileIMG/<?php echo $fotoUsuario; ?>);"></div>
+                                <div class="profile-photo" >
+                                    <img class="img-fluid rounded-5" src="view/static/ProfileIMG/<?php echo $fotoUsuario;?>">   
+                                </div>
                                 <h3><?php echo $nombreUsuario; ?></h3>
                         </div>
                     </div>

@@ -10,8 +10,7 @@
                         </div>
                         <div class="row row-cols-lg-2">
                             <div class="col mb-3 d-flex justify-content-center align-items-center my-2">
-                                <!-- <ion-icon name="person-circle-outline"></ion-icon> -->
-                                <div class="profilecong" style="background-image: url(view/static/ProfileIMG/<?php echo $configfotoUser;?>);"></div>
+                                <img class="img-fluid rounded-5" src="view/static/ProfileIMG/<?php echo $configfotoUser;?>">                                
                             </div>
                             <div class="gap-3 col-xl-6 my-2 d-grid align-items-center">
                                 <h2><?php echo $configNombreUser; ?></h2>
@@ -54,23 +53,23 @@
                                     if ($u[0] != $dniUsuario) 
                                     {?>
                                             <div class="d-flex justify-content-between align-items-center">
-                                                <div class="row d-grid justify-content-arround">
-                                                    <a class="btn d-flex gap-1 " data-bs-toggle="modal" data-bs-target="#Eliminar">
+                                                <div class="row">
+                                                    <a class="btn d-flex gap-2 col align-items-end" data-bs-toggle="modal" data-bs-target="#Eliminar">
                                                     <?php if ($u[6] === "0") { ?>
-                                                        <div class="content bg-secondary d-flex align-items-center">
-                                                            <div class="usercong" style="background-image: url(view/static/ProfileIMG/<?php echo $u[7];?>);"></div>
-                                                        </div>
+                                                        <div class="profile-photo-user">
+                                                            <img class="img-fluid" src="view/static/ProfileIMG/<?php echo $u[7];?>">   
+                                                        </div>                                                      
                                                     <?php }elseif ($u[6] === "1") { ?>
-                                                        <div class="content bg-success d-flex align-items-center">
-                                                            <div class="usercong" style="background-image: url(view/static/ProfileIMG/<?php echo $u[7];?>);"></div>
+                                                        <div class="profile-photo-user">
+                                                            <img class="img-fluid" src="view/static/ProfileIMG/<?php echo $u[7];?>">   
                                                         </div>
                                                     <?php }elseif ($u[6] === "2") { ?>
-                                                        <div class="content bg-warning d-flex align-items-center">
-                                                            <div class="usercong" style="background-image: url(view/static/ProfileIMG/<?php echo $u[7];?>);"></div>
+                                                        <div class="profile-photo-user">
+                                                            <img class="img-fluid" src="view/static/ProfileIMG/<?php echo $u[7];?>">   
                                                         </div>
                                                     <?php }elseif ($u[6] === "3") { ?>
-                                                        <div class="content bg-danger d-flex align-items-center">
-                                                            <div class="usercong" style="background-image: url(view/static/ProfileIMG/<?php echo $u[7];?>);"></div>
+                                                        <div class="profile-photo-user">
+                                                            <img class="img-fluid" src="view/static/ProfileIMG/<?php echo $u[7];?>">   
                                                         </div>
                                                     <?php } ?>
                                                     <!-- <div class="usercong" style="background-image: url(view/static/ProfileIMG/<?php echo $u[7];?>);"></div> -->
