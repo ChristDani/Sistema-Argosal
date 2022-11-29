@@ -82,7 +82,7 @@ if ($filas>0) {
         // $output['data'].= "<hgroup>";
         // $output['data'].= "</hgroup>";
         // asesor
-        $output['data'].= "<div id='promocionEdit' class='form-floating mb-3'>";
+        $output['data'].= "<div id='asesorEdit' class='form-floating mb-3'>";
         $output['data'].= "<select class='form-select form-select-sm' name='asesor' id='asesor'>";
         if ($listUser != null) 
         {
@@ -108,7 +108,7 @@ if ($filas>0) {
         // $output['data'].= "</div> ";
         
         // codigo
-        $output['data'].= "<div class='form-floating mb-3 hidden'>";
+        $output['data'].= "<div class='form-floating mb-3 d-none'>";
         $output['data'].= "<input class='form-control' type='text' name='codigoC' id='codigoC' value='$codigo'>";
         $output['data'].= "<label for='codigoC'>Código de Venta</label>";
         $output['data'].= "</div> ";

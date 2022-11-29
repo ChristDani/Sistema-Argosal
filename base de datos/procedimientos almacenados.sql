@@ -83,6 +83,16 @@ go
 	end 
 	go
 
+	-- poner en estado de ocupado al usuario --
+	--drop procedure if exists sp_estado_ocupar_usuario
+	create procedure sp_estado_ocupar_usuario
+	@dni char(8)
+	as
+	begin
+		update usuarios set estado='3' where dni=@dni
+	end 
+	go
+
 
 -- insersion de ventas whatsapp --
 
@@ -104,7 +114,7 @@ go
 		@modofija char(4),
 		@formaDePago char(10),
 		@sec char(15),
-		@estado char(15),
+		@estado char(1),
 		@observacion varchar(300),
 		@ubicacion char(100),
 		@distrito char(25)
@@ -129,7 +139,7 @@ go
 		@modofija char(4),
 		@formaDePago char(10),
 		@sec char(15),
-		@estado char(15),
+		@estado char(1),
 		@observacion varchar(300),
 		@ubicacion char(100),
 		@distrito char(25)
@@ -159,7 +169,7 @@ go
 			@equipo char(50),
 			@formaDePago char(10),
 			@sec char(15),
-			@estado char(15),
+			@estado char(1),
 			@observacion varchar(300),
 			@ubicacion char(100),
 			@distrito char(25)
@@ -184,7 +194,7 @@ go
 			@equipo char(50),
 			@formaDePago char(10),
 			@sec char(15),
-			@estado char(15),
+			@estado char(1),
 			@observacion varchar(300),
 			@ubicacion char(100),
 			@distrito char(25)
@@ -215,7 +225,7 @@ go
 			@equipo char(50),
 			@formaDePago char(10),
 			@sec char(15),
-			@estado char(15),
+			@estado char(1),
 			@observacion varchar(300),
 			@ubicacion char(100),
 			@distrito char(25)
@@ -243,7 +253,7 @@ go
 			@equipo char(50),
 			@formaDePago char(10),
 			@sec char(15),
-			@estado char(15),
+			@estado char(1),
 			@observacion varchar(300),
 			@ubicacion char(100),
 			@distrito char(25)
@@ -273,7 +283,7 @@ go
 			@equipo char(50),
 			@formaDePago char(10),
 			@sec char(15),
-			@estado char(15),
+			@estado char(1),
 			@observacion varchar(300),
 			@ubicacion char(100),
 			@distrito char(25)
@@ -300,7 +310,7 @@ go
 			@equipo char(50),
 			@formaDePago char(10),
 			@sec char(15),
-			@estado char(15),
+			@estado char(1),
 			@observacion varchar(300),
 			@ubicacion char(100),
 			@distrito char(25)
@@ -332,7 +342,7 @@ go
 		@modofija char(4),
 		@formaDePago char(10),
 		@sec char(15),
-		@estado char(15),
+		@estado char(1),
 		@observacion varchar(300),
 		@ubicacion char(100),
 		@distrito char(25)
@@ -359,7 +369,7 @@ go
 		@modofija char(4),
 		@formaDePago char(10),
 		@sec char(15),
-		@estado char(15),
+		@estado char(1),
 		@observacion varchar(300),
 		@ubicacion char(100),
 		@distrito char(25)
@@ -391,7 +401,7 @@ go
 			@equipo char(50),
 			@formaDePago char(10),
 			@sec char(15),
-			@estado char(15),
+			@estado char(1),
 			@observacion varchar(300),
 			@ubicacion char(100),
 			@distrito char(25)
@@ -418,7 +428,7 @@ go
 			@equipo char(50),
 			@formaDePago char(10),
 			@sec char(15),
-			@estado char(15),
+			@estado char(1),
 			@observacion varchar(300),
 			@ubicacion char(100),
 			@distrito char(25)
@@ -451,7 +461,7 @@ go
 			@equipo char(50),
 			@formaDePago char(10),
 			@sec char(15),
-			@estado char(15),
+			@estado char(1),
 			@observacion varchar(300),
 			@ubicacion char(100),
 			@distrito char(25)
@@ -481,7 +491,7 @@ go
 			@equipo char(50),
 			@formaDePago char(10),
 			@sec char(15),
-			@estado char(15),
+			@estado char(1),
 			@observacion varchar(300),
 			@ubicacion char(100),
 			@distrito char(25)
@@ -513,7 +523,7 @@ go
 			@equipo char(50),
 			@formaDePago char(10),
 			@sec char(15),
-			@estado char(15),
+			@estado char(1),
 			@observacion varchar(300),
 			@ubicacion char(100),
 			@distrito char(25)
@@ -542,7 +552,7 @@ go
 			@equipo char(50),
 			@formaDePago char(10),
 			@sec char(15),
-			@estado char(15),
+			@estado char(1),
 			@observacion varchar(300),
 			@ubicacion char(100),
 			@distrito char(25)

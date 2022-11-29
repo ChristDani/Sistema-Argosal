@@ -74,7 +74,7 @@ if ($filas>0) {
         
         $output['data'].= "<div class='d-flex flex-column gap-3'>";
         // codigo
-        $output['data'].= "<div class='form-floating mb-3 hidden'>";
+        $output['data'].= "<div class='form-floating mb-3 d-none'>";
         $output['data'].= "<input class='form-control' type='text' name='codigoC' id='codigoC' value='$codigo'>";
         $output['data'].= "<label for='codigoC'>Código de Venta</label>";
         $output['data'].= "</div> ";

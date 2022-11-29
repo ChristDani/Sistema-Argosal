@@ -16,3 +16,4 @@
 </div>
 
 <script src="view/static/js/clientes.js"></script>
+<script src="controller/whatsapp/validaciones.js"></script>

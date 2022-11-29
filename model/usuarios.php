@@ -115,6 +115,19 @@ class user
         return "Estado del usuario en reposo";
     }
 
+    public function ocuparEstado($dni)
+    {
+        $model=new conexion();
+        $con=$model->conectar();
+        
+        $sql="exec sp_estado_ocupar_usuario '$dni'";
+
+		$rs=sqlsrv_query($con,$sql);
+
+		$con=$model->desconectar();
+        return "Estado del usuario en reposo";
+    }
+
     public function eliminarUsuario($dni)
     {
         $model=new conexion();
