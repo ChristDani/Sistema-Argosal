@@ -12,7 +12,7 @@ go
 	@foto char(30)
 	as
 	begin
-		insert into usuarios(dni,nombre,clave,tipo,foto,estado,fotoPerfil) values(@dni,@nombre,@clave,@tipo,@foto,'0','default.svg')
+		insert into usuarios(dni,nombre,clave,tipo,foto,estado,fotoPerfil) values(@dni,@nombre,@clave,@tipo,@foto,'0','default.png')
 	end 
 	go
 

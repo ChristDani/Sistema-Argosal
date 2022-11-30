@@ -6,14 +6,14 @@
         <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body text-justify">
-        Estas seguro que deseas eliminar a este usuario, al ejecutar esta operacion ya no hay vuelta atras. 
-        <BR>
-            TODO REGISTRO DE USUARIO SERA ELIMINADO
-        </BR> 
+        Estas seguro que deseas eliminar al usuario <span id="nombreUser"></span>, al ejecutar esta operacion ya no hay vuelta atras.
       </div>
       <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-danger">Eliminar</button>
+        <div type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</div>
+        <form action="controller/usuario/eliminar.php" method="post">
+          <input hidden type="text" name="code" id="code">
+          <button type="submit" class="btn btn-danger">Eliminar</button>
+        </form>
       </div>
     </div>
   </div>

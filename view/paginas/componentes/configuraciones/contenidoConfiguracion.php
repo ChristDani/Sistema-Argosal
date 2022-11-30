@@ -13,6 +13,7 @@
                                 <img class="img-fluid rounded-5" src="view/static/ProfileIMG/<?php echo $configfotoUser;?>">                                
                             </div>
                             <div class="gap-3 col-xl-6 my-2 d-grid align-items-center">
+                                <h2><?php echo $configdniUser; ?></h2>
                                 <h2><?php echo $configNombreUser; ?></h2>
                                 <?php if ($configTipoUser === "1") { ?>
                                     <h2>Administrador</h2>
@@ -32,9 +33,7 @@
                         </div>
                         <div class="d-flex justify-content-between align-items-center mb-1">
                             <h4 class="text-muted text-center">Desde<?php echo " $configFechaUser"; ?></h4>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditarUsuario">
-                                Editar
-                            </button>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditarUsuario" onclick="editarUsuario('<?php echo$configdniUser;?>','<?php echo$configNombreUser;?>','<?php echo$configClaveUser;?>','<?php echo$configFaceUser;?>','<?php echo$configfotoUser;?>');">Editar</button>
                         </div>
                     </div>
                 </div>
@@ -51,28 +50,28 @@
                                 foreach ($listaUsuarios as $u) 
                                 { 
                                     if ($u[0] != $dniUsuario) 
-                                    {?>
+                                    { ?>
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <div class="row">
-                                                    <a class="btn d-flex gap-2 col align-items-end" data-bs-toggle="modal" data-bs-target="#Eliminar">
+                                                    <a class="btn d-flex gap-2 col align-items-end" data-bs-toggle="modal" data-bs-target="#Eliminar" onclick="eliminarUsuario('<?php echo$u[0];?>','<?php echo trim($u[1]);?>');">
                                                     <?php if ($u[6] === "0") { ?>
                                                         <div class="profile-photo-user">
-                                                            <img class="img-fluid" src="view/static/ProfileIMG/<?php echo $u[7];?>">   
+                                                            <img class="img-fluid" src="view/static/ProfileIMG/<?php echo trim($u[7]);?>">   
                                                         </div>                                                      
                                                     <?php }elseif ($u[6] === "1") { ?>
                                                         <div class="profile-photo-user">
-                                                            <img class="img-fluid" src="view/static/ProfileIMG/<?php echo $u[7];?>">   
+                                                            <img class="img-fluid" src="view/static/ProfileIMG/<?php echo trim($u[7]);?>">   
                                                         </div>
                                                     <?php }elseif ($u[6] === "2") { ?>
                                                         <div class="profile-photo-user">
-                                                            <img class="img-fluid" src="view/static/ProfileIMG/<?php echo $u[7];?>">   
+                                                            <img class="img-fluid" src="view/static/ProfileIMG/<?php echo trim($u[7]);?>">   
                                                         </div>
                                                     <?php }elseif ($u[6] === "3") { ?>
                                                         <div class="profile-photo-user">
-                                                            <img class="img-fluid" src="view/static/ProfileIMG/<?php echo $u[7];?>">   
+                                                            <img class="img-fluid" src="view/static/ProfileIMG/<?php echo trim($u[7]);?>">   
                                                         </div>
                                                     <?php } ?>
-                                                    <!-- <div class="usercong" style="background-image: url(view/static/ProfileIMG/<?php echo $u[7];?>);"></div> -->
+                                                    <!-- <div class="usercong" style="background-image: url(view/static/ProfileIMG/<?php //echo trim($u[7]);?>);"></div> -->
                                                     <div class="">
                                                         <h2><?php echo strtoupper($u[1]); ?></h2>            
                                                         <?php if ($u[3] === "1") { ?>
@@ -137,6 +136,7 @@
 <?php include_once "contenidoModalEditarUsuario.php"; ?>
 <?php include_once "contenidoModalAñadirUsuario.php"; ?>
 <?php include_once "contenidoModalEliminarUsuario.php"; ?>
+<script src="controller/usuario/usuarios.js"></script>
 
 <!-- <div class="col-xl-4">
     <div class="card">

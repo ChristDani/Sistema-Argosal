@@ -6,11 +6,31 @@
         <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
+        <form action="controller/usuario/editar.php" method="post" enctype="multipart/form-data">
+          <input hidden type="text" name="dniedit" id="dniedit">
+          <div class="form-floating mb-3">
+            <input class="form-control" placeholder="Nombre" autocomplete="off" type="text" name="nombreedit" id="nombreedit">
+            <label for="nombre">Nombre</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input class="form-control" placeholder="clave" autocomplete="off" type="text" name="claveedit" id="claveedit">
+            <label for="clave">Clave</label>
+          </div>
+          <input hidden type="text" name="claveedit2" id="claveedit2" readonly>
+
+          <label>Foto FaceId</label>
+          <input type="file" name="fotoedit" id="fotoedit">
+          <input hidden type="text" name="fotoedit1" id="fotoedit1" readonly>
+          
+          <label>Foto de Perfil</label>
+          <input type="file" name="fotoPerfiledit" id="fotoPerfiledit">
+          <input hidden type="text" name="fotoPerfiledit1" id="fotoPerfiledit1" readonly>
+
+          </div>
+          <div class="modal-footer">
+            <div type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</div>
+            <button type="submit" class="btn btn-primary">Editar</button>
+          </form>
       </div>
     </div>
   </div>

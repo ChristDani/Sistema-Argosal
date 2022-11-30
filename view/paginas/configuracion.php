@@ -11,11 +11,13 @@ if ($listaUsuarios != null)
         if ($u[0] === $dniUsuario) 
         {
             $configdniUser = $u[0];
-            $configNombreUser = strtoupper($u[1]);
+            $configNombreUser = trim($u[1]);
+            $configClaveUser = $u[2];
             $configTipoUser = $u[3];
+            $configFaceUser = trim($u[4]);
             $configFechaUser = $u[5]->format('l j \of F Y h:i:s A');
             $configEstadoUser = $u[6];
-            $configfotoUser = $u[7];
+            $configfotoUser = trim($u[7]);
         }
     }
 } 
