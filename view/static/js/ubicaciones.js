@@ -1,7 +1,5 @@
-console.log('conectado')
 function mostrarUbicac() 
 {
-    console.log('cac')
     let letrero = document.getElementById('MostrarOrigenUbicacion');
     let Seleccionar = document.getElementById('origenUbicacion');
 
@@ -43,7 +41,6 @@ function mostrarUbicac()
 
 function mostrarUbidac() 
 {
-    console.log('dac')
     let letrero = document.getElementById('MostrarOrigenUbicacion');
     let Seleccionar = document.getElementById('origenUbicacion');
     
@@ -85,7 +82,6 @@ function mostrarUbidac()
 
 function mostrarUbiacd() 
 {
-    console.log('acd')
     let letrero = document.getElementById('MostrarOrigenUbicacion');
     let Seleccionar = document.getElementById('origenUbicacion');
     
@@ -127,7 +123,6 @@ function mostrarUbiacd()
 
 function mostrarUbicadena() 
 {
-    console.log('cadena')
     let letrero = document.getElementById('MostrarOrigenUbicacion');
     let Seleccionar = document.getElementById('origenUbicacion');
     

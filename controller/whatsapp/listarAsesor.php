@@ -71,6 +71,7 @@ if ($filas>0) {
     while ($fila=sqlsrv_fetch_array($resultado)) {
         
         $code = $fila['codigo'];
+        $estado=$fila['estado'];
         $fecha=$fila['fechaRegistro']-> format('l j \of F Y h:i:s A');
 
         $output['data'].= "<div class='col-xl-3 col-md-6'>";
@@ -81,7 +82,18 @@ if ($filas>0) {
         $output['data'].= "<p>".$fila['promocion']."</p>";
         $output['data'].= "<p></p>";
         $output['data'].= "<p></p>";
-        $output['data'].= "<p>".$fila['estado']."</p>";
+        if ($estado === "0") 
+        {
+            $output['data'].= "<p class='danger'>No Requiere</p>";
+        }
+        elseif ($estado === "1") 
+        {
+            $output['data'].= "<p class='success'>Concretado</p>";
+        }
+        elseif ($estado === "2") 
+        {
+            $output['data'].= "<p class='warning'>Pendiente</p>";
+        }
         $output['data'].= "<p></p>";
         $output['data'].= "<p></p>";
         $output['data'].= "<p>".$fila['dni']."</p>";

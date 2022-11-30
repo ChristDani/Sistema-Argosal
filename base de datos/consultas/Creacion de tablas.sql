@@ -26,17 +26,17 @@ dniAsesor char(8) not null,
 nombre char(50) COLLATE Latin1_General_100_CI_AI_SC_UTF8 not null,
 dni char(8) not null,
 telefono char(11) not null,
-producto char(5) not null,
+producto char(1) not null,
 lineaProcedente char(8) not null,
 operadorCedente char(15) not null,
-modalidad char(8) not null,
-tipo char(15) not null,
+modalidad char(1) not null,
+tipo char(1) not null,
 planR char(50) not null,
 equipo char(50) not null,
 formaDePago char(10) not null,
 numeroReferencia char(11) not null,
 sec char(15) null,
-tipoFija char(15) not null,
+tipoFija char(1) not null,
 planFija char(50) not null,
 modoFija char(4) not null,
 estado char(1) not null,
@@ -109,32 +109,31 @@ pdvsisact char(100) null,
 codpdv char(10) null,
 descripcion char(100) null,
 direccion char(255) null,
-
-distrito char(5) null,
-provincia char(5) null,
-departamento char(5) null,
-horario char(5) null,
-estado char(5) null,
-alta char(15) null,
-baja char(15) null
+distrito char(50) null,
+provincia char(50) null,
+departamento char(50) null,
+horario char(100) null,
+estado char(15) null,
+alta datetime,
+baja datetime
 )
-
+---
 drop table if exists cadena
 create table cadena
 (
-region char(10) null,
-razonsocial char(50) null,
+region char(15) null,
+razonsocial char(100) null,
 codigointer char(10) null,
 codpdv char(10) null,
-pdvsisact char(50) null,
+pdvsisact char(100) null,
 entrega char(20) null,
-direccion char(50) null,
-distrito char(5) null,
-provincia char(5) null,
-departamento char(5) null,
-dias char(5) null,
-horario char(5) null,
-estado char(5) null
+direccion char(255) null,
+distrito char(50) null,
+provincia char(50) null,
+departamento char(50) null,
+dias char(50) null,
+horario char(100) null,
+estado char(15) null
 )
 
 drop table if exists usuarios
@@ -144,10 +143,10 @@ dni char(8) primary key,
 nombre char(50) not null,
 clave char(40) not null,
 tipo char(1) not null,
-foto char(30) not null,
+foto char(100) null,
 fechaRegistro datetime default getdate(),
 estado char(1) not null,
-fotoPerfil char(30) null
+fotoPerfil char(100) null
 )
 
 select w.codigo, u.nombre from whatsapp as w inner join usuarios as u on u.nombre=w.asesor where u.dni='73179455'
