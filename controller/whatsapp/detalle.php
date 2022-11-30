@@ -64,172 +64,260 @@ if ($filas>0) {
         $distrito = $fila['distrito'];
         $fecha = $fila['fechaRegistro']-> format('l j \of F Y h:i:s A');
         $fechaUdp = $fila['fechaActualizacion']-> format('l j \of F Y h:i:s A');
-
+        
         // if ($tipoUsuario === "1") 
         // {
-            // asesor
-            $output['data'].= "<div class='my-3'><h3 class='text-center'>Venta Registrada por <em>$asesor</em></h3></div>";
-
-        // }
+        $output['data'].= "<div class='row'>";
         
-        $output['data'].= "<div class='d-flex flex-column gap-3'>";
-        // codigo
-        $output['data'].= "<div class='form-floating mb-3 d-none'>";
-        $output['data'].= "<input class='form-control' type='text' name='codigoC' id='codigoC' value='$codigo'>";
-        $output['data'].= "<label for='codigoC'>Código de Venta</label>";
+        // asesor
+        $output['data'].= "<div class='col'><h3>Venta de $asesor</h3></div>";
+        
+        // }            
+        
+        // estado
+        $output['data'].= "<div class='col text-end'>";
+            if ($estado === "0") 
+            {
+                $output['data'].= "<h3 class='danger'>No requiere<h3>";
+            }
+            elseif ($estado === "1") 
+            {
+                $output['data'].= "<h3 class='success'>Concretado<h3>";
+
+            }
+            elseif ($estado === "2") 
+            {
+                $output['data'].= "<h3 class='warning'>Pendiente<h3>";
+            }
+
+        $output['data'].= "</div> ";
+        $output['data'].= "</div> ";
+
+        
+        $output['data'].= "<div class='row align-items-start'>";
+        
+        $output['data'].= "<div class='col'>";     
+            
+        $output['data'].= "<p class='text-muted'>Nombre</p>";   //Nombre
+        $output['data'].= "<h1>$nombre</h1>";
+
+        $output['data'].= "</div> ";
+
+        $output['data'].= "<div class='col-auto'>";
+
+        $output['data'].= "<div class='card'>";
+        $output['data'].= "<div class='card-body'>";        
+        $output['data'].= "<p class='text-muted'>SEC</p>";  //Sec
+        $output['data'].= "<h3>$sec</h3>";
+        $output['data'].= "</div> ";
+        $output['data'].= "</div> ";
+
         $output['data'].= "</div> ";
         
-        // nombre
-        $output['data'].= "<p class='text-muted'>Nombre</p>";
-        $output['data'].= "<div><h1>$nombre</h1></div>";
+        $output['data'].= "</div> ";
+        
+        $output['data'].= "<div class='row'>";
+
+        $output['data'].= "<div class='col'>";
         
         // dni
         $output['data'].= "<p class='text-muted'>Documento de identidad</p>";
-        $output['data'].= "<div><h3>$dni</h3></div>";
+        $output['data'].= "<h3>$dni</h3>";
 
+        $output['data'].= "</div> ";
+
+        $output['data'].= "<div class='col text-end'>";
         
         // numero de referencia
         $output['data'].= "<p class='text-muted'>Telefono referente</p>";
         $output['data'].= "<h3>$telefonoRef</h3>";
+
+        $output['data'].= "</div> ";
         
+        $output['data'].= "</div> ";
         
+        $output['data'].= "<div class='row'>";
+        
+        $output['data'].= "<div class='col'>";
+
         // producto
         $output['data'].= "<p class='text-muted'>Producto solicitado</p>";
         $output['data'].= "<h3>$producto</h3>";
+
+        $output['data'].= "</div> ";
+
+        $output['data'].= "<div class='col text-end'>";
         
         // promocion
         $output['data'].= "<p class='text-muted'>Promocion</p>";
         $output['data'].= "<h3 id='promol'>$promocion</h3>";
+
+        $output['data'].= "</div> ";
+
+        $output['data'].= "</div> ";
+        
         
         if ($producto === $fija) 
         {
+            $output['data'].= "<div class='row'>";
             // tipo de fija
-            $output['data'].= "<p class='text-muted'>Tipo</p>";
+            $output['data'].= "<div class='col'>";
+            $output['data'].= "<p class='text-muted'>Modalidad</p>";
             $output['data'].= "<h3>$tipoFija</h3>";
+            $output['data'].= "</div> ";
+            
             
             if ($tipoFija === "Portabilidad   ") 
             {
+                $output['data'].= "<div class='col text-end'>";
                 // telefono
                 $output['data'].= "<p class='text-muted'>Telefono</p>";
                 $output['data'].= "<h3>$telefono</h3>";
+
+                $output['data'].= "</div> ";
             }        
+
+        $output['data'].= "</div> ";
+
+
+            $output['data'].= "<div class='row'>";
             
+            $output['data'].= "<div class='col'>";
+
             // plan de fija
-            $output['data'].= "<p class='text-muted'>Plan</p>";
+            $output['data'].= "<p class='text-muted'>Tipo</p>";
             $output['data'].= "<h3>$planFija</h3>";
+
+            $output['data'].= "</div> ";
+            $output['data'].= "<div class='col text-end'>";
             
-            // modo de fija
-            $output['data'].= "<div id='planFijaEdit' class='form-floating mb-3'>";
-            $output['data'].= "<input disabled class='form-control' type='text' name='planFijacl' id='planFijacl' value='$modoFija'>";
-            $output['data'].= "<label for='planFijacl'>Modo de Fija</label>";
+            $output['data'].= "<p class='text-muted'>Producto</p>";
+            $output['data'].= "<h3>$modoFija</h3>";     //Modo Fija
+
+            $output['data'].= "</div> ";
+
             $output['data'].= "</div> ";
         } 
+        
         elseif ($producto === $movil) 
         {
+            $output['data'].= "<div class='row'>";
+            
             // tipo
-            $output['data'].= "<div id='typeEditM' class='form-floating mb-3'>";
-            $output['data'].= "<input disabled class='form-control' type='text' name='tipeLinecl' id='tipeLinecl' value='$tipo'>";
-            $output['data'].= "<label for='tipeLinecl'>Tipo de Linea</label>";
+            $output['data'].= "<div class='col'>";
+            
+            $output['data'].= "<p class='text-muted'>Tipo de Linea</p>";
+            $output['data'].= "<h3>$tipo</h3>";     //Modo Fija
+
             $output['data'].= "</div> ";
             
             if ($tipo == "Linea Nueva    ") 
             {
                 // modalidad
-                $output['data'].= "<div id='modalEditM' class='form-floating mb-3'>";
-                $output['data'].= "<input disabled class='form-control' type='text' name='modcl' id='modcl' value='$modalidad'>";
-                $output['data'].= "<label for='modcl'>Modalidad</label>";
+                $output['data'].= "<div class='col'>";
+                
+                $output['data'].= "<p class='text-muted'>Modalidad</p>";
+                $output['data'].= "<h3>$modalidad</h3>";     //modalidad
+                
+                $output['data'].= "</div> ";
                 $output['data'].= "</div> ";
                 
                 if ($modalidad == "Postpago") 
                 {
-                    // plan requerido
-                    $output['data'].= "<div id='planReEdit' class='form-floating mb-3'>";
-                    $output['data'].= "<input disabled class='form-control' type='text' name='planRcl' id='planRcl' value='$planR'>";
-                    $output['data'].= "<label for='planRcl'>Plan Requerido</label>";
+                    $output['data'].= "<div class='col'>";            
+                    $output['data'].= "<p class='text-muted'>Plan Requerido</p>";
+                    $output['data'].= "<h3>$planR</h3>";     //Plan Requerido
                     $output['data'].= "</div> ";
                 }
                 
-                // equipo
-                $output['data'].= "<div id='equipoEdit' class='form-floating mb-3'>";
-                $output['data'].= "<input disabled class='form-control' type='text' name='equipocl' id='equipocl' value='$equipo'>";
-                $output['data'].= "<label for='equipocl'>Equipo</label>";
+                $output['data'].= "<div class='col'>";            
+                $output['data'].= "<p class='text-muted'>Equipo</p>";
+                $output['data'].= "<h3>$equipo</h3>";     //Equipo
                 $output['data'].= "</div> ";
+
+                $output['data'].= "</div> ";
+
             }
             elseif ($tipo == "Portabilidad   ") 
             {
-                // telefono
-                $output['data'].= "<div id='telefEditM' class='form-floating mb-3'>";
-                $output['data'].= "<input disabled class='form-control' type='text' name='telecl' id='telecl' value='$telefono'>";
-                $output['data'].= "<label for='telecl'>Telefono a Portar</label>";
+
+                $output['data'].= "<div class='col text-center'>";            
+                $output['data'].= "<p class='text-muted'>Telefono a portar</p>";
+                $output['data'].= "<h3>$telefono</h3>";     //Telefono
+                $output['data'].= "</div> ";
+                $output['data'].= "<div class='col text-end'>";            
+                $output['data'].= "<p class='text-muted'>Linea Procedente</p>";
+                $output['data'].= "<h3>$lineaProce</h3>";     //Linea Procedente
+                $output['data'].= "</div> ";
                 $output['data'].= "</div> ";
 
-                // linea procedente
-                $output['data'].= "<div id='lineProceEditM' class='form-floating mb-3'>";
-                $output['data'].= "<input disabled class='form-control' type='text' name='lineProcecl' id='lineProcecl' value='$lineaProce'>";
-                $output['data'].= "<label for='lineProcecl'>Linea Procedente</label>";
-                $output['data'].= "</div> ";
                 
+                $output['data'].= "<div class='row'>";
                 // operador cedente
-                $output['data'].= "<div id='operaCedenEditM' class='form-floating mb-3'>";
-                $output['data'].= "<input disabled class='form-control' type='text' name='opeCedcl' id='opeCedcl' value='$operadorCed'>";
-                $output['data'].= "<label for='opeCedcl'>Operador Cedente</label>";
-                $output['data'].= "</div> ";
-                
+                $output['data'].= "<div class='col'>";            
+                $output['data'].= "<p class='text-muted'>Operador Cedente</p>";
+                $output['data'].= "<h3>$operadorCed</h3>";     //Operador Cedente
+                $output['data'].= "</div> ";                
                 // modalidad
-                $output['data'].= "<div id='modalEditM' class='form-floating mb-3'>";
-                $output['data'].= "<input disabled class='form-control' type='text' name='modcl' id='modcl' value='$modalidad'>";
-                $output['data'].= "<label for='modcl'>Modalidad</label>";
+                $output['data'].= "<div class='col text-end'>";            
+                $output['data'].= "<p class='text-muted'>Modalidad</p>";
+                $output['data'].= "<h3>$modalidad</h3>";     //Modalidad
                 $output['data'].= "</div> ";
+                $output['data'].= "</div> ";
+
+                $output['data'].= "<div class='row'>";            
                 
                 if ($modalidad == "Postpago") 
                 {
                     // plan requerido
-                    $output['data'].= "<div id='planReEdit' class='form-floating mb-3'>";
-                    $output['data'].= "<input disabled class='form-control' type='text' name='planRcl' id='planRcl' value='$planR'>";
-                    $output['data'].= "<label for='planRcl'>Plan Requerido</label>";
+                    $output['data'].= "<div class='col'>";            
+                    $output['data'].= "<p class='text-muted'>Plan Requerido</p>";
+                    $output['data'].= "<h3>$planR</h3>";
                     $output['data'].= "</div> ";
                 }
                 
                 // equipo
-                $output['data'].= "<div id='equipoEdit' class='form-floating mb-3'>";
-                $output['data'].= "<input disabled class='form-control' type='text' name='equipocl' id='equipocl' value='$equipo'>";
-                $output['data'].= "<label for='equipocl'>Equipo</label>";
+                $output['data'].= "<div class='col text-center'>";            
+                $output['data'].= "<p class='text-muted'>Equipo</p>";
+                $output['data'].= "<h3>$equipo</h3>";    
                 $output['data'].= "</div> ";
+
+
             }
             elseif ($tipo == "Renovacion     ") 
             {
                 // telefono
-                $output['data'].= "<div id='telefEditM' class='form-floating mb-3'>";
-                $output['data'].= "<input disabled class='form-control' type='text' name='telecl' id='telecl' value='$telefono'>";
-                $output['data'].= "<label for='telecl'>Telefono a Renovar</label>";
-                $output['data'].= "</div>";
+                $output['data'].= "<div class='col text-end'>";            
+                $output['data'].= "<p class='text-muted'>Forma de Pago</p>";
+                $output['data'].= "<h3>$Telefono</h3>";
+                $output['data'].= "</div> ";  
                 
                 // linea procedente
-                $output['data'].= "<div id='lineProceEditM' class='form-floating mb-3'>";
-                $output['data'].= "<input disabled class='form-control' type='text' name='lineProcecl' id='lineProcecl' value='$lineaProce'>";
-                $output['data'].= "<label for='lineProcecl'>Linea Procedente</label>";
-                $output['data'].= "</div>";
+                $output['data'].= "<div class='col text-end'>";            
+                $output['data'].= "<p class='text-muted'>Linea Procedente</p>";
+                $output['data'].= "<h3>$lineaProce</h3>";
+                $output['data'].= "</div> ";  
                 
                 // modalidad
-                $output['data'].= "<div id='modalEditM' class='form-floating mb-3'>";
-                $output['data'].= "<input disabled class='form-control' type='text' name='modcl' id='modcl' value='$modalidad'>";
-                $output['data'].= "<label for='modcl'>Modalidad</label>";
-                $output['data'].= "</div>";
+                $output['data'].= "<div class='col text-end'>";            
+                $output['data'].= "<p class='text-muted'>Modalidad</p>";
+                $output['data'].= "<h3>$modalidad</h3>";
+                $output['data'].= "</div> ";  
 
                 if ($modalidad == "Postpago") 
                 {
                     // plan requerido
-                    $output['data'].= "<div id='planReEdit' class='form-floating mb-3'>";
-                    $output['data'].= "<input disabled class='form-control' type='text' name='planRcl' id='planRcl' value='$planR'>";
-                    $output['data'].= "<label for='planRcl'>Plan Requerido</label>";
-                    $output['data'].= "</div> ";
+                    $output['data'].= "<div class='col text-end'>";            
+                    $output['data'].= "<p class='text-muted'>Forma de Pago</p>";
+                    $output['data'].= "<h3>$planR</h3>";
+                    $output['data'].= "</div> ";  
                 }
                 
                 // equipo
-                $output['data'].= "<div id='equipoEdit' class='form-floating mb-3'>";
-                $output['data'].= "<input disabled class='form-control' type='text' name='equipocl' id='equipocl' value='$equipo'>";
-                $output['data'].= "<label for='equipocl'>Equipo</label>";
-                $output['data'].= "</div>";
+                $output['data'].= "<div class='col text-end'>";            
+                $output['data'].= "<p class='text-muted'>Forma de Pago</p>";
+                $output['data'].= "<h3>$equipo</h3>";
+                $output['data'].= "</div> ";  
             }
         }
         else 
@@ -239,65 +327,67 @@ if ($filas>0) {
             $output['data'].= "<center><label><em>Elija un producto a vender, actualice y vuelva generar los detalles...</em></label></center>";
             $output['data'].= "</div> ";
             $output['data'].= "</div> ";
-        }
+        }        
         
-        //forma de pago
-        $output['data'].= "<div id='formaPgEdit' class='form-floating mb-3'>";
-        $output['data'].= "<input disabled class='form-control' type='text' name='formPagcl' id='formPagcl' value='$formaPago'>";
-        $output['data'].= "<label for='formPagcl'>Forma de Pago</label>";
-        $output['data'].= "</div> ";
-        
-        // sec
-        $output['data'].= "<div id='secEdit' class='form-floating mb-3'>";
-        $output['data'].= "<input disabled class='form-control' type='text' name='seccl' id='seccl' value='$sec'>";
-        $output['data'].= "<label for='seccl'>SEC</label>";
-        $output['data'].= "</div> ";
-        
-        // estado
-        $output['data'].= "<div id='estadoEdit' class='form-floating mb-3'>";
-        if ($estado === "0") 
-        {
-            $output['data'].= "<input disabled class='form-control' type='text' name='statecl' id='statecl' value='No Requiere'>";
-        }
-        elseif ($estado === "1") 
-        {
-            $output['data'].= "<input disabled class='form-control' type='text' name='statecl' id='statecl' value='Concretado'>";
-        }
-        elseif ($estado === "2") 
-        {
-            $output['data'].= "<input disabled class='form-control' type='text' name='statecl' id='statecl' value='Pendiente'>";
-        }
-        $output['data'].= "<label for='statecl'>Estado</label>";
+        $output['data'].= "<div class='col text-end'>";            
+        $output['data'].= "<p class='text-muted'>Forma de Pago</p>";
+        $output['data'].= "<h3>$formaPago</h3>";
+        $output['data'].= "</div> ";        
+
         $output['data'].= "</div> ";         
+
+        $output['data'].= "<div class='row'>";            
         
         // observaciones
-        $output['data'].= "<div id='obsEdit' class='form-floating mb-3'>";
-        $output['data'].= "<input disabled class='form-control' type='text' name='obsercl' id='obsercl' value='$observaciones'>";
-        $output['data'].= "<label for='obsercl'>Observaciones</label>";
+        $output['data'].= "<div class='col text-center'>";            
+        $output['data'].= "<div class='card'>";
+        $output['data'].= "<div class='card-body'>";        
+        $output['data'].= "<p class='text-muted'>Observaciones</p>";
+        $output['data'].= "<h3>$observaciones</h3>";
         $output['data'].= "</div> ";
-        
+        $output['data'].= "</div> "; 
+        $output['data'].= "</div> "; 
+
+        $output['data'].= "</div> ";          
+        $output['data'].= "<div class='row'>";            
         // ubicacion
-        $output['data'].= "<div id='ubiEdit' class='form-floating mb-3'>";
-        $output['data'].= "<input disabled class='form-control' type='text' name='ubicl' id='ubicl' value='$ubicacion'>";
-        $output['data'].= "<label for='ubicl'>Ubicacion</label>";
-        $output['data'].= "</div> ";
         
         // distrito
-        $output['data'].= "<div id='disEdit' class='form-floating mb-3'>";
-        $output['data'].= "<input disabled class='form-control' type='text' name='fechacl' id='distrcl' value='$distrito'>";
-        $output['data'].= "<label for='distrcl'>Distrito</label>";
-        $output['data'].= "</div> ";
+        $output['data'].= "<div class='col'>";            
+        $output['data'].= "<p class='text-muted'>Distrito</p>";
+        $output['data'].= "<h3>$distrito</h3>";
+        $output['data'].= "</div> ";  
         
+        
+        $output['data'].= "<div class='col text-end'>";            
+        $output['data'].= "<p class='text-muted'>Ubicacion</p>";
+        $output['data'].= "<h3>$ubicacion</h3>";
+        $output['data'].= "</div> ";  
+
+        $output['data'].= "</div> ";  
+
+        $output['data'].= "<div class='col text-center'>";            
         // fecha de registro
-        $output['data'].= "<div class='form-floating mb-3'>";
-        $output['data'].= "<input disabled class='form-control' type='text' name='fechacl' id='fechacl' value='$fecha'>";
-        $output['data'].= "<label for='fechacl'>Fecha de Registro</label>";
+        $output['data'].= "<div class='card'>";
+        $output['data'].= "<div class='card-body'>";        
+        $output['data'].= "<p class='text-muted'>Fecha</p>";  //Sec
+        $output['data'].= "<h3>$fecha</h3>";
         $output['data'].= "</div> ";
+        $output['data'].= "</div> ";
+
+        $output['data'].= "</div> ";
+
         
         // fecha de actualizacion
-        $output['data'].= "<div class='form-floating mb-3'>";
-        $output['data'].= "<input disabled class='form-control' type='text' name='fechaudpcl' id='fechaudpcl' value='$fechaUdp'>";
-        $output['data'].= "<label for='fechaudpcl'>Fecha de Actualización</label>";
+        $output['data'].= "<div class='col text-center'>";            
+        // fecha de registro
+        $output['data'].= "<div class='card'>";
+        $output['data'].= "<div class='card-body'>";        
+        $output['data'].= "<p class='text-muted'>Fecha Update</p>";  //Sec
+        $output['data'].= "<h3>$fechaUdp</h3>";
+        $output['data'].= "</div> ";
+        $output['data'].= "</div> ";
+
         $output['data'].= "</div> ";
 
         $output['data'].= "</div>";

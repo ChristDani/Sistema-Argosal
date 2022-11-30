@@ -75,6 +75,15 @@ input:focus, select:focus, select, input.form-control:focus, .form-floating sele
     --color-primary:#ab47bc;
 }
 
+.modal-body  .card > .card-body{
+    box-shadow: none;
+    padding: 10px 20px 4px 20px;    
+}
+
+.modal-body .row{
+    margin-bottom: 1.5rem;
+}
+
 ::-webkit-scrollbar{
     width: 5px;
 }
@@ -193,7 +202,7 @@ small{
 }
 
 .modal-content .modal-body{
-    background: var(--color-background);
+    background: var(--color-light);
     border-radius: var(--border-radius-1);
 }
 
