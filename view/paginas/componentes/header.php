@@ -116,7 +116,7 @@ elseif ($tipoUsuario === "0")
                                     foreach ($listar as $x)
                                     {
                                         if ($x[0] === $dniUsuario)
-                                        { $fotoUsuario = $x[7];?>
+                                        { $fotoUsuario = trim($x[7]);?>
                                 <?php } } } ?>
                                 <div class="profile-photo" >
                                     <img class="img-fluid rounded-5" src="view/static/ProfileIMG/<?php echo $fotoUsuario;?>">   

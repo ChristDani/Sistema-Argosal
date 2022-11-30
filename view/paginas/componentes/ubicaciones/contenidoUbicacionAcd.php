@@ -1,36 +1,30 @@
 <div class="bare row d-flex justify-content-center align-items-center desaparecido" id="headerAcd">
     <div class="col d-flex justify-content-start align-items-center">
         <div class="d-flex justify-content-center align-items-baseline">
-            <p class="mx-1" for="numRegistrosE">Mostrar</p>
-            <select name="numRegistrosE" id="numRegistrosE" class="mx-1 form-select" aria-label="Default select example">
+            <p class="mx-1" for="numRegistrosacd">Mostrar</p>
+            <select name="numRegistrosacd" id="numRegistrosacd" class="mx-1 form-select" aria-label="Default select example">
                 <option value="12">12</option>
                 <option value="28">28</option>
                 <option value="52">52</option>
                 <option value="100">100</option>
             </select>
-            <p class="mx-1" for="numRegistrosE">Registros</p>
+            <p class="mx-1" for="numRegistrosacd">Registros</p>
         </div>
-    </div>acd
+    </div>
     <div class="col d-flex justify-content-end">
         <div class="form-floating mx-1">
-            <select class="form-select" aria-label="Floating label select example" name="busquedaER" id="busquedaER">
-                <option value="">Todas</option>
-                <option value="Norte">Norte</option>
-                <option value="Lima">Lima</option>
-                <option value="Sur">Sur</option>
-                <option value="Centro">Centro</option>
-            </select>
-            <label for="busquedaER">Region</label>
-        </div> 
-
-        <div class="form-floating mx-1">
-            <input type="text" class="form-control" name="busquedaEC" id="busquedaEC" onkeyup="getDataE(1);" placeholder="Buscar">
-            <label for="busquedaEC">Buscar CAC</label>
+            <input type="text" class="form-control" name="busquedaacddepa" id="busquedaacddepa" onkeyup="getDataAcd(1);" placeholder="Buscar">
+            <label for="busquedaacddepa">Departamento</label>
         </div>
 
         <div class="form-floating mx-1">
-            <input type="text" class="form-control" name="busquedaE" id="busquedaE" onkeyup="getDataE(1);" placeholder="Buscar">
-            <label for="busquedaE">Buscar Equipo</label>
+            <input type="text" class="form-control" name="busquedaacdprovin" id="busquedaacdprovin" onkeyup="getDataAcd(1);" placeholder="Buscar">
+            <label for="busquedaacdprovin">Provincia</label>
+        </div>
+
+        <div class="form-floating mx-1">
+            <input type="text" class="form-control" name="busquedaacddistri" id="busquedaacddistri" onkeyup="getDataAcd(1);" placeholder="Buscar">
+            <label for="busquedaacddistri">Distrito</label>
         </div>
     </div>
 </div>
@@ -39,11 +33,9 @@
 
 </div>
 
-<div class="bare d-flex justify-content-between mb-3 desaparecido" id="paginacionAcd">
-    <div class="mensaje">
-        <h3 class="text-muted m-3" id="msgE"></h3>
-    </div>
-    <div id="munE">
+<div class="bare row d-flex justify-content-between mb-3 desaparecido" id="paginacionAcd">
+    <div id="munAcd">
 
     </div>
 </div>
+<script src="controller/ubicaciones/acd/listar.js"></script>

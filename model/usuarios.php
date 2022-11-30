@@ -37,12 +37,12 @@ class user
         return $filas;
     }
 
-    public function insertarUsuario($dni,$nombre,$clave,$tipo,$foto)
+    public function insertarUsuario($dni,$nombre,$clave,$tipo)
     {
         $model=new conexion();
         $con=$model->conectar();
         
-        $sql="exec sp_insertar_usuario '$dni','$nombre','$clave','$tipo','$foto'";
+        $sql="exec sp_insertar_usuario '$dni','$nombre','$clave','$tipo'";
 
 		$rs=sqlsrv_query($con,$sql);
 

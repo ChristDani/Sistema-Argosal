@@ -18,8 +18,8 @@
           </div>
           <input hidden type="text" name="claveedit2" id="claveedit2" readonly>
 
-          <label>Foto FaceId</label>
-          <input type="file" name="fotoedit" id="fotoedit">
+          <!-- <label>Foto FaceId</label>
+          <input type="file" name="fotoedit" id="fotoedit"> -->
           <input hidden type="text" name="fotoedit1" id="fotoedit1" readonly>
           
           <label>Foto de Perfil</label>
@@ -28,7 +28,6 @@
 
           </div>
           <div class="modal-footer">
-            <div type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</div>
             <button type="submit" class="btn btn-primary">Editar</button>
           </form>
       </div>

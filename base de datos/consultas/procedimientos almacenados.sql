@@ -8,11 +8,10 @@ go
 	@dni char(8),
 	@nombre char(50),
 	@clave char(40),
-	@tipo char(1),
-	@foto char(30)
+	@tipo char(1)
 	as
 	begin
-		insert into usuarios(dni,nombre,clave,tipo,foto,estado,fotoPerfil) values(@dni,@nombre,@clave,@tipo,@foto,'0','default.png')
+		insert into usuarios(dni,nombre,clave,tipo,estado,fotoPerfil) values(@dni,@nombre,@clave,@tipo,'0','default.png')
 	end 
 	go
 
@@ -24,8 +23,8 @@ go
 	@dni char(8),
 	@nombre char(50),
 	@clave char(40),
-	@foto char(30),
-	@fotoPerfil char(30)
+	@foto char(100),
+	@fotoPerfil char(100)
 	as
 	begin
 		update usuarios set nombre=@nombre, clave=@clave, foto=@foto, fotoPerfil=@fotoPerfil where dni=@dni
