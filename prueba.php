@@ -1,18 +1,18 @@
 <?php
-require_once "model/usuarios.php";
 
-$modal = new user();
-$listaUsuarios = $modal->listar();
-setlocale(LC_TIME, "de_DE");
-$hoy = strftime("%A y");  
 
-if ($listaUsuarios != null) 
-{
-    foreach ($listaUsuarios as $u) 
-    {             
-            $configFechaUser = $u[5] -> format("F j, Y, g:i a"); 
-            echo "$configFechaUser<br>";
-            echo $hoy;
-    }
-} 
+
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="file" name="" id="">
+</body>
+</html>
