@@ -35,23 +35,23 @@ go
 		-- fija linea nueva --
 		declare @codigo char(10);
 		set @codigo = dbo.Gencodwhats();
-		exec sp_insertar_whatsapp_fija_lineanueva @codigo,'12457889','usuario prueba fija ln','12345678','123456789','Fija','---','Alta','1 Play','HFC','Contado','45788956','2','venta de linea nueva en fija','por su casa al lado','un distrito'
+		exec sp_insertar_whatsapp_fija_lineanueva @codigo,'12457889','usuario prueba fija ln','12345678','123456789','0','---','0','1 Play','HFC','Contado','45788956','2','venta de linea nueva en fija','por su casa al lado','un distrito'
 		select * from whatsapp
 		-- fija portabilidad --
 		declare @codigo char(10);
 		set @codigo = dbo.Gencodwhats();
-		exec sp_insertar_whatsapp_fija_portabilidad @codigo,'12457889','usuario pueba fija port','87654321','123456789','Fija','50% dsct en fija','Portabilidad','654578','2 Play','IFI','Contado','78895645','0','No requirió el servicio','sin señal','no distric'
+		exec sp_insertar_whatsapp_fija_portabilidad @codigo,'12457889','usuario pueba fija port','87654321','123456789','0','50% dsct en fija','1','654578','2 Play','IFI','Contado','78895645','0','No requirió el servicio','sin señal','no distric'
 		select * from whatsapp
 	-- insercion de ventas movil --
 		-- movil linea nueva postpago --
 		declare @codigo char(10);
 		set @codigo = dbo.Gencodwhats();
-		exec sp_insertar_whatsapp_movil_lineanueva_postpago @codigo,'12457889','prueba movil lnP','56897845','987451256','Movil','---','Linea Nueva','Postpago','79','a53','Cuotas','98452648','1','compro sin problemas','en su casa','un distrito'
+		exec sp_insertar_whatsapp_movil_lineanueva_postpago @codigo,'12457889','prueba movil lnP','56897845','987451256','1','---','0','1','79','a53','Cuotas','98452648','1','compro sin problemas','en su casa','un distrito'
 		select * from whatsapp
 		-- movil linea nueva prepago --
 		declare @codigo char(10);
 		set @codigo = dbo.Gencodwhats();
-		exec sp_insertar_whatsapp_movil_lineanueva_prepago @codigo,'73179455','prueba cliente ln Prepa','12345678','987654321','Movil','Lineas Adicionales','Linea Nueva','Prepago','Chip','Contado','48575968','2','verificacion de la sec','chiclayo','chiclayo'
+		exec sp_insertar_whatsapp_movil_lineanueva_prepago @codigo,'73179455','prueba cliente ln Prepa','12345678','987654321','1','Lineas Adicionales','0','0','Chip','Contado','48575968','2','verificacion de la sec','chiclayo','chiclayo'
 		select * from whatsapp
 		-- movil portabilidad postpago --
 		declare @codigo char(10);

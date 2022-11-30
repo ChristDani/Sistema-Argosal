@@ -65,12 +65,21 @@ $output=[];
 $output['data']= '';
 $output['paginacion']= '';
 
-if ($filas>0) {
-    
-    while ($fila=sqlsrv_fetch_array($resultado)) {
+if ($filas>0) 
+{    
+    while ($fila=sqlsrv_fetch_array($resultado)) 
+    {
         
         $code = $fila['codigo'];
         $estado=$fila['estado'];
+        if ($fila['modalidad'] === "0") 
+        {
+            $modalidad = "Prepago";
+        }
+        elseif ($fila['modalidad'] === "1") 
+        {
+            $modalidad = "Pospago";
+        }
         $fecha=$fila['fechaRegistro']-> format('l j \of F Y h:i:s A');
 
         $output['data'].= "<div class='col-xl-3 col-md-6'>";
@@ -103,13 +112,41 @@ if ($filas>0) {
         $output['data'].= "</div>";
         $output['data'].= "<div class='row text-center'>";
         $output['data'].= "<div class='col'>";
-        $output['data'].= "<p>".$fila['modalidad']."</p>";
+        if ($fila['producto'] === "1") 
+        {
+            if ($fila['modalidad'] === "0") 
+            {
+                $output['data'].= "<p>Prepago</p>";
+            }
+            elseif ($fila['modalidad'] === "1") 
+            {
+                $output['data'].= "<p>Postpago</p>";
+            }
+        }
+        elseif ($fila['producto'] === "0") 
+        {
+            if ($fila['tipoFija'] === "0") 
+            {
+                $output['data'].= "<p>Alta</p>";
+            }
+            elseif ($fila['tipoFija'] === "1") 
+            {
+                $output['data'].= "<p>Portabilidad</p>";
+            }
+        }
         $output['data'].= "</div>";
         $output['data'].= "<div class='col'>";
         $output['data'].= "<p>".$fila['numeroReferencia']."</p>";
         $output['data'].= "</div>";
         $output['data'].= "<div class='col'>";
-        $output['data'].= "<p>".$fila['planR']."</p>";
+        if ($fila['producto'] === "1") 
+        {
+            $output['data'].= "<p>".$fila['planR']."</p>";
+        }
+        elseif ($fila['producto'] === "0") 
+        {
+            $output['data'].= "<p>".$fila['planFija']."</p>";
+        }
         $output['data'].= "</div>";
         $output['data'].= "</div>";
         $output['data'].= "<div class='row text-center' style='border-top: 1px solid #b9b9b9;'>";
@@ -121,7 +158,9 @@ if ($filas>0) {
         $output['data'].= "</div>";
         $output['data'].= "</div>";
     }
-} else {
+} 
+else 
+{
     $output['data'].= "<div>";
     $output['data'].= "<h1 class='text-muted text-center my-5'>Sin Resultados...</h1>";
     $output['data'].= "</div>";

@@ -93,8 +93,8 @@ document.getElementById('modalidad').addEventListener("change", function() {
 function mostrarProducto(valor)
 {
     const any = "---"
-    const movil = "Movil"
-    const fija = "Fija"
+    const movil = "1"
+    const fija = "0"
 
     if (valor == movil)
     {
@@ -126,8 +126,8 @@ function mostrarProducto(valor)
 function mostrarTipoFija(valor) 
 {
     const any = "---"
-    const alta = "Alta"
-    const porta = "Portabilidad"
+    const alta = "0"
+    const porta = "1"
     
     if (valor == alta) 
     {
@@ -187,9 +187,9 @@ function mostrarTipoFija(valor)
 function mostrarTipoMovil(valor) 
 {
     const any = "---"
-    const alta = "Linea Nueva"
-    const porta = "Portabilidad"    
-    const reno = "Renovacion" 
+    const alta = "0"
+    const porta = "1"    
+    const reno = "2" 
     
     if (valor == alta) 
     {
@@ -240,8 +240,8 @@ function mostrarTipoMovil(valor)
 function mostrarModalidadMovil(valor) 
 {  
     const any = "---"
-    const prepa = "Prepago"
-    const post = "Postpago" 
+    const prepa = "0"
+    const post = "1" 
 
     if (valor == prepa) 
     {
