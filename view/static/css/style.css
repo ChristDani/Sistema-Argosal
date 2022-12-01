@@ -153,8 +153,6 @@ body{
     border-radius: var(--card-border-radius);
 }
 
-
-
 .modal-dialog, .card{
     background: none;
     border: none;
@@ -166,12 +164,6 @@ body{
     padding: 0;
 }
 
-/* .col ion-icon{
-    background: var(--color-light) !important;
-    color: var(--color-dark) !important;
-    width: 72%;
-    height: 100%;
-} */
 
 .card a{
     color: var(--color-dark);
@@ -262,13 +254,13 @@ small{
 }
 
 
-.form-floating > input{
+.form-floating > input, .form-floating > select{
     background: var(--color-background);
     border:1px solid var(--color-light);
     color: var(--color-dark);
 }
 
-.form-floating > input:focus{
+.form-floating > input:focus, .form-floating > select:focus{
     background: var(--color-background);
     color: var(--color-dark);
 }

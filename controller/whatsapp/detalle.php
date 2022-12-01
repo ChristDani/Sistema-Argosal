@@ -203,14 +203,13 @@ if ($filas>0) {
             $output['data'].= "<h3>$planFija</h3>";
 
             $output['data'].= "</div> ";
-            $output['data'].= "<div class='col text-end'>";
+            $output['data'].= "<div class='col-auto'>";
             
             $output['data'].= "<p class='text-muted'>Modo</p>";
             $output['data'].= "<h3>$modoFija</h3>";     //Modo Fija
 
             $output['data'].= "</div> ";
 
-            $output['data'].= "</div> ";
         } 
         
         elseif ($producto === $movil) 
@@ -239,7 +238,7 @@ if ($filas>0) {
             if ($tipo == "0") 
             {
                 // modalidad
-                $output['data'].= "<div class='col'>";
+                $output['data'].= "<div class='col text-end'>";
                 
                 $output['data'].= "<p class='text-muted'>Modalidad</p>";
                 if ($modalidad === "0") 
@@ -253,7 +252,10 @@ if ($filas>0) {
                 
                 $output['data'].= "</div> ";
                 $output['data'].= "</div> ";
+                $output['data'].= "</div> ";
                 
+                $output['data'].= "<div class='row'>";            
+
                 if ($modalidad == "1") 
                 {
                     $output['data'].= "<div class='col'>";            
@@ -262,12 +264,11 @@ if ($filas>0) {
                     $output['data'].= "</div> ";
                 }
                 
-                $output['data'].= "<div class='col'>";            
+                $output['data'].= "<div class='col-auto'>";            
                 $output['data'].= "<p class='text-muted'>Equipo</p>";
                 $output['data'].= "<h3>$equipo</h3>";     //Equipo
                 $output['data'].= "</div> ";
 
-                $output['data'].= "</div> ";
 
             }
             elseif ($tipo == "1") 
@@ -316,7 +317,7 @@ if ($filas>0) {
                 }
                 
                 // equipo
-                $output['data'].= "<div class='col text-center'>";            
+                $output['data'].= "<div class='col-auto'>";            
                 $output['data'].= "<p class='text-muted'>Equipo</p>";
                 $output['data'].= "<h3>$equipo</h3>";    
                 $output['data'].= "</div> ";
@@ -326,7 +327,7 @@ if ($filas>0) {
             elseif ($tipo == "2") 
             {
                 // telefono
-                $output['data'].= "<div class='col text-end'>";            
+                $output['data'].= "<div class='col-auto text-center'>";            
                 $output['data'].= "<p class='text-muted'>Telefono</p>";
                 $output['data'].= "<h3>$telefono</h3>";
                 $output['data'].= "</div> ";  
@@ -336,9 +337,12 @@ if ($filas>0) {
                 $output['data'].= "<p class='text-muted'>Linea Procedente</p>";
                 $output['data'].= "<h3>$lineaProce</h3>";
                 $output['data'].= "</div> ";  
+                $output['data'].= "</div> ";  
                 
+                $output['data'].= "<div class='row'>";            
+
                 // modalidad
-                $output['data'].= "<div class='col text-end'>";            
+                $output['data'].= "<div class='col'>";            
                 $output['data'].= "<p class='text-muted'>Modalidad</p>";
                 if ($modalidad === "0") 
                 {
@@ -358,12 +362,17 @@ if ($filas>0) {
                     $output['data'].= "<h3>$planR</h3>";
                     $output['data'].= "</div> ";  
                 }
+
+                $output['data'].= "</div> ";  
+                $output['data'].= "<div class='row'>";            
                 
                 // equipo
-                $output['data'].= "<div class='col text-end'>";            
+                $output['data'].= "<div class='col'>";            
                 $output['data'].= "<p class='text-muted'>Equipo</p>";
                 $output['data'].= "<h3>$equipo</h3>";
                 $output['data'].= "</div> ";  
+
+
             }
         }
         else 
@@ -379,6 +388,7 @@ if ($filas>0) {
         $output['data'].= "<p class='text-muted'>Forma de Pago</p>";
         $output['data'].= "<h3>$formaPago</h3>";
         $output['data'].= "</div> ";        
+        $output['data'].= "</div> ";
 
         $output['data'].= "</div> ";         
 
