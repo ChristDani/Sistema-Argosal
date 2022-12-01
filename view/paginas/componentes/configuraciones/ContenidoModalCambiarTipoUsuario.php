@@ -6,7 +6,7 @@
         <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body text-justify">
-        Estas seguro que deseas eliminar al usuario <span id="nombreUserCambiar"></span>, al ejecutar esta operacion ya no hay vuelta atras.
+        <h3 id="nombreUserCambiar"></h3>
       </div>
       <div class="modal-footer justify-content-between">
         <div class="btn btn-secondary" data-bs-target="#InfoUser" data-bs-toggle="modal">Volver</div>
