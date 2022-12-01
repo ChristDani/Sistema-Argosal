@@ -7,7 +7,12 @@
       </div>
       <div class="modal-body">
         <form action="controller/usuario/editar.php" method="post" enctype="multipart/form-data">
-          <input hidden type="text" name="dniedit" id="dniedit">
+          <input hidden type="text" name="dniedit" id="dniedit"> <!--no mover-->
+          
+          <label>Foto de Perfil</label>
+          <img id="fotoPerfiledit1" class="img-fluid rounded-5" src="view/static/ProfileIMG/">
+          <input type="file" name="fotoPerfiledit" id="fotoPerfiledit">
+
           <div class="form-floating mb-3">
             <input class="form-control" placeholder="Nombre" autocomplete="off" type="text" name="nombreedit" id="nombreedit">
             <label for="nombre">Nombre</label>
@@ -21,10 +26,6 @@
           <!-- <label>Foto FaceId</label>
           <input type="file" name="fotoedit" id="fotoedit"> -->
           <input hidden type="text" name="fotoedit1" id="fotoedit1" readonly>
-          
-          <label>Foto de Perfil</label>
-          <input type="file" name="fotoPerfiledit" id="fotoPerfiledit">
-          <input hidden type="text" name="fotoPerfiledit1" id="fotoPerfiledit1" readonly>
 
           </div>
           <div class="modal-footer">

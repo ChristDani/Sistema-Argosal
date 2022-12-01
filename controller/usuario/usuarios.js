@@ -37,7 +37,7 @@ function editarUsuario(dni,nombre,clave,foto,fotoPerfil)
     document.getElementById('nombreedit').value=nombre
     document.getElementById('claveedit2').value=clave
     document.getElementById('fotoedit1').value=foto
-    document.getElementById('fotoPerfiledit1').value=fotoPerfil
+    document.getElementById('fotoPerfiledit1').src="view/static/ProfileIMG/"+fotoPerfil;
 }
 
 function cambiarTipoUser(codigo,nombre,tipo) 
