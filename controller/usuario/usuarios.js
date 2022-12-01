@@ -1,11 +1,34 @@
 function infoUsuario(codigo,nombre,tipo) 
 {
+    let contenido = document.getElementById('detalleuserespecifico')
     let btncambiar = document.getElementById('btncambiar')
     let btneliminar = document.getElementById('btneliminar')
-
+    if (tipo === "1") 
+    {
+        btncambiar.innerHTML="Degradar"
+        btncambiar.classList.remove("btn-success")
+        btncambiar.classList.add("btn-warning")
+    }
+    else if (tipo === "0") 
+    {
+        btncambiar.innerHTML="Ascender"            
+        btncambiar.classList.remove("btn-warning")       
+        btncambiar.classList.add("btn-success")
+    }
     btncambiar.addEventListener("click", cambiarTipoUser(codigo,nombre,tipo), false);
     btneliminar.addEventListener("click", eliminarUsuario(codigo,nombre), false);
-    console.log(codigo,nombre,tipo)
+
+    let url='controller/usuario/detalleUser.php';
+    let formaData = new FormData()
+    formaData.append('dni', codigo)
+
+    fetch(url,{
+        method: "POST",
+        body: formaData
+    }).then(response=>response.json())
+    .then(data=>{
+        contenido.innerHTML=data.data
+    }).catch(err=>console.log(err))
 }
 
 function editarUsuario(dni,nombre,clave,foto,fotoPerfil) 
@@ -19,14 +42,26 @@ function editarUsuario(dni,nombre,clave,foto,fotoPerfil)
 
 function cambiarTipoUser(codigo,nombre,tipo) 
 {
+    let btnascdesc = document.getElementById('btnascdesc')
     document.getElementById('dnicambiar').value=codigo
     document.getElementById('nombreUserCambiar').innerHTML=nombre
-    console.log(codigo,nombre,tipo)
+    document.getElementById('tipocambiar').value=tipo
+    if (tipo === "1") 
+    {
+        btnascdesc.innerHTML="Degradar"    
+        btnascdesc.classList.remove("btn-success")   
+        btnascdesc.classList.add("btn-warning")   
+    }
+    else if (tipo === "0") 
+    {
+        btnascdesc.innerHTML="Ascender"            
+        btnascdesc.classList.remove("btn-warning")          
+        btnascdesc.classList.add("btn-success")           
+    }
 }
 
 function eliminarUsuario(codigo,nombre) 
 {  
     document.getElementById('dniEliminar').value=codigo
     document.getElementById('nombreUserEliminar').innerHTML=nombre
-    console.log(codigo,nombre)
 }

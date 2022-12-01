@@ -10,9 +10,10 @@
       </div>
       <div class="modal-footer justify-content-between">
         <div class="btn btn-secondary" data-bs-target="#InfoUser" data-bs-toggle="modal">Volver</div>
-        <form action="controller/usuario/ContenidoModalCambiarTipoUsuario.php" method="post">
-          <input type="text" name="dnicambiar" id="dnicambiar">
-          <button type="submit" class="btn btn-danger">Asender</button>
+        <form action="controller/usuario/cambiarTipo.php" method="post">
+          <input hidden type="text" name="dnicambiar" id="dnicambiar">
+          <input hidden type="text" name="tipocambiar" id="tipocambiar">
+          <button type="submit" class="btn color" id="btnascdesc"></button>
         </form>
       </div>
     </div>

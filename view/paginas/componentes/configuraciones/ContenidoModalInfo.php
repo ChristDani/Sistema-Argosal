@@ -5,11 +5,11 @@
                 <h1 class="modal-title fs-5" id="staticBackdropLabel">INFORMACION</h1>
                 <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body text-justify">
+            <div class="modal-body text-justify" id="detalleuserespecifico">
 
             </div>
             <div class="modal-footer justify-content-between">
-                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#CambiarTipoUser" id="btncambiar">Ascender</a>
+                <a class="btn color" data-bs-toggle="modal" data-bs-target="#CambiarTipoUser" id="btncambiar"></a>
                 <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#Eliminar" id="btneliminar">Eliminar</a>
             </div>
         </div>
