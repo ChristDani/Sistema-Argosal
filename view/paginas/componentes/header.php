@@ -97,10 +97,10 @@ elseif ($tipoUsuario === "0")
                                 Ubicaciones
                         </a>
                         <?php if($tipoUsuario === "1") { ?>
-                            <!-- <a class="nav-link" href="index.php?pagina=Reportes">
+                            <a class="nav-link" href="index.php?pagina=Reportes">
                                 <div class="sb-nav-link-icon"><ion-icon name="newspaper-outline"></ion-icon></div>
                                     Reportes
-                            </a> -->
+                            </a>
                         <?php } ?>			
                         <a class="nav-link" href="index.php?pagina=Configuracion">
                             <div class="sb-nav-link-icon"> <ion-icon name="cog-outline"></ion-icon></div>
