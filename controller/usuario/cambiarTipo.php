@@ -4,7 +4,7 @@ $model = new user();
 
 $dni = $_POST['dniEliminar'];
 
-$model->eliminarUsuario($dni);
+$model->cambiarTipoUsuario($dni);
 ?>
 <script>
     window.history.back();

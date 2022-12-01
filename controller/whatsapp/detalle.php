@@ -422,15 +422,14 @@ if ($filas>0) {
 
         $output['data'].= "</div> ";  
 
-        $output['data'].= "<div class='col text-center'>";            
         // fecha de registro
+        $output['data'].= "<div class='col text-center'>";            
         $output['data'].= "<div class='card'>";
         $output['data'].= "<div class='card-body'>";        
         $output['data'].= "<p class='text-muted'>Fecha de Registro</p>";  //Sec
         $output['data'].= "<h3>$fecha</h3>";
         $output['data'].= "</div> ";
         $output['data'].= "</div> ";
-
         $output['data'].= "</div> ";
 
         
@@ -444,9 +443,9 @@ if ($filas>0) {
             $output['data'].= "<h3>$fechaUdp</h3>";
             $output['data'].= "</div> ";
             $output['data'].= "</div> ";
+            $output['data'].= "</div> ";
         }
 
-        $output['data'].= "</div> ";
 
         $output['data'].= "</div>";
     }

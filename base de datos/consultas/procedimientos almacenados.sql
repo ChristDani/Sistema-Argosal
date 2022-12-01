@@ -48,7 +48,7 @@ go
 	@dni char(8)
 	as
 	begin
-		delete usuarios where dni=@dni
+		update usuarios set activo='0' where dni=@dni
 	end 
 	go
 

@@ -25,7 +25,7 @@ class user
         $filas=null;
         $model=new conexion();
 		$conexion=$model->conectar();
-        $sql="select * from usuarios";
+        $sql="select * from usuarios where activo='1'";
         $rs=sqlsrv_query($conexion,$sql);
 
         while($row=sqlsrv_fetch_array($rs))

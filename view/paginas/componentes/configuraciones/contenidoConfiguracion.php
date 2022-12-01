@@ -52,7 +52,7 @@
                                     if ($u[0] != $dniUsuario) 
                                     { ?>
                                       <div class="row">
-                                        <a class="delete btn col d-flex gap-1 align-items-center my-1" data-bs-toggle="modal" data-bs-target="#Eliminar" onclick="eliminarUsuario('<?php echo$u[0];?>','<?php echo trim($u[1]);?>');">
+                                        <a class="delete btn col d-flex gap-1 align-items-center my-1" data-bs-toggle="modal" data-bs-target="#InfoUser" onclick="infoUsuario('<?php echo$u[0];?>','<?php echo trim($u[1]);?>','<?php echo trim($u[3]);?>');">
                                             <?php if ($u[6] === "0") { ?>
                                                 <div class="profile-photo secondary-bc rounded-circle img-fluid" style="background-image: url('view/static/ProfileIMG/<?php echo trim($u[7]);?>');">
                                                 </div>
@@ -85,8 +85,7 @@
                     </div>
                 </div>
             </div>
-            <?php //} ?>
-            <!-- <div class="row mx-auto">
+            <div class="row mx-auto">
                 <div class="col-lg-3">
                     <div class="card">
                         <div class="card-body d-grid justify-content-center align-items-center">
@@ -120,7 +119,10 @@
                         </div>
                     </div>
                 </div>                
-            </div> -->
+            </div>
+            <div class="d-flex justify-content-end mt-1">
+                <button type="submit" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#editarMetas">Editar Metas</button>
+            </div>
             <?php } ?>
         </div>
     </div>
@@ -128,7 +130,8 @@
 
 <?php include_once "contenidoModalEditarUsuario.php"; ?>
 <?php include_once "contenidoModalAñadirUsuario.php"; ?>
-<?php include_once "contenidoModalEliminarUsuario.php"; ?>
+<?php include_once "ContenidoModalInfo.php"; ?>
+<?php include_once "contenidoModalEditarMetas.php"; ?>
 <script src="controller/usuario/usuarios.js"></script>
 
 <!-- <div class="col-xl-4">

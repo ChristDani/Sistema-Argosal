@@ -89,10 +89,10 @@ if ($filas>0) {
 
         $output['data'].= "<div class='row'>";
 
-        $output['data'].= "<div class='col-lg-4'>";
-
+        
         if ($tipoU === "1") 
         {
+            $output['data'].= "<div class='col-lg-4'>";
             $output['data'].= "<div id='asesorEdit' class='form-floating mb-3'>";
             $output['data'].= "<select class='form-select form-select-sm' name='asesor' id='asesor'>";
             if ($listUser != null) 
@@ -113,43 +113,6 @@ if ($filas>0) {
             $output['data'] .= "</select>";
             $output['data'] .= "<label for='asesor'>Asesor</label>";
             $output['data'] .= "</div> ";
-
-            $output['data'] .= "</div> ";
-            
-            $output['data'].= "<div class='col-lg-4'>";
-            
-            // nombre
-            $output['data'].= "<div class='form-floating mb-3'>";
-            $output['data'].= "<input class='form-control' type='text' name='nombre' id='nombre' value='$nombre'>";
-            $output['data'].= "<label for='nombre'>Nombre</label>";
-            $output['data'].= "</div> ";
-    
-            $output['data'].= "</div> ";
-
-            $output['data'].= "<div class='col-lg-4'>";
-
-            // estado
-            $output['data'].= "<div id='estadoEditM' class='form-floating mb-3'>";
-            $output['data'] .= "<select class='form-select form-select-sm' name='estado' id='estado'>";
-            if ($estado === "0") 
-            {
-                $output['data'].= "<option hidden value='$estado'>No Requiere</option>";
-            }
-            elseif ($estado === "1") 
-            {
-                $output['data'].= "<option hidden value='$estado'>Concretado</option>";
-            }
-            elseif ($estado === "2") 
-            {
-                $output['data'].= "<option hidden value='$estado'>Pendiente</option>";
-            }
-            $output['data'] .= "<option value='2'>Pendiente</option>
-            <option value='1'>Concretado</option>
-            <option value='0'>No Requiere</option> </select>";
-            $output['data'].= "<label for='estado'>Estado</label>";            
-            $output['data'].= "</div>"; 
-            $output['data'] .= "</div> ";
-
             $output['data'] .= "</div> ";
 
         }
@@ -161,11 +124,49 @@ if ($filas>0) {
                 {
                     if ($x[0] === $asesor)
                     {
-                        $output['data'].= "<input type='text' name='asesor' id='asesor' value='".$x[0]."' hidden>";
+                        $output['data'].= "<div class='col-lg-4 d-none'>";
+                        $output['data'].= "<input type='text' name='asesor' id='asesor' value='".$x[0]."'>";
+                        $output['data'] .= "</div> ";
                     }
                 }
             }
         }
+
+        $output['data'].= "<div class='col-lg-4'>";
+        
+        // nombre
+        $output['data'].= "<div class='form-floating mb-3'>";
+        $output['data'].= "<input class='form-control' type='text' name='nombre' id='nombre' value='$nombre'>";
+        $output['data'].= "<label for='nombre'>Nombre</label>";
+        $output['data'].= "</div> ";
+
+        $output['data'].= "</div> ";
+
+        $output['data'].= "<div class='col-lg-4'>";
+
+        // estado
+        $output['data'].= "<div id='estadoEditM' class='form-floating mb-3'>";
+        $output['data'] .= "<select class='form-select form-select-sm' name='estado' id='estado'>";
+        if ($estado === "0") 
+        {
+            $output['data'].= "<option hidden value='$estado'>No Requiere</option>";
+        }
+        elseif ($estado === "1") 
+        {
+            $output['data'].= "<option hidden value='$estado'>Concretado</option>";
+        }
+        elseif ($estado === "2") 
+        {
+            $output['data'].= "<option hidden value='$estado'>Pendiente</option>";
+        }
+        $output['data'] .= "<option value='2'>Pendiente</option>
+        <option value='1'>Concretado</option>
+        <option value='0'>No Requiere</option> </select>";
+        $output['data'].= "<label for='estado'>Estado</label>";            
+        $output['data'].= "</div>"; 
+        $output['data'] .= "</div> ";
+
+        $output['data'] .= "</div> ";
         
         $output['data'].= "<div class='row'>";
 
@@ -190,7 +191,16 @@ if ($filas>0) {
         
         // producto
         $output['data'].= "<div id='producEdit' class='form-floating mb-3'>";
-        $output['data'].= "<select class='form-select form-select-sm' name='producto' id='producto'> <option value='$producto'>$producto</option></select>";
+        $output['data'].= "<select class='form-select form-select-sm' name='producto' id='producto'>";
+        if ($producto === "0") 
+        {
+            $output['data'].= "<option value='$producto'>Fija</option>";
+        }
+        elseif ($producto === "1") 
+        {
+            $output['data'].= "<option value='$producto'>Movil</option>";
+        }
+        $output['data'].= "</select>";
         $output['data'].= "<label for='producto'>Producto</label>";
         $output['data'].= "</div> ";
         
@@ -206,8 +216,16 @@ if ($filas>0) {
 
             // tipo de fija
             $output['data'].= "<div id='typeFijaEdit' class='form-floating mb-3'>";
-            $output['data'].= "<select class='form-select form-select-sm' name='tipoFija' id='tipoFija'> <option hidden value='$tipoFija'>$tipoFija</option> <option value='Portabilidad'>Portabilidad</option>
-            <option value='Alta'>Alta</option> </select>";
+            $output['data'].= "<select class='form-select form-select-sm' name='tipoFija' id='tipoFija'>";
+            if ($tipoFija === "0") 
+            {
+                $output['data'].= "<option value='$tipoFija'>Alta</option>"; 
+            }
+            elseif ($tipoFija === "1") 
+            {
+                $output['data'].= "<option value='$tipoFija'>Portabilidad</option>"; 
+            }
+            $output['data'].= "</select>";
             $output['data'].= "<label for='tipoFija'>Tipo</label>";
             $output['data'].= "</div> ";
 
@@ -252,16 +270,26 @@ if ($filas>0) {
 
             // promocion
             $output['data'].= "<div id='promocionEdit' class='form-floating mb-3'>";
-            $output['data'].= "<select class='form-select form-select-sm' name='promocion' id='promocion'> <option hidden value='$promocion'>$promocion</option> <option value='50% de Descuento con Lineas Adicionales'>50% de Descuento con Lineas Adicionales</option>
-            <option value='20% de Descuento en Portabilidad Movil'>20% de Descuento en Portabilidad Movil</option> </select>";
+            $output['data'].= "<select class='form-select form-select-sm' name='promocion' id='promocion'> <option hidden value='$promocion'>$promocion</option> <option value='50% de Descuento con Lineas Adicionales'>50% de Descuento con Lineas Adicionales</option> <option value='20% de Descuento en Portabilidad Movil'>20% de Descuento en Portabilidad Movil</option> </select>";
             $output['data'].= "<label for='promocion'>Promoción</label>";
             $output['data'].= "</div> ";
 
             // tipo
             $output['data'].= "<div id='typeEdit' class='form-floating mb-3'>";
-            $output['data'].= "<select class='form-select form-select-sm' name='tipo' id='tipo'> <option hidden value='$tipo'>$tipo</option> <option value='Linea Nueva'>Linea Nueva</option>
-            <option value='Portabilidad'>Portabilidad</option>
-            <option value='Renovacion'>Renovacion</option> </select>";
+            $output['data'].= "<select class='form-select form-select-sm' name='tipo' id='tipo'>";
+            if ($tipo === "0") 
+            {
+                $output['data'].= "<option value='$tipo'>Linea Nueva</option>";
+            }
+            elseif ($tipo === "1") 
+            {
+                $output['data'].= "<option value='$tipo'>Portabilidad</option>";
+            }
+            elseif ($tipo === "2") 
+            {
+                $output['data'].= "<option value='$tipo'>Renovacion</option>";
+            }
+            $output['data'].= "</select>";
             $output['data'].= "<label for='tipo'>Tipo de Linea</label>";
             $output['data'].= "</div> ";
         
@@ -269,8 +297,16 @@ if ($filas>0) {
             {
                 // modalidad
                 $output['data'].= "<div id='modalEdit' class='form-floating mb-3'>";
-                $output['data'].= "<select class='form-select form-select-sm' name='modalidad' id='modalidad'> <option hidden value='$modalidad'>$modalidad</option> <option value='Postpago'>Postpago</option>
-                <option value='Prepago'>Prepago</option> </select>";
+                $output['data'].= "<select class='form-select form-select-sm' name='modalidad' id='modalidad'>";
+                if ($modalidad === "0") 
+                {
+                    $output['data'].= "<option value='$modalidad'>Prepago</option>";
+                }
+                elseif ($modalidad === "1") 
+                {
+                    $output['data'].= "<option value='$modalidad'>Postpago</option>";
+                }
+                $output['data'].= "</select>";
                 $output['data'].= "<label for='modalidad'>Modalidad</label>";
                 $output['data'].= "</div> ";
 
@@ -341,8 +377,16 @@ if ($filas>0) {
 
                 // modalidad
                 $output['data'].= "<div id='modalEdit' class='form-floating mb-3'>";
-                $output['data'].= "<select class='form-select form-select-sm' name='modalidad' id='modalidad'> <option hidden value='$modalidad'>$modalidad</option> <option value='Postpago'>Postpago</option>
-                <option value='Prepago'>Prepago</option> </select>";
+                $output['data'].= "<select class='form-select form-select-sm' name='modalidad' id='modalidad'>";
+                if ($modalidad === "0") 
+                {
+                    $output['data'].= "<option value='$modalidad'>Prepago</option>";
+                }
+                elseif ($modalidad === "1") 
+                {
+                    $output['data'].= "<option value='$modalidad'>Postpago</option>";
+                }
+                $output['data'].= "</select>";
                 $output['data'].= "<label for='modalidad'>Modalidad</label>";
                 $output['data'].= "</div> ";
 
@@ -418,8 +462,16 @@ if ($filas>0) {
     
                 // modalidad
                 $output['data'].= "<div id='modalEdit' class='form-floating mb-3'>";
-                $output['data'].= "<select class='form-select form-select-sm' name='modalidad' id='modalidad'> <option hidden value='$modalidad'>$modalidad</option> <option value='Postpago'>Postpago</option>
-                <option value='Prepago'>Prepago</option> </select>";
+                $output['data'].= "<select class='form-select form-select-sm' name='modalidad' id='modalidad'>";
+                if ($modalidad === "0") 
+                {
+                    $output['data'].= "<option value='$modalidad'>Prepago</option>";
+                }
+                elseif ($modalidad === "1") 
+                {
+                    $output['data'].= "<option value='$modalidad'>Postpago</option>";
+                }
+                $output['data'].= "</select>";
                 $output['data'].= "<label for='modalidad'>Modalidad</label>";
                 $output['data'].= "</div> ";
 
