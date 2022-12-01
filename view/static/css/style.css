@@ -113,6 +113,30 @@ body{
     color: var(--color-dark);
 }
 
+.delete{
+    overflow: hidden;
+    /* background: transparent; */
+}
+
+.delete:hover::after{
+    transform: translateY(0);
+}
+
+.delete:after{
+    content: "Eliminar";
+    font-size: 1rem;
+    color: var(--color-dark);
+    background: rgb(255 255 255 /10%);
+    backdrop-filter: blur(8px);
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    transform: translateY(100%);
+    transition: transform .1s;
+    border-radius: 20px;
+}
+
 .dropdown-menu.show{
     background: var(--color-background);
     color: var(--color-dark);
@@ -240,9 +264,6 @@ small{
     width: auto !important;
 }
 
-.bare select{
-
-}
 
 .form-floating > input{
     background: var(--color-background);
@@ -287,6 +308,22 @@ b{
 
 .warning{
     color: var(--color-warning);
+}
+
+.secondary-bc{
+    border: 2px solid #6c757d;
+}
+
+.danger-bc{
+    border: 2px solid  var(--color-danger);
+}
+
+.success-bc{
+    border: 2px solid var(--color-success);
+}
+
+.warning-bc{
+    border: 2px solid var(--color-warning);
 }
 
 .bg{
