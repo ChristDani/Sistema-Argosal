@@ -26,6 +26,7 @@ $tabla='whatsapp';
 
 // posicion de registro
 $codigo = isset($_POST['codigo']) ? $_POST['codigo'] : 'WP00000001';
+$tipoU= isset($_POST['tipoUser']) ? $_POST['tipoUser'] : null;
 
 
 // llamamos al registro
@@ -79,31 +80,48 @@ if ($filas>0) {
         $fecha = $fila['fechaRegistro']-> format('l j \of F Y h:i:s A');
         $fechaUdp = $fila['fechaActualizacion']-> format('l j \of F Y h:i:s A');
 
-        $output['data'].= "<div id='asesorEdit' class='form-floating mb-3'>";
-        $output['data'].= "<select class='form-select form-select-sm' name='asesor' id='asesor'>";
-        if ($listUser != null) 
-        {
-            foreach ($listUser as $x) 
-            {
-                if ($x[0] === $asesor)
-                {
-                    $output['data'] .= "<option selected hidden value='".$x[0]."'>".$x[1]."</option>";
-                }
-                elseif ($x[0] != $asesor)
-                {
-                    $output['data'] .= "<option value='".$x[0]."'>".$x[1]."</option>";
-                }
-            }
-        }
-
-        $output['data'].= "<div class='form-floating mb-3 d-none'>";
+    
+        $output['data'].= "<div class='form-floating mb-3' d-none>";
         $output['data'].= "<input class='form-control' type='text' name='codigo' id='codigo' value='$codigo' hidden>";
         $output['data'].= "<label for='codigo'>Código de Venta</label>";
         $output['data'].= "</div> ";
 
-        $output['data'] .= "</select>";
-        $output['data'] .= "<label for='asesor'>Asesor</label>";
-        $output['data'] .= "</div> ";
+        if ($tipoU === "1") 
+        {
+            $output['data'].= "<div id='asesorEdit' class='form-floating mb-3'>";
+            $output['data'].= "<select class='form-select form-select-sm' name='asesor' id='asesor'>";
+            if ($listUser != null) 
+            {
+                foreach ($listUser as $x) 
+                {
+                    if ($x[0] === $asesor)
+                    {
+                        $output['data'] .= "<option selected hidden value='".$x[0]."'>".$x[1]."</option>";
+                    }
+                    elseif ($x[0] != $asesor)
+                    {
+                        $output['data'] .= "<option value='".$x[0]."'>".$x[1]."</option>";
+                    }
+                }
+            }
+    
+            $output['data'] .= "</select>";
+            $output['data'] .= "<label for='asesor'>Asesor</label>";
+            $output['data'] .= "</div> ";
+        }
+        elseif ($tipoU === "0") 
+        {
+            if ($listUser != null) 
+            {
+                foreach ($listUser as $x) 
+                {
+                    if ($x[0] === $asesor)
+                    {
+                        $output['data'].= "<input type='text' name='asesor' id='asesor' value='".$x[0]."' hidden>";
+                    }
+                }
+            }
+        }
         
         // codigo
 
