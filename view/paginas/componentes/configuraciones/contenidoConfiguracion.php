@@ -60,14 +60,14 @@
                                                 <div class="profile-photo success-bc rounded-circle img-fluid" style="background-image: url('view/static/ProfileIMG/<?php echo trim($u[7]);?>');">
                                                 </div>
                                             <?php }elseif ($u[6] === "2") { ?>
-                                                <div class="profile-photo warning-bc  rounded-circle img-fluid" style="background-image: url('view/static/ProfileIMG/<?php echo trim($u[7]);?>');">
+                                                <div class="profile-photo warning-bc rounded-circle img-fluid" style="background-image: url('view/static/ProfileIMG/<?php echo trim($u[7]);?>');">
                                                 </div>
                                             <?php }elseif ($u[6] === "3") { ?>
                                                 <div class="profile-photo danger-bc" style="background-image: url('/view/static/ProfileIMG/<?php echo trim($u[7]);?>');">
                                                 </div>
                                             <?php } ?> 
-                                            <div class="col text-start">
-                                                <h2><?php echo strtoupper($u[1]); ?></h2>            
+                                            <h2><?php echo strtoupper($u[1]); ?></h2>            
+                                            <div class="col text-end">
                                                 <?php if ($u[3] === "1") { ?>
                                                 <h4 class="text-muted">Administrador</h4>
                                                 <?php }elseif ($u[3] === "0") { ?>
