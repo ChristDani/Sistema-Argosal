@@ -95,15 +95,17 @@ if ($filas>0) {
                 }
             }
         }
+
+        $output['data'].= "<div class='form-floating mb-3 d-none'>";
+        $output['data'].= "<input class='form-control' type='text' name='codigo' id='codigo' value='$codigo' hidden>";
+        $output['data'].= "<label for='codigo'>Código de Venta</label>";
+        $output['data'].= "</div> ";
+
         $output['data'] .= "</select>";
         $output['data'] .= "<label for='asesor'>Asesor</label>";
         $output['data'] .= "</div> ";
         
         // codigo
-        $output['data'].= "<div class='form-floating mb-3 d-none'>";
-        $output['data'].= "<input class='form-control' type='text' name='codigo' id='codigo' value='$codigo'>";
-        $output['data'].= "<label for='codigo'>Código de Venta</label>";
-        $output['data'].= "</div> ";
 
         // nombre
         $output['data'].= "<div class='form-floating mb-3'>";

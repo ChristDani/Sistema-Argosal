@@ -228,10 +228,20 @@ small{
     background-position: center;
 }
 
-.bare select{
+.bare .form-select{
     background: var(--color-background);
     color: var(--color-dark);
-    border: none;
+    border: 1px solid var(--color-light) ;
+    display: flex !important;
+    justify-content: center;
+    text-align: center !important;
+    appearance:none !important;
+    padding: 10px 30px !important;
+    width: auto !important;
+}
+
+.bare select{
+
 }
 
 .form-floating > input{
