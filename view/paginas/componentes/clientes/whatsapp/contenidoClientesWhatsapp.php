@@ -23,7 +23,7 @@
     </div>
     <div class="col d-flex justify-content-end align-items-center">
         <div class="form-floating">
-            <input type="text" class="form-control" id="busquedaW" placeholder="Buscar" onkeyup="getDataW(1);">
+            <input type="text" class="form-control" id="busquedaW" placeholder="Buscar" onkeyup="getDataW(1); pasarDato();">
             <label for="busquedaW">Buscar</label>
         </div>
     </div>
@@ -52,4 +52,4 @@
 <?php } ?>
 <script src="controller/whatsapp/validaciones.js"></script>
 <script src="controller/whatsapp/modal.js"></script>
-<!-- <script src="controller/xportExcelMasiva.js"></script> -->
+<!-- <script src="controller/whatsapp/excel.js"></script> -->

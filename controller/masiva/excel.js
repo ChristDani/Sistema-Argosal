@@ -12,5 +12,5 @@ function exportarExcel(nombre)
     fetch(url,{
         method: "POST",
         body: formaData
-    }).then(response=>response)
+    })
 }
