@@ -5,7 +5,7 @@ function infoUsuario(codigo,nombre,tipo)
     let btneliminar = document.getElementById('btneliminar')
     if (tipo === "1") 
     {
-        btncambiar.innerHTML="Degradar"
+        btncambiar.innerHTML="Descender"
         btncambiar.classList.remove("btn-success")
         btncambiar.classList.add("btn-warning")
     }
@@ -44,19 +44,20 @@ function cambiarTipoUser(codigo,nombre,tipo)
 {
     let btnascdesc = document.getElementById('btnascdesc')
     document.getElementById('dnicambiar').value=codigo
-    document.getElementById('nombreUserCambiar').innerHTML=nombre
     document.getElementById('tipocambiar').value=tipo
     if (tipo === "1") 
     {
-        btnascdesc.innerHTML="Degradar"    
+        btnascdesc.innerHTML="Descender"    
         btnascdesc.classList.remove("btn-success")   
         btnascdesc.classList.add("btn-warning")   
+        document.getElementById('nombreUserCambiar').innerHTML="¿Estás seguro que deseas DESCENDER a "+nombre+"?";
     }
     else if (tipo === "0") 
     {
         btnascdesc.innerHTML="Ascender"            
         btnascdesc.classList.remove("btn-warning")          
         btnascdesc.classList.add("btn-success")           
+        document.getElementById('nombreUserCambiar').innerHTML="¿Estás seguro que deseas ASCENDER a "+nombre+"?";
     }
 }
 
