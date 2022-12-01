@@ -12,12 +12,12 @@ $tabla='whatsapp as w inner join usuarios as u on w.dniAsesor=u.dni';
 
 // $buscar=isset($_POST['busqueda']) ? $con->mssql_escape($_POST['busqueda']) : null;
 $buscar= isset($_POST['busqueda']) ? $_POST['busqueda'] : null;
+$tipoU= isset($_POST['tipoUser']) ? $_POST['tipoUser'] : null;
 
 // busqueda de datos
 $where='';
 
 if ($buscar!=null) {
-    // $buscar='jorge';
     $where="where (";
     $cont= count($columnas);
     for ($i=0; $i < $cont; $i++) { 
@@ -45,7 +45,7 @@ $sLimite = " offset $inicio rows fetch next $limite rows only ";
 // cantidad de registros devueltos en la consulta
 $contar="select * from $tabla $where";
 
-$sql = "select ".implode(", ", $columnas)." from $tabla $where order by w.fechaRegistro $sLimite";
+$sql = "select ".implode(", ", $columnas)." from $tabla $where order by w.fechaRegistro desc $sLimite";
 // para verificar errores en la consulta
 // echo "$sql<br>";
 
@@ -71,20 +71,13 @@ if ($filas>0)
     {
         
         $code = $fila['codigo'];
+        $tipoUser = $tipoU;
         $estado=$fila['estado'];
-        if ($fila['modalidad'] === "0") 
-        {
-            $modalidad = "Prepago";
-        }
-        elseif ($fila['modalidad'] === "1") 
-        {
-            $modalidad = "Pospago";
-        }
         $fecha=$fila['fechaRegistro']-> format('l j \of F Y h:i:s A');
 
         $output['data'].= "<div class='col-xl-3 col-md-6'>";
         $output['data'].= "<div class='card'>";
-        $output['data'].= "<a href='#' type='button' data-bs-toggle='modal' data-bs-target='#DetallesWhatsapp' onclick=abrirModalDetalle('$code');>";
+        $output['data'].= "<a href='#' type='button' data-bs-toggle='modal' data-bs-target='#DetallesWhatsapp' onclick=abrirModalDetalle('$code','$tipoUser');>";
         $output['data'].= "<div class='card-body'>";
         $output['data'].= "<div class='head d-flex justify-content-around'>";
         $output['data'].= "<p>".$fila['promocion']."</p>";
@@ -141,7 +134,10 @@ if ($filas>0)
         $output['data'].= "<div class='col'>";
         if ($fila['producto'] === "1") 
         {
+            if ($fila['modalidad'] === "1") 
+            {
             $output['data'].= "<p>".$fila['planR']."</p>";
+            }
         }
         elseif ($fila['producto'] === "0") 
         {

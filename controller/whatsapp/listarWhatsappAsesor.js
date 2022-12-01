@@ -11,6 +11,7 @@ function getDataW(pagina) {
     let input = document.getElementById('busquedaW').value
     let select = document.getElementById('numRegistrosW').value
     let dniAsesor = document.getElementById('dniAsesor').value
+    let tipoUser = document.getElementById('tipoUser').value
     let contenido=document.getElementById('resultadosW')
 
     // le damos el origen de los datos
@@ -20,6 +21,7 @@ function getDataW(pagina) {
     formaData.append('registros', select)
     formaData.append('dniAsesor', dniAsesor)
     formaData.append('pagina', pagina)
+    formaData.append('tipoUser', tipoUser)
 
     fetch(url,{
         method: "POST",
