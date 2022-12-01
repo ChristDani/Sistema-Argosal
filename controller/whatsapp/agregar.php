@@ -27,48 +27,48 @@ $observacion = !empty($_POST['observaciones']) ? $_POST['observaciones'] : "---"
 $ubicacion = !empty($_POST['ubicacion']) ? $_POST['ubicacion'] : "---";
 $distrito = !empty($_POST['distrito']) ? $_POST['distrito'] : "---";
 
-if ($producto === "Fija") 
+if ($producto === "0") 
 {
-    if ($tipoFija === "Alta") 
+    if ($tipoFija === "0") 
     {
         $model->agregarFijaAlta($asesor,$nombre,$dni,$telefonoRef,$producto,$promocion,$tipoFija,$planFija,$modoFija,$formaPago,$sec,$estado,$observacion,$ubicacion,$distrito);
     }
-    elseif ($tipoFija === "Portabilidad") 
+    elseif ($tipoFija === "1") 
     {
         $model->agregarFijaPortabilidad($asesor,$nombre,$dni,$telefonoRef,$producto,$promocion,$tipoFija,$telefono,$planFija,$modoFija,$formaPago,$sec,$estado,$observacion,$ubicacion,$distrito);
     }
 }
-elseif ($producto === "Movil") 
+elseif ($producto === "1") 
 {
-    if ($tipo === "Linea Nueva") 
+    if ($tipo === "0") 
     {
-        if ($modalidad === "Prepago") 
+        if ($modalidad === "0") 
         {
             $model->agregarMovilNewPre($asesor,$nombre,$dni,$telefonoRef,$producto,$promocion,$tipo,$modalidad,$equipos,$formaPago,$sec,$estado,$observacion,$ubicacion,$distrito);
         }
-        elseif ($modalidad === "Postpago") 
+        elseif ($modalidad === "1") 
         {
             $model->agregarMovilNewPost($asesor,$nombre,$dni,$telefonoRef,$producto,$promocion,$tipo,$modalidad,$plan,$equipos,$formaPago,$sec,$estado,$observacion,$ubicacion,$distrito);
         }
     }
-    elseif ($tipo === "Portabilidad") 
+    elseif ($tipo === "1") 
     {
-        if ($modalidad === "Prepago") 
+        if ($modalidad === "0") 
         {
             $model->agregarMovilPortaPre($asesor,$nombre,$dni,$telefonoRef,$producto,$promocion,$tipo,$telefono,$lineaProce,$operadorCeden,$modalidad,$equipos,$formaPago,$sec,$estado,$observacion,$ubicacion,$distrito);
         }
-        elseif ($modalidad === "Postpago") 
+        elseif ($modalidad === "1") 
         {
             $model->agregarMovilPortaPost($asesor,$nombre,$dni,$telefonoRef,$producto,$promocion,$tipo,$telefono,$lineaProce,$operadorCeden,$modalidad,$plan,$equipos,$formaPago,$sec,$estado,$observacion,$ubicacion,$distrito);
         }
     }
-    elseif ($tipo === "Renovacion") 
+    elseif ($tipo === "2") 
     {
-        if ($modalidad === "Prepago") 
+        if ($modalidad === "0") 
         {
             $model->agregarMovilRenoPre($asesor,$nombre,$dni,$telefonoRef,$producto,$promocion,$tipo,$telefono,$lineaProce,$modalidad,$equipos,$formaPago,$sec,$estado,$observacion,$ubicacion,$distrito);
         }
-        elseif ($modalidad === "Postpago") 
+        elseif ($modalidad === "1") 
         {
             $model->agregarMovilRenoPost($asesor,$nombre,$dni,$telefonoRef,$producto,$promocion,$tipo,$telefono,$lineaProce,$modalidad,$plan,$equipos,$formaPago,$sec,$estado,$observacion,$ubicacion,$distrito);
         }

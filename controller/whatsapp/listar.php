@@ -12,12 +12,12 @@ $tabla='whatsapp as w inner join usuarios as u on w.dniAsesor=u.dni';
 
 // $buscar=isset($_POST['busqueda']) ? $con->mssql_escape($_POST['busqueda']) : null;
 $buscar= isset($_POST['busqueda']) ? $_POST['busqueda'] : null;
+$tipoU= isset($_POST['tipoUser']) ? $_POST['tipoUser'] : null;
 
 // busqueda de datos
 $where='';
 
 if ($buscar!=null) {
-    // $buscar='jorge';
     $where="where (";
     $cont= count($columnas);
     for ($i=0; $i < $cont; $i++) { 
@@ -45,7 +45,7 @@ $sLimite = " offset $inicio rows fetch next $limite rows only ";
 // cantidad de registros devueltos en la consulta
 $contar="select * from $tabla $where";
 
-$sql = "select ".implode(", ", $columnas)." from $tabla $where order by w.fechaRegistro $sLimite";
+$sql = "select ".implode(", ", $columnas)." from $tabla $where order by w.fechaRegistro desc $sLimite";
 // para verificar errores en la consulta
 // echo "$sql<br>";
 
@@ -65,17 +65,19 @@ $output=[];
 $output['data']= '';
 $output['paginacion']= '';
 
-if ($filas>0) {
-    
-    while ($fila=sqlsrv_fetch_array($resultado)) {
+if ($filas>0) 
+{    
+    while ($fila=sqlsrv_fetch_array($resultado)) 
+    {
         
         $code = $fila['codigo'];
+        $tipoUser = $tipoU;
         $estado=$fila['estado'];
         $fecha=$fila['fechaRegistro']-> format('l j \of F Y h:i:s A');
 
         $output['data'].= "<div class='col-xl-3 col-md-6'>";
         $output['data'].= "<div class='card'>";
-        $output['data'].= "<a href='#' type='button' data-bs-toggle='modal' data-bs-target='#DetallesWhatsapp' onclick=abrirModalDetalle('$code');>";
+        $output['data'].= "<a href='#' type='button' data-bs-toggle='modal' data-bs-target='#DetallesWhatsapp' onclick=abrirModalDetalle('$code','$tipoUser');>";
         $output['data'].= "<div class='card-body'>";
         $output['data'].= "<div class='head d-flex justify-content-around'>";
         $output['data'].= "<p>".$fila['promocion']."</p>";
@@ -103,13 +105,44 @@ if ($filas>0) {
         $output['data'].= "</div>";
         $output['data'].= "<div class='row text-center'>";
         $output['data'].= "<div class='col'>";
-        $output['data'].= "<p>".$fila['modalidad']."</p>";
+        if ($fila['producto'] === "1") 
+        {
+            if ($fila['modalidad'] === "0") 
+            {
+                $output['data'].= "<p>Prepago</p>";
+            }
+            elseif ($fila['modalidad'] === "1") 
+            {
+                $output['data'].= "<p>Postpago</p>";
+            }
+        }
+        elseif ($fila['producto'] === "0") 
+        {
+            if ($fila['tipoFija'] === "0") 
+            {
+                $output['data'].= "<p>Alta</p>";
+            }
+            elseif ($fila['tipoFija'] === "1") 
+            {
+                $output['data'].= "<p>Portabilidad</p>";
+            }
+        }
         $output['data'].= "</div>";
         $output['data'].= "<div class='col'>";
         $output['data'].= "<p>".$fila['numeroReferencia']."</p>";
         $output['data'].= "</div>";
         $output['data'].= "<div class='col'>";
-        $output['data'].= "<p>".$fila['planR']."</p>";
+        if ($fila['producto'] === "1") 
+        {
+            if ($fila['modalidad'] === "1") 
+            {
+            $output['data'].= "<p>".$fila['planR']."</p>";
+            }
+        }
+        elseif ($fila['producto'] === "0") 
+        {
+            $output['data'].= "<p>".$fila['planFija']."</p>";
+        }
         $output['data'].= "</div>";
         $output['data'].= "</div>";
         $output['data'].= "<div class='row text-center' style='border-top: 1px solid #b9b9b9;'>";
@@ -121,7 +154,9 @@ if ($filas>0) {
         $output['data'].= "</div>";
         $output['data'].= "</div>";
     }
-} else {
+} 
+else 
+{
     $output['data'].= "<div>";
     $output['data'].= "<h1 class='text-muted text-center my-5'>Sin Resultados...</h1>";
     $output['data'].= "</div>";

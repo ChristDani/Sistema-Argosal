@@ -48,8 +48,8 @@ if ($filas>0) {
     while ($fila=sqlsrv_fetch_array($resultado)) {
 
         // variables para la comparacion
-        $movil = "Movil";
-        $fija = "Fija ";
+        $fija = "0";
+        $movil = "1";
 
         // variables asignadas de la base de datos
 
@@ -131,16 +131,16 @@ if ($filas>0) {
         $output['data'].= "<label for='producto'>Producto</label>";
         $output['data'].= "</div> ";
 
-        // promocion
-        $output['data'].= "<div id='promocionEdit' class='form-floating mb-3'>";
-        $output['data'].= "<select class='form-select form-select-sm' name='promocion' id='promocion'> <option hidden value='$promocion'>$promocion</option> <option value='50% de Descuento con Lineas Adicionales'>50% de Descuento con Lineas Adicionales</option>
-        <option value='20% de Descuento en Portabilidad Movil'>20% de Descuento en Portabilidad Movil</option>
-        <option value='50% de Descuento en Planes Fija'>50% de Descuento en Planes Fija</option> </select>";
-        $output['data'].= "<label for='promocion'>Promoción</label>";
-        $output['data'].= "</div> ";
-
         if ($producto === $fija) 
         {
+
+            // promocion
+            $output['data'].= "<div id='promocionEdit' class='form-floating mb-3'>";
+            $output['data'].= "<select class='form-select form-select-sm' name='promocion' id='promocion'> <option hidden value='$promocion'>$promocion</option>
+            <option value='50% de Descuento en Planes Fija'>50% de Descuento en Planes Fija</option> </select>";
+            $output['data'].= "<label for='promocion'>Promoción</label>";
+            $output['data'].= "</div> ";
+
             // tipo de fija
             $output['data'].= "<div id='typeFijaEdit' class='form-floating mb-3'>";
             $output['data'].= "<select class='form-select form-select-sm' name='tipoFija' id='tipoFija'> <option hidden value='$tipoFija'>$tipoFija</option> <option value='Portabilidad'>Portabilidad</option>
@@ -148,7 +148,7 @@ if ($filas>0) {
             $output['data'].= "<label for='tipoFija'>Tipo</label>";
             $output['data'].= "</div> ";
 
-            if ($tipoFija === "Portabilidad   ") 
+            if ($tipoFija === "1") 
             {
                 // telefono
                 $output['data'].= "<div id='telefFijaEdit' class='form-floating mb-3'>";
@@ -186,6 +186,14 @@ if ($filas>0) {
         } 
         elseif ($producto === $movil) 
         {
+
+            // promocion
+            $output['data'].= "<div id='promocionEdit' class='form-floating mb-3'>";
+            $output['data'].= "<select class='form-select form-select-sm' name='promocion' id='promocion'> <option hidden value='$promocion'>$promocion</option> <option value='50% de Descuento con Lineas Adicionales'>50% de Descuento con Lineas Adicionales</option>
+            <option value='20% de Descuento en Portabilidad Movil'>20% de Descuento en Portabilidad Movil</option> </select>";
+            $output['data'].= "<label for='promocion'>Promoción</label>";
+            $output['data'].= "</div> ";
+
             // tipo
             $output['data'].= "<div id='typeEdit' class='form-floating mb-3'>";
             $output['data'].= "<select class='form-select form-select-sm' name='tipo' id='tipo'> <option hidden value='$tipo'>$tipo</option> <option value='Linea Nueva'>Linea Nueva</option>
@@ -194,7 +202,7 @@ if ($filas>0) {
             $output['data'].= "<label for='tipo'>Tipo de Linea</label>";
             $output['data'].= "</div> ";
         
-            if ($tipo == "Linea Nueva    ") 
+            if ($tipo == "0") 
             {
                 // modalidad
                 $output['data'].= "<div id='modalEdit' class='form-floating mb-3'>";
@@ -203,7 +211,7 @@ if ($filas>0) {
                 $output['data'].= "<label for='modalidad'>Modalidad</label>";
                 $output['data'].= "</div> ";
 
-                if ($modalidad == "Postpago") 
+                if ($modalidad == "1") 
                 {
                     // plan requerido
                     $output['data'].= "<div id='planReEditM' class='form-floating mb-3'>";
@@ -245,7 +253,7 @@ if ($filas>0) {
                 $output['data'].= "<label for='formaPago'>Forma de Pago</label>";            
                 $output['data'].= "</div>";
             }
-            elseif ($tipo == "Portabilidad   ") 
+            elseif ($tipo == "1") 
             {
                 // telefono
                 $output['data'].= "<div id='telefEdit' class='form-floating mb-3'>";
@@ -275,7 +283,7 @@ if ($filas>0) {
                 $output['data'].= "<label for='modalidad'>Modalidad</label>";
                 $output['data'].= "</div> ";
 
-                if ($modalidad == "Postpago") 
+                if ($modalidad == "1") 
                 {
                     // plan requerido
                     $output['data'].= "<div id='planReEditM' class='form-floating mb-3'>";
@@ -311,7 +319,7 @@ if ($filas>0) {
                 $output['data'].= "<label for='equipos'>Equipo</label>";
                 $output['data'].= "</div>";
 
-                if ($modalidad == "Postpago") 
+                if ($modalidad == "1") 
                 {
                     //forma de pago
                     $output['data'].= "<div id='formaPgEditM' class='form-floating mb-3'>";
@@ -321,7 +329,7 @@ if ($filas>0) {
                     $output['data'].= "</div>";
                 }
 
-                elseif ($modalidad == "Prepago ") 
+                elseif ($modalidad == "0") 
                 {
                     //forma de pago
                     $output['data'].= "<div id='formaPgEditM' class='form-floating mb-3'>";
@@ -330,7 +338,7 @@ if ($filas>0) {
                     $output['data'].= "</div>";
                 }
             }
-            elseif ($tipo == "Renovacion     ") 
+            elseif ($tipo == "2") 
             {
                 // telefono
                 $output['data'].= "<div id='telefEdit' class='form-floating mb-3'>";
@@ -352,7 +360,7 @@ if ($filas>0) {
                 $output['data'].= "<label for='modalidad'>Modalidad</label>";
                 $output['data'].= "</div> ";
 
-                if ($modalidad == "Postpago") 
+                if ($modalidad == "1") 
                 {
         
                     // plan requerido
@@ -389,7 +397,7 @@ if ($filas>0) {
                 $output['data'].= "<label for='equipos'>Equipo</label>";
                 $output['data'].= "</div>";
                 
-                if ($modalidad == "Postpago") 
+                if ($modalidad == "1") 
                 {
                     //forma de pago
                     $output['data'].= "<div id='formaPgEditM' class='form-floating mb-3'>";
@@ -399,7 +407,7 @@ if ($filas>0) {
                     $output['data'].= "</div>";
                 }
 
-                elseif ($modalidad == "Prepago ") 
+                elseif ($modalidad == "0") 
                 {
                     //forma de pago
                     $output['data'].= "<div id='formaPgEditM' class='form-floating mb-3'>";

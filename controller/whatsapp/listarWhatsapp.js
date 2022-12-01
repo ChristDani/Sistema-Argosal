@@ -10,10 +10,11 @@ function getDataW(pagina) {
 
     let input = document.getElementById('busquedaW').value
     let select = document.getElementById('numRegistrosW').value
-    let contenido=document.getElementById('resultadosW')
+    let tipoUser = document.getElementById('tipoUser').value
+    let contenido = document.getElementById('resultadosW')
     // verificar si trae los valores
 
-    // console.log(input)
+    // console.log(tipoUser)
     // console.log(select)
     // console.log(pagina)
 
@@ -28,6 +29,7 @@ function getDataW(pagina) {
     formaData.append('busqueda', input)
     formaData.append('registros', select)
     formaData.append('pagina', pagina)
+    formaData.append('tipoUser', tipoUser)
     // para mantener la pagina al cambiar el limite de datos
     // formaData.append('pagina', paginaActualW)
 

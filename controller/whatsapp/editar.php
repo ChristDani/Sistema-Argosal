@@ -58,48 +58,48 @@ $observacion = $_POST['observaciones'];
 $ubicacion = $_POST['ubicacion'];
 $distrito = $_POST['distrito'];
 
-if ($producto === "Fija ") 
+if ($producto === "0") 
 {
-    if ($tipoFija === "Alta           ") 
+    if ($tipoFija === "0") 
     {
         $model->editarFijaAlta($codigo,$asesor,$nombre,$dni,$telefonoRef,$producto,$promocion,$tipoFija,$planFija,$modoFija,$formaPago,$sec,$estado,$observacion,$ubicacion,$distrito);
     }
-    elseif ($tipoFija === "Portabilidad   ") 
+    elseif ($tipoFija === "1") 
     {
         $model->editarFijaPortabilidad($codigo,$asesor,$nombre,$dni,$telefonoRef,$producto,$promocion,$tipoFija,$telefono,$planFija,$modoFija,$formaPago,$sec,$estado,$observacion,$ubicacion,$distrito);
     }
 }
-elseif ($producto === "Movil") 
+elseif ($producto === "1") 
 {
-    if ($tipo === "Linea Nueva    ") 
+    if ($tipo === "0") 
     {
-        if ($modalidad === "Prepago ") 
+        if ($modalidad === "0") 
         {
             $model->editarMovilNewPre($codigo,$asesor,$nombre,$dni,$telefonoRef,$producto,$promocion,$tipo,$modalidad,$equipos,$formaPago,$sec,$estado,$observacion,$ubicacion,$distrito);
         }
-        elseif ($modalidad === "Postpago") 
+        elseif ($modalidad === "1") 
         {
             $model->editarMovilNewPost($codigo,$asesor,$nombre,$dni,$telefonoRef,$producto,$promocion,$tipo,$modalidad,$plan,$equipos,$formaPago,$sec,$estado,$observacion,$ubicacion,$distrito);
         }
     }
-    elseif ($tipo === "Portabilidad   ") 
+    elseif ($tipo === "1") 
     {
-        if ($modalidad === "Prepago ") 
+        if ($modalidad === "0") 
         {
             $model->editarMovilPortaPre($codigo,$asesor,$nombre,$dni,$telefonoRef,$producto,$promocion,$tipo,$telefono,$lineaProce,$operadorCeden,$modalidad,$equipos,$formaPago,$sec,$estado,$observacion,$ubicacion,$distrito);
         }
-        elseif ($modalidad === "Postpago") 
+        elseif ($modalidad === "1") 
         {
             $model->editarMovilPortaPost($codigo,$asesor,$nombre,$dni,$telefonoRef,$producto,$promocion,$tipo,$telefono,$lineaProce,$operadorCeden,$modalidad,$plan,$equipos,$formaPago,$sec,$estado,$observacion,$ubicacion,$distrito);
         }
     }
-    elseif ($tipo === "Renovacion     ") 
+    elseif ($tipo === "2") 
     {
-        if ($modalidad === "Prepago ") 
+        if ($modalidad === "0") 
         {
             $model->editarMovilRenoPre($codigo,$asesor,$nombre,$dni,$telefonoRef,$producto,$promocion,$tipo,$telefono,$lineaProce,$modalidad,$equipos,$formaPago,$sec,$estado,$observacion,$ubicacion,$distrito);
         }
-        elseif ($modalidad === "Postpago") 
+        elseif ($modalidad === "1") 
         {
             $model->editarMovilRenoPost($codigo,$asesor,$nombre,$dni,$telefonoRef,$producto,$promocion,$tipo,$telefono,$lineaProce,$modalidad,$plan,$equipos,$formaPago,$sec,$estado,$observacion,$ubicacion,$distrito);
         }

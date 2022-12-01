@@ -30,6 +30,8 @@
     </div>
 </div>
 
+<input hidden type="text" name="tipoUser" id="tipoUser" value="<?php echo $tipoUsuario; ?>">
+
 <div class="row mb-4" id="resultadosW">
     
 </div>

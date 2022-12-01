@@ -105,9 +105,9 @@ go
 		@nombre char(50),
 		@dni char(8),
 		@numeroReferencia char(11),
-		@producto char(5),
+		@producto char(1),
 		@promocion char(50),
-		@tipoFija char(15),
+		@tipoFija char(1),
 		@telefono char(11),
 		@planFija char(50),
 		@modofija char(4),
@@ -119,7 +119,7 @@ go
 		@distrito char(25)
 		as
 		begin
-			insert into whatsapp(codigo,dniAsesor,nombre,dni,telefono,producto,lineaProcedente,operadorCedente,modalidad,tipo,planR,equipo,formaDePago,numeroReferencia,sec,tipoFija,planFija,modoFija,estado,observaciones,promocion,ubicacion,distrito) values(@codigo,@dniasesor,@nombre,@dni,@telefono,@producto,'---','---','---','---','---','---',@formaDePago,@numeroReferencia,@sec,@tipoFija,@planFija,@modofija,@estado,@observacion,@promocion,@ubicacion,@distrito)
+			insert into whatsapp(codigo,dniAsesor,nombre,dni,telefono,producto,lineaProcedente,operadorCedente,modalidad,tipo,planR,equipo,formaDePago,numeroReferencia,sec,tipoFija,planFija,modoFija,estado,observaciones,promocion,ubicacion,distrito) values(@codigo,@dniasesor,@nombre,@dni,@telefono,@producto,'---','---','-','-','---','---',@formaDePago,@numeroReferencia,@sec,@tipoFija,@planFija,@modofija,@estado,@observacion,@promocion,@ubicacion,@distrito)
 		end 
 		go
 
@@ -131,9 +131,9 @@ go
 		@nombre char(50),
 		@dni char(8),
 		@numeroReferencia char(11),
-		@producto char(5),
+		@producto char(1),
 		@promocion char(50),
-		@tipoFija char(15),
+		@tipoFija char(1),
 		@planFija char(50),
 		@modofija char(4),
 		@formaDePago char(10),
@@ -144,7 +144,7 @@ go
 		@distrito char(25)
 		as
 		begin
-			insert into whatsapp(codigo,dniAsesor,nombre,dni,telefono,producto,lineaProcedente,operadorCedente,modalidad,tipo,planR,equipo,formaDePago,numeroReferencia,sec,tipoFija,planFija,modoFija,estado,observaciones,promocion,ubicacion,distrito) values(@codigo,@dniasesor,@nombre,@dni,'---',@producto,'---','---','---','---','---','---',@formaDePago,@numeroReferencia,@sec,@tipoFija,@planFija,@modofija,@estado,@observacion,@promocion,@ubicacion,@distrito)
+			insert into whatsapp(codigo,dniAsesor,nombre,dni,telefono,producto,lineaProcedente,operadorCedente,modalidad,tipo,planR,equipo,formaDePago,numeroReferencia,sec,tipoFija,planFija,modoFija,estado,observaciones,promocion,ubicacion,distrito) values(@codigo,@dniasesor,@nombre,@dni,'---',@producto,'---','---','-','-','---','---',@formaDePago,@numeroReferencia,@sec,@tipoFija,@planFija,@modofija,@estado,@observacion,@promocion,@ubicacion,@distrito)
 		end 
 		go
 
@@ -160,10 +160,10 @@ go
 			@nombre char(50),
 			@dni char(8),
 			@numeroReferencia char(11),
-			@producto char(5),
+			@producto char(1),
 			@promocion char(50),
-			@tipo char(15),
-			@modalidad char(8),
+			@tipo char(1),
+			@modalidad char(1),
 			@planR char(50),
 			@equipo char(50),
 			@formaDePago char(10),
@@ -174,7 +174,7 @@ go
 			@distrito char(25)
 			as
 			begin
-				insert into whatsapp(codigo,dniAsesor,nombre,dni,telefono,producto,lineaProcedente,operadorCedente,modalidad,tipo,planR,equipo,formaDePago,numeroReferencia,sec,tipoFija,planFija,modoFija,estado,observaciones,promocion,ubicacion,distrito) values(@codigo,@dniasesor,@nombre,@dni,'---',@producto,'---','---',@modalidad,@tipo,@planR,@equipo,@formaDePago,@numeroReferencia,@sec,'---','---','---',@estado,@observacion,@promocion,@ubicacion,@distrito)
+				insert into whatsapp(codigo,dniAsesor,nombre,dni,telefono,producto,lineaProcedente,operadorCedente,modalidad,tipo,planR,equipo,formaDePago,numeroReferencia,sec,tipoFija,planFija,modoFija,estado,observaciones,promocion,ubicacion,distrito) values(@codigo,@dniasesor,@nombre,@dni,'---',@producto,'---','---',@modalidad,@tipo,@planR,@equipo,@formaDePago,@numeroReferencia,@sec,'-','---','---',@estado,@observacion,@promocion,@ubicacion,@distrito)
 			end 
 			go
 
@@ -186,10 +186,10 @@ go
 			@nombre char(50),
 			@dni char(8),
 			@numeroReferencia char(11),
-			@producto char(5),
+			@producto char(1),
 			@promocion char(50),
-			@tipo char(15),
-			@modalidad char(8),
+			@tipo char(1),
+			@modalidad char(1),
 			@equipo char(50),
 			@formaDePago char(10),
 			@sec char(15),
@@ -199,7 +199,7 @@ go
 			@distrito char(25)
 			as
 			begin
-				insert into whatsapp(codigo,dniAsesor,nombre,dni,telefono,producto,lineaProcedente,operadorCedente,modalidad,tipo,planR,equipo,formaDePago,numeroReferencia,sec,tipoFija,planFija,modoFija,estado,observaciones,promocion,ubicacion,distrito) values(@codigo,@dniasesor,@nombre,@dni,'---',@producto,'---','---',@modalidad,@tipo,'---',@equipo,@formaDePago,@numeroReferencia,@sec,'---','---','---',@estado,@observacion,@promocion,@ubicacion,@distrito)
+				insert into whatsapp(codigo,dniAsesor,nombre,dni,telefono,producto,lineaProcedente,operadorCedente,modalidad,tipo,planR,equipo,formaDePago,numeroReferencia,sec,tipoFija,planFija,modoFija,estado,observaciones,promocion,ubicacion,distrito) values(@codigo,@dniasesor,@nombre,@dni,'---',@producto,'---','---',@modalidad,@tipo,'---',@equipo,@formaDePago,@numeroReferencia,@sec,'-','---','---',@estado,@observacion,@promocion,@ubicacion,@distrito)
 			end 
 			go
 
@@ -213,13 +213,13 @@ go
 			@nombre char(50),
 			@dni char(8),
 			@numeroReferencia char(11),
-			@producto char(5),
+			@producto char(1),
 			@promocion char(50),
-			@tipo char(15),
+			@tipo char(1),
 			@telefono char(11),
 			@lineaProcedente char(8),
 			@operadorCedente char(15),
-			@modalidad char(8),
+			@modalidad char(1),
 			@planR char(50),
 			@equipo char(50),
 			@formaDePago char(10),
@@ -230,7 +230,7 @@ go
 			@distrito char(25)
 			as
 			begin
-				insert into whatsapp(codigo,dniAsesor,nombre,dni,telefono,producto,lineaProcedente,operadorCedente,modalidad,tipo,planR,equipo,formaDePago,numeroReferencia,sec,tipoFija,planFija,modoFija,estado,observaciones,promocion,ubicacion,distrito) values(@codigo,@dniasesor,@nombre,@dni,@telefono,@producto,@lineaProcedente,@operadorCedente,@modalidad,@tipo,@planR,@equipo,@formaDePago,@numeroReferencia,@sec,'---','---','---',@estado,@observacion,@promocion,@ubicacion,@distrito)
+				insert into whatsapp(codigo,dniAsesor,nombre,dni,telefono,producto,lineaProcedente,operadorCedente,modalidad,tipo,planR,equipo,formaDePago,numeroReferencia,sec,tipoFija,planFija,modoFija,estado,observaciones,promocion,ubicacion,distrito) values(@codigo,@dniasesor,@nombre,@dni,@telefono,@producto,@lineaProcedente,@operadorCedente,@modalidad,@tipo,@planR,@equipo,@formaDePago,@numeroReferencia,@sec,'-','---','---',@estado,@observacion,@promocion,@ubicacion,@distrito)
 			end 
 			go
 
@@ -242,13 +242,13 @@ go
 			@nombre char(50),
 			@dni char(8),
 			@numeroReferencia char(11),
-			@producto char(5),
+			@producto char(1),
 			@promocion char(50),
-			@tipo char(15),
+			@tipo char(1),
 			@telefono char(11),
 			@lineaProcedente char(8),
 			@operadorCedente char(15),
-			@modalidad char(8),
+			@modalidad char(1),
 			@equipo char(50),
 			@formaDePago char(10),
 			@sec char(15),
@@ -258,7 +258,7 @@ go
 			@distrito char(25)
 			as
 			begin
-				insert into whatsapp(codigo,dniAsesor,nombre,dni,telefono,producto,lineaProcedente,operadorCedente,modalidad,tipo,planR,equipo,formaDePago,numeroReferencia,sec,tipoFija,planFija,modoFija,estado,observaciones,promocion,ubicacion,distrito) values(@codigo,@dniasesor,@nombre,@dni,@telefono,@producto,@lineaProcedente,@operadorCedente,@modalidad,@tipo,'---',@equipo,@formaDePago,@numeroReferencia,@sec,'---','---','---',@estado,@observacion,@promocion,@ubicacion,@distrito)
+				insert into whatsapp(codigo,dniAsesor,nombre,dni,telefono,producto,lineaProcedente,operadorCedente,modalidad,tipo,planR,equipo,formaDePago,numeroReferencia,sec,tipoFija,planFija,modoFija,estado,observaciones,promocion,ubicacion,distrito) values(@codigo,@dniasesor,@nombre,@dni,@telefono,@producto,@lineaProcedente,@operadorCedente,@modalidad,@tipo,'---',@equipo,@formaDePago,@numeroReferencia,@sec,'-','---','---',@estado,@observacion,@promocion,@ubicacion,@distrito)
 			end 
 			go
 
@@ -272,12 +272,12 @@ go
 			@nombre char(50),
 			@dni char(8),
 			@numeroReferencia char(11),
-			@producto char(5),
+			@producto char(1),
 			@promocion char(50),
-			@tipo char(15),
+			@tipo char(1),
 			@telefono char(11),
 			@lineaProcedente char(8),
-			@modalidad char(8),
+			@modalidad char(1),
 			@planR char(50),
 			@equipo char(50),
 			@formaDePago char(10),
@@ -288,7 +288,7 @@ go
 			@distrito char(25)
 			as
 			begin
-				insert into whatsapp(codigo,dniAsesor,nombre,dni,telefono,producto,lineaProcedente,operadorCedente,modalidad,tipo,planR,equipo,formaDePago,numeroReferencia,sec,tipoFija,planFija,modoFija,estado,observaciones,promocion,ubicacion,distrito) values(@codigo,@dniasesor,@nombre,@dni,@telefono,@producto,@lineaProcedente,'---',@modalidad,@tipo,@planR,@equipo,@formaDePago,@numeroReferencia,@sec,'---','---','---',@estado,@observacion,@promocion,@ubicacion,@distrito)
+				insert into whatsapp(codigo,dniAsesor,nombre,dni,telefono,producto,lineaProcedente,operadorCedente,modalidad,tipo,planR,equipo,formaDePago,numeroReferencia,sec,tipoFija,planFija,modoFija,estado,observaciones,promocion,ubicacion,distrito) values(@codigo,@dniasesor,@nombre,@dni,@telefono,@producto,@lineaProcedente,'---',@modalidad,@tipo,@planR,@equipo,@formaDePago,@numeroReferencia,@sec,'-','---','---',@estado,@observacion,@promocion,@ubicacion,@distrito)
 			end 
 			go
 
@@ -300,12 +300,12 @@ go
 			@nombre char(50),
 			@dni char(8),
 			@numeroReferencia char(11),
-			@producto char(5),
+			@producto char(1),
 			@promocion char(50),
-			@tipo char(15),
+			@tipo char(1),
 			@telefono char(11),
 			@lineaProcedente char(8),
-			@modalidad char(8),
+			@modalidad char(1),
 			@equipo char(50),
 			@formaDePago char(10),
 			@sec char(15),
@@ -315,7 +315,7 @@ go
 			@distrito char(25)
 			as
 			begin
-				insert into whatsapp(codigo,dniAsesor,nombre,dni,telefono,producto,lineaProcedente,operadorCedente,modalidad,tipo,planR,equipo,formaDePago,numeroReferencia,sec,tipoFija,planFija,modoFija,estado,observaciones,promocion,ubicacion,distrito) values(@codigo,@dniasesor,@nombre,@dni,@telefono,@producto,@lineaProcedente,'---',@modalidad,@tipo,'---',@equipo,@formaDePago,@numeroReferencia,@sec,'---','---','---',@estado,@observacion,@promocion,@ubicacion,@distrito)
+				insert into whatsapp(codigo,dniAsesor,nombre,dni,telefono,producto,lineaProcedente,operadorCedente,modalidad,tipo,planR,equipo,formaDePago,numeroReferencia,sec,tipoFija,planFija,modoFija,estado,observaciones,promocion,ubicacion,distrito) values(@codigo,@dniasesor,@nombre,@dni,@telefono,@producto,@lineaProcedente,'---',@modalidad,@tipo,'---',@equipo,@formaDePago,@numeroReferencia,@sec,'-','---','---',@estado,@observacion,@promocion,@ubicacion,@distrito)
 			end 
 			go
 
@@ -333,9 +333,9 @@ go
 		@nombre char(50),
 		@dni char(8),
 		@numeroReferencia char(11),
-		@producto char(5),
+		@producto char(1),
 		@promocion char(50),
-		@tipoFija char(15),
+		@tipoFija char(1),
 		@telefono char(11),
 		@planFija char(50),
 		@modofija char(4),
@@ -361,9 +361,9 @@ go
 		@nombre char(50),
 		@dni char(8),
 		@numeroReferencia char(11),
-		@producto char(5),
+		@producto char(1),
 		@promocion char(50),
-		@tipoFija char(15),
+		@tipoFija char(1),
 		@planFija char(50),
 		@modofija char(4),
 		@formaDePago char(10),
@@ -392,10 +392,10 @@ go
 			@nombre char(50),
 			@dni char(8),
 			@numeroReferencia char(11),
-			@producto char(5),
+			@producto char(1),
 			@promocion char(50),
-			@tipo char(15),
-			@modalidad char(8),
+			@tipo char(1),
+			@modalidad char(1),
 			@planR char(50),
 			@equipo char(50),
 			@formaDePago char(10),
@@ -420,10 +420,10 @@ go
 			@nombre char(50),
 			@dni char(8),
 			@numeroReferencia char(11),
-			@producto char(5),
+			@producto char(1),
 			@promocion char(50),
-			@tipo char(15),
-			@modalidad char(8),
+			@tipo char(1),
+			@modalidad char(1),
 			@equipo char(50),
 			@formaDePago char(10),
 			@sec char(15),
@@ -449,13 +449,13 @@ go
 			@nombre char(50),
 			@dni char(8),
 			@numeroReferencia char(11),
-			@producto char(5),
+			@producto char(1),
 			@promocion char(50),
-			@tipo char(15),
+			@tipo char(1),
 			@telefono char(11),
 			@lineaProcedente char(8),
 			@operadorCedente char(15),
-			@modalidad char(8),
+			@modalidad char(1),
 			@planR char(50),
 			@equipo char(50),
 			@formaDePago char(10),
@@ -480,13 +480,13 @@ go
 			@nombre char(50),
 			@dni char(8),
 			@numeroReferencia char(11),
-			@producto char(5),
+			@producto char(1),
 			@promocion char(50),
-			@tipo char(15),
+			@tipo char(1),
 			@telefono char(11),
 			@lineaProcedente char(8),
 			@operadorCedente char(15),
-			@modalidad char(8),
+			@modalidad char(1),
 			@equipo char(50),
 			@formaDePago char(10),
 			@sec char(15),
@@ -512,12 +512,12 @@ go
 			@nombre char(50),
 			@dni char(8),
 			@numeroReferencia char(11),
-			@producto char(5),
+			@producto char(1),
 			@promocion char(50),
-			@tipo char(15),
+			@tipo char(1),
 			@telefono char(11),
 			@lineaProcedente char(8),
-			@modalidad char(8),
+			@modalidad char(1),
 			@planR char(50),
 			@equipo char(50),
 			@formaDePago char(10),
@@ -542,12 +542,12 @@ go
 			@nombre char(50),
 			@dni char(8),
 			@numeroReferencia char(11),
-			@producto char(5),
+			@producto char(1),
 			@promocion char(50),
-			@tipo char(15),
+			@tipo char(1),
 			@telefono char(11),
 			@lineaProcedente char(8),
-			@modalidad char(8),
+			@modalidad char(1),
 			@equipo char(50),
 			@formaDePago char(10),
 			@sec char(15),

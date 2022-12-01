@@ -1,16 +1,17 @@
 
 // detalles
 
-function abrirModalDetalle(codigo) {
+function abrirModalDetalle(codigo,tipo) {
     // obtenemos el div donde poner los datos
     let contenidoD = document.getElementById('detallesWhats');
     let btnedit = document.getElementById('btnEdit');
-    btnedit.addEventListener("click", abrirModalEditar(codigo), false);
+    btnedit.addEventListener("click", abrirModalEditar(codigo,tipo), false);
     
     //mandamos la posicion al controller
     let url = 'controller/whatsapp/detalle.php';
     let formaData = new FormData();
     formaData.append('codigo', codigo)
+    formaData.append('tipoUser', tipo)
 
     // traemos los datos del controller
     fetch(url, {
@@ -24,7 +25,7 @@ function abrirModalDetalle(codigo) {
 
 // edicion
 
-function abrirModalEditar(codigo) {
+function abrirModalEditar(codigo,tipo) {
     // obtenemos el div donde poner los datos
     let contenidoD = document.getElementById('editarWhats');
 
@@ -32,6 +33,7 @@ function abrirModalEditar(codigo) {
     let url = 'controller/whatsapp/edit.php';
     let formaData = new FormData();
     formaData.append('codigo', codigo)
+    formaData.append('tipoUser', tipo)
 
     // traemos los datos del controller
     fetch(url, {
