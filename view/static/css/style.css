@@ -241,15 +241,12 @@ small{
     overflow: hidden;
 }
 
-.profile-photo-user{
+.row > a > .profile-photo{
     width: 2.8rem;
     height: 2.8rem;
-    border-radius: 50%;
-    overflow: hidden;
-}
-
-.profile-photo-user img{
     background-position: center;
+    overflow: hidden;
+    background-size: cover;
 }
 
 .bare .form-select{
@@ -261,7 +258,7 @@ small{
     text-align: center !important;
     appearance:none !important;
     padding: 10px 30px !important;
-    width: auto !important;
+    width: 88px !important;
 }
 
 

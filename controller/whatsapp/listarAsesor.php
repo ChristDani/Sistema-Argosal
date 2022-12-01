@@ -80,22 +80,36 @@ if ($filas>0) {
         $output['data'].= "<div class='card'>";
         $output['data'].= "<a href='#' type='button' data-bs-toggle='modal' data-bs-target='#DetallesWhatsapp' onclick=abrirModalDetalle('$code','$tipoUser');>";
         $output['data'].= "<div class='card-body'>";
+
+        if ($estado === "0") 
+        {
+            $output['data'].= "<div class='row'>";
+            $output['data'].= "<div class='col mb-2 danger-bg rounded-3'>";
+            $output['data'].= "<p class='text-center color'>No Requiere</p>";
+            $output['data'].= "</div>";
+            $output['data'].= "</div>";
+        }
+        elseif ($estado === "1") 
+        {
+            $output['data'].= "<div class='row'>";
+            $output['data'].= "<div class='success-bg col mb-2 rounded-3'>";
+            $output['data'].= "<p class='text-center color'>Concretado</p>";
+            $output['data'].= "</div>";
+            $output['data'].= "</div>";
+        }
+        elseif ($estado === "2") 
+        {
+            $output['data'].= "<div class='row'>";
+            $output['data'].= "<div class='col mb-2 warning-bg rounded-3'>";
+            $output['data'].= "<p class='text-center color'>Pendiente</p>";
+            $output['data'].= "</div>";
+            $output['data'].= "</div>";
+        }
+        
         $output['data'].= "<div class='head d-flex justify-content-around'>";
         $output['data'].= "<p>".$fila['promocion']."</p>";
         $output['data'].= "<p></p>";
         $output['data'].= "<p></p>";
-        if ($estado === "0") 
-        {
-            $output['data'].= "<p class='danger'>No Requiere</p>";
-        }
-        elseif ($estado === "1") 
-        {
-            $output['data'].= "<p class='success'>Concretado</p>";
-        }
-        elseif ($estado === "2") 
-        {
-            $output['data'].= "<p class='warning'>Pendiente</p>";
-        }
         $output['data'].= "<p></p>";
         $output['data'].= "<p></p>";
         $output['data'].= "<p>".$fila['dni']."</p>";

@@ -52,30 +52,28 @@
                                     if ($u[0] != $dniUsuario) 
                                     { ?>
                                       <div class="row">
-                                        <a class="delete btn col d-flex gap-3 align-items-center my-1" data-bs-toggle="modal" data-bs-target="#Eliminar" onclick="eliminarUsuario('<?php echo$u[0];?>','<?php echo trim($u[1]);?>');">
+                                        <a class="delete btn col d-flex gap-1 align-items-center my-1" data-bs-toggle="modal" data-bs-target="#Eliminar" onclick="eliminarUsuario('<?php echo$u[0];?>','<?php echo trim($u[1]);?>');">
                                             <?php if ($u[6] === "0") { ?>
-                                                <div class="profile-photo secondary-bc">
-                                                    <img class="img-fluid" src="view/static/ProfileIMG/<?php echo trim($u[7]);?>">   
+                                                <div class="profile-photo secondary-bc rounded-circle img-fluid" style="background-image: url('view/static/ProfileIMG/<?php echo trim($u[7]);?>');">
                                                 </div>
                                             <?php }elseif ($u[6] === "1") { ?>
-                                                <div class="profile-photo success-bc">
-                                                    <img class="img-fluid" src="view/static/ProfileIMG/<?php echo trim($u[7]);?>">   
+                                                <div class="profile-photo success-bc rounded-circle img-fluid" style="background-image: url('view/static/ProfileIMG/<?php echo trim($u[7]);?>');">
                                                 </div>
                                             <?php }elseif ($u[6] === "2") { ?>
-                                                <div class="profile-photo warning-bc">
-                                                    <img class="img-fluid" src="view/static/ProfileIMG/<?php echo trim($u[7]);?>">   
+                                                <div class="profile-photo warning-bc  rounded-circle img-fluid" style="background-image: url('view/static/ProfileIMG/<?php echo trim($u[7]);?>');">
                                                 </div>
                                             <?php }elseif ($u[6] === "3") { ?>
-                                                <div class="profile-photo danger-bc">
-                                                    <img class="img-fluid" src="view/static/ProfileIMG/<?php echo trim($u[7]);?>">   
+                                                <div class="profile-photo danger-bc" style="background-image: url('/view/static/ProfileIMG/<?php echo trim($u[7]);?>');">
                                                 </div>
-                                            <?php } ?>                                                    
-                                            <h2><?php echo strtoupper($u[1]); ?></h2>            
-                                            <?php if ($u[3] === "1") { ?>
-                                            <h4 class="text-muted">Administrador</h4>
-                                            <?php }elseif ($u[3] === "0") { ?>
-                                            <h4 class="text-muted">Asesor</h4>
-                                            <?php } ?>
+                                            <?php } ?> 
+                                            <div class="col text-start">
+                                                <h2><?php echo strtoupper($u[1]); ?></h2>            
+                                                <?php if ($u[3] === "1") { ?>
+                                                <h4 class="text-muted">Administrador</h4>
+                                                <?php }elseif ($u[3] === "0") { ?>
+                                                <h4 class="text-muted">Asesor</h4>
+                                                <?php } ?>
+                                            </div>                                                   
                                         </a>
                                     </div>
                         <?php           }
