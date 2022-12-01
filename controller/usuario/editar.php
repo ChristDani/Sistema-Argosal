@@ -31,6 +31,5 @@ else
 $model->editarUsuario($dni,$nombre,$clave,$foto,$fotoPerfil);
 ?>
 <script>
-    alert("Usuario Actualizado al Sistema...")
     window.history.back();
 </script>

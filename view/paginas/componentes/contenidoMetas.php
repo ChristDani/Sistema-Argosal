@@ -1,6 +1,26 @@
 <?php 
 require_once "model/conexion.php";
 require_once "model/usuarios.php";
+require_once "model/metas.php";
+
+$metas = new metas();
+$listaMetas = $metas->listar();
+
+if ($listaMetas != null) 
+{
+    foreach ($listaMetas as $m) 
+    {
+            $portamen69 = trim($m[0]);
+            $portamay69 = trim($m[1]);
+            $altapost = trim($m[2]);
+            $altaprepa = trim($m[3]);
+            $portaprepa = trim($m[4]);
+            $renovacion = trim($m[5]);
+            $hfc_ftth = trim($m[6]);
+            $ifi = trim($m[7]);
+            $metatotal = intval($m[0])+intval($m[1])+intval($m[2])+intval($m[3])+intval($m[4])+intval($m[5])+intval($m[6])+intval($m[7]);
+    }
+} 
 
 $model = new user();
 $listar = $model->listar();
@@ -59,7 +79,7 @@ $ventasFijaIfi = sqlsrv_num_rows($resultado3);
                     <div class="progress my-2">
                         <div class="progress-bar" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" id="BarraProgreTotVen"></div>
                     </div>
-                    <p class="text-center text-muted" id="total"><span id="progreTotVen"><?php echo $ventasTotalesPr ?></span> de <span id="totven">75</span></p>
+                    <p class="text-center text-muted" id="total"><span id="progreTotVen"><?php echo $ventasTotalesPr ?></span> de <span id="totven"><?php echo $metatotal ?></span></p>
                 </div>
             </div>
         </div>
@@ -70,7 +90,7 @@ $ventasFijaIfi = sqlsrv_num_rows($resultado3);
                     <div class="progress my-2">
                         <div class="progress-bar" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" id="BarraProgrevenprotmen69"></div>
                     </div>
-                    <p class="text-center text-muted"><span id="progrevenprotmen69"><?php echo $ventasMen69 ?></span> de <span id="portmen69">22</span></p>            
+                    <p class="text-center text-muted"><span id="progrevenprotmen69"><?php echo $ventasMen69 ?></span> de <span id="portmen69"><?php echo $portamen69 ?></span></p>            
                 </div>
             </div>
         </div>
@@ -81,7 +101,7 @@ $ventasFijaIfi = sqlsrv_num_rows($resultado3);
                     <div class="progress my-2">
                         <div class="progress-bar" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" id="BarraProgrevenprotmay69"></div>
                     </div>
-                    <p class="text-center text-muted"><span id="progrevenprotmay69"><?php echo $ventasMay69 ?></span> de <span id="portmay69">25</span></p>
+                    <p class="text-center text-muted"><span id="progrevenprotmay69"><?php echo $ventasMay69 ?></span> de <span id="portmay69"><?php echo $portamay69 ?></span></p>
                 </div>
             </div>
         </div>
@@ -92,7 +112,7 @@ $ventasFijaIfi = sqlsrv_num_rows($resultado3);
                     <div class="progress my-2">
                         <div class="progress-bar" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" id="Barraprogrevenaltpost"></div>
                     </div>
-                    <p class="text-center text-muted"><span id="progrevenaltpost"><?php echo $ventasAltPost ?></span> de <span id="altpost">5</span></p>
+                    <p class="text-center text-muted"><span id="progrevenaltpost"><?php echo $ventasAltPost ?></span> de <span id="altpost"><?php echo $altapost ?></span></p>
                 </div>
             </div>
         </div>
@@ -103,7 +123,7 @@ $ventasFijaIfi = sqlsrv_num_rows($resultado3);
                     <div class="progress my-2">
                         <div class="progress-bar" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" id="BarraProgreVenAltPre"></div>
                     </div>
-                    <p class="text-center text-muted"><span id="progrevenaltpre"><?php echo $ventasAltPre ?></span> de <span id="altpre">1</span></p>
+                    <p class="text-center text-muted"><span id="progrevenaltpre"><?php echo $ventasAltPre ?></span> de <span id="altpre"><?php echo $altaprepa ?></span></p>
                 </div>
             </div>
         </div>
@@ -114,7 +134,7 @@ $ventasFijaIfi = sqlsrv_num_rows($resultado3);
                     <div class="progress my-2">
                         <div class="progress-bar" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" id="BarraProgreportprepa"></div>
                     </div>
-                    <p class="text-center text-muted"><span id="progreportprepa"><?php echo $ventasPortPre ?></span> de <span id="portpre">1</span></p>
+                    <p class="text-center text-muted"><span id="progreportprepa"><?php echo $ventasPortPre ?></span> de <span id="portpre"><?php echo $portaprepa ?></span></p>
                 </div>
             </div>
         </div>
@@ -125,7 +145,7 @@ $ventasFijaIfi = sqlsrv_num_rows($resultado3);
                     <div class="progress my-2">
                         <div class="progress-bar" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" id="BarraProgrevenrenova"></div>
                     </div>
-                    <p class="text-center text-muted"><span id="progrevenrenova"><?php echo $ventasReno ?></span> de <span id="reno">10</span></p>
+                    <p class="text-center text-muted"><span id="progrevenrenova"><?php echo $ventasReno ?></span> de <span id="reno"><?php echo $renovacion ?></span></p>
                 </div>
             </div>
         </div>
@@ -136,7 +156,7 @@ $ventasFijaIfi = sqlsrv_num_rows($resultado3);
                     <div class="progress my-2">
                         <div class="progress-bar" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" id="BarraProgrevenfijaftth"></div>
                     </div>
-                    <p class="text-center text-muted"><span id="progrevenfijaftth"><?php echo $ventasFijaFtth ?></span> de <span id="ftth">10</span></p>
+                    <p class="text-center text-muted"><span id="progrevenfijaftth"><?php echo $ventasFijaFtth ?></span> de <span id="ftth"><?php echo $hfc_ftth ?></span></p>
                 </div>
             </div>
         </div>
@@ -147,7 +167,7 @@ $ventasFijaIfi = sqlsrv_num_rows($resultado3);
                     <div class="progress my-2">
                         <div class="progress-bar" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" id="BarraProgrevenfijaifi"></div>
                     </div>
-                    <p class="text-center text-muted"><span id="progrevenfijaifi"><?php echo $ventasFijaIfi ?></span> de <span id="ifi">1</span></p>
+                    <p class="text-center text-muted"><span id="progrevenfijaifi"><?php echo $ventasFijaIfi ?></span> de <span id="ifi"><?php echo $ifi ?></span></p>
                 </div>
             </div>
         </div>

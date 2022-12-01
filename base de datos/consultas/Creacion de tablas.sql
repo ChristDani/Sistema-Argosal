@@ -149,6 +149,19 @@ estado char(1) not null,
 fotoPerfil char(100) null
 )
 
+drop table if exists metas
+create table metas
+(
+portamenor69 char(3) not null,
+portamayor69 char(3) not null,
+altapost char(3) not null,
+altaprepa char(3) not null,
+portaprepa char(3) not null,
+renovacion char(3) not null,
+hfc_ftth char(3) not null,
+ifi char(3) not null
+)
+
 select w.codigo, u.nombre from whatsapp as w inner join usuarios as u on u.nombre=w.asesor where u.dni='73179455'
 
 update whatsapp set asesor='Christian Campaña' where asesor='Christian'

@@ -13,6 +13,5 @@ $tipo = $_POST['tipo'];
 $model->insertarUsuario($dni,$nombre,$clave,$tipo);
 ?>
 <script>
-    alert("Usuario Agregado al Sistema...")
     window.history.back();
 </script>

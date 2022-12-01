@@ -7,6 +7,5 @@ $dni = $_POST['code'];
 $model->eliminarUsuario($dni);
 ?>
 <script>
-    alert("Usuario Eliminado Permanentemente...")
     window.history.back();
 </script>

@@ -562,3 +562,22 @@ go
 				update whatsapp set dniAsesor=@dniasesor, nombre=@nombre, dni=@dni, numeroReferencia=@numeroReferencia, producto=@producto, promocion=@promocion, tipo=@tipo, telefono=@telefono, lineaProcedente=@lineaProcedente, modalidad=@modalidad, equipo=@equipo, formaDePago=@formaDePago, sec=@sec, estado=@estado, observaciones=@observacion, ubicacion=@ubicacion, distrito=@distrito, fechaActualizacion=@fechaUpdate where codigo=@codigo
 			end 
 			go
+
+
+-- edicion de metas
+
+--drop procedure if exists sp_editar_metas
+create procedure sp_editar_metas
+@portamen69 char(3),
+@portamay69 char(3),
+@altapost char(3),
+@altaprepa char(3),
+@portaprepa char(3),
+@renovacion char(3),
+@hfc_ftth char(3),
+@ifi char(3)
+as
+begin
+	update metas set portamenor69=@portamen69,portamayor69=@portamay69,altapost=@altapost,altaprepa=@altaprepa,portaprepa=@portaprepa,renovacion=@renovacion,hfc_ftth=@hfc_ftth,ifi=@ifi
+end 
+go

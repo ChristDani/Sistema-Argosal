@@ -17,7 +17,6 @@ $buscar= isset($_POST['busqueda']) ? $_POST['busqueda'] : null;
 $where='';
 
 if ($buscar!=null) {
-    // $buscar='jorge';
     $where="where (";
     $cont= count($columnas);
     for ($i=0; $i < $cont; $i++) { 
