@@ -1,5 +1,4 @@
-const bar = document.getElementById('chart');
-const radar = document.getElementById('radar');
+
 
 new Chart(bar, {
 type: 'bar',
@@ -20,32 +19,25 @@ options: {
 }
 });
 
-new Chart(radar, {
-    type: 'radar',
+new Chart(pie, {
+    type: 'pie',
     data: {
-        labels: ['Enero', 'Febreo', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-        datasets: [{
-            label: 'Rechazados',
-            data: [65, 59, 90, 81, 56, 55, 40, 65, 59, 90, 81, 56],
-            fill: true,
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'rgb(255, 99, 132)',
-            pointBackgroundColor: 'rgb(255, 99, 132)',
-            pointBorderColor: '#fff',
-            pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: 'rgb(255, 99, 132)'          
-        },
-        {
-            label: 'Concretados',
-            data: [54, 23, 87, 34, 45, 89, 87, 34, 12, 45, 32, 10],
-            fill: true,
-            backgroundColor: 'rgba(54, 162, 235, 0.2)',
-            borderColor: 'rgb(54, 162, 235)',
-            pointBackgroundColor: 'rgb(54, 162, 235)',
-            pointBorderColor: '#fff',
-            pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: 'rgb(54, 162, 235)'
-        }]
+        labels: [
+            'Pendientes',
+            'Concretado',
+            'Rechazado'
+          ],
+          datasets: [{
+            label: 'Clientes',
+            data: [300, 50, 100],
+            backgroundColor: [
+              '#ffbb55',
+              '#41f1b6',
+              '#fc3747'
+            ],
+            hoverOffset: 4
+          }]
+        }
     }   
-}
+
 );
