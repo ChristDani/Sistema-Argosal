@@ -8,10 +8,18 @@
       <div class="modal-body">
         <form action="controller/usuario/editar.php" method="post" enctype="multipart/form-data">
           <input hidden type="text" name="dniedit" id="dniedit"> <!--no mover-->
-          
-          <label>Foto de Perfil</label>
-          <img id="fotoPerfiledit1" class="img-fluid rounded-5" src="view/static/ProfileIMG/">
-          <input type="file" name="fotoPerfiledit" id="fotoPerfiledit">
+
+          <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-auto">
+              <div class="d-flex flex-column justify-content-center align-items-center ">
+                <label class="photoedit overflow-hidden">
+                  <input type="file" name="fotoPerfiledit" id="fotoPerfiledit">
+                  <img id="fotoPerfiledit1" class="img-fluid rounded-5 overflow-hidden" src="view/static/ProfileIMG/">
+                </label>
+              </div>
+            </div>
+          </div>
+      
 
           <div class="form-floating mb-3">
             <input class="form-control" placeholder="Nombre" autocomplete="off" type="text" name="nombreedit" id="nombreedit">
