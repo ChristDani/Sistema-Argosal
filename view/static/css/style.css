@@ -462,7 +462,7 @@ b{
     width: 100%;
     height: 15%;
     font-size: 1rem;
-    color: var(--color-dark);
+    color: var(--color-light);
     background: rgb(255 255 255 /10%);
     backdrop-filter: blur(10px);
     position: absolute;
