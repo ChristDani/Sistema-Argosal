@@ -6,16 +6,21 @@ document.getElementById('numRegistrosW').addEventListener("change", function() {
     getDataW(paginaActualW)
 }, false)
 
+document.getElementById('busquedaestadowhats').addEventListener("change", function() {
+    getDataW(paginaActualW)
+}, false)
+
 function getDataW(pagina) {
 
     let input = document.getElementById('busquedaW').value
     let select = document.getElementById('numRegistrosW').value
+    let estado = document.getElementById('busquedaestadowhats').value
     let tipoUser = document.getElementById('tipoUser').value
     let contenido = document.getElementById('resultadosW')
     // verificar si trae los valores
 
     // console.log(tipoUser)
-    // console.log(select)
+    // console.log(estado)
     // console.log(pagina)
 
     // para mantener la pagina al cambiar el limite de datos
@@ -28,6 +33,7 @@ function getDataW(pagina) {
     let formaData = new FormData()
     formaData.append('busqueda', input)
     formaData.append('registros', select)
+    formaData.append('estado', estado)
     formaData.append('pagina', pagina)
     formaData.append('tipoUser', tipoUser)
     // para mantener la pagina al cambiar el limite de datos

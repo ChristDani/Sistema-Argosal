@@ -23,6 +23,17 @@
     </div>
     <div class="col d-flex justify-content-end align-items-center">
         <div class="form-floating">
+            <select class="form-select" aria-label="Floating label select example" name="busquedaestadowhats" id="busquedaestadowhats">
+                <option value="">Todos</option>
+                <option value="0">No Requiere</option>
+                <option value="2">Pendiente</option>
+                <option value="1">Concretado</option>
+            </select>
+            <label for="busquedaestadowhats">Estado</label>
+        </div>
+    </div> 
+    <div class="col d-flex justify-content-end align-items-center">
+        <div class="form-floating">
             <input type="text" class="form-control" id="busquedaW" placeholder="Buscar" onkeyup="getDataW(1); pasarDato();">
             <label for="busquedaW">Buscar</label>
         </div>

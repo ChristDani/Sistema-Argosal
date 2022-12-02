@@ -1,0 +1,6 @@
+-- para solo obtener los datos del mes
+select w.codigo, u.nombre, w.nombre, w.dni, w.telefono, w.producto, w.lineaProcedente, w.operadorCedente, w.modalidad, w.tipo, w.planR, w.equipo, w.formaDePago, w.numeroReferencia, w.sec, w.tipoFija, w.planFija, w.modoFija, w.estado, observaciones, w.promocion, w.ubicacion, w.distrito, w.fechaRegistro, w.fechaActualizacion from whatsapp as w inner join usuarios as u on w.dniAsesor=u.dni where (datepart(mm, w.fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, w.fechaRegistro)=datepart(yyyy, getdate())) order by w.fechaRegistro desc offset 0 rows fetch next 12 rows only
+
+
+-- para obtener los datos de cierto mes
+select w.codigo, u.nombre, w.nombre, w.dni, w.telefono, w.producto, w.lineaProcedente, w.operadorCedente, w.modalidad, w.tipo, w.planR, w.equipo, w.formaDePago, w.numeroReferencia, w.sec, w.tipoFija, w.planFija, w.modoFija, w.estado, observaciones, w.promocion, w.ubicacion, w.distrito, w.fechaRegistro, w.fechaActualizacion from whatsapp as w inner join usuarios as u on w.dniAsesor=u.dni where (datepart(mm, w.fechaRegistro)=datepart(mm, '01/01/2023') and datepart(yyyy, w.fechaRegistro)=datepart(yyyy, '01/11/2023')) order by w.fechaRegistro desc offset 0 rows fetch next 12 rows only
