@@ -1,6 +1,6 @@
 <h1>DASHBOARD</h1>
 
-<?php if ($tipoUsuario === "1") { ?>
+<?php if ($tipoUsuario === "1" || $tipoUsuario === "2") { ?>
 
 <h3>Ventas en Generales</h3>
 <div class="row">
@@ -130,7 +130,7 @@ if ($listar != null)
     }
 }
 
-if ($tipoUsuario === "1") 
+if ($tipoUsuario === "1" || $tipoUsuario === "2") 
 { 
 
     if ($listar != null) 

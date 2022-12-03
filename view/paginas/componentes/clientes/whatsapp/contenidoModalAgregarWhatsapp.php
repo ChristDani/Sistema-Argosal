@@ -41,7 +41,7 @@ $con=$model->desconectar();
                                 </div>                 
                             </div>                 
                         </div>                 
-                    <?php } elseif ($tipoUsuario === "1") {?>
+                    <?php } elseif ($tipoUsuario === "1" || $tipoUsuario === "2") {?>
                         <div class='form-floating mb-3'>
                             <select class='form-select form-select-sm' name='asesor' id='asesor'>
                         <?php if ($listUser != null) 

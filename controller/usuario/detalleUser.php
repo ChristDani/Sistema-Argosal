@@ -33,6 +33,10 @@ if ($detecteTipoUser === "1")
 {
     $output['data'].= "<h2>Administrador</h2>";
 }
+elseif ($detecteTipoUser === "2") 
+{
+    $output['data'].= "<h2>Moderador</h2>";
+}
 elseif ($detecteTipoUser === "0") 
 {
     $output['data'].= "<h2>Asesor</h2>";

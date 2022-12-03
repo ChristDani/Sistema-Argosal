@@ -18,7 +18,7 @@
         $nombreUsuario = $_SESSION["user"];
         $tipoUsuario = $_SESSION["tipo"];
 
-        if($tipoUsuario === "1") 
+        if($tipoUsuario === "1" || $tipoUsuario === "2") 
         {
             if($_GET["pagina"]==="Dashboard")
             {

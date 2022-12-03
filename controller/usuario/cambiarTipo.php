@@ -5,9 +5,13 @@ $model = new user();
 $dni = $_POST['dnicambiar'];
 if ($_POST['tipocambiar'] === "0") 
 {
-    $tipo = "1";
+    $tipo = "2";
 }
 elseif ($_POST['tipocambiar'] === "1") 
+{
+    $tipo = "0";
+}
+elseif ($_POST['tipocambiar'] === "2") 
 {
     $tipo = "0";
 }

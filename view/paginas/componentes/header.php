@@ -28,7 +28,7 @@ $listar = $model->listar();
 $cone = new conexion();
 $consulta = $cone->conectar();
 
-if ($tipoUsuario === "1") 
+if ($tipoUsuario === "1" || $tipoUsuario === "2") 
 { 
     // ventas totales para admin
     $sql = "select * from whatsapp";
@@ -56,7 +56,7 @@ elseif ($tipoUsuario === "0")
                 </div>
             </button>
         </div>
-        <?php if($tipoUsuario == "1") { ?>
+        <?php if($tipoUsuario == "1" || $tipoUsuario === "2") { ?>
             <ul class="navbar-nav ml-auto mr-0 mr-md-3 my-2 my-md-0">
                 <button class="mx-2 btn btn-link btn-sm d-flex justify-content-center" data-bs-toggle="offcanvas" data-bs-target="#Metas" aria-controls="offcanvasRight">
                     <ion-icon name="analytics-outline"></ion-icon>
@@ -81,7 +81,7 @@ elseif ($tipoUsuario === "0")
                             <div class="sb-nav-link-icon"><ion-icon name="people-outline"></ion-icon></div>
                             Clientes	<span class="badge primary-bg"><?php echo $totalClientesMenu; ?></span>							
                         </a>
-                        <?php if($tipoUsuario === "1") { ?>
+                        <?php if($tipoUsuario === "1" || $tipoUsuario === "2") { ?>
                             <a class="nav-link" href="index.php?pagina=Datos">
                                 <div class="sb-nav-link-icon"><ion-icon name="document-text-outline"></ion-icon></div>
                                 Datos
@@ -96,7 +96,7 @@ elseif ($tipoUsuario === "0")
                             <div class="sb-nav-link-icon"><ion-icon name="map-outline"></ion-icon></div>
                                 Ubicaciones
                         </a>
-                        <?php if($tipoUsuario === "1") { ?>
+                        <?php if($tipoUsuario === "1" || $tipoUsuario === "2") { ?>
                             <a class="nav-link" href="index.php?pagina=Reportes">
                                 <div class="sb-nav-link-icon"><ion-icon name="newspaper-outline"></ion-icon></div>
                                     Reportes

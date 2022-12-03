@@ -9,6 +9,12 @@ function infoUsuario(codigo,nombre,tipo)
         btncambiar.classList.remove("btn-success")
         btncambiar.classList.add("btn-warning")
     }
+    if (tipo === "2") 
+    {
+        btncambiar.innerHTML="Descender"
+        btncambiar.classList.remove("btn-success")
+        btncambiar.classList.add("btn-warning")
+    }
     else if (tipo === "0") 
     {
         btncambiar.innerHTML="Ascender"            
@@ -18,6 +24,21 @@ function infoUsuario(codigo,nombre,tipo)
     btncambiar.addEventListener("click", cambiarTipoUser(codigo,nombre,tipo), false);
     btneliminar.addEventListener("click", eliminarUsuario(codigo,nombre), false);
 
+    let url='controller/usuario/detalleUser.php';
+    let formaData = new FormData()
+    formaData.append('dni', codigo)
+
+    fetch(url,{
+        method: "POST",
+        body: formaData
+    }).then(response=>response.json())
+    .then(data=>{
+        contenido.innerHTML=data.data
+    }).catch(err=>console.log(err))
+}
+function infoUsuarioModera(codigo) 
+{ 
+    let contenido = document.getElementById('detalleuserespecifico')
     let url='controller/usuario/detalleUser.php';
     let formaData = new FormData()
     formaData.append('dni', codigo)

@@ -21,8 +21,9 @@
           </div>
           <div class="form-floating mb-3">
             <select class="form-select form-select-sm" name="tipo" id="tipo">
-              <option value="0">Asesor</option>
               <option value="1">Administrador</option>
+              <option value="0">Asesor</option>
+              <option value="2">Moderador</option>
             </select>
             <label for="tipo">Tipo de Usuario</label>
           </div>

@@ -68,7 +68,7 @@ if ($filas>0) {
         
         $output['data'].= "<div class='row'>";
 
-        if ($tipoUsuario === "1") 
+        if ($tipoUsuario === "1" || $tipoUsuario === "2") 
         {
             // asesor
             $output['data'].= "<div class='col'><h3>Venta de $asesor</h3></div>";

@@ -55,7 +55,7 @@
 <?php include_once "contenidoModalAgregarWhatsapp.php"; ?>
 <?php include_once "contenidoModalDetalleWhatsapp.php"; ?>
 
-<?php if ($tipoUsuario === "1") { ?>
+<?php if ($tipoUsuario === "1" || $tipoUsuario === "2") { ?>
 <script src="controller/whatsapp/listarWhatsapp.js"></script>  
 <?php } elseif ($tipoUsuario === "0") { ?>
     <input hidden type="text" name="dniAsesor" id="dniAsesor" value="<?php echo $dniUsuario;?>">

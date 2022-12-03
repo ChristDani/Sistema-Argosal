@@ -19,6 +19,8 @@
                                     <h2>Administrador</h2>
                                 <?php }elseif ($configTipoUser === "0") { ?>
                                     <h2>Asesor</h2>
+                                <?php }elseif ($configTipoUser === "2") { ?>
+                                    <h2>Moderador</h2>
                                 <?php } ?>
                                 <?php if ($configEstadoUser === "0") { ?>
                                     <h2 class="secondary">Desconectado</h2>
@@ -38,7 +40,7 @@
                     </div>
                 </div>
             </div>
-            <?php if ($tipoUsuario === "1") { ?>
+            <?php if ($tipoUsuario === "1" || $tipoUsuario === "2") { ?>
             <div class="col-xl-6">
                 <div class="card">
                     <div class="card-body">
@@ -52,7 +54,11 @@
                                     if ($u[0] != $dniUsuario) 
                                     { ?>
                                       <div class="row">
-                                        <a class="delete btn col d-flex gap-1 align-items-center my-1" data-bs-toggle="modal" data-bs-target="#InfoUser" onclick="infoUsuario('<?php echo$u[0];?>','<?php echo trim($u[1]);?>','<?php echo trim($u[3]);?>');">
+                                        <?php if ($tipoUsuario === "1") {?>
+                                            <a class="delete btn col d-flex gap-1 align-items-center my-1" data-bs-toggle="modal" data-bs-target="#InfoUser" onclick="infoUsuario('<?php echo$u[0];?>','<?php echo trim($u[1]);?>','<?php echo trim($u[3]);?>');">
+                                        <?php } elseif ($tipoUsuario === "2") {?>
+                                            <a class="delete btn col d-flex gap-1 align-items-center my-1" data-bs-toggle="modal" data-bs-target="#InfoUser" onclick="infoUsuarioModera('<?php echo$u[0];?>');">
+                                        <?php }?>
                                             <?php if ($u[6] === "0") { ?>
                                                 <div class="profile-photo secondary-bc rounded-circle img-fluid" style="background-image: url('view/static/ProfileIMG/<?php echo trim($u[7]);?>');">
                                                 </div>
@@ -72,19 +78,23 @@
                                                 <h4 class="text-muted">Administrador</h4>
                                                 <?php }elseif ($u[3] === "0") { ?>
                                                 <h4 class="text-muted">Asesor</h4>
+                                                <?php }elseif ($u[3] === "2") { ?>
+                                                <h4 class="text-muted">Moderador</h4>
                                                 <?php } ?>
                                             </div>                                                   
                                         </a>
                                     </div>
                         <?php           }
                                     }
-                                } ?>
-                        <div class="d-flex justify-content-end mt-1">
-                            <button type="submit" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#Añadir">Añadir Usuario</button>
-                        </div>
+                                } if ($tipoUsuario === "1") {?>
+                                    <div class="d-flex justify-content-end mt-1">
+                                        <button type="submit" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#Añadir">Añadir Usuario</button>
+                                    </div>
+                              <?php  } ?>
                     </div>
                 </div>
             </div>
+            <?php if ($tipoUsuario === "1") {?>
             <div class="row mx-auto">
                 <div class="col-lg-3">
                     <div class="card">
@@ -123,7 +133,7 @@
             <div class="d-flex justify-content-end mt-1">
                 <button type="submit" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#editarMetas">Editar Metas</button>
             </div>
-            <?php } ?>
+            <?php }} ?>
         </div>
     </div>
 </div>
@@ -132,7 +142,9 @@
 <?php include_once "contenidoModalAñadirUsuario.php"; ?>
 <?php include_once "ContenidoModalInfo.php"; ?>
 <?php include_once "contenidoModalEditarMetas.php"; ?>
-<script src="controller/usuario/usuarios.js"></script>
+<?php //if ($tipoUsuario === "1") {?>
+    <script src="controller/usuario/usuarios.js"></script>
+<?php //}?>
 
 <!-- <div class="col-xl-4">
     <div class="card">
