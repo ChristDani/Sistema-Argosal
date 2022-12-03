@@ -16,8 +16,9 @@ if ($filas2 != null)
 		$tusu=$columna[1];
 		$tclave = $columna[2];
 		$ttipo = $columna[3];
+		$tactivo = $columna[8];
 	}
-	if(($dni == $tdni) && ($clave == $tclave))
+	if(($dni == $tdni) && ($clave == $tclave) && ($tactivo == "1"))
 	{
 		session_start();
 		$_SESSION["dni"]=$tdni;
@@ -26,6 +27,12 @@ if ($filas2 != null)
 		$consultas->activarEstado($dni);
 		header("location:../../index.php?pagina=Dashboard");
 	}
+	elseif ($tactivo == "0") {?>
+		<script>
+			alert("Tu usuario fue eliminado ):");
+			window.history.back();
+		</script>
+	<?php }
 	else
 	{
 		header("location:../../");

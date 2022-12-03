@@ -152,6 +152,7 @@ fotoPerfil char(100) null
 drop table if exists metas
 create table metas
 (
+dniAsesor char(8) not null,
 portamenor69 char(3) not null,
 portamayor69 char(3) not null,
 altapost char(3) not null,

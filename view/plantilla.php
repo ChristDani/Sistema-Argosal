@@ -18,7 +18,7 @@
         $nombreUsuario = $_SESSION["user"];
         $tipoUsuario = $_SESSION["tipo"];
 
-        if($tipoUsuario === "1" || $tipoUsuario === "2") 
+        if($tipoUsuario === "1") 
         {
             if($_GET["pagina"]==="Dashboard")
             {
@@ -52,8 +52,8 @@
             {
                 include_once "paginas/404.php";
             }
-        }			
-        elseif ($tipoUsuario === "0") 
+        }
+        elseif ($tipoUsuario === "0" || $tipoUsuario === "2") 
         {
             if($_GET["pagina"]==="Dashboard")
             {

@@ -12,8 +12,10 @@
             <?php if ($tipoUsuario === "1") {?>
                 <a class="btn color" data-bs-toggle="modal" data-bs-target="#CambiarTipoUser" id="btncambiar"></a>
             <?php }?>
-
-                <a class="btn btn-primary color" data-bs-toggle="modal" data-bs-target="#EditarMetasAsesor">Editar Metas</a>
+            
+                <div id="contenedorbtneditarmetas">
+                    <a class="btn btn-primary color" data-bs-toggle="modal" data-bs-target="#editarMetasAsesor" id="btneditarmetas">Editar Metas</a>
+                </div>
 
             <?php if ($tipoUsuario === "1") {?>
                 <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#Eliminar" id="btneliminar">Eliminar</a>
@@ -24,3 +26,4 @@
 </div>
 <?php include_once "contenidoModalEliminarUsuario.php"; ?>
 <?php include_once "ContenidoModalCambiarTipoUsuario.php"; ?>
+<?php include_once "contenidoModalEditarMetasAsesor.php"; ?>

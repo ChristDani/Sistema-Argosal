@@ -33,7 +33,7 @@ function getDataW(pagina) {
     let formaData = new FormData()
     formaData.append('busqueda', input)
     formaData.append('registros', select)
-    formaData.append('estado', estado)
+    formaData.append('busestate', estado)
     formaData.append('pagina', pagina)
     formaData.append('tipoUser', tipoUser)
     // para mantener la pagina al cambiar el limite de datos

@@ -4,66 +4,115 @@ require_once "model/usuarios.php";
 require_once "model/metas.php";
 
 $metas = new metas();
-$listaMetas = $metas->listar();
+if ($tipoUsuario === "1" || $tipoUsuario === "2") 
+{
+    $listaMetas = $metas->listar();
+}
+elseif ($tipoUsuario === "0") 
+{
+    $listaMetas = $metas->listarAsesor($dniUsuario);
+}
 
 if ($listaMetas != null) 
 {
     foreach ($listaMetas as $m) 
     {
-            $portamen69 = trim($m[0]);
-            $portamay69 = trim($m[1]);
-            $altapost = trim($m[2]);
-            $altaprepa = trim($m[3]);
-            $portaprepa = trim($m[4]);
-            $renovacion = trim($m[5]);
-            $hfc_ftth = trim($m[6]);
-            $ifi = trim($m[7]);
-            $metatotal = intval($m[0])+intval($m[1])+intval($m[2])+intval($m[3])+intval($m[4])+intval($m[5])+intval($m[6])+intval($m[7]);
+            $portamen69 = trim($m[1]);
+            $portamay69 = trim($m[2]);
+            $altapost = trim($m[3]);
+            $altaprepa = trim($m[4]);
+            $portaprepa = trim($m[5]);
+            $renovacion = trim($m[6]);
+            $hfc_ftth = trim($m[7]);
+            $ifi = trim($m[8]);
+            $metatotal = intval($m[1])+intval($m[2])+intval($m[3])+intval($m[4])+intval($m[5])+intval($m[6])+intval($m[7])+intval($m[8]);
     }
 } 
 
-$model = new user();
-$listar = $model->listar();
+// $model = new user();
+// $listar = $model->listar();
 
 $cone = new conexion();
 $consulta = $cone->conectar();
 
-// progreso ventas totales
-$sql = "select * from whatsapp where estado='1'";
-$resultado = sqlsrv_query($consulta,$sql, array(), array("Scrollable"=>"buffered"));
-$ventasTotalesPr = sqlsrv_num_rows($resultado);
-// progreso portabilidades menores a 69
-$sql1 = "select * from whatsapp where producto='1' and tipo='1' and(planR='S/ 29.90 MAX' or planR='S/ 39.90' or planR='S/ 49.90' or planR='S/ 55.90') and estado='1'";
-$resultado1 = sqlsrv_query($consulta,$sql1, array(), array("Scrollable"=>"buffered"));
-$ventasMen69 = sqlsrv_num_rows($resultado1);
-// progreso portabilidades mayores a 69
-$sql2 = "select * from whatsapp where producto='1' and tipo='1' and(planR!='S/ 29.90 MAX' and planR!='S/ 39.90' and planR!='S/ 49.90' and planR!='S/ 55.90' and planR!='---') and estado='1'";
-$resultado2 = sqlsrv_query($consulta,$sql2, array(), array("Scrollable"=>"buffered"));
-$ventasMay69 = sqlsrv_num_rows($resultado2);
-// progreso altas postpago
-$sql3 = "select * from whatsapp where producto='1' and tipo='0' and modalidad='1' and estado='1'";
-$resultado3 = sqlsrv_query($consulta,$sql3, array(), array("Scrollable"=>"buffered"));
-$ventasAltPost = sqlsrv_num_rows($resultado3);
-// progreso altas prepago
-$sql3 = "select * from whatsapp where producto='1' and tipo='0' and modalidad='0' and estado='1'";
-$resultado3 = sqlsrv_query($consulta,$sql3, array(), array("Scrollable"=>"buffered"));
-$ventasAltPre = sqlsrv_num_rows($resultado3);
-// progreso portabilidad prepago
-$sql3 = "select * from whatsapp where producto='1' and tipo='1' and modalidad='0' and estado='1'";
-$resultado3 = sqlsrv_query($consulta,$sql3, array(), array("Scrollable"=>"buffered"));
-$ventasPortPre = sqlsrv_num_rows($resultado3);
-// progreso renovaciones
-$sql3 = "select * from whatsapp where producto='1' and tipo='2' and estado='1'";
-$resultado3 = sqlsrv_query($consulta,$sql3, array(), array("Scrollable"=>"buffered"));
-$ventasReno = sqlsrv_num_rows($resultado3);
-// progreso fija ftth
-$sql3 = "select * from whatsapp where producto='0' and (modoFija='HFC' or modoFija='FTTH') and estado='1'";
-$resultado3 = sqlsrv_query($consulta,$sql3, array(), array("Scrollable"=>"buffered"));
-$ventasFijaFtth = sqlsrv_num_rows($resultado3);
-// progreso fija ifi
-$sql3 = "select * from whatsapp where producto='0' and modoFija='IFI' and estado='1'";
-$resultado3 = sqlsrv_query($consulta,$sql3, array(), array("Scrollable"=>"buffered"));
-$ventasFijaIfi = sqlsrv_num_rows($resultado3);
+if ($tipoUsuario === "1" || $tipoUsuario === "2") 
+{
+    // progreso ventas totales
+    $sql = "select * from whatsapp where (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate())) and estado='1'";
+    $resultado = sqlsrv_query($consulta,$sql, array(), array("Scrollable"=>"buffered"));
+    $ventasTotalesPr = sqlsrv_num_rows($resultado);
+    // progreso portabilidades menores a 69
+    $sql1 = "select * from whatsapp where (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate())) and producto='1' and tipo='1' and(planR='S/ 29.90 MAX' or planR='S/ 39.90' or planR='S/ 49.90' or planR='S/ 55.90') and estado='1'";
+    $resultado1 = sqlsrv_query($consulta,$sql1, array(), array("Scrollable"=>"buffered"));
+    $ventasMen69 = sqlsrv_num_rows($resultado1);
+    // progreso portabilidades mayores a 69
+    $sql2 = "select * from whatsapp where (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate())) and producto='1' and tipo='1' and(planR!='S/ 29.90 MAX' and planR!='S/ 39.90' and planR!='S/ 49.90' and planR!='S/ 55.90' and planR!='---') and estado='1'";
+    $resultado2 = sqlsrv_query($consulta,$sql2, array(), array("Scrollable"=>"buffered"));
+    $ventasMay69 = sqlsrv_num_rows($resultado2);
+    // progreso altas postpago
+    $sql3 = "select * from whatsapp where (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate())) and producto='1' and tipo='0' and modalidad='1' and estado='1'";
+    $resultado3 = sqlsrv_query($consulta,$sql3, array(), array("Scrollable"=>"buffered"));
+    $ventasAltPost = sqlsrv_num_rows($resultado3);
+    // progreso altas prepago
+    $sql3 = "select * from whatsapp where (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate())) and producto='1' and tipo='0' and modalidad='0' and estado='1'";
+    $resultado3 = sqlsrv_query($consulta,$sql3, array(), array("Scrollable"=>"buffered"));
+    $ventasAltPre = sqlsrv_num_rows($resultado3);
+    // progreso portabilidad prepago
+    $sql3 = "select * from whatsapp where (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate())) and producto='1' and tipo='1' and modalidad='0' and estado='1'";
+    $resultado3 = sqlsrv_query($consulta,$sql3, array(), array("Scrollable"=>"buffered"));
+    $ventasPortPre = sqlsrv_num_rows($resultado3);
+    // progreso renovaciones
+    $sql3 = "select * from whatsapp where (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate())) and producto='1' and tipo='2' and estado='1'";
+    $resultado3 = sqlsrv_query($consulta,$sql3, array(), array("Scrollable"=>"buffered"));
+    $ventasReno = sqlsrv_num_rows($resultado3);
+    // progreso fija ftth
+    $sql3 = "select * from whatsapp where (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate())) and producto='0' and (modoFija='HFC' or modoFija='FTTH') and estado='1'";
+    $resultado3 = sqlsrv_query($consulta,$sql3, array(), array("Scrollable"=>"buffered"));
+    $ventasFijaFtth = sqlsrv_num_rows($resultado3);
+    // progreso fija ifi
+    $sql3 = "select * from whatsapp where (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate())) and producto='0' and modoFija='IFI' and estado='1'";
+    $resultado3 = sqlsrv_query($consulta,$sql3, array(), array("Scrollable"=>"buffered"));
+    $ventasFijaIfi = sqlsrv_num_rows($resultado3);
+}
+elseif ($tipoUsuario === "0") 
+{
+    // progreso ventas totales
+    $sql = "select * from whatsapp where (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate())) and estado='1' and dniAsesor='$dniUsuario'";
+    $resultado = sqlsrv_query($consulta,$sql, array(), array("Scrollable"=>"buffered"));
+    $ventasTotalesPr = sqlsrv_num_rows($resultado);
+    // progreso portabilidades menores a 69
+    $sql1 = "select * from whatsapp where (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate())) and producto='1' and tipo='1' and(planR='S/ 29.90 MAX' or planR='S/ 39.90' or planR='S/ 49.90' or planR='S/ 55.90') and estado='1' and dniAsesor='$dniUsuario'";
+    $resultado1 = sqlsrv_query($consulta,$sql1, array(), array("Scrollable"=>"buffered"));
+    $ventasMen69 = sqlsrv_num_rows($resultado1);
+    // progreso portabilidades mayores a 69
+    $sql2 = "select * from whatsapp where (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate())) and producto='1' and tipo='1' and(planR!='S/ 29.90 MAX' and planR!='S/ 39.90' and planR!='S/ 49.90' and planR!='S/ 55.90' and planR!='---') and estado='1' and dniAsesor='$dniUsuario'";
+    $resultado2 = sqlsrv_query($consulta,$sql2, array(), array("Scrollable"=>"buffered"));
+    $ventasMay69 = sqlsrv_num_rows($resultado2);
+    // progreso altas postpago
+    $sql3 = "select * from whatsapp where (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate())) and producto='1' and tipo='0' and modalidad='1' and estado='1' and dniAsesor='$dniUsuario'";
+    $resultado3 = sqlsrv_query($consulta,$sql3, array(), array("Scrollable"=>"buffered"));
+    $ventasAltPost = sqlsrv_num_rows($resultado3);
+    // progreso altas prepago
+    $sql3 = "select * from whatsapp where (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate())) and producto='1' and tipo='0' and modalidad='0' and estado='1' and dniAsesor='$dniUsuario'";
+    $resultado3 = sqlsrv_query($consulta,$sql3, array(), array("Scrollable"=>"buffered"));
+    $ventasAltPre = sqlsrv_num_rows($resultado3);
+    // progreso portabilidad prepago
+    $sql3 = "select * from whatsapp where (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate())) and producto='1' and tipo='1' and modalidad='0' and estado='1' and dniAsesor='$dniUsuario'";
+    $resultado3 = sqlsrv_query($consulta,$sql3, array(), array("Scrollable"=>"buffered"));
+    $ventasPortPre = sqlsrv_num_rows($resultado3);
+    // progreso renovaciones
+    $sql3 = "select * from whatsapp where (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate())) and producto='1' and tipo='2' and estado='1' and dniAsesor='$dniUsuario'";
+    $resultado3 = sqlsrv_query($consulta,$sql3, array(), array("Scrollable"=>"buffered"));
+    $ventasReno = sqlsrv_num_rows($resultado3);
+    // progreso fija ftth
+    $sql3 = "select * from whatsapp where (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate())) and producto='0' and (modoFija='HFC' or modoFija='FTTH') and estado='1' and dniAsesor='$dniUsuario'";
+    $resultado3 = sqlsrv_query($consulta,$sql3, array(), array("Scrollable"=>"buffered"));
+    $ventasFijaFtth = sqlsrv_num_rows($resultado3);
+    // progreso fija ifi
+    $sql3 = "select * from whatsapp where (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate())) and producto='0' and modoFija='IFI' and estado='1' and dniAsesor='$dniUsuario'";
+    $resultado3 = sqlsrv_query($consulta,$sql3, array(), array("Scrollable"=>"buffered"));
+    $ventasFijaIfi = sqlsrv_num_rows($resultado3);
+}
 ?>
 <div class="offcanvas offcanvas-end" tabindex="-1" id="Metas" aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header">

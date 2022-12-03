@@ -67,20 +67,20 @@ if ($listar != null)
         if ($x[0] === $dniUsuario) 
         {
             //ventas totales asesor
-            $sqla = "select * from whatsapp where dniAsesor='".$x[0]."'";
+            $sqla = "select * from whatsapp where dniAsesor='".$x[0]."' and (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate()))";
             // echo $sqla;
             $resultadoa = sqlsrv_query($consulta,$sqla, array(), array("Scrollable"=>"buffered"));
             $ventasTotalesAsesor = sqlsrv_num_rows($resultadoa);
             // ventas pendientes asesor
-            $sql2 = "select * from whatsapp where estado='2' and dniAsesor='".$x[0]."'";
+            $sql2 = "select * from whatsapp where estado='2' and dniAsesor='".$x[0]."' and (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate()))";
             $resultado2 = sqlsrv_query($consulta,$sql2, array(), array("Scrollable"=>"buffered"));
             $ventasPendientesAsesor = sqlsrv_num_rows($resultado2);
             // ventas concretadas asesor
-            $sql1 = "select * from whatsapp where estado='1' and dniAsesor='".$x[0]."'";
+            $sql1 = "select * from whatsapp where estado='1' and dniAsesor='".$x[0]."' and (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate()))";
             $resultado1 = sqlsrv_query($consulta,$sql1, array(), array("Scrollable"=>"buffered"));
             $ventasConcretadasAsesor = sqlsrv_num_rows($resultado1);
             // ventas rechazadas asesor
-            $sql3 = "select * from whatsapp where estado='0' and dniAsesor='".$x[0]."'";
+            $sql3 = "select * from whatsapp where estado='0' and dniAsesor='".$x[0]."' and (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate()))";
             $resultado3 = sqlsrv_query($consulta,$sql3, array(), array("Scrollable"=>"buffered"));
             $ventasRechazadasAsesor = sqlsrv_num_rows($resultado3);
 ?>
@@ -140,20 +140,20 @@ if ($tipoUsuario === "1" || $tipoUsuario === "2")
             if ($x[0] !== $dniUsuario) 
             {
                 //ventas totales asesor
-                $sqla = "select * from whatsapp where dniAsesor='".$x[0]."'";
+                $sqla = "select * from whatsapp where dniAsesor='".$x[0]."' and (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate()))";
                 // echo $sqla;
                 $resultadoa = sqlsrv_query($consulta,$sqla, array(), array("Scrollable"=>"buffered"));
                 $ventasTotalesAsesor = sqlsrv_num_rows($resultadoa);
                 // ventas pendientes asesor
-                $sql2 = "select * from whatsapp where estado='2' and dniAsesor='".$x[0]."'";
+                $sql2 = "select * from whatsapp where estado='2' and dniAsesor='".$x[0]."' and (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate()))";
                 $resultado2 = sqlsrv_query($consulta,$sql2, array(), array("Scrollable"=>"buffered"));
                 $ventasPendientesAsesor = sqlsrv_num_rows($resultado2);
                 // ventas concretadas asesor
-                $sql1 = "select * from whatsapp where estado='1' and dniAsesor='".$x[0]."'";
+                $sql1 = "select * from whatsapp where estado='1' and dniAsesor='".$x[0]."' and (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate()))";
                 $resultado1 = sqlsrv_query($consulta,$sql1, array(), array("Scrollable"=>"buffered"));
                 $ventasConcretadasAsesor = sqlsrv_num_rows($resultado1);
                 // ventas rechazadas asesor
-                $sql3 = "select * from whatsapp where estado='0' and dniAsesor='".$x[0]."'";
+                $sql3 = "select * from whatsapp where estado='0' and dniAsesor='".$x[0]."' and (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate()))";
                 $resultado3 = sqlsrv_query($consulta,$sql3, array(), array("Scrollable"=>"buffered"));
                 $ventasRechazadasAsesor = sqlsrv_num_rows($resultado3);
 ?>
@@ -161,6 +161,8 @@ if ($tipoUsuario === "1" || $tipoUsuario === "2")
                     <h3>Ventas del Administrador <?php echo $x[1] ?></h3>
                 <?php }elseif ($x[3] === "0") { ?>
                     <h3>Ventas del Asesor <?php echo $x[1] ?></h3>
+                <?php }elseif ($x[3] === "2") { ?>
+                    <h3>Ventas del Moderador <?php echo $x[1] ?></h3>
                 <?php } ?>
                 
                 <div class="row">

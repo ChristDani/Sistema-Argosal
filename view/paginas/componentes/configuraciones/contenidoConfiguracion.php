@@ -57,7 +57,7 @@
                                         <?php if ($tipoUsuario === "1") {?>
                                             <a class="delete btn col d-flex gap-1 align-items-center my-1" data-bs-toggle="modal" data-bs-target="#InfoUser" onclick="infoUsuario('<?php echo$u[0];?>','<?php echo trim($u[1]);?>','<?php echo trim($u[3]);?>');">
                                         <?php } elseif ($tipoUsuario === "2") {?>
-                                            <a class="delete btn col d-flex gap-1 align-items-center my-1" data-bs-toggle="modal" data-bs-target="#InfoUser" onclick="infoUsuarioModera('<?php echo$u[0];?>');">
+                                            <a class="delete btn col d-flex gap-1 align-items-center my-1" data-bs-toggle="modal" data-bs-target="#InfoUser" onclick="infoUsuarioModera('<?php echo$u[0];?>','<?php echo trim($u[3]);?>');">
                                         <?php }?>
                                             <?php if ($u[6] === "0") { ?>
                                                 <div class="profile-photo secondary-bc rounded-circle img-fluid" style="background-image: url('view/static/ProfileIMG/<?php echo trim($u[7]);?>');">
@@ -69,7 +69,7 @@
                                                 <div class="profile-photo warning-bc rounded-circle img-fluid" style="background-image: url('view/static/ProfileIMG/<?php echo trim($u[7]);?>');">
                                                 </div>
                                             <?php }elseif ($u[6] === "3") { ?>
-                                                <div class="profile-photo danger-bc" style="background-image: url('/view/static/ProfileIMG/<?php echo trim($u[7]);?>');">
+                                                <div class="profile-photo danger-bc" style="background-image: url('view/static/ProfileIMG/<?php echo trim($u[7]);?>');">
                                                 </div>
                                             <?php } ?> 
                                             <h2><?php echo strtoupper($u[1]); ?></h2>            
@@ -142,9 +142,7 @@
 <?php include_once "contenidoModalAñadirUsuario.php"; ?>
 <?php include_once "ContenidoModalInfo.php"; ?>
 <?php include_once "contenidoModalEditarMetas.php"; ?>
-<?php //if ($tipoUsuario === "1") {?>
-    <script src="controller/usuario/usuarios.js"></script>
-<?php //}?>
+<script src="controller/usuario/usuarios.js"></script>
 
 <!-- <div class="col-xl-4">
     <div class="card">

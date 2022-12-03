@@ -8,14 +8,14 @@ if ($listaMetas != null)
 {
     foreach ($listaMetas as $m) 
     {
-        $editportamen69 = trim($m[0]);
-        $editportamay69 = trim($m[1]);
-        $editaltapost = trim($m[2]);
-        $editaltaprepa = trim($m[3]);
-        $editportaprepa = trim($m[4]);
-        $editrenovacion = trim($m[5]);
-        $edithfc_ftth = trim($m[6]);
-        $editifi = trim($m[7]);
+        $editportamen69 = trim($m[1]);
+        $editportamay69 = trim($m[2]);
+        $editaltapost = trim($m[3]);
+        $editaltaprepa = trim($m[4]);
+        $editportaprepa = trim($m[5]);
+        $editrenovacion = trim($m[6]);
+        $edithfc_ftth = trim($m[7]);
+        $editifi = trim($m[8]);
     }
 } 
 ?>

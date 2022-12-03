@@ -3,26 +3,32 @@ function infoUsuario(codigo,nombre,tipo)
     let contenido = document.getElementById('detalleuserespecifico')
     let btncambiar = document.getElementById('btncambiar')
     let btneliminar = document.getElementById('btneliminar')
+    let btneditarmetas = document.getElementById('btneditarmetas')
+    let contenedorbtneditarmetas = document.getElementById('contenedorbtneditarmetas')
     if (tipo === "1") 
     {
+        contenedorbtneditarmetas.classList.add('d-none')
         btncambiar.innerHTML="Descender"
         btncambiar.classList.remove("btn-success")
         btncambiar.classList.add("btn-warning")
     }
     if (tipo === "2") 
     {
+        contenedorbtneditarmetas.classList.add('d-none')
         btncambiar.innerHTML="Descender"
         btncambiar.classList.remove("btn-success")
         btncambiar.classList.add("btn-warning")
     }
     else if (tipo === "0") 
     {
+        contenedorbtneditarmetas.classList.remove('d-none')
         btncambiar.innerHTML="Ascender"            
         btncambiar.classList.remove("btn-warning")       
         btncambiar.classList.add("btn-success")
     }
     btncambiar.addEventListener("click", cambiarTipoUser(codigo,nombre,tipo), false);
     btneliminar.addEventListener("click", eliminarUsuario(codigo,nombre), false);
+    btneditarmetas.addEventListener("click", editarMetasAsesor(codigo), false);
 
     let url='controller/usuario/detalleUser.php';
     let formaData = new FormData()
@@ -36,8 +42,20 @@ function infoUsuario(codigo,nombre,tipo)
         contenido.innerHTML=data.data
     }).catch(err=>console.log(err))
 }
-function infoUsuarioModera(codigo) 
+
+function infoUsuarioModera(codigo,tipo) 
 { 
+    let btneditarmetas = document.getElementById('btneditarmetas')    
+    btneditarmetas.addEventListener("click", editarMetasAsesor(codigo), false);
+    let contenedorbtneditarmetas = document.getElementById('contenedorbtneditarmetas')
+    if (tipo === "2" || tipo === "1") 
+    {
+        contenedorbtneditarmetas.classList.add('d-none')
+    }
+    else if (tipo === "0") 
+    {
+        contenedorbtneditarmetas.classList.remove('d-none')
+    }
     let contenido = document.getElementById('detalleuserespecifico')
     let url='controller/usuario/detalleUser.php';
     let formaData = new FormData()
@@ -66,7 +84,7 @@ function cambiarTipoUser(codigo,nombre,tipo)
     let btnascdesc = document.getElementById('btnascdesc')
     document.getElementById('dnicambiar').value=codigo
     document.getElementById('tipocambiar').value=tipo
-    if (tipo === "1") 
+    if (tipo === "1" || tipo === "2") 
     {
         btnascdesc.innerHTML="Descender"    
         btnascdesc.classList.remove("btn-success")   
@@ -86,4 +104,20 @@ function eliminarUsuario(codigo,nombre)
 {  
     document.getElementById('dniEliminar').value=codigo
     document.getElementById('nombreUserEliminar').innerHTML=nombre
+}
+
+function editarMetasAsesor(code) 
+{
+    let contenido = document.getElementById('detallemetasasesor')
+    let url='controller/usuario/editarmetasasesor.php';
+    let formaData = new FormData()
+    formaData.append('dni', code)
+
+    fetch(url,{
+        method: "POST",
+        body: formaData
+    }).then(response=>response.json())
+    .then(data=>{
+        contenido.innerHTML=data.data
+    }).catch(err=>console.log(err))
 }

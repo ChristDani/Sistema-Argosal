@@ -90,7 +90,7 @@ if ($filas>0) {
         $output['data'].= "<div class='row'>";
 
         
-        if ($tipoU === "1") 
+        if ($tipoU === "1" || $tipoU === "2") 
         {
             $output['data'].= "<div class='col-lg-4'>";
             $output['data'].= "<div id='asesorEdit' class='form-floating mb-3'>";

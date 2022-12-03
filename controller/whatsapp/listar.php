@@ -7,21 +7,36 @@ $con=$model->conectar();
 // en el caso de solo querer determinadas columnas usar esto con el mismo nombre de las columnas...
 $columnas=['w.codigo','u.nombre','w.nombre','w.dni','w.telefono','w.producto','w.lineaProcedente','w.operadorCedente','w.modalidad','w.tipo','w.planR','w.equipo','w.formaDePago','w.numeroReferencia','w.sec','w.tipoFija','w.planFija','w.modoFija','w.estado','observaciones','w.promocion','w.ubicacion','w.distrito','w.fechaRegistro','w.fechaActualizacion'];
 
+$columnasBusqueda=['w.codigo','u.nombre','w.nombre','w.dni','w.telefono','w.producto','w.lineaProcedente','w.operadorCedente','w.modalidad','w.tipo','w.planR','w.equipo','w.formaDePago','w.numeroReferencia','w.sec','w.tipoFija','w.planFija','w.modoFija','observaciones','w.promocion','w.ubicacion','w.distrito'];
+
 // tabla a seleccionar
 $tabla='whatsapp as w inner join usuarios as u on w.dniAsesor=u.dni';
 
 // $buscar=isset($_POST['busqueda']) ? $con->mssql_escape($_POST['busqueda']) : null;
 $buscar= isset($_POST['busqueda']) ? $_POST['busqueda'] : null;
 $tipoU= isset($_POST['tipoUser']) ? $_POST['tipoUser'] : null;
+$buscarestado= isset($_POST['busestate']) ? $_POST['busestate'] : null;
 
 // busqueda de datos
-$where='';
+$where='where (datepart(mm, w.fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, w.fechaRegistro)=datepart(yyyy, getdate())) ';
 
-if ($buscar!=null) {
-    $where="where (";
-    $cont= count($columnas);
+if ($buscarestado != null) {
+    $where.="and w.estado='".$buscarestado."' ";
+    if ($buscar!=null) {
+        $where.=" and (";
+        $cont= count($columnasBusqueda);
+        for ($i=0; $i < $cont; $i++) { 
+            $where.=$columnasBusqueda[$i]." like '%".$buscar."%' or ";
+        }
+        $where=substr_replace($where, "", -3);
+        $where.=")";
+    }
+}
+elseif ($buscar!=null) {
+    $where.=" and (";
+    $cont= count($columnasBusqueda);
     for ($i=0; $i < $cont; $i++) { 
-        $where.=$columnas[$i]." like '%".$buscar."%' or ";
+        $where.=$columnasBusqueda[$i]." like '%".$buscar."%' or ";
     }
     $where=substr_replace($where, "", -3);
     $where.=")";
