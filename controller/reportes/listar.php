@@ -4,19 +4,69 @@ require_once '../../model/conexion.php';
 $model=new conexion();
 $con=$model->conectar();
 
+$fecharequerida= !empty($_POST['fecha']) ? $_POST['fecha'] : null;
+
+if ($fecharequerida != null) 
+{
+    // ventas totales
+    $sqlvt = "select * from whatsapp where (datepart(mm, fechaRegistro)=datepart(mm, '$fecharequerida') and datepart(yyyy, fechaRegistro)=datepart(yyyy, '$fecharequerida'))";
+    $resultadovt = sqlsrv_query($con,$sqlvt, array(), array("Scrollable"=>"buffered"));
+    $vt = sqlsrv_num_rows($resultadovt);
+    // ventas concretadas
+    $sqlvc = "select * from whatsapp where estado='1' and (datepart(mm, fechaRegistro)=datepart(mm, '$fecharequerida') and datepart(yyyy, fechaRegistro)=datepart(yyyy, '$fecharequerida'))";
+    $resultadovc = sqlsrv_query($con,$sqlvc, array(), array("Scrollable"=>"buffered"));
+    $vc = sqlsrv_num_rows($resultadovc);
+    // ventas pendientes
+    $sqlvp = "select * from whatsapp where estado='2' and (datepart(mm, fechaRegistro)=datepart(mm, '$fecharequerida') and datepart(yyyy, fechaRegistro)=datepart(yyyy, '$fecharequerida'))";
+    $resultadovp = sqlsrv_query($con,$sqlvp, array(), array("Scrollable"=>"buffered"));
+    $vp = sqlsrv_num_rows($resultadovp);
+    // ventas rechazadas
+    $sqlvr = "select * from whatsapp where estado='0' and (datepart(mm, fechaRegistro)=datepart(mm, '$fecharequerida') and datepart(yyyy, fechaRegistro)=datepart(yyyy, '$fecharequerida'))";
+    $resultadovr = sqlsrv_query($con,$sqlvr, array(), array("Scrollable"=>"buffered"));
+    $vr = sqlsrv_num_rows($resultadovr);
+}
+elseif ($fecharequerida == null) 
+{
+    // ventas totales
+    $sqlvt = "select * from whatsapp where (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate()))";
+    $resultadovt = sqlsrv_query($con,$sqlvt, array(), array("Scrollable"=>"buffered"));
+    $vt = sqlsrv_num_rows($resultadovt);
+    // ventas concretadas
+    $sqlvc = "select * from whatsapp where estado='1' and (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate()))";
+    $resultadovc = sqlsrv_query($con,$sqlvc, array(), array("Scrollable"=>"buffered"));
+    $vc = sqlsrv_num_rows($resultadovc);
+    // ventas pendientes
+    $sqlvp = "select * from whatsapp where estado='2' and (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate()))";
+    $resultadovp = sqlsrv_query($con,$sqlvp, array(), array("Scrollable"=>"buffered"));
+    $vp = sqlsrv_num_rows($resultadovp);
+    // ventas rechazadas
+    $sqlvr = "select * from whatsapp where estado='0' and (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate()))";
+    $resultadovr = sqlsrv_query($con,$sqlvr, array(), array("Scrollable"=>"buffered"));
+    $vr = sqlsrv_num_rows($resultadovr);
+}
+
+// echo "$vt | $vc | $vp | $vr";
+
 // en el caso de solo querer determinadas columnas usar esto con el mismo nombre de las columnas...
-$columnas=['codigo','asesor','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','numeroReferencia','sec','tipoFija','planFija','estado','observaciones','promocion','ubicacion','distrito','fechaRegistro','fechaActualizacion'];
-$columnasBus=['codigo','asesor','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','numeroReferencia','sec','tipoFija','planFija','observaciones','promocion','ubicacion','distrito','fechaRegistro','fechaActualizacion'];
+$columnas=['codigo','dniAsesor','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','numeroReferencia','sec','tipoFija','planFija','estado','observaciones','promocion','ubicacion','distrito','fechaRegistro','fechaActualizacion'];
+$columnasBus=['codigo','dniAsesor','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','numeroReferencia','sec','tipoFija','planFija','observaciones','promocion','ubicacion','distrito','fechaRegistro','fechaActualizacion'];
 
 // tabla a seleccionar
 $tabla='whatsapp';
 
-// $buscar=isset($_POST['busqueda']) ? $con->mssql_escape($_POST['busqueda']) : null;
 $buscar= isset($_POST['busqueda']) ? $_POST['busqueda'] : null;
+// print_r(getdate());
 
 // busqueda de datos
 $where='';
-$where.="where estado='Concretado'";
+if ($fecharequerida != null) 
+{
+    $where.="where (datepart(mm, fechaRegistro)=datepart(mm, '$fecharequerida') and datepart(yyyy, fechaRegistro)=datepart(yyyy, '$fecharequerida'))";
+}
+elseif ($fecharequerida == null) 
+{
+    $where.="where (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate()))";
+}
 
 if ($buscar!=null) {
     // $buscar=' ';
@@ -63,24 +113,13 @@ $totalContar = sqlsrv_num_rows($resulContar);
 
 $filas = sqlsrv_num_rows($resultado);
 
-// validacion del mensaje
-
-$msg = '';
-
-if ($totalContar===0) {
-    $msg = '';
-} elseif ($totalContar===1) {
-    $msg = "Mostrando 1 Registro de un Total de 1 Registro.";
-} elseif ($inicio+$limite>$totalContar) {
-    $msg = "Mostrando Registros del ".$inicio+1 ." al $totalContar de un Total de $totalContar Registros.";
-} else {
-    $msg = "Mostrando Registros del ".$inicio+1 ." al ".$inicio+$limite." de un Total de $totalContar Registros.";
-}
-
 $output=[];
-$output['mensaje']= $msg;
 $output['data']= '';
 $output['paginacion']= '';
+$output['vt']= $vt;
+$output['vc']= $vc;
+$output['vp']= $vp;
+$output['vr']= $vr;
 
 if ($filas>0) {
     $i=$inicio+1;
@@ -93,11 +132,29 @@ if ($filas>0) {
         $output['data'].= "<td align='center'>$i</td>";
         $output['data'].= "<td align='left'>".$fila['nombre']."</td>";
         $output['data'].= "<td align='center'>".$fila['numeroReferencia']."</td>";
-        $output['data'].= "<td align='center'>".$fila['producto']."</td>";
+        if ($fila['producto'] === "0") 
+        {
+            $output['data'].= "<td align='center'>Fija</td>";
+        }
+        elseif ($fila['producto'] === "1") 
+        {
+            $output['data'].= "<td align='center'>Movil</td>";
+        }
         $output['data'].= "<td align='center'>".$fila['sec']."</td>";
-        $output['data'].= "<td align='center'>".$fila['estado']."</td>";
+        if ($fila['estado'] === "1") 
+        {
+            $output['data'].= "<td align='center'>Concretado</td>";
+        }
+        elseif ($fila['estado'] === "2") 
+        {
+            $output['data'].= "<td align='center'>Pendiente</td>";
+        }
+        elseif ($fila['estado'] === "0") 
+        {
+            $output['data'].= "<td align='center'>No Requiere</td>";
+        }
         $output['data'].= "<td align='center'>".$fecha."</td>";
-        $output['data'].= "<td align='center'><label onclick="."abrirModalDetalle('$code');"."><span class='material-symbols-outlined'>info</span></label></td>";
+        $output['data'].= "<td align='center' onclick="."abrirModalDetalle('$code');"."><ion-icon name='information-circle-outline'></ion-icon></td>";
         $output['data'].= "</tr>";
         $i+=1;
     }

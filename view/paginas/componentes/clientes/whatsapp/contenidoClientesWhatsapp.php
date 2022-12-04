@@ -16,11 +16,6 @@
             <ion-icon name="add-circle-outline"></ion-icon>
         </a>
     </div>
-    <div class="col d-flex justify-content-center align-items-center mb-2" id="wsp">
-        <a href="#" class="btn success-bg" onclick="exportTableToExcel('tablaWhats', 'Data-Whatsapp');">
-            <div>Excel</div>
-        </a>
-    </div>
     <div class="col d-flex justify-content-end align-items-center">
         <div class="form-floating">
             <select class="form-select" aria-label="Floating label select example" name="busquedaestadowhats" id="busquedaestadowhats">
