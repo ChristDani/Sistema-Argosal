@@ -16,10 +16,6 @@ function getDataRM(pagina)
     let vc = document.getElementById('vc')
     let vp = document.getElementById('vp')
     let vr = document.getElementById('vr')
-    // let vt = document.getElementById('vti')
-    // let vc = document.getElementById('vci')
-    // let vp = document.getElementById('vpi')
-    // let vr = document.getElementById('vri')
     let fecha = document.getElementById('fecharequerida').value
     // let input = document.getElementById('busquedaVC').value
     // let select = document.getElementById('numRegistrosVC').value
@@ -46,10 +42,6 @@ function getDataRM(pagina)
     }).then(response=>response.json())
     .then(data=>{
         contenido.innerHTML=data.data
-        // vt.value=data.vt
-        // vc.value=data.vc
-        // vp.value=data.vp
-        // vr.value=data.vr
         vt.innerHTML=data.vt
         vc.innerHTML=data.vc
         vp.innerHTML=data.vp

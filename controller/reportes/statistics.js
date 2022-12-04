@@ -1,8 +1,7 @@
+document.getElementById('fecharequerida').addEventListener("change", function() {
+    
+}, false)
 
-// let vt = document.getElementById('vti').value;
-// let vc = document.getElementById('vci').value;
-// let vp = document.getElementById('vpi').value;
-// let vr = document.getElementById('vri').value;
 let vt = document.getElementById('vt').textContent;
 let vc = document.getElementById('vc').textContent;
 let vp = document.getElementById('vp').textContent;

@@ -1,12 +1,9 @@
 <h1>REPORTES</h1>
-<!-- <input type="text" name="vti" id="vti">
-<input type="text" name="vci" id="vci">
-<input type="text" name="vpi" id="vpi">
-<input type="text" name="vri" id="vri"> -->
-<p id="vt"></p>
-<p id="vc"></p>
-<p id="vp"></p>
-<p id="vr"></p>
+
+<p class="d-none" id="vt"></p>
+<p class="d-none" id="vc"></p>
+<p class="d-none" id="vp"></p>
+<p class="d-none" id="vr"></p>
 <input type="date" name="fecharequerida" id="fecharequerida">
 
 <div class="container">
