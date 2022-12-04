@@ -137,6 +137,12 @@ body{
     border-radius: 20px;
 }
 
+.card-body > .chart-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .dropdown-menu.show{
     background: var(--color-background);
     color: var(--color-dark);
