@@ -1,7 +1,5 @@
 let paginaActualRM = 1
 
-getDataRM(paginaActualRM)
-
 document.getElementById('fecharequerida').addEventListener("change", function() {
     getDataRM(paginaActualRM)
 }, false)
@@ -16,6 +14,7 @@ function getDataRM(pagina)
     let vc = document.getElementById('vc')
     let vp = document.getElementById('vp')
     let vr = document.getElementById('vr')
+    let graficosfeos = document.getElementById('graficosfeos')
     let fecha = document.getElementById('fecharequerida').value
     // let input = document.getElementById('busquedaVC').value
     // let select = document.getElementById('numRegistrosVC').value
@@ -46,6 +45,7 @@ function getDataRM(pagina)
         vc.innerHTML=data.vc
         vp.innerHTML=data.vp
         vr.innerHTML=data.vr
+        graficosfeos.innerHTML=data.graficosfeos
         // document.getElementById('msgVC').innerHTML = data.mensaje
         // document.getElementById('munVC').innerHTML = data.paginacion
     }).catch(err=>console.log(err))

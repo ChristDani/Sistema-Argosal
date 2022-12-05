@@ -12,41 +12,9 @@
 
 
 
-<div class="row">    
-    <div class="col-lg-6">
-        <div class="card">
-            <div class="card-body">
-                <div class="chart-container" style="position: relative; height:50%; width:100%">
-                    <canvas id="pie"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>   
-
-    <div class="col-lg-6">
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <div class="chart-container" style="position: relative; height:45%; width:100%">
-                        <canvas id="bar"></canvas>
-                    </div>  
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <div class="chart-container" style="position: relative; height:45%; width:100%">
-                        <canvas id="line"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>   
-    </div>
+<div class="row" id="graficosfeos">    
 
 </div>
-
-
 
 <div class="row">
     <div class="col-lg-12 mb-3">
@@ -67,7 +35,7 @@
                     </thead>
                     <tbody id="resultadosRM">
                         <tr>
-                            <th scope="row" colspan="8" height="80" align="center">Sin resultados...</th>
+                            <th scope="row" colspan="8" height="80" class="text-center text-muted"><h3>Sin resultados...</h3></th>
                         </tr>
                     </tbody>
                 </table>

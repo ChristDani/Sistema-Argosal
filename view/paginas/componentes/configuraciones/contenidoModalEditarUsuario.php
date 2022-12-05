@@ -31,8 +31,8 @@
           </div>
           <input hidden type="text" name="claveedit2" id="claveedit2" readonly>
 
-          <!-- <label>Foto FaceId</label>
-          <input type="file" name="fotoedit" id="fotoedit"> -->
+          <label class="d-none">Foto FaceId</label>
+          <input hidden type="file" name="fotoedit" id="fotoedit">
           <input hidden type="text" name="fotoedit1" id="fotoedit1" readonly>
 
           </div>
