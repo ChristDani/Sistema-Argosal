@@ -229,4 +229,5 @@ elseif ($tipoUsuario === "0")
         </div>
     <?php } ?>
 </div>
+<?php include_once "configuraciones/contenidoModalEditarMetas.php"; ?>
 <script src="controller/metas/progres.js"></script>

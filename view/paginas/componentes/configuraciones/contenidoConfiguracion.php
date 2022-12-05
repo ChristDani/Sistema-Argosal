@@ -137,7 +137,6 @@
     <?php } ?>
 </div>
 
-<?php include_once "contenidoModalEditarMetas.php"; ?>
 <?php include_once "contenidoModalEditarUsuario.php"; ?>
 <?php include_once "contenidoModalAñadirUsuario.php"; ?>
 <?php include_once "ContenidoModalInfo.php"; ?>
