@@ -78,7 +78,8 @@
 
 <script src="controller/reportes/listar.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="controller/reportes/statistics.js"></script>
+<script src="controller/reportes/estadisticas.js"></script>
+<!-- <script src="controller/reportes/estadisticas.js?v=01"></script> -->
 
         
 

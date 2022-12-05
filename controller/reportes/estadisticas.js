@@ -1,7 +1,8 @@
 
 function graficobarra(vt,vc,vp,vr)
 {
-  new Chart(bar, {
+  const grafbar = document.getElementById('bar');
+  new Chart(grafbar, {
   type: 'bar',
   data: {
       labels: ['Gestión Total', 'Concretados', 'Pendientes', 'Rechazados'],
@@ -37,7 +38,8 @@ function graficobarra(vt,vc,vp,vr)
 
 function graficopie(vc,vp,vr)
 {
-  new Chart(pie, {
+  const grafpie = document.getElementById('pie');
+  new Chart(grafpie, {
       type: 'pie',
       data: {
           labels: [
@@ -120,13 +122,21 @@ function graficolineas()
   })
 }
 
+function limpiarcanvas() 
+{
+  const lmprbar = document.getElementById('bar');
+  const lmprpie = document.getElementById('pie');
+
+  console.log(lmprbar,lmprpie);
+  
+}
 
 setTimeout(() => {
   let vt = document.getElementById('vt').textContent;
   let vc = document.getElementById('vc').textContent;
   let vp = document.getElementById('vp').textContent;
   let vr = document.getElementById('vr').textContent;
-  
+
   graficobarra(vt,vc,vp,vr);  
   graficopie(vc,vp,vr); 
   graficolineas();
@@ -138,7 +148,7 @@ document.getElementById('fecharequerida').addEventListener("change", function() 
     let vc = document.getElementById('vc').textContent;
     let vp = document.getElementById('vp').textContent;
     let vr = document.getElementById('vr').textContent;
-    
+
     graficobarra(vt,vc,vp,vr);  
     graficopie(vc,vp,vr); 
     graficolineas();
