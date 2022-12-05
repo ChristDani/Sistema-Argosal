@@ -1,6 +1,6 @@
 let paginaActualRM = 1
 
-// getDataRM(paginaActualRM)
+getDataRM(paginaActualRM)
 
 document.getElementById('fecharequerida').addEventListener("change", function() {
     getDataRM(paginaActualRM)
