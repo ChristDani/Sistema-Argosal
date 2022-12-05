@@ -223,10 +223,10 @@ elseif ($tipoUsuario === "0")
         </div>
     </div>
   </div>
-  <div class="offcanvas-footer">
     <?php if ($tipoUsuario === "1") {?>
-        <button type="submit" class="btn btn-primary my-3 ml-4" data-bs-toggle="modal" data-bs-target="#editarMetas">Editar Metas</button>
+        <div class="offcanvas-footer">
+            <button type="submit" class="btn btn-primary my-3 ml-4" data-bs-toggle="modal" data-bs-target="#editarMetas">Editar Metas</button>
+        </div>
     <?php } ?>
-  </div>
 </div>
 <script src="controller/metas/progres.js"></script>

@@ -64,22 +64,8 @@
                     </thead>
                     <tbody id="resultadosRM">
                         <tr>
-                            <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                            <th scope="row" colspan="8" height="80" align="center">Sin resultados...</th>
                         </tr>
-                        <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        </tr>
-                        <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
                     </tbody>
                 </table>
             </div>
