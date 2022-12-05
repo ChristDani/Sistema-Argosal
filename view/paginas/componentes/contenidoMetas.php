@@ -117,6 +117,7 @@ elseif ($tipoUsuario === "0")
 <div class="offcanvas offcanvas-end" tabindex="-1" id="Metas" aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header">
     <h1 class="offcanvas-title" id="offcanvasRightLabel">Progreso del Mes</h1>
+    
     <button type="button" class="btn-close bg-danger" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
@@ -221,6 +222,11 @@ elseif ($tipoUsuario === "0")
             </div>
         </div>
     </div>
+  </div>
+  <div class="offcanvas-footer">
+    <?php if ($tipoUsuario === "1") {?>
+        <button type="submit" class="btn btn-primary my-3 ml-4" data-bs-toggle="modal" data-bs-target="#editarMetas">Editar Metas</button>
+    <?php } ?>
   </div>
 </div>
 <script src="controller/metas/progres.js"></script>
