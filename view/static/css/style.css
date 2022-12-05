@@ -26,6 +26,7 @@ input:focus, select:focus, select, input.form-control:focus, .form-floating sele
     --color-success: #41f1b6;
     --color-warning: #ffbb55;
     --color-white: #fff;
+    --color-black:#202528;
     --color-info-dark: #7d8da1;
     --color-info-light: #dce1eb;
     --color-dark: #363949;
@@ -45,6 +46,7 @@ input:focus, select:focus, select, input.form-control:focus, .form-floating sele
 .dark-theme-variables{
     --color-background: #181a1e;
     --color-white: #202528;
+    --color-black: #fff;
     --color-dark: #edeffd;
     --color-primary:#0d6efd;
     --color-warning: #e9a033 ;
@@ -180,6 +182,14 @@ body{
     text-decoration: none;
     color: var(--color-dark);
 }
+
+.d-flex input[type="date"]{
+    background: var(--color-white);
+    border: none;
+    border-radius: 10px;    
+    color: var(--color-dark);    
+}
+
 
 h1{
     font-weight: 800;

@@ -1,12 +1,15 @@
-<h1>REPORTES</h1>
-
 <p class="d-none" id="vt"></p>
 <p class="d-none" id="vc"></p>
 <p class="d-none" id="vp"></p>
 <p class="d-none" id="vr"></p>
 
+<div class="d-flex gap-3 align-items-start">
+    <h1>REPORTES</h1>
+    <input type="date" class="form-control-sm " name="fecharequerida" id="fecharequerida">
+</div>
 
-<input type="date" name="fecharequerida" id="fecharequerida">
+
+
 
 
 <div class="row">    
