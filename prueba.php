@@ -18,7 +18,7 @@ $datos = json_decode(file_get_contents($linkdni), true);
 </head>
 <body>
     <div style="display:flex; gap:5px;">
-        <input type="text" name="" id="" value="<?php echo $datos["nombres"]; echo $datos["apellidoPaterno"]; echo $datos["apellidoMaterno"];?>">
+        <input type="text" name="" id="" value="<?php echo $datos["nombres"];?> <?php echo $datos["apellidoPaterno"];?> <?php echo $datos["apellidoMaterno"];?>">
         <p></p>
         <p><?php  ?></p>
         <p><?php  ?></p>
