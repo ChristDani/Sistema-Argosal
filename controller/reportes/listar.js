@@ -1,14 +1,21 @@
 let paginaActualRM = 1
 
-// getDataRM(paginaActualRM)
+getDataRM(paginaActualRM)
 
 document.getElementById('fecharequerida').addEventListener("change", function() {
     getDataRM(paginaActualRM)
 }, false)
 
-// document.getElementById('numRegistrosRM').addEventListener("change", function() {
-//     getDataRM(paginaActualRM)
-// }, false)
+document.getElementById('numRegistrosRM').addEventListener("change", function() {
+    getDataRM(paginaActualRM)
+    ahsdgjahdgasd()
+}, false)
+
+
+document.getElementById('busquedaestadoRM').addEventListener("change", function() {
+    getDataRM(paginaActualRM)
+    ahsdgjahdgasd()
+}, false)
 
 function getDataRM(pagina) 
 {
@@ -16,9 +23,11 @@ function getDataRM(pagina)
     let vc = document.getElementById('vc')
     let vp = document.getElementById('vp')
     let vr = document.getElementById('vr')
+    let graficosfeos = document.getElementById('graficosfeos')
     let fecha = document.getElementById('fecharequerida').value
-    // let input = document.getElementById('busquedaVC').value
-    // let select = document.getElementById('numRegistrosVC').value
+    let input = document.getElementById('busquedaRM').value
+    let estado = document.getElementById('busquedaestadoRM').value
+    let select = document.getElementById('numRegistrosRM').value
     let contenido=document.getElementById('resultadosRM')
 
     // verificar si trae los valores
@@ -32,8 +41,9 @@ function getDataRM(pagina)
     let url='controller/reportes/listar.php';
     let formaData = new FormData()
     formaData.append('fecha', fecha)
-    // formaData.append('busqueda', input)
-    // formaData.append('registros', select)
+    formaData.append('busqueda', input)
+    formaData.append('busestate', estado)
+    formaData.append('registros', select)
     formaData.append('pagina', pagina)
 
     fetch(url,{
@@ -46,7 +56,21 @@ function getDataRM(pagina)
         vc.innerHTML=data.vc
         vp.innerHTML=data.vp
         vr.innerHTML=data.vr
-        // document.getElementById('msgVC').innerHTML = data.mensaje
-        // document.getElementById('munVC').innerHTML = data.paginacion
+        graficosfeos.innerHTML=data.graficosfeos
+        document.getElementById('munRM').innerHTML = data.paginacion
     }).catch(err=>console.log(err))
+}
+
+function ahsdgjahdgasd()
+{
+    setTimeout(() => {
+        let vt = document.getElementById('vt').textContent;
+        let vc = document.getElementById('vc').textContent;
+        let vp = document.getElementById('vp').textContent;
+        let vr = document.getElementById('vr').textContent;
+      
+        graficobarra(vt,vc,vp,vr);  
+        graficopie(vc,vp,vr); 
+        graficolineas();
+      }, 500);
 }

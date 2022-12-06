@@ -49,34 +49,45 @@ elseif ($fecharequerida == null)
 
 // en el caso de solo querer determinadas columnas usar esto con el mismo nombre de las columnas...
 $columnas=['codigo','dniAsesor','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','numeroReferencia','sec','tipoFija','planFija','estado','observaciones','promocion','ubicacion','distrito','fechaRegistro','fechaActualizacion'];
-$columnasBus=['codigo','dniAsesor','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','numeroReferencia','sec','tipoFija','planFija','observaciones','promocion','ubicacion','distrito','fechaRegistro','fechaActualizacion'];
+$columnasBus=['codigo','dniAsesor','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','numeroReferencia','sec','tipoFija','planFija','observaciones','promocion','ubicacion','distrito','fechaActualizacion'];
 
 // tabla a seleccionar
 $tabla='whatsapp';
 
 $buscar= isset($_POST['busqueda']) ? $_POST['busqueda'] : null;
-// print_r(getdate());
+$buscarestado= isset($_POST['busestate']) ? $_POST['busestate'] : null;
 
 // busqueda de datos
 $where='';
 if ($fecharequerida != null) 
 {
-    $where.="where (datepart(mm, fechaRegistro)=datepart(mm, '$fecharequerida') and datepart(yyyy, fechaRegistro)=datepart(yyyy, '$fecharequerida'))";
+    $where.="where (datepart(mm, fechaRegistro)=datepart(mm, '$fecharequerida') and datepart(yyyy, fechaRegistro)=datepart(yyyy, '$fecharequerida')) ";
 }
 elseif ($fecharequerida == null) 
 {
-    $where.="where (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate()))";
+    $where.="where (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate())) ";
 }
 
-if ($buscar!=null) {
-    // $buscar=' ';
-    $where=" and ";
+if ($buscarestado != null) {
+    $where.="and estado='".$buscarestado."' ";
+    if ($buscar!=null) {
+        $where.=" and (";
+        $cont= count($columnasBus);
+        for ($i=0; $i < $cont; $i++) { 
+            $where.=$columnasBus[$i]." like '%".$buscar."%' or ";
+        }
+        $where=substr_replace($where, "", -3);
+        $where.=")";
+    }
+}
+elseif ($buscar!=null) {
+    $where.="and (";
     $cont= count($columnasBus);
     for ($i=0; $i < $cont; $i++) { 
         $where.=$columnasBus[$i]." like '%".$buscar."%' or ";
     }
     $where=substr_replace($where, "", -3);
-    // $where.=")";
+    $where.=")";
 }
 
 // limite de registros
@@ -120,6 +131,36 @@ $output['vt']= $vt;
 $output['vc']= $vc;
 $output['vp']= $vp;
 $output['vr']= $vr;
+$output['graficosfeos'] = "";
+$output['graficosfeos'] .= "<div class='col-lg-6'>";
+$output['graficosfeos'] .= "<div class='card'>";
+$output['graficosfeos'] .= "<div class='card-body'>";
+$output['graficosfeos'] .= "<div class='chart-container' style='position: relative; height:50%; width:100%'>";
+$output['graficosfeos'] .= "<canvas id='pie'></canvas>";
+$output['graficosfeos'] .= "</div>";
+$output['graficosfeos'] .= "</div>";
+$output['graficosfeos'] .= "</div>";
+$output['graficosfeos'] .= "</div>";
+$output['graficosfeos'] .= "<div class='col-lg-6'>";
+$output['graficosfeos'] .= "<div class='col'>";
+$output['graficosfeos'] .= "<div class='card'>";
+$output['graficosfeos'] .= "<div class='card-body'>";
+$output['graficosfeos'] .= "<div class='chart-container' style='position: relative; height:45%; width:100%'>";
+$output['graficosfeos'] .= "<canvas id='bar'></canvas>";
+$output['graficosfeos'] .= "</div>";
+$output['graficosfeos'] .= "</div>";
+$output['graficosfeos'] .= "</div>";
+$output['graficosfeos'] .= "</div>";
+$output['graficosfeos'] .= "<div class='col'>";
+$output['graficosfeos'] .= "<div class='card'>";
+$output['graficosfeos'] .= "<div class='card-body'>";
+$output['graficosfeos'] .= "<div class='chart-container' style='position: relative; height:45%; width:100%'>";
+$output['graficosfeos'] .= "<canvas id='line'></canvas>";
+$output['graficosfeos'] .= "</div>";
+$output['graficosfeos'] .= "</div>";
+$output['graficosfeos'] .= "</div>";
+$output['graficosfeos'] .= "</div>";
+$output['graficosfeos'] .= "</div>";
 
 if ($filas>0) {
     $i=$inicio+1;
@@ -154,7 +195,7 @@ if ($filas>0) {
             $output['data'].= "<td align='center'>No Requiere</td>";
         }
         $output['data'].= "<td align='center'>".$fecha."</td>";
-        $output['data'].= "<td align='center' onclick="."abrirModalDetalle('$code');"."><ion-icon name='information-circle-outline'></ion-icon></td>";
+        $output['data'].= "<td align='center'><div data-bs-target='#Detallesreportemes' data-bs-toggle='modal' onclick="."mostrardetallesreportesmes('$code');"."><ion-icon name='information-circle-outline'></ion-icon></div></td>";
         $output['data'].= "</tr>";
         $i+=1;
     }
@@ -186,54 +227,46 @@ if ($totalContar===1) {
         if ($pagFinal>$paginasTotal) {
             $pagFinal =  $paginasTotal;
         }
-    
+        
+        $output['paginacion'] .= "<div class='btn-toolbar mb-3' role='toolbar'><div class='btn-group btn-group-sm' role='group'>";
+        
         // activacion del boton anterior
-    
-        if ($pagina==$pagInicio) {
-            $output['paginacion'] .= "<button disabled onclick='getDataW(".$pagina-1 .");'>Anterior</button>";
-        } else {
-            $output['paginacion'] .= "<button class='activo' onclick='getDataW(".$pagina-1 .");'>Anterior</button>";
-        }
-    
-        $output['paginacion'] .= "<ul>";
-    
+        if ($pagina!=$pagInicio) 
+        {
+            $output['paginacion'] .= "<button type='button' onclick='getDataRM(".$pagina-1 .");ahsdgjahdgasd();' class='btn rounded-5 mx-1 d-flex justify-content-center align-items-center'><ion-icon name='arrow-back-outline'></ion-icon></button>";
+        }  
     
         // pagina inicial anclada
-    
         if ($pagInicio>2) {
-            $output['paginacion'] .= "<li><a href='#' onclick='getDataW(1);'>1</a></li>";
-            $output['paginacion'] .= "<li class='ancla'><a>...</a></li>";
+            $output['paginacion'] .= "<button type='button' class='btn btn-outline-secondary mx-1 rounded-5' onclick='getDataRM(1);ahsdgjahdgasd();'>1</button>";
         }
     
         // paginas dinamicas
-    
         for ($i = $pagInicio; $i <= $pagFinal; $i++) {
-            if ($pagina==$i) {
-                $output['paginacion'] .= "<li class='actual'><a>$i</a></li>";
-            }else {
-                $output['paginacion'] .= "<li><a href='#' onclick='getDataW($i);'>$i</a></li>";
+            if ($pagina==$i) 
+            {
+                $output['paginacion'] .= "<button type='button' class='btn btn-outline-secondary rounded-5 mx-1 active'>$i</button>";
+            }
+            else 
+            {
+                $output['paginacion'] .= "<button type='button' class='btn btn-outline-secondary mx-1 rounded-5' onclick='getDataRM($i);ahsdgjahdgasd();'>$i</button>";
             }
         }
     
         // pagina final anclada
-    
         if ($pagFinal<($paginasTotal-1)) {
-            $output['paginacion'] .= "<li class='ancla'><a>...</a></li>";
-            $output['paginacion'] .= "<li><a href='#' onclick='getDataW($paginasTotal);'>$paginasTotal</a></li>";
+            $output['paginacion'] .= "<button type='button' class='btn btn-outline-secondary mx-1 rounded-5' onclick='getDataRM($paginasTotal);ahsdgjahdgasd();'>$paginasTotal</button>";
         }
     
-        $output['paginacion'] .= "</ul>";
-    
+        
         // activacion del boton siguiente
-    
-        if ($pagina==$pagFinal) {
-            $output['paginacion'] .= "<button disabled onclick='getDataW(".$pagina+1 .");'>Siguiente</button>";
-        } else {
-            $output['paginacion'] .= "<button class='activo' onclick='getDataW(".$pagina+1 .");'>Siguiente</button>";
+        
+        if ($pagina!=$pagFinal) 
+        {
+            $output['paginacion'] .= "<button type='button' onclick='getDataRM(".$pagina+1 .");ahsdgjahdgasd();' class='btn mx-1 d-flex justify-content-center rounded-5 align-items-center'><ion-icon name='arrow-forward-outline'></ion-icon></button>";
         }
+        $output['paginacion'] .= "</div>";
     }
-
-
 }
 
 echo json_encode($output, JSON_UNESCAPED_UNICODE); //por si viene con 'ñ' o tildes...

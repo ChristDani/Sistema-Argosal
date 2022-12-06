@@ -14,12 +14,13 @@
               <div class="d-flex flex-column justify-content-center align-items-center ">
                 <label class="photoedit overflow-hidden">
                   <input type="file" name="fotoPerfiledit" id="fotoPerfiledit">
-                  <img id="fotoPerfiledit1" class="img-fluid rounded-5 overflow-hidden" src="view/static/ProfileIMG/">
+                  <input type="file" name="fotoPerfiledit1" id="fotoPerfiledit1">
+                  <img id="fotoPerfilmuestra" class="img-fluid rounded-5 overflow-hidden">
+                  <img id="fotoPerfileditmuestra" class="img-fluid rounded-5 overflow-hidden d-none">
                 </label>
               </div>
             </div>
           </div>
-      
 
           <div class="form-floating mb-3">
             <input class="form-control" placeholder="Nombre" autocomplete="off" type="text" name="nombreedit" id="nombreedit">
@@ -31,13 +32,13 @@
           </div>
           <input hidden type="text" name="claveedit2" id="claveedit2" readonly>
 
-          <!-- <label>Foto FaceId</label>
-          <input type="file" name="fotoedit" id="fotoedit"> -->
+          <label class="d-none">Foto FaceId</label>
+          <input hidden type="file" name="fotoedit" id="fotoedit">
           <input hidden type="text" name="fotoedit1" id="fotoedit1" readonly>
 
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Editar</button>
+            <button type="submit" class="btn btn-primary">Guardar</button>
           </form>
       </div>
     </div>
