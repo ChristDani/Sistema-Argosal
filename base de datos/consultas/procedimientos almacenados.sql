@@ -23,11 +23,10 @@ go
 	@dni char(8),
 	@nombre char(50),
 	@clave char(40),
-	@foto char(100),
 	@fotoPerfil char(100)
 	as
 	begin
-		update usuarios set nombre=@nombre, clave=@clave, foto=@foto, fotoPerfil=@fotoPerfil where dni=@dni
+		update usuarios set nombre=@nombre, clave=@clave, fotoPerfil=@fotoPerfil where dni=@dni
 	end 
 	go
 
@@ -89,6 +88,18 @@ go
 	as
 	begin
 		update usuarios set estado='3' where dni=@dni
+	end 
+	go
+
+	-- reactivar usuario --
+	--drop procedure if exists sp_reactivar_usuario
+	create procedure sp_reactivar_usuario
+	@dni char(8)
+	as
+	begin
+		declare @fecha datetime;
+		set @fecha = getdate();
+		update usuarios set clave='7c4a8d09ca3762af61e59520943dc26494f8941b', tipo='0', fotoPerfil='default.png', estado='0', activo='1', fechaRegistro=@fecha where dni=@dni
 	end 
 	go
 

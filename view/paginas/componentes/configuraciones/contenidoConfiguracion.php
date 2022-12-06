@@ -35,7 +35,7 @@
                     </div>   
                     <div class="align-items-baseline d-flex justify-content-between my-2">
                         <h4 class="text-muted text-center">Desde<?php echo " $configFechaUser"; ?></h4>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditarUsuario" onclick="editarUsuario('<?php echo$configdniUser;?>','<?php echo$configNombreUser;?>','<?php echo$configClaveUser;?>','<?php echo$configFaceUser;?>','<?php echo$configfotoUser;?>');">Editar</button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditarUsuario" onclick="editarUsuario('<?php echo$configdniUser;?>','<?php echo$configNombreUser;?>','<?php echo$configClaveUser;?>','<?php echo$configfotoUser;?>');">Editar</button>
                     </div>                     
                 </div>
             </div>
@@ -99,17 +99,17 @@
                                 { ?>
                                     <div class="row">
                                         <a class="delete btn col d-flex gap-1 align-items-center my-1" data-bs-toggle="modal" data-bs-target="#InfoUser" onclick="infoUsuario('<?php echo$u[0];?>','<?php echo trim($u[1]);?>','<?php echo trim($u[3]);?>');">
-                                        <?php if ($u[6] === "0") { ?>
-                                            <div class="profile-photo secondary-bc rounded-circle img-fluid" style="background-image: url('view/static/ProfileIMG/<?php echo trim($u[7]);?>');">
+                                        <?php if ($u[5] === "0") { ?>
+                                            <div class="profile-photo secondary-bc rounded-circle img-fluid" style="background-image: url('view/static/ProfileIMG/<?php echo trim($u[6]);?>');">
                                             </div>
-                                        <?php }elseif ($u[6] === "1") { ?>
-                                            <div class="profile-photo success-bc rounded-circle img-fluid" style="background-image: url('view/static/ProfileIMG/<?php echo trim($u[7]);?>');">
+                                        <?php }elseif ($u[5] === "1") { ?>
+                                            <div class="profile-photo success-bc rounded-circle img-fluid" style="background-image: url('view/static/ProfileIMG/<?php echo trim($u[6]);?>');">
                                             </div>
-                                        <?php }elseif ($u[6] === "2") { ?>
-                                            <div class="profile-photo warning-bc rounded-circle img-fluid" style="background-image: url('view/static/ProfileIMG/<?php echo trim($u[7]);?>');">
+                                        <?php }elseif ($u[5] === "2") { ?>
+                                            <div class="profile-photo warning-bc rounded-circle img-fluid" style="background-image: url('view/static/ProfileIMG/<?php echo trim($u[6]);?>');">
                                             </div>
-                                        <?php }elseif ($u[6] === "3") { ?>
-                                            <div class="profile-photo danger-bc" style="background-image: url('view/static/ProfileIMG/<?php echo trim($u[7]);?>');">
+                                        <?php }elseif ($u[5] === "3") { ?>
+                                            <div class="profile-photo danger-bc" style="background-image: url('view/static/ProfileIMG/<?php echo trim($u[6]);?>');">
                                             </div>
                                         <?php } ?> 
                                         <h2><?php echo strtoupper($u[1]); ?></h2>            
@@ -131,17 +131,17 @@
                                 { ?>
                                     <div class="row">
                                         <a class="delete btn col d-flex gap-1 align-items-center my-1" data-bs-toggle="modal" data-bs-target="#InfoUser" onclick="infoUsuarioModera('<?php echo$u[0];?>','<?php echo trim($u[3]);?>');">
-                                        <?php if ($u[6] === "0") { ?>
-                                            <div class="profile-photo secondary-bc rounded-circle img-fluid" style="background-image: url('view/static/ProfileIMG/<?php echo trim($u[7]);?>');">
+                                        <?php if ($u[5] === "0") { ?>
+                                            <div class="profile-photo secondary-bc rounded-circle img-fluid" style="background-image: url('view/static/ProfileIMG/<?php echo trim($u[6]);?>');">
                                             </div>
-                                        <?php }elseif ($u[6] === "1") { ?>
-                                            <div class="profile-photo success-bc rounded-circle img-fluid" style="background-image: url('view/static/ProfileIMG/<?php echo trim($u[7]);?>');">
+                                        <?php }elseif ($u[5] === "1") { ?>
+                                            <div class="profile-photo success-bc rounded-circle img-fluid" style="background-image: url('view/static/ProfileIMG/<?php echo trim($u[6]);?>');">
                                             </div>
-                                        <?php }elseif ($u[6] === "2") { ?>
-                                            <div class="profile-photo warning-bc rounded-circle img-fluid" style="background-image: url('view/static/ProfileIMG/<?php echo trim($u[7]);?>');">
+                                        <?php }elseif ($u[5] === "2") { ?>
+                                            <div class="profile-photo warning-bc rounded-circle img-fluid" style="background-image: url('view/static/ProfileIMG/<?php echo trim($u[6]);?>');">
                                             </div>
-                                        <?php }elseif ($u[6] === "3") { ?>
-                                            <div class="profile-photo danger-bc" style="background-image: url('view/static/ProfileIMG/<?php echo trim($u[7]);?>');">
+                                        <?php }elseif ($u[5] === "3") { ?>
+                                            <div class="profile-photo danger-bc" style="background-image: url('view/static/ProfileIMG/<?php echo trim($u[6]);?>');">
                                             </div>
                                         <?php } ?> 
                                         <h2><?php echo strtoupper($u[1]); ?></h2>            

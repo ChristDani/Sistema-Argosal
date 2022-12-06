@@ -116,7 +116,7 @@ elseif ($tipoUsuario === "0")
                                     foreach ($listar as $x)
                                     {
                                         if ($x[0] === $dniUsuario)
-                                        { $fotoUsuario = trim($x[7]);?>
+                                        { $fotoUsuario = trim($x[6]);?>
                                 <?php } } } ?>
                                 <div class="profile-photo rounded-5" style="background-image: url('view/static/ProfileIMG/<?php echo $fotoUsuario;?>');"></div>
                                 <h3><?php echo $nombreUsuario; ?></h3>
@@ -140,7 +140,7 @@ elseif ($tipoUsuario === "0")
                                 {
                                     if ($x[0] === $dniUsuario)
                                     {
-                                        if ($x[6] === "0")
+                                        if ($x[5] === "0")
                                         
                                         {?>
                                             <div class="dropdown">
@@ -156,7 +156,7 @@ elseif ($tipoUsuario === "0")
                                                 </ul>
                                             </div>
                         <?php           }
-                                        elseif($x[6] === "1")
+                                        elseif($x[5] === "1")
                                         {?>
 
                                             <div class="dropdown">
@@ -172,7 +172,7 @@ elseif ($tipoUsuario === "0")
                                                 </ul>
                                             </div>
                         <?php           }
-                                        elseif($x[6] === "2")
+                                        elseif($x[5] === "2")
                                         {?>
                                             <div class="dropdown">
                                                 <a class="btn btn-sm dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -188,7 +188,7 @@ elseif ($tipoUsuario === "0")
                                             </div>
 
                         <?php           }
-                                        elseif($x[6] === "3")
+                                        elseif($x[5] === "3")
                                         {?>
                                             <div class="dropdown">
                                                 <a class="btn btn-sm dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

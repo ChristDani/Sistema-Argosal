@@ -70,13 +70,12 @@ function infoUsuarioModera(codigo,tipo)
     }).catch(err=>console.log(err))
 }
 
-function editarUsuario(dni,nombre,clave,foto,fotoPerfil) 
+function editarUsuario(dni,nombre,clave,fotoPerfil) 
 {
     document.getElementById('dniedit').value=dni
     document.getElementById('nombreedit').value=nombre
     document.getElementById('claveedit2').value=clave
-    document.getElementById('fotoedit1').value=foto
-    document.getElementById('fotoPerfiledit1').value=foto
+    document.getElementById('fotoPerfiledit1').value=fotoPerfil
     document.getElementById('fotoPerfilmuestra').src="view/static/ProfileIMG/"+fotoPerfil;
 }
 

@@ -53,35 +53,3 @@
 <script src="view/static/js/login.js"></script>    
 </body>
 </html>
-
-<!-- <div class="container">
-    <div class="row">
-        <div class="col d-flex">
-            <div class="login-card card" style="width:21rem;">
-                <div class="card-body">
-                    <div class="login-card-header">
-                        <h1>Iniciar sesion</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col d-flex justify-content-center align-items-center">
-            <div class="hours card" style="width:16rem;">
-                <div class="card-body date">
-                    <div class="row  align-items-center">
-                        <div class="col">
-                            <h1 id="hora"></h1>
-                        </div>
-                        <div class="col">
-                            <h1 id="min"></h1>
-                        </div>
-                        <div class="col two text-center">
-                            <h1 id="second"></h1>                            
-                            <h1 id="pre"></h1>
-                        </div>
-                    </div>                        
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->

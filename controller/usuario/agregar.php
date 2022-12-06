@@ -6,11 +6,17 @@ $dni = $_POST['dni'];
 $nombre = $_POST['nombre'];
 $clave = sha1($_POST['clave']);
 $tipo = $_POST['tipo'];
-// $foto = $_FILES['foto']['name'];
-//     $dirfinal = "../../view/static/imgFaceId/".$foto;
-//     copy($_FILES['foto']['tmp_name'],$dirfinal);
 
-$model->insertarUsuario($dni,$nombre,$clave,$tipo);
+$bus = $model->buscarUser($dni);
+
+if ($bus != null) 
+{
+    $model->reactivar($dni);
+}
+else 
+{
+    $model->insertarUsuario($dni,$nombre,$clave,$tipo);
+}
 ?>
 <script>
     window.history.back();

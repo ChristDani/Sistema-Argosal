@@ -16,7 +16,7 @@ if ($filas2 != null)
 		$tusu=$columna[1];
 		$tclave = $columna[2];
 		$ttipo = $columna[3];
-		$tactivo = $columna[8];
+		$tactivo = $columna[7];
 	}
 	if(($dni == $tdni) && ($clave == $tclave) && ($tactivo == "1"))
 	{

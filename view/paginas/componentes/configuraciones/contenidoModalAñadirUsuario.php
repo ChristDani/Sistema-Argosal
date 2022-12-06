@@ -27,7 +27,6 @@
             </select>
             <label for="tipo">Tipo de Usuario</label>
           </div>
-          <!-- <input required type="file" name="foto" id="foto"> -->
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary">Agregar</button>

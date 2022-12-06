@@ -13,9 +13,9 @@ if ($userdetecte != null)
         $detectedniUser = $udt[0];
         $detecteNombreUser = trim($udt[1]);
         $detecteTipoUser = $udt[3];
-        $detecteFechaUser = $udt[5]->format('l j \of F Y h:i:s A');
-        $detecteEstadoUser = $udt[6];
-        $detectefotoUser = trim($udt[7]);
+        $detecteFechaUser = $udt[4]->format('l j \of F Y h:i:s A');
+        $detecteEstadoUser = $udt[5];
+        $detectefotoUser = trim($udt[6]);
     }
 }
 

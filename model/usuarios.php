@@ -50,17 +50,30 @@ class user
         return "Usuario agregado con exito";
     }
 
-    public function editarUsuario($dni,$nombre,$clave,$foto,$fotoPerfil)
+    public function editarUsuario($dni,$nombre,$clave,$fotoPerfil)
     {
         $model=new conexion();
         $con=$model->conectar();
         
-        $sql="exec sp_editar_usuario '$dni','$nombre','$clave','$foto','$fotoPerfil'";
+        $sql="exec sp_editar_usuario '$dni','$nombre','$clave','$fotoPerfil'";
 
 		$rs=sqlsrv_query($con,$sql);
 
 		$con=$model->desconectar();
         return "Usuario editado";
+    }
+
+    public function reactivar($dni)
+    {
+        $model=new conexion();
+        $con=$model->conectar();
+        
+        $sql="exec sp_reactivar_usuario '$dni'";
+
+		$rs=sqlsrv_query($con,$sql);
+
+		$con=$model->desconectar();
+        return "Usuario reactivado";
     }
 
     public function cambiarTipoUsuario($dni,$tipo)
