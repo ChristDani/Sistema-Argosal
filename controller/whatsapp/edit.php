@@ -103,7 +103,7 @@ if ($filas>0) {
                     {
                         $output['data'] .= "<option selected hidden value='".$x[0]."'>".$x[1]."</option>";
                     }
-                    elseif ($x[0] != $asesor)
+                    elseif ($x[0] != $asesor && $x[3] === "0")
                     {
                         $output['data'] .= "<option value='".$x[0]."'>".$x[1]."</option>";
                     }
@@ -136,7 +136,7 @@ if ($filas>0) {
         
         // nombre
         $output['data'].= "<div class='form-floating mb-3'>";
-        $output['data'].= "<input class='form-control' type='text' name='nombre' id='nombre' value='$nombre'>";
+        $output['data'].= "<input class='form-control nombrearr' type='text' name='nombre' id='nombre' value='$nombre'>";
         $output['data'].= "<label for='nombre'>Nombre</label>";
         $output['data'].= "</div> ";
 
@@ -172,7 +172,7 @@ if ($filas>0) {
 
         $output['data'].= "<div class='col-lg-6'>";
         $output['data'].= "<div class='form-floating mb-3'>";
-        $output['data'].= "<input class='form-control' type='text' name='dni' id='dni' value='$dni'>";
+        $output['data'].= "<input class='form-control dniarr' type='text' name='dni' id='dni' value='$dni' onkeyup='arreglarnombreeditar();'>";
         $output['data'].= "<label for='dni'>DNI</label>";
         $output['data'].= "</div> ";        
         $output['data'] .= "</div> ";

@@ -52,10 +52,10 @@ $con=$model->desconectar();
                                     {?>
                                         <option selected hidden value="<?php echo $x[0]; ?>"><?php echo $x[1]; ?></option>
                                 <?php    }
-                                    elseif ($x[0] != $dniUsuario)
+                                    elseif ($x[0] != $dniUsuario && $x[3] === "0")
                                     {?>
                                         <option value="<?php echo $x[0]; ?>"><?php echo $x[1]; ?></option>
-                        <?php            }
+                        <?php       }
                                 }
                             }?>
                             </select>
@@ -68,7 +68,7 @@ $con=$model->desconectar();
                     </div>
                     
                     <div class="form-floating mb-3 d-none" id="ddni">                
-                        <input class="form-control" autocomplete="off" type="text" name="dni" id="dni" maxlength=8 placeholder="DNI del cliente..." onkeyup="mostrarTelefonoRef()" required oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
+                        <input class="form-control" autocomplete="off" type="text" name="dni" id="dni" maxlength=8 placeholder="DNI del cliente..." onkeyup="mostrarTelefonoRef();arreglarnombre();" required oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
                         <label for="dni">DNI</label>
                     </div>
                     
@@ -256,3 +256,29 @@ $con=$model->desconectar();
     </div>
   </div>
 </div>
+<script>
+
+    function arreglarnombre()
+    {
+        let dni = document.getElementById('dni');
+        let nombre = document.getElementById('nombre');
+        
+        if (dni.value.length == 8) 
+        { 
+            let url='controller/whatsapp/arreglarnombre.php';
+            let formaData = new FormData()
+            formaData.append('dni', dni.value)
+    
+            fetch(url,{
+                method: "POST",
+                body: formaData
+            }).then(response=>response.json())
+            .then(data=>{
+                nombre.value=data.data.nombres+" "+data.data.apellidoPaterno+" "+data.data.apellidoMaterno;
+            }).catch(err=>console.log(err))
+        }
+
+
+    }
+
+</script>
