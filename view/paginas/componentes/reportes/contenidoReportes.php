@@ -25,6 +25,11 @@
                             <p class="mx-1" for="numRegistrosRM">Registros</p>
                         </div>
                     </div>
+                    <div class="col d-flex justify-content-center align-items-center">
+                        <a class="btn success-bg" href="controller/reportes/excel.php?fecha=">
+                            <div>Excel</div>
+                        </a>
+                    </div>
                     <div class="col d-flex justify-content-end align-items-center">
                         <div class="form-floating">
                             <select class="form-select" aria-label="Floating label select example" name="busquedaestadoRM" id="busquedaestadoRM">

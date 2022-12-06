@@ -4,22 +4,19 @@ require_once '../../model/conexion.php';
 $model=new conexion();
 $con=$model->conectar();
 
+$fecharequerida= !empty($_GET['fecha']) ? $_GET['fecha'] : getdate();
+
 $columnas = ['w.codigo','u.nombre','w.nombre','w.dni','w.telefono','w.producto','w.lineaProcedente','w.operadorCedente','w.modalidad','w.tipo','w.planR','w.equipo','w.formaDePago','w.numeroReferencia','w.sec','w.tipoFija','w.planFija','w.modoFija','w.estado','observaciones','w.promocion','w.ubicacion','w.distrito','w.fechaRegistro','w.fechaActualizacion'];
 
 $tabla = 'whatsapp as w inner join usuarios as u on w.dniAsesor=u.dni';
 
-$buscar= isset($_POST['busqueda']) ? $_POST['busqueda'] : null;
-
-$where='';
-
-if ($buscar!=null) {
-    $where="where (";
-    $cont= count($columnas);
-    for ($i=0; $i < $cont; $i++) { 
-        $where.=$columnas[$i]." like '%".$buscar."%' or ";
-    }
-    $where=substr_replace($where, "", -3);
-    $where.=")";
+if ($fecharequerida != null) 
+{
+    $where=' where (datepart(mm, fechaRegistro)=datepart(mm, '$fecharequerida') and datepart(yyyy, fechaRegistro)=datepart(yyyy, '$fecharequerida'))';
+}
+elseif ($fecharequerida == null) 
+{
+    $where=' where (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate()))';
 }
 
 $sql = "select ".implode(", ", $columnas)." from $tabla $where order by codigo asc";
@@ -29,8 +26,14 @@ $resultado=sqlsrv_query($con,$sql, array(), array("Scrollable"=>"buffered"));
 
 $filas = sqlsrv_num_rows($resultado);
 header("Content-Type: application/vnd.ms-excel; charset=iso-8859-1");
-// header("Content-Disposition: attachment; filename=$nombre");
-header("Content-Disposition: attachment; filename=Ventas-Whatsapp.xls");
+if ($fecharequerida != null) 
+{
+    header("Content-Disposition: attachment; filename=Ventas-Whatsapp-de-$fecharequerida.xls");
+}
+elseif ($fecharequerida == null) 
+{
+    header("Content-Disposition: attachment; filename=Ventas-Whatsapp-Mes-Actual.xls");
+}
 ?>
 <table border="1">
     <thead>

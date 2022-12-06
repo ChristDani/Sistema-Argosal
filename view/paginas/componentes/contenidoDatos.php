@@ -18,9 +18,6 @@
             <a class="btn success-bg" href="controller/masiva/excel.php">
                 <div>Excel</div>
             </a>
-            <!-- <a href="#" class="btn success-bg" onclick="exportarExcel('Data-Masiva.xls')">
-                <div>Excel</div>
-            </a> -->
         </div>
         <div class="col d-flex justify-content-end align-items-center">
             <div class="form-floating">
