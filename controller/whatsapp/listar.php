@@ -256,8 +256,6 @@ if ($totalContar===1) {
         }
         $output['paginacion'] .= "</div>";
     }
-
-
 }
 
 echo json_encode($output, JSON_UNESCAPED_UNICODE); //por si viene con 'ñ' o tildes...

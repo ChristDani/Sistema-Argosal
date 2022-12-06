@@ -445,8 +445,6 @@ if ($filas>0) {
             $output['data'].= "</div> ";
             $output['data'].= "</div> ";
         }
-
-
         $output['data'].= "</div>";
     }
 }

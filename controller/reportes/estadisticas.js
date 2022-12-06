@@ -122,6 +122,17 @@ function graficolineas()
   })
 }
 
+setTimeout(() => {
+  let vt = document.getElementById('vt').textContent;
+  let vc = document.getElementById('vc').textContent;
+  let vp = document.getElementById('vp').textContent;
+  let vr = document.getElementById('vr').textContent;
+
+  graficobarra(vt,vc,vp,vr);  
+  graficopie(vc,vp,vr); 
+  graficolineas();
+}, 500);
+
 document.getElementById('fecharequerida').addEventListener("change", function() {
   setTimeout(() => {
     let vt = document.getElementById('vt').textContent;

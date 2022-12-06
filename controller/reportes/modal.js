@@ -1,17 +1,10 @@
-let modal = document.getElementById('modalDetalleMetas');
-let contenedorModal = document.getElementById('contenedorModalDetalleMetas');
 
-function abrirModalDetalle(codigo) {
+function mostrardetallesreportesmes(codigo) {
     // obtenemos el div donde poner los datos
-    let contenidoD = document.getElementById('detallesMetas')
-    // abrimos el modal
-    contenedorModal.style.display='flex';
-    setTimeout(function () {
-        modal.classList.toggle("modalClose");
-    },80)
+    let contenidoD = document.getElementById('detallesReportesMes')
 
     //mandamos la posicion al controller
-    let url='controller/metas/detalle.php';
+    let url='controller/reportes/detalle.php';
     let formaData = new FormData()
     formaData.append('codigo', codigo)
 
