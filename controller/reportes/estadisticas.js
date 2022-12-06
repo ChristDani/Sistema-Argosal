@@ -83,7 +83,7 @@ function graficolineas()
                   tension:0.4
               }, {
                   label: 'Cubic interpolation',
-                  data: [0, 20, 20, 60, 60, 120, NaN, 180, 120, 125, 105, 110, 170],
+                  data: [20,0,30,89,47,15,56,45,21,85,56,542,5,5,5,5,2,5,2,144,5,5,2,],
                   borderColor: 'blue',
                   fill: false,
                   tension: 0.4
