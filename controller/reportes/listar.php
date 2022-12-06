@@ -49,33 +49,45 @@ elseif ($fecharequerida == null)
 
 // en el caso de solo querer determinadas columnas usar esto con el mismo nombre de las columnas...
 $columnas=['codigo','dniAsesor','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','numeroReferencia','sec','tipoFija','planFija','estado','observaciones','promocion','ubicacion','distrito','fechaRegistro','fechaActualizacion'];
-$columnasBus=['codigo','dniAsesor','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','numeroReferencia','sec','tipoFija','planFija','observaciones','promocion','ubicacion','distrito','fechaRegistro','fechaActualizacion'];
+$columnasBus=['codigo','dniAsesor','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','numeroReferencia','sec','tipoFija','planFija','observaciones','promocion','ubicacion','distrito','fechaActualizacion'];
 
 // tabla a seleccionar
 $tabla='whatsapp';
 
 $buscar= isset($_POST['busqueda']) ? $_POST['busqueda'] : null;
+$buscarestado= isset($_POST['busestate']) ? $_POST['busestate'] : null;
 
 // busqueda de datos
 $where='';
 if ($fecharequerida != null) 
 {
-    $where.="where (datepart(mm, fechaRegistro)=datepart(mm, '$fecharequerida') and datepart(yyyy, fechaRegistro)=datepart(yyyy, '$fecharequerida'))";
+    $where.="where (datepart(mm, fechaRegistro)=datepart(mm, '$fecharequerida') and datepart(yyyy, fechaRegistro)=datepart(yyyy, '$fecharequerida')) ";
 }
 elseif ($fecharequerida == null) 
 {
-    $where.="where (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate()))";
+    $where.="where (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate())) ";
 }
 
-if ($buscar!=null) {
-    // $buscar=' ';
-    $where=" and ";
+if ($buscarestado != null) {
+    $where.="and estado='".$buscarestado."' ";
+    if ($buscar!=null) {
+        $where.=" and (";
+        $cont= count($columnasBus);
+        for ($i=0; $i < $cont; $i++) { 
+            $where.=$columnasBus[$i]." like '%".$buscar."%' or ";
+        }
+        $where=substr_replace($where, "", -3);
+        $where.=")";
+    }
+}
+elseif ($buscar!=null) {
+    $where.="and (";
     $cont= count($columnasBus);
     for ($i=0; $i < $cont; $i++) { 
         $where.=$columnasBus[$i]." like '%".$buscar."%' or ";
     }
     $where=substr_replace($where, "", -3);
-    // $where.=")";
+    $where.=")";
 }
 
 // limite de registros
