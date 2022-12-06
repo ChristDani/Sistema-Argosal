@@ -98,11 +98,7 @@
                                 if ($u[0] != $dniUsuario) 
                                 { ?>
                                     <div class="row">
-                                    <?php if ($tipoUsuario === "1") {?>
                                         <a class="delete btn col d-flex gap-1 align-items-center my-1" data-bs-toggle="modal" data-bs-target="#InfoUser" onclick="infoUsuario('<?php echo$u[0];?>','<?php echo trim($u[1]);?>','<?php echo trim($u[3]);?>');">
-                                    <?php } elseif ($tipoUsuario === "2") {?>
-                                        <a class="delete btn col d-flex gap-1 align-items-center my-1" data-bs-toggle="modal" data-bs-target="#InfoUser" onclick="infoUsuarioModera('<?php echo$u[0];?>','<?php echo trim($u[3]);?>');">
-                                    <?php }?>
                                         <?php if ($u[6] === "0") { ?>
                                             <div class="profile-photo secondary-bc rounded-circle img-fluid" style="background-image: url('view/static/ProfileIMG/<?php echo trim($u[7]);?>');">
                                             </div>
@@ -134,11 +130,7 @@
                                 if ($u[0] != $dniUsuario && $u[3] === "0") 
                                 { ?>
                                     <div class="row">
-                                    <?php if ($tipoUsuario === "1") {?>
-                                        <a class="delete btn col d-flex gap-1 align-items-center my-1" data-bs-toggle="modal" data-bs-target="#InfoUser" onclick="infoUsuario('<?php echo$u[0];?>','<?php echo trim($u[1]);?>','<?php echo trim($u[3]);?>');">
-                                    <?php } elseif ($tipoUsuario === "2") {?>
                                         <a class="delete btn col d-flex gap-1 align-items-center my-1" data-bs-toggle="modal" data-bs-target="#InfoUser" onclick="infoUsuarioModera('<?php echo$u[0];?>','<?php echo trim($u[3]);?>');">
-                                    <?php }?>
                                         <?php if ($u[6] === "0") { ?>
                                             <div class="profile-photo secondary-bc rounded-circle img-fluid" style="background-image: url('view/static/ProfileIMG/<?php echo trim($u[7]);?>');">
                                             </div>
