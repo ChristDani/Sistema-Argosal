@@ -82,26 +82,25 @@ function editarUsuario(dni,nombre,clave,foto,fotoPerfil)
 
 document.getElementById('fotoPerfiledit').addEventListener("change", function() {
 
-    function readImage (input) {
+    function readImage(input) 
+    {
         if (input.files && input.files[0]) {
-          var reader = new FileReader();
-          reader.onload = function (e) {
-              $('#fotoPerfileditmuestra').attr('src', e.target.result); // Renderizamos la imagen
-          }
-          reader.readAsDataURL(input.files[0]);
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#fotoPerfileditmuestra').attr('src', e.target.result); // Renderizamos la imagen
+            }
+            reader.readAsDataURL(input.files[0]);
         }
-      }
+    }
     
-      $("#fotoPerfiledit").change(function () {
-        // Código a ejecutar cuando se detecta un cambio de archivO
-        readImage(this);
-      });
-      readImage(hdsjfcjsdf);
+    $("#fotoPerfiledit").change(function () {
+    // Código a ejecutar cuando se detecta un cambio de archivO
+    readImage(this);
+    });
+    let hdsjfcjsdf = document.getElementById('fotoPerfiledit');
+    readImage(hdsjfcjsdf);
 
-    // let hdsjfcjsdf = document.getElementById('fotoPerfiledit');
-    // let URLimagen = readImage(hdsjfcjsdf);
     document.getElementById('fotoPerfilmuestra').classList.add('d-none');
-    // document.getElementById('fotoPerfileditmuestra').src=""+URLimagen;
     document.getElementById('fotoPerfileditmuestra').classList.remove('d-none');
 }, false)
 
