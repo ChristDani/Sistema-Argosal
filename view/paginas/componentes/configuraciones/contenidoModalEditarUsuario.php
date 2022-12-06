@@ -14,7 +14,9 @@
               <div class="d-flex flex-column justify-content-center align-items-center ">
                 <label class="photoedit overflow-hidden">
                   <input type="file" name="fotoPerfiledit" id="fotoPerfiledit">
-                  <img id="fotoPerfiledit1" class="img-fluid rounded-5 overflow-hidden" src="view/static/ProfileIMG/">
+                  <input type="file" name="fotoPerfiledit1" id="fotoPerfiledit1">
+                  <img id="fotoPerfilmuestra" class="img-fluid rounded-5 overflow-hidden">
+                  <img id="fotoPerfileditmuestra" class="img-fluid rounded-5 overflow-hidden d-none">
                 </label>
               </div>
             </div>

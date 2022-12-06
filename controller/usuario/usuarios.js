@@ -76,8 +76,15 @@ function editarUsuario(dni,nombre,clave,foto,fotoPerfil)
     document.getElementById('nombreedit').value=nombre
     document.getElementById('claveedit2').value=clave
     document.getElementById('fotoedit1').value=foto
-    document.getElementById('fotoPerfiledit1').src="view/static/ProfileIMG/"+fotoPerfil;
+    document.getElementById('fotoPerfiledit1').value=foto
+    document.getElementById('fotoPerfilmuestra').src="view/static/ProfileIMG/"+fotoPerfil;
 }
+
+document.getElementById('fotoPerfiledit').addEventListener("change", function() {
+    document.getElementById('fotoPerfilmuestra').classList.add('d-none');
+    document.getElementById('fotoPerfileditmuestra').src=""+document.getElementById('fotoPerfiledit').value;
+    document.getElementById('fotoPerfileditmuestra').classList.remove('d-none');
+}, false)
 
 function cambiarTipoUser(codigo,nombre,tipo) 
 {

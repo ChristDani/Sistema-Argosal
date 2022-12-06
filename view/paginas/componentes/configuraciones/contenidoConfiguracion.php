@@ -48,7 +48,7 @@
                         <div class="col-lg-6 mb-3">
                             <h1>Productos</h1>
                             <label class="filein align-items-center d-grid filein justify-content-center p-lg-5 p-sm-0">
-                                <input type="file" name="" id="">
+                                <input type="file" name="productos" id="productos">
                                 <h3>SUBIR</h3>
                             </label>
                         </div>
