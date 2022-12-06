@@ -21,7 +21,6 @@
               </div>
             </div>
           </div>
-      
 
           <div class="form-floating mb-3">
             <input class="form-control" placeholder="Nombre" autocomplete="off" type="text" name="nombreedit" id="nombreedit">

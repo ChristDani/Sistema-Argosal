@@ -6,18 +6,19 @@
 		public function conectar()
 		{			
 			// resto
-			$server="localhost";
-			$conexion=array("Database"=>"Argosal",
-							"UID"=>"sa",
-							"PWD"=>"123456",
-							"CharacterSet"=>"UTF-8");
+			// $server="localhost";
+			// $conexion=array("Database"=>"Argosal",
+			// 				"UID"=>"sa",
+			// 				"PWD"=>"123456",
+			// 				"CharacterSet"=>"UTF-8");
 
 			// christian
-			// $server="192.168.0.233";
-			// $conexion=array("Database"=>"Argosal",
-			// 				"UID"=>"paraclase",
-			// 				"PWD"=>"12345",
-			// 				"CharacterSet"=>"UTF-8");
+			$server="192.168.0.233";
+			// $server="192.168.0.226";
+			$conexion=array("Database"=>"Argosal",
+							"UID"=>"paraclase",
+							"PWD"=>"12345",
+							"CharacterSet"=>"UTF-8");
 
 			$con=sqlsrv_connect($server,$conexion);
 
