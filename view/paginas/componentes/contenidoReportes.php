@@ -16,7 +16,7 @@
     <div class="col-lg-6">
         <div class="card">
             <div class="card-body">
-                <div class="chart-container" style="position: relative; height:50%; width:100%">
+                <div class="chart-container" style="position: relative; height:80%; width:100%">
                     <canvas id="pie"></canvas>
                 </div>
             </div>

@@ -475,12 +475,13 @@ b{
 
 .photoedit:after{
     content: "Cambiar Foto";
-    width: 100%;
+    width: 95%;
     height: 15%;
+    margin: 0 auto;
+    border-radius: 10px 10px 0 0;
     font-size: 1rem;
-    color: var(--color-light);
-    background: rgb(255 255 255 /10%);
-    backdrop-filter: blur(10px);
+    color: var(--color-background);
+    background: var(--color-black);
     position: absolute;
     inset: 0;
     display: grid;
