@@ -4,7 +4,7 @@ require_once '../../model/conexion.php';
 $model=new conexion();
 $con=$model->conectar();
 
-$columnas = ['documento','nombre','tel_Fijo','celular','fechaActivacion','operador','tipo_plan','direccion','distrito','provincia','departamento','fechaRegistro'];
+$columnas = ['documento', 'nombre', 'tel_Fijo', 'celular', 'fechaActivacion', 'operador', 'tipo_plan', 'direccion', 'distrito', 'provincia', 'departamento', 'fechaRegistro'];
 
 $tabla = "masiva";
 
@@ -23,10 +23,11 @@ if ($buscar!=null) {
     $where.=")";
 }
 
-$sql = "select ".implode(", ", $columnas)." from $tabla $where order by documento asc";
+$sql = "select ".implode(", ", $columnas)." from $tabla $where order by documento desc";
 // echo $sql;
 
-$resultado=sqlsrv_query($con,$sql, array(), array("Scrollable"=>"buffered"));
+// $resultado=sqlsrv_query($con,$sql, array(), array("Scrollable"=>"buffered"));
+$resultado=sqlsrv_query($con,$sql, array(), array("Scrollable"=>SQLSRV_CURSOR_KEYSET));
 
 $filas = sqlsrv_num_rows($resultado);
 header("Content-Type: application/vnd.ms-excel; charset=iso-8859-1");
@@ -36,18 +37,18 @@ header("Content-Disposition: attachment; filename=Data-Masiva.xls");
 <table border="1">
     <thead>
         <tr>
-            <th>documento</th>
-            <th>nombre</th>
-            <th>tel_Fijo</th>
-            <th>celular</th>
-            <th>fechaActivacion</th>
-            <th>operador</th>
-            <th>tipo_plan</th>
-            <th>direccion</th>
-            <th>distrito</th>
-            <th>provincia</th>
-            <th>departamento</th>
-            <th>fechaRegistro</th>
+            <th>Documento</th>
+            <th>Nombre</th>
+            <th>Telefono Fijo</th>
+            <th>Celular</th>
+            <th>Fecha de Activacion</th>
+            <th>Operador</th>
+            <th>Tipo de Plan</th>
+            <th>Direccion</th>
+            <th>Distrito</th>
+            <th>Provincia</th>
+            <th>Departamento</th>
+            <th>Fecha de Registro</th>
         </tr>
     </thead>
     <tbody>
@@ -61,14 +62,14 @@ header("Content-Disposition: attachment; filename=Data-Masiva.xls");
                     echo "<td>".$fila['nombre']."</td>";
                     echo "<td>".$fila['tel_Fijo']."</td>";
                     echo "<td>".$fila['celular']."</td>";
-                    echo "<td>".$fila['fechaActivacion']."</td>";
+                    echo "<td>".$fila['fechaActivacion']->format('d/m/y')."</td>";
                     echo "<td>".$fila['operador']."</td>";
                     echo "<td>".$fila['tipo_plan']."</td>";
                     echo "<td>".$fila['direccion']."</td>";
                     echo "<td>".$fila['distrito']."</td>";
                     echo "<td>".$fila['provincia']."</td>";
                     echo "<td>".$fila['departamento']."</td>";
-                    echo "<td>".$fila['fechaRegistro']."</td>";
+                    echo "<td>".$fila['fechaRegistro']->format('d/m/y')."</td>";
                     echo "</tr>";
                 }
             }

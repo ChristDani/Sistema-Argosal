@@ -273,13 +273,13 @@ small{
 }
 
 
-.form-floating > input, .form-floating > select{
+.form-floating > input, .form-floating > select, .form-floating > textarea{
     background: var(--color-background);
     border:1px solid var(--color-light);
     color: var(--color-dark);
 }
 
-.form-floating > input:focus, .form-floating > select:focus{
+.form-floating > input:focus, .form-floating > select:focus, .form-floating > textarea:focus{
     background: var(--color-background);
     color: var(--color-dark);
 }

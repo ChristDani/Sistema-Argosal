@@ -19,25 +19,6 @@ function limpiar()
     document.getElementById('destado').classList.add('d-none'); 
 }
 
-function mostrarDNI() 
-{
-    const nombre = document.getElementById('nombre').value.length
-    if (nombre > 0) 
-    {
-        document.getElementById('ddni').classList.remove('d-none');
-    }
-    else
-    {
-        document.getElementById('ddni').classList.add('d-none');
-        document.getElementById('dni').value='';
-        document.getElementById('dtelefonoRef').classList.add('d-none');
-        document.getElementById('telefonoRef').value='';
-        document.getElementById('dproducto').classList.add('d-none');
-        document.getElementById('producto').selectedIndex = 0;
-        limpiar() 
-    }
-}
-
 function mostrarTelefonoRef() 
 {
     const dni = document.getElementById('dni').value.length
@@ -99,15 +80,19 @@ function mostrarProducto(valor)
     if (valor == movil)
     {
         document.getElementById('dpromocion').classList.remove('d-none');
+        document.getElementById('promocion').selectedIndex = 0;
         document.getElementById('dtipo').classList.remove('d-none');
-
+        document.getElementById('tipo').selectedIndex = 0;
+        
         document.getElementById('dtipoFija').classList.add('d-none');
         document.getElementById('tipoFija').selectedIndex = 0;
     }
     else if(valor == fija)
     {
         document.getElementById('dpromocion').classList.remove('d-none');
+        document.getElementById('promocion').selectedIndex = 0;
         document.getElementById('dtipoFija').classList.remove('d-none');
+        document.getElementById('tipoFija').selectedIndex = 0;
 
         document.getElementById('dtipo').classList.add('d-none');
         document.getElementById('tipo').selectedIndex = 0;
@@ -137,14 +122,17 @@ function mostrarTipoFija(valor)
         document.getElementById('planFija').selectedIndex = 0;
         document.getElementById('dmodoFija').classList.remove('d-none');
         document.getElementById('modoFija').selectedIndex = 0;
-        document.getElementById('dformaPago').classList.remove('d-none');
-        document.getElementById('formaPago').selectedIndex = 0;
+        document.getElementById('dformaPago').classList.add('d-none');
+        document.getElementById('formaPago').selectedIndex = 1;
         document.getElementById('dsec').classList.remove('d-none');
         document.getElementById('sec').value = '';
-        document.getElementById('destado').classList.remove('d-none');
+        document.getElementById('destado').classList.add('d-none');
         document.getElementById('dobservacion').classList.remove('d-none');
+        document.getElementById('observaciones').value = '';
         document.getElementById('dubicacion').classList.remove('d-none');
+        document.getElementById('ubicacion').value = '';
         document.getElementById('ddistrito').classList.remove('d-none');
+        document.getElementById('distrito').value = '';
     }
     else if (valor == porta) 
     {
@@ -154,15 +142,17 @@ function mostrarTipoFija(valor)
         document.getElementById('planFija').selectedIndex = 0;
         document.getElementById('dmodoFija').classList.remove('d-none');
         document.getElementById('modoFija').selectedIndex = 0;
-        document.getElementById('dformaPago').classList.remove('d-none');
-        document.getElementById('formaPago').selectedIndex = 0;
+        document.getElementById('dformaPago').classList.add('d-none');
+        document.getElementById('formaPago').selectedIndex = 1;
         document.getElementById('dsec').classList.remove('d-none');
         document.getElementById('sec').value = '';
-        document.getElementById('destado').classList.remove('d-none');
+        document.getElementById('destado').classList.add('d-none');
         document.getElementById('dobservacion').classList.remove('d-none');
+        document.getElementById('observaciones').value = '';
         document.getElementById('dubicacion').classList.remove('d-none');
+        document.getElementById('ubicacion').value = '';
         document.getElementById('ddistrito').classList.remove('d-none');
-        
+        document.getElementById('distrito').value = '';
     }
     else if (valor == any) 
     {
@@ -201,6 +191,7 @@ function mostrarTipoMovil(valor)
         document.getElementById('operadorCeden').selectedIndex = 0; 
         document.getElementById('dmodalidad').classList.remove('d-none');
         document.getElementById('modalidad').selectedIndex = 0;
+        mostrarModalidadMovil('---'); 
     }
     else if (valor == porta) 
     {
@@ -210,19 +201,42 @@ function mostrarTipoMovil(valor)
         document.getElementById('lineaProce').selectedIndex = 0;        
         document.getElementById('doperadorCeden').classList.remove('d-none');
         document.getElementById('operadorCeden').selectedIndex = 0;        
-        document.getElementById('dmodalidad').classList.remove('d-none');
-        document.getElementById('modalidad').selectedIndex = 0;        
+        document.getElementById('dmodalidad').classList.add('d-none');
+        document.getElementById('modalidad').selectedIndex = 0;
+        mostrarModalidadMovil('---');
+        
+        document.getElementById('lineaProce').addEventListener("change", function() {
+            if (document.getElementById('lineaProce').value == "Postpago") 
+            {
+                document.getElementById('dmodalidad').classList.add('d-none');
+                document.getElementById('modalidad').selectedIndex = 1;
+                mostrarModalidadMovil('1'); 
+            }
+            else if (document.getElementById('lineaProce').value == "Prepago")
+            {
+                document.getElementById('dmodalidad').classList.remove('d-none');
+                document.getElementById('modalidad').selectedIndex = 0;
+                mostrarModalidadMovil('---');           
+            }
+            else if (document.getElementById('lineaProce').value == "---")
+            {
+                document.getElementById('dmodalidad').classList.add('d-none');
+                document.getElementById('modalidad').selectedIndex = 0;
+                mostrarModalidadMovil('---');           
+            }
+        }, false)       
     }
     else if (valor == reno) 
     {
         document.getElementById('dtelefono').classList.remove('d-none');
         document.getElementById('telefono').value = '';
-        document.getElementById('dlineaProce').classList.remove('d-none');
-        document.getElementById('lineaProce').selectedIndex = 0;
+        document.getElementById('dlineaProce').classList.add('d-none');
+        document.getElementById('lineaProce').selectedIndex = 1;
         document.getElementById('doperadorCeden').classList.add('d-none');
         document.getElementById('operadorCeden').selectedIndex = 0; 
-        document.getElementById('dmodalidad').classList.remove('d-none');
-        document.getElementById('modalidad').selectedIndex = 0;        
+        document.getElementById('dmodalidad').classList.add('d-none');
+        document.getElementById('modalidad').selectedIndex = 1;
+        mostrarModalidadMovil('1');
     }
     else if (valor == any) 
     {
@@ -233,7 +247,8 @@ function mostrarTipoMovil(valor)
         document.getElementById('doperadorCeden').classList.add('d-none');
         document.getElementById('operadorCeden').selectedIndex = 0; 
         document.getElementById('dmodalidad').classList.add('d-none');
-        document.getElementById('modalidad').selectedIndex = 0;        
+        document.getElementById('modalidad').selectedIndex = 0;    
+        mostrarModalidadMovil('---');     
     }
 }
 
@@ -249,11 +264,11 @@ function mostrarModalidadMovil(valor)
         document.getElementById('plan').selectedIndex = 0;
         document.getElementById('dequipos').classList.remove('d-none');
         document.getElementById('equipos').selectedIndex = 0;
-        document.getElementById('dformaPago').classList.remove('d-none');
-        document.getElementById('formaPago').selectedIndex = 0;
+        document.getElementById('dformaPago').classList.add('d-none');
+        document.getElementById('formaPago').selectedIndex = 1;
         document.getElementById('dsec').classList.remove('d-none');
         document.getElementById('sec').selectedIndex = 0;
-        document.getElementById('destado').classList.remove('d-none');
+        document.getElementById('destado').classList.add('d-none');
         document.getElementById('dobservacion').classList.remove('d-none');
         document.getElementById('observaciones').selectedIndex = 0;
         document.getElementById('dubicacion').classList.remove('d-none');
@@ -271,7 +286,7 @@ function mostrarModalidadMovil(valor)
         document.getElementById('formaPago').selectedIndex = 0;
         document.getElementById('dsec').classList.remove('d-none');
         document.getElementById('sec').selectedIndex = 0;
-        document.getElementById('destado').classList.remove('d-none');
+        document.getElementById('destado').classList.add('d-none');
         document.getElementById('dobservacion').classList.remove('d-none');
         document.getElementById('observaciones').selectedIndex = 0;
         document.getElementById('dubicacion').classList.remove('d-none');
@@ -290,7 +305,6 @@ function mostrarModalidadMovil(valor)
         document.getElementById('dsec').classList.add('d-none');
         document.getElementById('sec').selectedIndex = 0;
         document.getElementById('destado').classList.add('d-none');
-        document.getElementById('estado').selectedIndex = 2;
         document.getElementById('dobservacion').classList.add('d-none');
         document.getElementById('observaciones').selectedIndex = 0;
         document.getElementById('dubicacion').classList.add('d-none');

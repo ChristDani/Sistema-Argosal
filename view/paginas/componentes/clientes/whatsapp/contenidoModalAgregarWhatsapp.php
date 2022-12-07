@@ -62,14 +62,15 @@ $con=$model->desconectar();
                             <label for='asesor'>Asesor</label>
                         </div> 
                     <?php } ?>
-                    <div class="form-floating mb-3">
-                        <input class="form-control" autocomplete="off" type="text" name="nombre" id="nombre" placeholder="Nombre del cliente..." onkeyup="mostrarDNI()" required>
-                        <label for="nombre">Nombre</label>
-                    </div>
                     
-                    <div class="form-floating mb-3 d-none" id="ddni">                
+                    <div class="form-floating mb-3">                
                         <input class="form-control" autocomplete="off" type="text" name="dni" id="dni" maxlength=8 placeholder="DNI del cliente..." onkeyup="mostrarTelefonoRef();arreglarnombre();" required oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
                         <label for="dni">DNI</label>
+                    </div>
+
+                    <div class="form-floating mb-3 d-none">
+                        <input class="form-control" autocomplete="off" type="text" name="nombre" id="nombre" placeholder="Nombre del cliente..." required>
+                        <label for="nombre">Nombre</label>
                     </div>
                     
                     <div class="form-floating mb-3 d-none" id="dtelefonoRef">                
@@ -263,7 +264,7 @@ $con=$model->desconectar();
         let dni = document.getElementById('dni');
         let nombre = document.getElementById('nombre');
         
-        if (dni.value.length == 8) 
+        if (dni.value.length == 800) 
         { 
             let url='controller/whatsapp/arreglarnombre.php';
             let formaData = new FormData()

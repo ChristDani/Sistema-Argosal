@@ -5,10 +5,10 @@ $model=new conexion();
 $con=$model->conectar();
 
 // en el caso de solo querer determinadas columnas usar esto con el mismo nombre de las columnas...
-$columnas=['documento',	'nombre', 'celular', 'fecha_activacion', 'operador', 'tipo_plan', 'direccion', 'distrito', 'provincia', 'departamento'];
+$columnas=['documento', 'nombre', 'tel_Fijo', 'celular', 'fechaActivacion', 'operador', 'tipo_plan', 'direccion', 'distrito', 'provincia', 'departamento', 'fechaRegistro'];
 
 // tabla a seleccionar
-$tabla='personas';
+$tabla='masiva';
 
 // $buscar=isset($_POST['busqueda']) ? $con->mssql_escape($_POST['busqueda']) : null;
 $buscar= isset($_POST['busqueda']) ? $_POST['busqueda'] : null;
@@ -44,7 +44,7 @@ $sLimite = " offset $inicio rows fetch next $limite rows only ";
 // cantidad de registros devueltos en la consulta
 $contar="select * from $tabla $where";
 
-$sql = "select ".implode(", ", $columnas)." from $tabla $where order by documento $sLimite";
+$sql = "select ".implode(", ", $columnas)." from $tabla $where order by documento desc $sLimite";
 // para verificar errores en la consulta
 // echo $sql;
 
@@ -73,11 +73,11 @@ if ($filas>0) {
         $output['data'].= "<div class='head d-flex justify-content-around'>";
         $output['data'].= "<p>".$fila['departamento']."</p>";
         $output['data'].= "<p></p>";
+        $output['data'].= "<p></p>";
         $output['data'].= "<p>".$fila['provincia']."</p>";
         $output['data'].= "<p></p>";
-        $output['data'].= "<p>".$fila['distrito']."</p>";
         $output['data'].= "<p></p>";
-        $output['data'].= "<p>".$fila['documento']."</p>";
+        $output['data'].= "<p>".$fila['distrito']."</p>";
         $output['data'].= "</div>";
         $output['data'].= "<div class='body'>";
         $output['data'].= "<div class='row my-2'>";
@@ -88,14 +88,14 @@ if ($filas>0) {
         $output['data'].= "<p>".$fila['operador']."</p>";
         $output['data'].= "</div>";
         $output['data'].= "<div class='col'>";
-        $output['data'].= "<p>".$fila['tipo_plan']."</p>";
+        $output['data'].= "<p>".$fila['documento']."</p>";
         $output['data'].= "</div>";
         $output['data'].= "<div class='col'>";
-        $output['data'].= "<p>".$fila['departamento']."</p>";
+        $output['data'].= "<p>".$fila['celular']."</p>";
         $output['data'].= "</div>";
         $output['data'].= "</div>";
         $output['data'].= "<div class='row text-center' style='border-top: 1px solid #b9b9b9;'>";
-        $output['data'].= "<p class='my-1 text-muted'>".$fila['fecha_activacion']."</p>";
+        $output['data'].= "<p class='my-1 text-muted'>".$fila['direccion']."</p>";
         $output['data'].= "</div>";
         $output['data'].= "</div>";
         $output['data'].= "</div>";
