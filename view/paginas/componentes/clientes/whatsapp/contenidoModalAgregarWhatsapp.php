@@ -68,7 +68,7 @@ $con=$model->desconectar();
                         <label for="dni">DNI</label>
                     </div>
 
-                    <div class="form-floating mb-3 d-none">
+                    <div class="form-floating mb-3">
                         <input class="form-control" autocomplete="off" type="text" name="nombre" id="nombre" placeholder="Nombre del cliente..." required>
                         <label for="nombre">Nombre</label>
                     </div>
