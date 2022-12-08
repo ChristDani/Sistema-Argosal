@@ -68,7 +68,7 @@ $con=$model->desconectar();
                         <label for="dni">DNI</label>
                     </div>
 
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-3 d-none">
                         <input class="form-control" autocomplete="off" type="text" name="nombre" id="nombre" placeholder="Nombre del cliente..." required>
                         <label for="nombre">Nombre</label>
                     </div>
@@ -264,7 +264,7 @@ $con=$model->desconectar();
         let dni = document.getElementById('dni');
         let nombre = document.getElementById('nombre');
         
-        if (dni.value.length == 800) 
+        if (dni.value.length == 8) 
         { 
             let url='controller/whatsapp/arreglarnombre.php';
             let formaData = new FormData()

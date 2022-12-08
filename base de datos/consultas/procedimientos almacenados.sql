@@ -330,7 +330,121 @@ go
 			end 
 			go
 
+-- insercion de archivos --
+	-- insercion de productos --
+		--drop procedure if exists sp_insertar_producto
+		create procedure sp_insertar_producto
+		@region char(10),
+		@nombre char(50),
+		@centro char(10),
+		@almacen char(10),
+		@nombreAlmacen char(50),
+		@material char(20),
+		@descripcion char(50),
+		@libres char(5),
+		@bloqueados char(5)
+		as
+		begin
+			insert into productos(region,nombre,centro,almacen,nombreAlmacen,material,descripcion,libres,bloqueados) values(@region,@nombre,@centro,@almacen,@nombreAlmacen,@material,@descripcion,@libres,@bloqueados)
+		end 
+		go
 
+	-- insercion de maviva --
+		--drop procedure if exists sp_insertar_masiva
+		create procedure sp_insertar_masiva
+		@documento char(12),
+		@nombre char(50),
+		@telfijo char(10),
+		@celular char(11),
+		@fechaAtivacion datetime,
+		@operador char(10),
+		@tipoPlan char(25),
+		@direccion char(50),
+		@distrito char(25),
+		@provincia char(25),
+		@departamento char(25)
+		as
+		begin
+			insert into masiva(documento,nombre,tel_Fijo,celular,fechaActivacion,operador,tipo_plan,direccion,distrito,provincia,departamento) values(@documento,@nombre,@telfijo,@celular,@fechaAtivacion,@operador,@tipoPlan,@direccion,@distrito,@provincia,@departamento)
+		end 
+		go
+
+	-- insercion de ubicaciones --
+		--drop procedure if exists sp_insertar_cac
+		create procedure sp_insertar_cac
+		@region char(15),
+		@pdv char(10),
+		@nombre char(50),
+		@entrega char(20),
+		@direccion char(255),
+		@distrito char(30),
+		@provincia char(20),
+		@departamento char(20),
+		@horario char(100)
+		as
+		begin
+			insert into cac(region,pdv,nombre,entrega,direccion,distrito,provincia,departamento,horario) values(@region,@pdv,@nombre,@entrega,@direccion,@distrito,@provincia,@departamento,@horario)
+		end 
+		go
+
+		--drop procedure if exists sp_insertar_dac
+		create procedure sp_insertar_dac
+		@nombre char(100),
+		@distrito char(30),
+		@provincia char(30),
+		@departamento char(30),
+		@region char(20),
+		@direccion char(255),
+		@descripcion char(100)
+		as
+		begin
+			insert into dac(nombre,distrito,provincia,departamento,region,direccion,descripcion) values(@nombre,@distrito,@provincia,@departamento,@region,@direccion,@descripcion)
+		end 
+		go
+
+		--drop procedure if exists sp_insertar_acd
+		create procedure sp_insertar_acd
+		@region char(20),
+		@pdv char(10),
+		@nombre char(100),
+		@entrega char(20),
+		@pdvsisact char(100),
+		@codpdv char(10),
+		@descripcion char(100),
+		@direccion char(255),
+		@distrito char(50),
+		@provincia char(50),
+		@departamento char(50),
+		@horario char(100),
+		@estado char(15),
+		@alta datetime,
+		@baja datetime
+		as
+		begin
+			insert into acd(region,pdv,nombre,entrega,pdvsisact,codpdv,descripcion,direccion,distrito,provincia,departamento,horario,estado,alta,baja) values(@region,@pdv,@nombre,@entrega,@pdvsisact,@codpdv,@descripcion,@direccion,@distrito,@provincia,@departamento,@horario,@estado,@alta,@baja)
+		end 
+		go
+
+		--drop procedure if exists sp_insertar_cadena
+		create procedure sp_insertar_cadena
+		@region char(15),
+		@razonsocial char(100),
+		@codigointer char(10),
+		@codpdv char(10),
+		@pdvsisact char(100),
+		@entrega char(20),
+		@direccion char(255),
+		@distrito char(50),
+		@provincia char(50),
+		@departamento char(50),
+		@dias char(50),
+		@horario char(100),
+		@estado char(15)
+		as
+		begin
+			insert into cadena(region,razonsocial,codigointer,codpdv,pdvsisact,entrega,direccion,distrito,provincia,departamento,dias,horario,estado) values(@region,@razonsocial,@codigointer,@codpdv,@pdvsisact,@entrega,@direccion,@distrito,@provincia,@departamento,@dias,@horario,@estado)
+		end 
+		go
 
 -- edicion de ventas whatsapp --
 
