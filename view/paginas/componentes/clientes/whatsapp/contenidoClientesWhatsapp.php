@@ -29,11 +29,9 @@ $listUser = $user->listar();
                     <?php if ($listUser != null) 
                             {
                                 foreach ($listUser as $x) 
-                                {
-                                    if ($x[3] === "0")
-                                    {?>
-                                        <option value="<?php echo $x[0]; ?>"><?php echo $x[1]; ?></option>
-                            <?php   }
+                                {?>
+                                    <option value="<?php echo $x[0]; ?>"><?php echo $x[1]; ?></option>
+                            <?php
                                 }
                             }?>
                 </select>
