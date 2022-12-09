@@ -1,5 +1,6 @@
 <?php
 require_once '../../model/conexion.php';
+require_once '../../model/equipo.php';
 require_once '../../model/usuarios.php';
 
 $model=new conexion();
@@ -10,13 +11,8 @@ $user = new user();
 $listUser = $user->listar();
 
 // productos
-$const = "select descripcion from productos GROUP BY descripcion HAVING COUNT(*)>=1 order by descripcion asc";
-$rs=sqlsrv_query($con,$const);
-$productsMov=null;
-while($row=sqlsrv_fetch_array($rs))
-{
-    $productsMov[]=$row;
-}
+$produclist = new equipos;
+$productsMov = $produclist->listar();
 
 // en el caso de solo querer determinadas columnas usar esto con el mismo nombre de las columnas...
 $columnas=['codigo','dniAsesor','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','numeroReferencia','sec','tipoFija','planFija','modoFija','estado','observaciones','promocion','ubicacion','distrito','fechaRegistro','fechaActualizacion'];

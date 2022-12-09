@@ -8,7 +8,7 @@ $columnas = ['documento', 'nombre', 'tel_Fijo', 'celular', 'fechaActivacion', 'o
 
 $tabla = "masiva";
 
-$buscar= isset($_POST['busqueda']) ? $_POST['busqueda'] : null;
+$buscar= isset($_POST['busqueda']) ? $_POST['busqueda'] : '923269070';
 $nombre= isset($_POST['nombre']) ? $_POST['nombre'] : null;
 
 $where='';
@@ -30,53 +30,53 @@ $sql = "select ".implode(", ", $columnas)." from $tabla $where order by document
 $resultado=sqlsrv_query($con,$sql, array(), array("Scrollable"=>SQLSRV_CURSOR_KEYSET));
 
 $filas = sqlsrv_num_rows($resultado);
-header("Content-Type: application/vnd.ms-excel; charset=iso-8859-1");
-// header("Content-Disposition: attachment; filename=$nombre");
-header("Content-Disposition: attachment; filename=Data-Masiva.xls");
+
+$output=[];
+$output['tabla'] = '';
+$output['tabla'] .= "<table border='1'>";
+$output['tabla'] .= "<thead>";
+$output['tabla'] .= "<tr>";
+$output['tabla'] .= "<th>Documento</th>";
+$output['tabla'] .= "<th>Nombre</th>";
+$output['tabla'] .= "<th>Telefono Fijo</th>";
+$output['tabla'] .= "<th>Celular</th>";
+$output['tabla'] .= "<th>Fecha de Activacion</th>";
+$output['tabla'] .= "<th>Operador</th>";
+$output['tabla'] .= "<th>Tipo de Plan</th>";
+$output['tabla'] .= "<th>Direccion</th>";
+$output['tabla'] .= "<th>Distrito</th>";
+$output['tabla'] .= "<th>Provincia</th>";
+$output['tabla'] .= "<th>Departamento</th>";
+$output['tabla'] .= "<th>Fecha de Registro</th>";
+$output['tabla'] .= "</tr>";
+$output['tabla'] .= "</thead>";
+$output['tabla'] .= "<tbody>";
+if ($filas>0) 
+{    
+    while ($fila=sqlsrv_fetch_array($resultado)) 
+    {
+        $output['tabla'] .= "<tr>";
+        $output['tabla'] .= "<td>".$fila['documento']."</td>";
+        $output['tabla'] .= "<td>".$fila['nombre']."</td>";
+        $output['tabla'] .= "<td>".$fila['tel_Fijo']."</td>";
+        $output['tabla'] .= "<td>".$fila['celular']."</td>";
+        $output['tabla'] .= "<td>".$fila['fechaActivacion']->format('d/m/y')."</td>";
+        $output['tabla'] .= "<td>".$fila['operador']."</td>";
+        $output['tabla'] .= "<td>".$fila['tipo_plan']."</td>";
+        $output['tabla'] .= "<td>".$fila['direccion']."</td>";
+        $output['tabla'] .= "<td>".$fila['distrito']."</td>";
+        $output['tabla'] .= "<td>".$fila['provincia']."</td>";
+        $output['tabla'] .= "<td>".$fila['departamento']."</td>";
+        $output['tabla'] .= "<td>".$fila['fechaRegistro']->format('d/m/y')."</td>";
+        $output['tabla'] .= "</tr>";
+    }
+}
+else 
+{
+    $output['tabla'] .= "<tr><td colspan=12 height=100 align=center>No Hay Datos Disponibles</td></tr>";
+}
+$output['tabla'] .= "</tbody>";
+$output['tabla'] .= "</table>";
+
+echo json_encode($output, JSON_UNESCAPED_UNICODE); //por si viene con 'ñ' o tildes...
 ?>
-<table border="1">
-    <thead>
-        <tr>
-            <th>Documento</th>
-            <th>Nombre</th>
-            <th>Telefono Fijo</th>
-            <th>Celular</th>
-            <th>Fecha de Activacion</th>
-            <th>Operador</th>
-            <th>Tipo de Plan</th>
-            <th>Direccion</th>
-            <th>Distrito</th>
-            <th>Provincia</th>
-            <th>Departamento</th>
-            <th>Fecha de Registro</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-            if ($filas>0) 
-            {    
-                while ($fila=sqlsrv_fetch_array($resultado)) 
-                {
-                    echo "<tr>";
-                    echo "<td>".$fila['documento']."</td>";
-                    echo "<td>".$fila['nombre']."</td>";
-                    echo "<td>".$fila['tel_Fijo']."</td>";
-                    echo "<td>".$fila['celular']."</td>";
-                    echo "<td>".$fila['fechaActivacion']->format('d/m/y')."</td>";
-                    echo "<td>".$fila['operador']."</td>";
-                    echo "<td>".$fila['tipo_plan']."</td>";
-                    echo "<td>".$fila['direccion']."</td>";
-                    echo "<td>".$fila['distrito']."</td>";
-                    echo "<td>".$fila['provincia']."</td>";
-                    echo "<td>".$fila['departamento']."</td>";
-                    echo "<td>".$fila['fechaRegistro']->format('d/m/y')."</td>";
-                    echo "</tr>";
-                }
-            }
-            else 
-            {
-                echo "<tr><td colspan=12 height=100 align=center>No Hay Datos Disponibles</td></tr>";
-            }
-        ?>
-    </tbody>
-</table>

@@ -62,66 +62,6 @@ function graficopie(vc,vp,vr)
   );
 }
 
-function graficolineas()
-{
-  const DATA_COUNT = 12;
-  const labels = [];
-  for (let i = 0; i < DATA_COUNT; ++i) {
-      labels.push(i.toString());
-  }
-  new Chart(line, {
-      type: 'line',
-      data: {
-          labels: labels,
-          datasets:[
-              {
-                  label: 'Prueba de no se que',
-                  data: [0, 20, 20, 60, 60, 120, NaN, 180, 120, 125, 105, 110, 170],
-                  borderColor: 'red',
-                  fill: false,
-                  cubicInterpolationMode: 'monotone',
-                  tension:0.4
-              }, {
-                  label: 'Cubic interpolation',
-                  data: [20,0,30,89,47,15,56,45,21,85,56,542,5,5,5,5,2,5,2,144,5,5,2,],
-                  borderColor: 'blue',
-                  fill: false,
-                  tension: 0.4
-              }
-          ]
-      },
-      options: {
-          responsive: true,
-          plugins: {
-            title: {
-              display: true,
-              text: 'Chart.js Line Chart - Cubic interpolation mode'
-            },
-          },
-          interaction: {
-            intersect: false,
-          },
-          scales: {
-            x: {
-              display: true,
-              title: {
-                display: true
-              }
-            },
-            y: {
-              display: true,
-              title: {
-                display: true,
-                text: 'Value'
-              },
-              suggestedMin: -10,
-              suggestedMax: 200
-            }
-          }
-      }
-  })
-}
-
 setTimeout(() => {
   let vt = document.getElementById('vt').textContent;
   let vc = document.getElementById('vc').textContent;
@@ -129,8 +69,7 @@ setTimeout(() => {
   let vr = document.getElementById('vr').textContent;
 
   graficobarra(vt,vc,vp,vr);  
-  graficopie(vc,vp,vr); 
-  graficolineas();
+  graficopie(vc,vp,vr);
 }, 500);
 
 document.getElementById('fecharequerida').addEventListener("change", function() {
@@ -141,7 +80,6 @@ document.getElementById('fecharequerida').addEventListener("change", function() 
     let vr = document.getElementById('vr').textContent;
 
     graficobarra(vt,vc,vp,vr);  
-    graficopie(vc,vp,vr); 
-    graficolineas();
+    graficopie(vc,vp,vr);
   }, 500);
 }, false)

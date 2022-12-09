@@ -5,42 +5,43 @@ $model=new conexion();
 $con=$model->conectar();
 
 $fecharequerida= !empty($_POST['fecha']) ? $_POST['fecha'] : null;
+$dniAsesorMeta= !empty($_POST['busasesormet']) ? $_POST['busasesormet'] : null;
 
 if ($fecharequerida != null) 
 {
     // ventas totales
-    $sqlvt = "select * from whatsapp where (datepart(mm, fechaRegistro)=datepart(mm, '$fecharequerida') and datepart(yyyy, fechaRegistro)=datepart(yyyy, '$fecharequerida'))";
+    $sqlvt = "select * from whatsapp where (datepart(mm, fechaRegistro)=datepart(mm, '$fecharequerida') and datepart(yyyy, fechaRegistro)=datepart(yyyy, '$fecharequerida')) and dniAsesor like '%$dniAsesorMeta%'";
     $resultadovt = sqlsrv_query($con,$sqlvt, array(), array("Scrollable"=>"buffered"));
     $vt = sqlsrv_num_rows($resultadovt);
     // ventas concretadas
-    $sqlvc = "select * from whatsapp where estado='1' and (datepart(mm, fechaRegistro)=datepart(mm, '$fecharequerida') and datepart(yyyy, fechaRegistro)=datepart(yyyy, '$fecharequerida'))";
+    $sqlvc = "select * from whatsapp where estado='1' and (datepart(mm, fechaRegistro)=datepart(mm, '$fecharequerida') and datepart(yyyy, fechaRegistro)=datepart(yyyy, '$fecharequerida')) and dniAsesor like '%$dniAsesorMeta%'";
     $resultadovc = sqlsrv_query($con,$sqlvc, array(), array("Scrollable"=>"buffered"));
     $vc = sqlsrv_num_rows($resultadovc);
     // ventas pendientes
-    $sqlvp = "select * from whatsapp where estado='2' and (datepart(mm, fechaRegistro)=datepart(mm, '$fecharequerida') and datepart(yyyy, fechaRegistro)=datepart(yyyy, '$fecharequerida'))";
+    $sqlvp = "select * from whatsapp where estado='2' and (datepart(mm, fechaRegistro)=datepart(mm, '$fecharequerida') and datepart(yyyy, fechaRegistro)=datepart(yyyy, '$fecharequerida')) and dniAsesor like '%$dniAsesorMeta%'";
     $resultadovp = sqlsrv_query($con,$sqlvp, array(), array("Scrollable"=>"buffered"));
     $vp = sqlsrv_num_rows($resultadovp);
     // ventas rechazadas
-    $sqlvr = "select * from whatsapp where estado='0' and (datepart(mm, fechaRegistro)=datepart(mm, '$fecharequerida') and datepart(yyyy, fechaRegistro)=datepart(yyyy, '$fecharequerida'))";
+    $sqlvr = "select * from whatsapp where estado='0' and (datepart(mm, fechaRegistro)=datepart(mm, '$fecharequerida') and datepart(yyyy, fechaRegistro)=datepart(yyyy, '$fecharequerida')) and dniAsesor like '%$dniAsesorMeta%'";
     $resultadovr = sqlsrv_query($con,$sqlvr, array(), array("Scrollable"=>"buffered"));
     $vr = sqlsrv_num_rows($resultadovr);
 }
 elseif ($fecharequerida == null) 
 {
     // ventas totales
-    $sqlvt = "select * from whatsapp where (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate()))";
+    $sqlvt = "select * from whatsapp where (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate())) and dniAsesor like '%$dniAsesorMeta%'";
     $resultadovt = sqlsrv_query($con,$sqlvt, array(), array("Scrollable"=>"buffered"));
     $vt = sqlsrv_num_rows($resultadovt);
     // ventas concretadas
-    $sqlvc = "select * from whatsapp where estado='1' and (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate()))";
+    $sqlvc = "select * from whatsapp where estado='1' and (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate())) and dniAsesor like '%$dniAsesorMeta%'";
     $resultadovc = sqlsrv_query($con,$sqlvc, array(), array("Scrollable"=>"buffered"));
     $vc = sqlsrv_num_rows($resultadovc);
     // ventas pendientes
-    $sqlvp = "select * from whatsapp where estado='2' and (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate()))";
+    $sqlvp = "select * from whatsapp where estado='2' and (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate())) and dniAsesor like '%$dniAsesorMeta%'";
     $resultadovp = sqlsrv_query($con,$sqlvp, array(), array("Scrollable"=>"buffered"));
     $vp = sqlsrv_num_rows($resultadovp);
     // ventas rechazadas
-    $sqlvr = "select * from whatsapp where estado='0' and (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate()))";
+    $sqlvr = "select * from whatsapp where estado='0' and (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate())) and dniAsesor like '%$dniAsesorMeta%'";
     $resultadovr = sqlsrv_query($con,$sqlvr, array(), array("Scrollable"=>"buffered"));
     $vr = sqlsrv_num_rows($resultadovr);
 }
@@ -49,7 +50,7 @@ elseif ($fecharequerida == null)
 
 // en el caso de solo querer determinadas columnas usar esto con el mismo nombre de las columnas...
 $columnas=['codigo','dniAsesor','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','numeroReferencia','sec','tipoFija','planFija','estado','observaciones','promocion','ubicacion','distrito','fechaRegistro','fechaActualizacion'];
-$columnasBus=['codigo','dniAsesor','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','numeroReferencia','sec','tipoFija','planFija','observaciones','promocion','ubicacion','distrito','fechaActualizacion'];
+$columnasBus=['codigo','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','numeroReferencia','sec','tipoFija','planFija','observaciones','promocion','ubicacion','distrito','fechaActualizacion'];
 
 // tabla a seleccionar
 $tabla='whatsapp';
@@ -68,7 +69,31 @@ elseif ($fecharequerida == null)
     $where.="where (datepart(mm, fechaRegistro)=datepart(mm, getdate()) and datepart(yyyy, fechaRegistro)=datepart(yyyy, getdate())) ";
 }
 
-if ($buscarestado != null) {
+if ($dniAsesorMeta != null) {
+    $where.="and dniAsesor='".$dniAsesorMeta."' ";
+    if ($buscarestado != null) {
+        $where.="and estado='".$buscarestado."' ";
+        if ($buscar!=null) {
+            $where.=" and (";
+            $cont= count($columnasBus);
+            for ($i=0; $i < $cont; $i++) { 
+                $where.=$columnasBus[$i]." like '%".$buscar."%' or ";
+            }
+            $where=substr_replace($where, "", -3);
+            $where.=")";
+        }
+    }
+    elseif ($buscar!=null) {
+        $where.=" and (";
+        $cont= count($columnasBus);
+        for ($i=0; $i < $cont; $i++) { 
+            $where.=$columnasBus[$i]." like '%".$buscar."%' or ";
+        }
+        $where=substr_replace($where, "", -3);
+        $where.=")";
+    }
+}
+if ($buscarestado != null and $dniAsesorMeta == null) {
     $where.="and estado='".$buscarestado."' ";
     if ($buscar!=null) {
         $where.=" and (";
@@ -80,7 +105,7 @@ if ($buscarestado != null) {
         $where.=")";
     }
 }
-elseif ($buscar!=null) {
+elseif ($buscar!=null and $dniAsesorMeta == null and $buscarestado == null) {
     $where.="and (";
     $cont= count($columnasBus);
     for ($i=0; $i < $cont; $i++) { 
@@ -142,21 +167,10 @@ $output['graficosfeos'] .= "</div>";
 $output['graficosfeos'] .= "</div>";
 $output['graficosfeos'] .= "</div>";
 $output['graficosfeos'] .= "<div class='col-lg-6'>";
-$output['graficosfeos'] .= "<div class='col'>";
 $output['graficosfeos'] .= "<div class='card'>";
 $output['graficosfeos'] .= "<div class='card-body'>";
 $output['graficosfeos'] .= "<div class='chart-container' style='position: relative; height:45%; width:100%'>";
 $output['graficosfeos'] .= "<canvas id='bar'></canvas>";
-$output['graficosfeos'] .= "</div>";
-$output['graficosfeos'] .= "</div>";
-$output['graficosfeos'] .= "</div>";
-$output['graficosfeos'] .= "</div>";
-$output['graficosfeos'] .= "<div class='col'>";
-$output['graficosfeos'] .= "<div class='card'>";
-$output['graficosfeos'] .= "<div class='card-body'>";
-$output['graficosfeos'] .= "<div class='chart-container' style='position: relative; height:45%; width:100%'>";
-$output['graficosfeos'] .= "<canvas id='line'></canvas>";
-$output['graficosfeos'] .= "</div>";
 $output['graficosfeos'] .= "</div>";
 $output['graficosfeos'] .= "</div>";
 $output['graficosfeos'] .= "</div>";

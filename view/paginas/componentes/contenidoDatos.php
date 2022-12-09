@@ -15,7 +15,8 @@
             </div>
         </div>
         <div class="col d-flex justify-content-center align-items-center">
-            <a class="btn success-bg" href="controller/masiva/excel.php">
+            <!-- <a class="btn success-bg" href="controller/masiva/excel.php"> -->
+            <a class="btn success-bg" onclick="exporExcelMasi();">
                 <div>Excel</div>
             </a>
         </div>

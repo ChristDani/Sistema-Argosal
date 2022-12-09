@@ -1,3 +1,8 @@
+<?php
+// usuarios
+$user = new user();
+$listUser = $user->listar();
+?>
 <p class="d-none" id="vt"></p>
 <p class="d-none" id="vc"></p>
 <p class="d-none" id="vp"></p>
@@ -26,9 +31,28 @@
                         </div>
                     </div>
                     <div class="col d-flex justify-content-center align-items-center">
-                        <a class="btn success-bg" href="controller/reportes/excel.php?fecha=">
+                        <!-- <a class="btn success-bg" href="controller/reportes/excel.php?fecha="> -->
+                        <a class="btn success-bg" onclick="exporExcel();">
                             <div>Excel</div>
                         </a>
+                    </div>
+                    <div class="col d-flex justify-content-end align-items-center">
+                        <div class="form-floating">
+                            <select class="form-select" aria-label="Floating label select example" name="busquedaxasesormetas" id="busquedaxasesormetas">
+                                <option value="">Todos</option>
+                                <?php if ($listUser != null) 
+                                        {
+                                            foreach ($listUser as $x) 
+                                            {
+                                                if ($x[3] === "0")
+                                                {?>
+                                                    <option value="<?php echo $x[0]; ?>"><?php echo $x[1]; ?></option>
+                                        <?php   }
+                                            }
+                                        }?>
+                            </select>
+                            <label for="busquedaxasesormetas">Asesores</label>
+                        </div>
                     </div>
                     <div class="col d-flex justify-content-end align-items-center">
                         <div class="form-floating">
@@ -89,24 +113,13 @@
     </div>   
 
     <div class="col-lg-6">
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <div class="chart-container" style="position: relative; height:45%; width:100%">
-                        <canvas id="bar"></canvas>
-                    </div>  
-                </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="chart-container" style="position: relative; height:45%; width:100%">
+                    <canvas id="bar"></canvas>
+                </div>  
             </div>
         </div>
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <div class="chart-container" style="position: relative; height:45%; width:100%">
-                        <canvas id="line"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>   
     </div>
 </div>
 
@@ -116,7 +129,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="controller/reportes/estadisticas.js"></script>
 <script src="controller/reportes/modal.js"></script>
-<!-- <script src="controller/reportes/estadisticas.js?v=01"></script> -->
+<script src="controller/reportes/excel.js"></script>
 
         
 

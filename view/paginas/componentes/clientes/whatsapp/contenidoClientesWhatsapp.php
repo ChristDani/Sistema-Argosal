@@ -1,3 +1,8 @@
+<?php
+// usuarios
+$user = new user();
+$listUser = $user->listar();
+?>
 <div class="bare row d-flex justify-content-center align-items-center" id="headerWhatsapp">
     <div class="col d-flex justify-content-start align-items-center">
         <div class="d-flex justify-content-center align-items-baseline">
@@ -16,6 +21,26 @@
             <ion-icon name="add-circle-outline"></ion-icon>
         </a>
     </div>
+    <?php if ($tipoUsuario === "1" || $tipoUsuario === "2") {?>
+        <div class="col d-flex justify-content-end align-items-center">
+            <div class="form-floating">
+                <select class="form-select" aria-label="Floating label select example" name="busquedaxasesor" id="busquedaxasesor">
+                    <option value="">Todos</option>
+                    <?php if ($listUser != null) 
+                            {
+                                foreach ($listUser as $x) 
+                                {
+                                    if ($x[3] === "0")
+                                    {?>
+                                        <option value="<?php echo $x[0]; ?>"><?php echo $x[1]; ?></option>
+                            <?php   }
+                                }
+                            }?>
+                </select>
+                <label for="busquedaxasesor">Asesores</label>
+            </div>
+        </div>
+    <?php } ?>
     <div class="col d-flex justify-content-end align-items-center">
         <div class="form-floating">
             <select class="form-select" aria-label="Floating label select example" name="busquedaestadowhats" id="busquedaestadowhats">
@@ -29,7 +54,7 @@
     </div> 
     <div class="col d-flex justify-content-end align-items-center">
         <div class="form-floating">
-            <input type="text" class="form-control" id="busquedaW" placeholder="Buscar" onkeyup="getDataW(1); pasarDato();">
+            <input type="text" class="form-control" id="busquedaW" placeholder="Buscar" onkeyup="getDataW(1);">
             <label for="busquedaW">Buscar</label>
         </div>
     </div>

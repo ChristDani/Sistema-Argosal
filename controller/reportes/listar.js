@@ -17,6 +17,11 @@ document.getElementById('busquedaestadoRM').addEventListener("change", function(
     ahsdgjahdgasd()
 }, false)
 
+document.getElementById('busquedaxasesormetas').addEventListener("change", function() {
+    getDataRM(paginaActualRM)
+    ahsdgjahdgasd()
+}, false)
+
 function getDataRM(pagina) 
 {
     let vt = document.getElementById('vt')
@@ -27,6 +32,7 @@ function getDataRM(pagina)
     let fecha = document.getElementById('fecharequerida').value
     let input = document.getElementById('busquedaRM').value
     let estado = document.getElementById('busquedaestadoRM').value
+    let asesor = document.getElementById('busquedaxasesormetas').value
     let select = document.getElementById('numRegistrosRM').value
     let contenido=document.getElementById('resultadosRM')
 
@@ -43,6 +49,7 @@ function getDataRM(pagina)
     formaData.append('fecha', fecha)
     formaData.append('busqueda', input)
     formaData.append('busestate', estado)
+    formaData.append('busasesormet', asesor)
     formaData.append('registros', select)
     formaData.append('pagina', pagina)
 

@@ -1,23 +1,14 @@
 <?php
-require_once 'model/conexion.php';
+require_once 'model/equipo.php';
 require_once 'model/usuarios.php';
-
-$model=new conexion();
-$conp=$model->conectar();
 
 // usuarios
 $user = new user();
 $listUser = $user->listar();
 
 // productos
-$const = "select descripcion from productos GROUP BY descripcion HAVING COUNT(*)>=1 order by descripcion asc";
-$rs=sqlsrv_query($conp,$const);
-$productsMov=null;
-while($row=sqlsrv_fetch_array($rs))
-{
-    $productsMov[]=$row;
-}
-$con=$model->desconectar();
+$produclist = new equipos;
+$productsMov = $produclist->listar();
 ?>
 <div class="modal fade" id="AgregarWhatsapp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
