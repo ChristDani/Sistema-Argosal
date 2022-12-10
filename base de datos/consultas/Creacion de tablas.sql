@@ -143,10 +143,10 @@ dni char(8) primary key,
 nombre char(50) not null,
 clave char(40) not null,
 tipo char(1) not null,
-foto char(100) null,
 fechaRegistro datetime default getdate(),
 estado char(1) not null,
-fotoPerfil char(100) null
+fotoPerfil char(100) null,
+activo char(1) not null default '1'
 )
 
 drop table if exists metas

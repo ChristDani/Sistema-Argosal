@@ -11,19 +11,33 @@ $columnas=['documento', 'nombre', 'tel_Fijo', 'celular', 'fechaActivacion', 'ope
 $tabla='masiva';
 
 // $buscar=isset($_POST['busqueda']) ? $con->mssql_escape($_POST['busqueda']) : null;
-$buscar= isset($_POST['busqueda']) ? $_POST['busqueda'] : null;
+$buscardepa= isset($_POST['busquedadepa']) ? $_POST['busquedadepa'] : null;
+$buscarprovi= isset($_POST['busquedaprovi']) ? $_POST['busquedaprovi'] : null;
+$buscardistri= isset($_POST['busquedadistri']) ? $_POST['busquedadistri'] : null;
 
 // busqueda de datos
-$where='';
+$where = '';
 
-if ($buscar!=null) {
-    $where="where (";
-    $cont= count($columnas);
-    for ($i=0; $i < $cont; $i++) { 
-        $where.=$columnas[$i]." like '%".$buscar."%' or ";
+if ($buscardepa != null) {
+    $where .= "where departamento like '%".$buscardepa."%'";
+    if ($buscarprovi != null) {
+        $where .= " and provincia like '%".$buscarprovi."%'";
+        if ($buscardistri != null) {
+            $where .= " and distrito like '%".$buscardistri."%'";
+        }
     }
-    $where=substr_replace($where, "", -3);
-    $where.=")";
+    elseif ($buscardistri != null) {
+        $where .= " and distrito like '%".$buscardistri."%'";
+    }
+}
+elseif ($buscarprovi != null and $buscardepa == null) {
+    $where .= "where provincia like '%".$buscarprovi."%'";
+    if ($buscardistri != null) {
+        $where .= " and distrito like '%".$buscardistri."%'";
+    }
+}
+elseif ($buscardistri!=null and $buscardepa == null and $buscarprovi == null) {
+    $where .= "where distrito like '%".$buscardistri."%'";
 }
 
 // limite de registros

@@ -8,6 +8,15 @@ $listUser = $user->listar();
 <p class="d-none" id="vp"></p>
 <p class="d-none" id="vr"></p>
 
+<!-- formulario para obtener la consulta de php para exportar a excel -->
+<form hidden action="controller/reportes/reportexcel.php" method="post">
+    <input type="date" name="busquedareportefechaventa" id="busquedareportefechaventa">
+    <input type="text" name="busquedareporteasesorventa" id="busquedareporteasesorventa">
+    <input type="text" name="busquedareporteestadoventa" id="busquedareporteestadoventa">
+    <input type="text" name="busquedareporteventa" id="busquedareporteventa">
+    <input id="btngenerarreporteventas" name="btngenerarreporteventas" type="submit" value="send">
+</form>
+
 <div class="d-flex gap-3 align-items-start">
     <h1>REPORTES</h1>
     <input type="date" class="form-control-sm " name="fecharequerida" id="fecharequerida">
@@ -31,10 +40,9 @@ $listUser = $user->listar();
                         </div>
                     </div>
                     <div class="col d-flex justify-content-center align-items-center">
-                        <!-- <a class="btn success-bg" href="controller/reportes/excel.php?fecha="> -->
-                        <a class="btn success-bg" onclick="exporExcel();">
-                            <div>Excel</div>
-                        </a>
+                        <label for="btngenerarreporteventas" class="btn success-bg">
+                            <div>CSV</div>
+                        </label>
                     </div>
                     <div class="col d-flex justify-content-end align-items-center">
                         <div class="form-floating">
@@ -64,7 +72,7 @@ $listUser = $user->listar();
                     </div> 
                     <div class="col d-flex justify-content-end align-items-center">
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="busquedaRM" placeholder="Buscar" onkeyup="getDataRM(1);ahsdgjahdgasd();">
+                            <input type="text" class="form-control" id="busquedaRM" placeholder="Buscar" onkeyup="getDataRM(1);ahsdgjahdgasd();pasardatorv();">
                             <label for="busquedaRM">Buscar</label>
                         </div>
                     </div>
@@ -72,7 +80,7 @@ $listUser = $user->listar();
                 <table class="table table-responsive-xl color">
                     <thead class="table-dark">
                         <tr>
-                            <th scope="col">N</th>
+                            <th scope="col">N°</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Telefono</th>
                             <th scope="col">Producto</th>
@@ -126,8 +134,40 @@ $listUser = $user->listar();
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="controller/reportes/estadisticas.js"></script>
 <script src="controller/reportes/modal.js"></script>
-<script src="controller/reportes/excel.js"></script>
 
-        
+<script>
+    document.getElementById('fecharequerida').addEventListener("change", function() {
+        pasardatorv()
+    }, false)
+
+    document.getElementById('numRegistrosRM').addEventListener("change", function() {
+        pasardatorv()
+    }, false)
 
 
+    document.getElementById('busquedaestadoRM').addEventListener("change", function() {
+        pasardatorv()
+    }, false)
+
+    document.getElementById('busquedaxasesormetas').addEventListener("change", function() {
+        pasardatorv()
+    }, false)
+
+    function pasardatorv() 
+    {
+        busquedafecha = document.getElementById('fecharequerida').value;
+        busquedaasesor = document.getElementById('busquedaxasesormetas').value;
+        busquedaestado = document.getElementById('busquedaestadoRM').value;
+        busqueda = document.getElementById('busquedaRM').value;
+
+        busquereportfecha = document.getElementById('busquedareportefechaventa');
+        busquereportasesor = document.getElementById('busquedareporteasesorventa');
+        busquereportestado = document.getElementById('busquedareporteestadoventa');
+        busquereport = document.getElementById('busquedareporteventa');
+
+        busquereportfecha.value = busquedafecha;
+        busquereportasesor.value = busquedaasesor;
+        busquereportestado.value = busquedaestado;
+        busquereport.value = busqueda;
+    }
+</script>

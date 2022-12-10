@@ -8,7 +8,9 @@ document.getElementById('numRegistrosM').addEventListener("change", function() {
 
 function getDataM(pagina) {
 
-    let input = document.getElementById('busquedaM').value
+    let depa = document.getElementById('busquedadepartamentoM').value
+    let provi = document.getElementById('busquedaprovinciaM').value
+    let distri = document.getElementById('busquedadistritoM').value
     let select = document.getElementById('numRegistrosM').value
     let contenido=document.getElementById('resultadosM')
     // verificar si trae los valores
@@ -25,7 +27,9 @@ function getDataM(pagina) {
     // le damos el origen de los datos
     let url='controller/masiva/listar.php';
     let formaData = new FormData()
-    formaData.append('busqueda', input)
+    formaData.append('busquedadepa', depa)
+    formaData.append('busquedaprovi', provi)
+    formaData.append('busquedadistri', distri)
     formaData.append('registros', select)
     formaData.append('pagina', pagina)
     // para mantener la pagina al cambiar el limite de datos
