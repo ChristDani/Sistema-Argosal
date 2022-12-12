@@ -1,4 +1,10 @@
 <?php
+require "../../librerias/PHPExcel/Classes/PHPExcel.php";
+require_once "../../model/conexion.php";
+
+$model = new conexion();
+$con = $model -> conectar();
+
 require_once "../../model/archivos.php";
 $procearchivos = new archivos();
 
@@ -24,10 +30,6 @@ if ($_FILES['masiva']['name'])
     // obtener el numero de filas del archivo
     $numerofila = $excelMasiva -> setActiveSheetIndex(0) -> getHighestRow();
     // echo $numerofila;
-
-    // eliminamos la tabla antigua para reemplazar los datos
-    $sqld = "delete from prueba";
-    $rsd=sqlsrv_query($con,$sqld);
 
     for ($i=2; $i <= $numerofila ; $i++) 
     {
@@ -70,11 +72,11 @@ if ($_FILES['productos']['name'])
 
     // obtener el numero de filas del archivo
     $numerofila = $excelProductos -> setActiveSheetIndex(1) -> getHighestRow();
-    echo $numerofila;
+    // echo $numerofila;
 
     // eliminamos la tabla antigua para reemplazar los datos
-    $sqld = "delete from prueba";
-    $rsd=sqlsrv_query($con,$sqld);
+    $sqlprod = "delete from productos";
+    $rsd=sqlsrv_query($con,$sqlprod);
 
     for ($i=2; $i <= $numerofila ; $i++) 
     {
@@ -118,14 +120,21 @@ if ($_FILES['cac']['name'])
     // echo $numerofila;
 
     // eliminamos la tabla antigua para reemplazar los datos
-    $sqld = "delete from prueba";
-    $rsd=sqlsrv_query($con,$sqld);
+    $sqlcac = "delete from cac";
+    $rsd=sqlsrv_query($con,$sqlcac);
 
     for ($i=2; $i <= $numerofila ; $i++) 
     {
         // se especifican las variables
-        $idPrueba = $excelCac -> getActiveSheet() -> getCell('A'.$i) -> getCalculatedValue();
-        $nombre = $excelCac -> getActiveSheet() -> getCell('B'.$i) -> getCalculatedValue();
+        $region = $excelCac -> getActiveSheet() -> getCell('A'.$i) -> getCalculatedValue();
+        $pdv = $excelCac -> getActiveSheet() -> getCell('B'.$i) -> getCalculatedValue();
+        $nombre = $excelCac -> getActiveSheet() -> getCell('C'.$i) -> getCalculatedValue();
+        $entrega = $excelCac -> getActiveSheet() -> getCell('D'.$i) -> getCalculatedValue();
+        $direccion = $excelCac -> getActiveSheet() -> getCell('E'.$i) -> getCalculatedValue();
+        $distrito = $excelCac -> getActiveSheet() -> getCell('F'.$i) -> getCalculatedValue();
+        $provincia = $excelCac -> getActiveSheet() -> getCell('G'.$i) -> getCalculatedValue();
+        $departamento = $excelCac -> getActiveSheet() -> getCell('H'.$i) -> getCalculatedValue();
+        $horario = $excelCac -> getActiveSheet() -> getCell('I'.$i) -> getCalculatedValue();
 
         // se ejecuta la insercion
         $procearchivos->insertarCac($region,$pdv,$nombre,$entrega,$direccion,$distrito,$provincia,$departamento,$horario);
@@ -156,14 +165,19 @@ if ($_FILES['dac']['name'])
     // echo $numerofila;
 
     // eliminamos la tabla antigua para reemplazar los datos
-    $sqld = "delete from prueba";
-    $rsd=sqlsrv_query($con,$sqld);
+    $sqldac = "delete from dac";
+    $rsd=sqlsrv_query($con,$sqldac);
 
     for ($i=2; $i <= $numerofila ; $i++) 
     {
         // se especifican las variables
-        $idPrueba = $excelDac -> getActiveSheet() -> getCell('A'.$i) -> getCalculatedValue();
-        $nombre = $excelDac -> getActiveSheet() -> getCell('B'.$i) -> getCalculatedValue();
+        $nombre = $excelDac -> getActiveSheet() -> getCell('A'.$i) -> getCalculatedValue();
+        $distrito = $excelDac -> getActiveSheet() -> getCell('B'.$i) -> getCalculatedValue();
+        $provincia = $excelDac -> getActiveSheet() -> getCell('C'.$i) -> getCalculatedValue();
+        $departamento = $excelDac -> getActiveSheet() -> getCell('D'.$i) -> getCalculatedValue();
+        $region = $excelDac -> getActiveSheet() -> getCell('E'.$i) -> getCalculatedValue();
+        $direccion = $excelDac -> getActiveSheet() -> getCell('F'.$i) -> getCalculatedValue();
+        $descripcion = $excelDac -> getActiveSheet() -> getCell('G'.$i) -> getCalculatedValue();
 
         // se ejecuta la insercion
         $procearchivos->insertarDac($nombre,$distrito,$provincia,$departamento,$region,$direccion,$descripcion);
@@ -187,21 +201,34 @@ if ($_FILES['acd']['name'])
     $excelAcd = PHPExcel_IOFactory::load($archivoAcd);
 
     // cargar la hoja escefica que queremos
-    $excelAcd -> setActiveSheetIndex(0);
+    $excelAcd -> setActiveSheetIndex(1);
 
     // obtener el numero de filas del archivo
-    $numerofila = $excelAcd -> setActiveSheetIndex(0) -> getHighestRow();
+    $numerofila = $excelAcd -> setActiveSheetIndex(1) -> getHighestRow();
     // echo $numerofila;
 
     // eliminamos la tabla antigua para reemplazar los datos
-    $sqld = "delete from prueba";
-    $rsd=sqlsrv_query($con,$sqld);
+    $sqlacd = "delete from acd";
+    $rsd=sqlsrv_query($con,$sqlacd);
 
     for ($i=2; $i <= $numerofila ; $i++) 
     {
         // se especifican las variables
-        $idPrueba = $excelAcd -> getActiveSheet() -> getCell('A'.$i) -> getCalculatedValue();
-        $nombre = $excelAcd -> getActiveSheet() -> getCell('B'.$i) -> getCalculatedValue();
+        $region = $excelAcd -> getActiveSheet() -> getCell('A'.$i) -> getCalculatedValue();
+        $pdv = $excelAcd -> getActiveSheet() -> getCell('B'.$i) -> getCalculatedValue();
+        $nombre = $excelAcd -> getActiveSheet() -> getCell('C'.$i) -> getCalculatedValue();
+        $entrega = $excelAcd -> getActiveSheet() -> getCell('D'.$i) -> getCalculatedValue();
+        $pdvsisact = $excelAcd -> getActiveSheet() -> getCell('E'.$i) -> getCalculatedValue();
+        $codpdv = $excelAcd -> getActiveSheet() -> getCell('F'.$i) -> getCalculatedValue();
+        $descripcion = $excelAcd -> getActiveSheet() -> getCell('G'.$i) -> getCalculatedValue();
+        $direccion = $excelAcd -> getActiveSheet() -> getCell('H'.$i) -> getCalculatedValue();
+        $distrito = $excelAcd -> getActiveSheet() -> getCell('I'.$i) -> getCalculatedValue();
+        $provincia = $excelAcd -> getActiveSheet() -> getCell('J'.$i) -> getCalculatedValue();
+        $departamento = $excelAcd -> getActiveSheet() -> getCell('K'.$i) -> getCalculatedValue();
+        $horario = $excelAcd -> getActiveSheet() -> getCell('L'.$i) -> getCalculatedValue();
+        $estado = $excelAcd -> getActiveSheet() -> getCell('M'.$i) -> getCalculatedValue();
+        $alta = $excelAcd -> getActiveSheet() -> getCell('N'.$i) -> getCalculatedValue();
+        $baja = $excelAcd -> getActiveSheet() -> getCell('O'.$i) -> getCalculatedValue();
 
         // se ejecuta la insercion
         $procearchivos->insertarAcd($region,$pdv,$nombre,$entrega,$pdvsisact,$codpdv,$descripcion,$direccion,$distrito,$provincia,$departamento,$horario,$estado,$alta,$baja);
@@ -232,8 +259,8 @@ if ($_FILES['cadena']['name'])
     // echo $numerofila;
 
     // eliminamos la tabla antigua para reemplazar los datos
-    $sqld = "delete from prueba";
-    $rsd=sqlsrv_query($con,$sqld);
+    $sqlcadena = "delete from cadena";
+    $rsd=sqlsrv_query($con,$sqlcadena);
 
     for ($i=2; $i <= $numerofila ; $i++) 
     {
@@ -257,7 +284,6 @@ if ($_FILES['cadena']['name'])
     }
 }
 ?>
-<!-- <script>
-    alert("Archivo subido correctamente");
+<script>
     window.history.back();
-</script> -->
+</script>
