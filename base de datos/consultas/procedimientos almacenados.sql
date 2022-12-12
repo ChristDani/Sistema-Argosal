@@ -345,6 +345,7 @@ go
 		@bloqueados char(5)
 		as
 		begin
+			delete from productos
 			insert into productos(region,nombre,centro,almacen,nombreAlmacen,material,descripcion,libres,bloqueados) values(@region,@nombre,@centro,@almacen,@nombreAlmacen,@material,@descripcion,@libres,@bloqueados)
 		end 
 		go
@@ -383,6 +384,7 @@ go
 		@horario char(100)
 		as
 		begin
+			delete from cac
 			insert into cac(region,pdv,nombre,entrega,direccion,distrito,provincia,departamento,horario) values(@region,@pdv,@nombre,@entrega,@direccion,@distrito,@provincia,@departamento,@horario)
 		end 
 		go
@@ -398,6 +400,7 @@ go
 		@descripcion char(100)
 		as
 		begin
+		delete from dac
 			insert into dac(nombre,distrito,provincia,departamento,region,direccion,descripcion) values(@nombre,@distrito,@provincia,@departamento,@region,@direccion,@descripcion)
 		end 
 		go
@@ -421,6 +424,7 @@ go
 		@baja datetime
 		as
 		begin
+			delete from acd
 			insert into acd(region,pdv,nombre,entrega,pdvsisact,codpdv,descripcion,direccion,distrito,provincia,departamento,horario,estado,alta,baja) values(@region,@pdv,@nombre,@entrega,@pdvsisact,@codpdv,@descripcion,@direccion,@distrito,@provincia,@departamento,@horario,@estado,@alta,@baja)
 		end 
 		go
@@ -442,6 +446,7 @@ go
 		@estado char(15)
 		as
 		begin
+			delete from cadena
 			insert into cadena(region,razonsocial,codigointer,codpdv,pdvsisact,entrega,direccion,distrito,provincia,departamento,dias,horario,estado) values(@region,@razonsocial,@codigointer,@codpdv,@pdvsisact,@entrega,@direccion,@distrito,@provincia,@departamento,@dias,@horario,@estado)
 		end 
 		go
