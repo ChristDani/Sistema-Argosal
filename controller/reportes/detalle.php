@@ -25,6 +25,8 @@ $resultado=sqlsrv_query($con,$sql, array(), array("Scrollable"=>"buffered"));
 // para saber el numero de filas
 $filas = sqlsrv_num_rows($resultado);
 
+$diassemana = array("Lunes","Martes","Miercoles","Jueves","Viernes","Sábado","Domingo");
+$meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
 
 $output=[];
 $output['data']= '';
@@ -36,6 +38,18 @@ if ($filas>0) {
         // variables para la comparacion
         $movil = "1";
         $fija = "0";
+
+        $dia= $fila['fechaRegistro']-> format('N');
+        $numerodia= $fila['fechaRegistro']-> format('d');
+        $mes= $fila['fechaRegistro']-> format('m');
+        $año= $fila['fechaRegistro']-> format('Y');
+        $hora= $fila['fechaRegistro']-> format('h:i:s A');
+
+        $dia2= $fila['fechaActualizacion']-> format('N');
+        $numerodia2= $fila['fechaActualizacion']-> format('d');
+        $mes2= $fila['fechaActualizacion']-> format('m');
+        $año2= $fila['fechaActualizacion']-> format('Y');
+        $hora2= $fila['fechaActualizacion']-> format('h:i:s A');
 
         // variables asignadas de la base de datos
 
@@ -62,8 +76,8 @@ if ($filas>0) {
         $promocion = $fila['promocion'];
         $ubicacion = $fila['ubicacion'];
         $distrito = $fila['distrito'];
-        $fecha = $fila['fechaRegistro']-> format('l j \of F Y h:i:s A');
-        $fechaUdp = $fila['fechaActualizacion']-> format('l j \of F Y h:i:s A');
+        $fecha = $diassemana[$dia-1].", ".$numerodia." de ".$meses[$mes-1]." del ".$año."<br>".$hora;
+        $fechaUdp = $diassemana[$dia2-1].", ".$numerodia2." de ".$meses[$mes2-1]." del ".$año2."<br>".$hora2;
         
         $output['data'].= "<div class='row'>";
 
