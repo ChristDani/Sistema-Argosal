@@ -106,7 +106,7 @@ $listUser = $user->listar();
     </div>
 </div>
 
-<div class="row" id="graficosfeos">    
+<div class="row mb-5" id="graficosfeos">    
     <div class="col-lg-6">
         <div class="card">
             <div class="card-body">

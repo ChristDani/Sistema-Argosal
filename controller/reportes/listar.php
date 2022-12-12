@@ -209,7 +209,7 @@ if ($filas>0) {
             $output['data'].= "<td align='center'>No Requiere</td>";
         }
         $output['data'].= "<td align='center'>".$fecha."</td>";
-        $output['data'].= "<td align='center'><div data-bs-target='#Detallesreportemes' data-bs-toggle='modal' onclick="."mostrardetallesreportesmes('$code');"."><ion-icon name='information-circle-outline'></ion-icon></div></td>";
+        $output['data'].= "<td align='center'><a class='btn' data-bs-target='#Detallesreportemes' data-bs-toggle='modal' onclick="."mostrardetallesreportesmes('$code');"."><ion-icon name='information-circle-outline'></ion-icon></a></td>";
         $output['data'].= "</tr>";
         $i+=1;
     }
