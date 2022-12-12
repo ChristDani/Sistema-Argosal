@@ -34,7 +34,7 @@
                         </div>
                     </div>   
                     <div class="align-items-baseline d-flex justify-content-between my-2">
-                        <h4 class="text-muted text-center">Desde<?php echo " $configFechaUser"; ?></h4>
+                        <h4 class="text-muted text-center">Desde el<?php echo " $configFechaUser"; ?></h4>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditarUsuario" onclick="editarUsuario('<?php echo$configdniUser;?>','<?php echo$configNombreUser;?>','<?php echo$configClaveUser;?>','<?php echo$configfotoUser;?>');">Editar</button>
                     </div>                     
                 </div>

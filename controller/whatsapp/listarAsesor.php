@@ -77,6 +77,9 @@ $totalContar = sqlsrv_num_rows($resulContar);
 
 $filas = sqlsrv_num_rows($resultado);
 
+$diassemana = array("Lunes","Martes","Miercoles","Jueves","Viernes","Sábado","Domingo");
+$meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+
 $output=[];
 $output['data']= '';
 $output['paginacion']= '';
@@ -85,10 +88,16 @@ if ($filas>0) {
     
     while ($fila=sqlsrv_fetch_array($resultado)) {
         
+        $dia= $fila['fechaRegistro']-> format('N');
+        $numerodia= $fila['fechaRegistro']-> format('d');
+        $mes= $fila['fechaRegistro']-> format('m');
+        $año= $fila['fechaRegistro']-> format('Y');
+        
+
         $code = $fila['codigo'];
         $tipoUser = $tipoU;
         $estado=$fila['estado'];
-        $fecha=$fila['fechaRegistro']-> format('l j \of F Y h:i:s A');
+        $fecha= $diassemana[$dia-1].", ".$numerodia." de ".$meses[$mes-1]." del ".$año;
 
         $output['data'].= "<div class='col-xl-3 col-md-6'>";
         $output['data'].= "<div class='card'>";

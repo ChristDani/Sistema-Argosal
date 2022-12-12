@@ -6,14 +6,24 @@ $dni= isset($_POST['dni']) ? $_POST['dni'] : null;
 $consultas=new user();
 $userdetecte=$consultas->buscarUser($dni);
 
+$diassemana = array("Lunes","Martes","Miercoles","Jueves","Viernes","Sábado","Domingo");
+$meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+
 if ($userdetecte != null) 
 {
 	foreach($userdetecte as $udt) 
 	{
+
+        $dia= $udt[4]-> format('N');
+        $numerodia= $udt[4]-> format('d');
+        $mes= $udt[4]-> format('m');
+        $año= $udt[4]-> format('Y');
+        $hora= $udt[4]-> format('h:i:s A');
+
         $detectedniUser = $udt[0];
         $detecteNombreUser = trim($udt[1]);
         $detecteTipoUser = $udt[3];
-        $detecteFechaUser = $udt[4]->format('l j \of F Y h:i:s A');
+        $detecteFechaUser = $diassemana[$dia-1].", ".$numerodia." de ".$meses[$mes-1]." del ".$año." / ".$hora;
         $detecteEstadoUser = $udt[5];
         $detectefotoUser = trim($udt[6]);
     }
@@ -60,7 +70,7 @@ elseif ($detecteEstadoUser === "3")
 $output['data'].= "</div>";
 $output['data'].= "</div>";
 $output['data'].= "<div class='d-flex justify-content-between align-items-center text-center'>";
-$output['data'].= "<h4 class='text-muted'>Desde $detecteFechaUser</h4>";
+$output['data'].= "<h4 class='text-muted'>Desde el $detecteFechaUser</h4>";
 $output['data'].= "</div>";
 
 echo json_encode($output, JSON_UNESCAPED_UNICODE); //por si viene con 'ñ' o tildes...
