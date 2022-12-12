@@ -44,40 +44,11 @@
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <div class="d-flex justify-content-end mt-1">
+                    <div class="d-flex justify-content-between mt-1">
+                        <h1>Añadir archivos</h1>
                         <button type="submit" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#agregararchivos">Subir Archivos</button>
                     </div>
-                    <!-- <div class="row">
-                        <div class="col-lg-6 mb-3">
-                            <h1>Productos</h1>
-                            <label class="filein align-items-center d-grid filein justify-content-center p-lg-5 p-sm-0">
-                                <input type="file" name="productos" id="productos">
-                                <h3>SUBIR</h3>
-                            </label>
-                        </div>
-                        <div class="col-lg-6 mb-3">
-                            <h1>Ubicaciones</h1>
-                            <label class="filein align-items-center d-grid filein justify-content-center p-lg-5 p-sm-0">
-                                <input type="file" name="" id="">
-                                <h3>SUBIR</h3>
-                            </label>
-                        </div>
-                        <div class="col-lg-6 mb-3">
-                            <h1>Masiva</h1>
-                            <label class="filein align-items-center d-grid filein justify-content-center p-lg-5 p-sm-0">
-                                <input type="file" name="" id="">
-                                <h3>SUBIR</h3>
-                            </label>
-                        </div>
-                        <div class="col-lg-6 mb-3">
-                            <h1>Otra cosa</h1>
-                            <label class="filein align-items-center d-grid filein justify-content-center p-lg-5 p-sm-0">
-                                <input type="file" name="" id="">
-                                <h3>SUBIR</h3>
-                            </label>
-                        </div> -->
-                    <!-- </div> -->
-                </div>
+                </div>    
             </div>
         </div>
         <?php }?>

@@ -13,41 +13,43 @@
               <div class="col-lg-6 mb-3">
                   <label class="filein align-items-center d-grid filein justify-content-center p-lg-5 p-sm-0">
                       <input type="file" name="cac" id="cac">
-                      <h3>SUBIR CAC</h3>
+                      <h3 class="my-auto">SUBIR CAC</h3>
                   </label>
               </div>
               <div class="col-lg-6 mb-3">
                   <label class="filein align-items-center d-grid filein justify-content-center p-lg-5 p-sm-0">
                       <input type="file" name="dac" id="dac">
-                      <h3>SUBIR DAC</h3>
+                      <h3 class="my-auto">SUBIR DAC</h3>
                   </label>
               </div>
               <div class="col-lg-6 mb-3">
                   <label class="filein align-items-center d-grid filein justify-content-center p-lg-5 p-sm-0">
                       <input type="file" name="acd" id="acd">
-                      <h3>SUBIR ACD</h3>
+                      <h3 class="my-auto">SUBIR ACD</h3>
                   </label>
               </div>
               <div class="col-lg-6 mb-3">
                   <label class="filein align-items-center d-grid filein justify-content-center p-lg-5 p-sm-0">
                       <input type="file" name="cadena" id="cadena">
-                      <h3>SUBIR CADENA</h3>
+                      <h3 class="my-auto">SUBIR CADENA</h3>
                   </label>
               </div>
             </div>
-            <h3>Productos</h3>
-            <div class="col-lg-6 mb-3">
+            <div class="row">
+              <div class="col-lg-6 mb-3">
+                <h3>Productos</h3>
                 <label class="filein align-items-center d-grid filein justify-content-center p-lg-5 p-sm-0">
                     <input type="file" name="productos" id="productos">
-                    <h3>SUBIR PRODUCTOS</h3>
+                    <h3 class="my-auto">SUBIR PRODUCTOS</h3>
                 </label>
-            </div>
-            <h3>Masiva</h3>
-            <div class="col-lg-6 mb-3">
+              </div>
+              <div class="col-lg-6 mb-3">
+                <h3>Masiva</h3>
                 <label class="filein align-items-center d-grid filein justify-content-center p-lg-5 p-sm-0">
                     <input type="file" name="masiva" id="masiva">
-                    <h3>SUBIR MASIVA</h3>
+                    <h3 class="my-auto">SUBIR MASIVA</h3>
                 </label>
+              </div>
             </div>
 
         </div>
