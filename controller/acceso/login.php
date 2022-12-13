@@ -21,25 +21,40 @@ if ($filas2 != null)
 	if(($dni == $tdni) && ($clave == $tclave) && ($tactivo == "1"))
 	{
 		session_start();
-		$_SESSION["dni"]=$tdni;
-		$_SESSION["user"]=$tusu;
-		$_SESSION["tipo"]=$ttipo;
+		$_SESSION["dni"] = $tdni;
+		$_SESSION["user"] = $tusu;
+		$_SESSION["tipo"] = $ttipo;
+		$_SESSION["Mensaje"] = null;
 		$consultas->activarEstado($dni);
 		header("location:../../index.php?pagina=Dashboard");
 	}
-	elseif ($tactivo == "0") {?>
-		<script>
-			alert("Tu usuario fue eliminado ):");
-			window.history.back();
-		</script>
-	<?php }
 	else
 	{
+		session_start();
+		$_SESSION["Mensaje"]="Usuario y/o Dni Incorrecto.";
+		if (!isset($_SESSION["intentos"])) 
+		{
+			$_SESSION["intentos"] = 1;
+		}	
+		elseif ($_SESSION['intentos'] > 0 && $_SESSION["intentos"] < 3) 
+		{
+			$_SESSION["intentos"] = $_SESSION["intentos"]+1;
+		}
 		header("location:../../");
 	}
 }
 else
 {
+	session_start();
+	$_SESSION["Mensaje"]="<p class='text-danger'>Usuario y/o Dni Incorrecto.</p>";
+	if (!isset($_SESSION["intentos"])) 
+	{
+		$_SESSION["intentos"] = 1;
+	}	
+	elseif ($_SESSION['intentos'] > 0 && $_SESSION["intentos"] < 3) 
+	{
+		$_SESSION["intentos"] = $_SESSION["intentos"]+1;
+	}	
 	header("location:../../");
 }
 ?>
