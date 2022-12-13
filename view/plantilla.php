@@ -5,11 +5,11 @@
         require_once "model/conexion.php";
         $modelconelogin = new conexion();
         $conexionpruebalogin = $modelconelogin->conectar();
-        if ($conexionpruebalogin != null) 
+        if ($conexionpruebalogin) 
         {
             include_once "paginas/login.php";
         } 
-        elseif ($conexionpruebalogin == null) 
+        elseif (!$conexionpruebalogin) 
         {
             include_once "paginas/500.php";
         }
