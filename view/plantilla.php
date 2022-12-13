@@ -2,7 +2,17 @@
     session_start();
     if (!isset($_SESSION["user"])) 
     {
-        include_once "paginas/login.php";
+        require_once "model/conexion.php";
+        $modelconelogin = new conexion();
+        $conexionpruebalogin = $modelconelogin->conectar();
+        if ($conexionpruebalogin != null) 
+        {
+            include_once "paginas/login.php";
+        } 
+        elseif ($conexionpruebalogin == null) 
+        {
+            include_once "paginas/500.php";
+        }
     }
     elseif (isset($_SESSION["user"]) && !isset($_GET["pagina"])) 
     {
