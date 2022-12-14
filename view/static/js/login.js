@@ -55,49 +55,27 @@ img.style.backgroundRepeat = "no-repeat";
 }())
 
 nomove.addEventListener("mouseover", move);
-nomove.addEventListener("mouseout", move);
+// nomove.addEventListener("mouseout", move);
 var nose = 0.01;
 
 function move() {
 
-    let positionright = nomove.style.right.replace('px', ' ');
-    let positionbottom = nomove.style.bottom.replace('px', ' ');
+    var mintop = -240;
+    var maxtop = 235;
 
-    let final = positionright - (positionright - 100);
+    var minleft = -430;
+    var maxleft = 830;
 
-    nose++;
+    let limittop = Math.ceil(Math.random()*(maxtop-mintop+1)+mintop);
 
-    let coords = nomove.getBoundingClientRect().top;
+    let limitleft = Math.ceil(Math.random()*(maxleft-minleft+1)+minleft);
 
-    if (positionright = 315, positionbottom = 315) {
-        nomove.style.right = nose - final;
-        nomove.style.top = nose + final;
-
-        console.log("este es el 1")
-    
-    } if (coords = 350.109375) {
-        nomove.style.right = nose + final;
-        nomove.style.bottom = nose + final;
-        console.log("este es el 2")
-
-    } if (coords = -0.890625) {
-        nomove.style.right = nose + final;
-        nomove.style.bottom = nose + final;
-        console.log("este es el 3")
-
-    }
-     else {
-        console.log("Hola no se");
-        
-    }
-
-
-    console.log(coords);
+    nomove.style.left = limitleft;
+    nomove.style.top = limittop;
 
 
 
 }
 
 
-// 165
 

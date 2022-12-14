@@ -81,7 +81,7 @@ if ($intentos == 3) {?>
                                 </div>
                                 <p class="danger iconp"><ion-icon name="close-circle-outline"></ion-icon></p>
                                 <div class="blocked-header">
-                                    <p class='color'>Vuelva a intentar en <span id="tiempoespera">180</span> segundos</p>
+                                    <p class='color'>Para volver a intentar<span id="tiempoespera" class="coldown">180</span><br><span class="text-muted">No recargue la web</span></p>
                                 </div>
                             </div>
                             <script>
@@ -94,7 +94,19 @@ if ($intentos == 3) {?>
                         </div>
                     </div>
                 </div>
-                <div class="col-auto px-5 text-center">
+                <div class="col-auto px-5">
+                    <div class="hours">
+                        <div class="date d-flex gap-3 align-items-center">
+                            <p id="hora"></p>
+                            <p id="min"></p>
+                            <div class="two text-center">
+                                <p id="second"></p>
+                                <p id="pre"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-auto px-5 text-center">
                     <div class="card hours">
                         <div class="align-items-center d-flex date gap-4 justify-content-center mt-2 px-3 py-2">
                             <p id="hora"></p>
@@ -105,7 +117,7 @@ if ($intentos == 3) {?>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div> 
         </div>
     </div>
