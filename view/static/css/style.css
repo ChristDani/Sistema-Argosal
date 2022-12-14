@@ -21,6 +21,7 @@ input:focus, select:focus, select, input.form-control:focus, .form-floating sele
     border: none;
 }
 
+
 :root{
     --color-primary: #7380ec;
     --color-danger: #fc3747;
