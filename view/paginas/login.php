@@ -57,7 +57,7 @@ if ($intentos == 3) {?>
                                 </div>
                             </form>                
                     <?php }elseif ($intentos == 3) {?>
-                        <div class="card login-card overflow-hidden">
+                        <div class="card login-card overflow-hidden" id="nope">
                             <div class="card-body">
                                 <div class="login-card-header">
                                     <h1>Iniciar sesion</h1>

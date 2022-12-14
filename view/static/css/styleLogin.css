@@ -62,8 +62,17 @@ body{
 .login-card a{
     text-decoration: none;
     color: #35339a;
-
 }
+
+/* #nope{
+    transition: .5s;    
+}
+
+#nope:hover{
+    position: absolute !important;    
+    top: 0;
+    left: 50% !important;
+} */
 
 .login-card-header{
     margin-bottom: 0.5rem;

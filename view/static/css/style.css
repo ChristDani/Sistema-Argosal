@@ -152,6 +152,7 @@ body{
     border-radius: var(--card-border-radius);
 }
 
+
 .dropdown-divider{
     border-top: 1px solid var(--color-dark);
 }
