@@ -1,1 +1,0 @@
-<div style="height: 100vh;background-image: url(view/static/img/401.png);background-size: cover;background-repeat: no-repeat;background-position: center;"></div>
