@@ -31,7 +31,7 @@ if ($filas2 != null)
 	else
 	{
 		session_start();
-		$_SESSION["Mensaje"]="<p class='text-danger'>Usuario y/o Dni Incorrecto.</p>";
+		$_SESSION["Mensaje"]="<p class='text-danger'>Los datos son incorrectos</p>";
 		if (!isset($_SESSION["intentos"])) 
 		{
 			$_SESSION["intentos"] = 1;
@@ -46,7 +46,7 @@ if ($filas2 != null)
 else
 {
 	session_start();
-	$_SESSION["Mensaje"]="<p class='text-danger'>Usuario y/o Dni Incorrecto.</p>";
+	$_SESSION["Mensaje"]="<p class='text-danger'>Los datos son incorrectos</p>";
 	if (!isset($_SESSION["intentos"])) 
 	{
 		$_SESSION["intentos"] = 1;

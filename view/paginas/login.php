@@ -36,17 +36,36 @@ if ($intentos == 3) {?>
 </head>
 <body>
     <div class="m-0 vh-100" id="imagen">
-        <div class="fondo m-0 vh-100 row justify-content-center align-items-center">
+        <div class="fondo m-0 vh-100 row">
             <div class="row justify-content-center align-items-center" >
-                <div class="col-auto px-5 mb-5 text-center">
+                <div class="col-auto text-center">
+                    <?php if ($intentos < 3) {?>
                     <div class="card login-card">
                         <div class="card-body">
-                            <?php if ($intentos < 3) {?>
+                            <div class="login-card-header">
+                                <h1>Iniciar sesion</h1>
+                                <p><?php echo $mensajeLogin; ?></p>
+                            </div>
+                            <form action="controller/acceso/login.php" method="post" class="login-card-form">
+                                <div class="form-item mb-3">
+                                    <ion-icon name="person-outline"></ion-icon>
+                                    <input class="form-control" type="text" name="dni" id="dni" required autocomplete='off' maxlength="8" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" placeholder="Ingresa tu DNI">
+                                </div>
+                                <div class="form-item mb-3">
+                                    <ion-icon name="lock-closed-outline"></ion-icon>
+                                    <input class="form-control" type="password" name="clave" id="clave" required autocomplete='off' placeholder="Ingresa tu clave">
+                                </div>
+                                <div>
+                                    <button type="submit" class="mx-2 px-5">Entrar</button>
+                                </div>
+                            </form>                
+                    <?php }elseif ($intentos == 3) {?>
+                        <div class="card login-card overflow-hidden">
+                            <div class="card-body">
                                 <div class="login-card-header">
                                     <h1>Iniciar sesion</h1>
-                                    <?php echo $mensajeLogin; ?>
                                 </div>
-                                <form action="controller/acceso/login.php" method="post" class="login-card-form">
+                                <div action="controller/acceso/login.php" method="post" class="login-card-form">
                                     <div class="form-item mb-3">
                                         <ion-icon name="person-outline"></ion-icon>
                                         <input class="form-control" type="text" name="dni" id="dni" required autocomplete='off' maxlength="8" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" placeholder="Ingresa tu DNI">
@@ -55,31 +74,35 @@ if ($intentos == 3) {?>
                                         <ion-icon name="lock-closed-outline"></ion-icon>
                                         <input class="form-control" type="password" name="clave" id="clave" required autocomplete='off' placeholder="Ingresa tu clave">
                                     </div>
-                                    <div class="form-item d-flex justify-content-end">
-                                        <button type="submit" class="mx-2">Entrar</button>
+                                    <div>
+                                        <button type="submit" class="mx-2 px-5">Entrar</button>
                                     </div>
-                                </form>                
-                            <?php }elseif ($intentos == 3) {?>
-                                <div class="login-card-header">
-                                    <h3 class="text-danger">Se excedió el limite de intentos posibles.</h3>
-                                    <h5 class='text-danger'>Podrá intentar después de <span id="tiempoespera">180</span> segundos.</h5>
+                                </div>                
+                            <div class="blocked p-4">
+                                <div class="blocked-header">
+                                    <p class="color">Excedio el limite de intentos</p>
                                 </div>
-                                <script>
-                                    let timeespera = document.getElementById('tiempoespera');
-                                    setInterval(() => {
-                                        timeespera.innerHTML = timeshow;
-                                    }, 1000);
-                                </script>
-                            <?php }?>
+                                <p class="danger iconp"><ion-icon name="close-circle-outline"></ion-icon></p>
+                                <div class="blocked-header">
+                                    <p class='color'>Vuelva a intentar en <span id="tiempoespera">180</span> segundos</p>
+                                </div>
+                            </div>
+                            <script>
+                                let timeespera = document.getElementById('tiempoespera');
+                                setInterval(() => {
+                                    timeespera.innerHTML = timeshow;
+                                }, 1000);
+                            </script>
+                    <?php }?>
                         </div>
                     </div>
                 </div>
                 <div class="col-auto px-5 text-center">
                     <div class="card hours">
-                        <div class="align-items-center card-body d-flex date gap-3 justify-content-center">
-                            <h1 id="hora"></h1>
-                            <h1 id="min"></h1>
-                            <div class="row two">
+                        <div class="align-items-center d-flex date gap-4 justify-content-center mt-2 px-3 py-2">
+                            <p id="hora"></p>
+                            <p id="min"></p>
+                            <div class="row two d-flex flex-column">
                                 <h1 id="second"></h1>
                                 <h1 id="pre"></h1>
                             </div>

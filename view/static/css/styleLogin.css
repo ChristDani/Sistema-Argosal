@@ -20,6 +20,7 @@ input:focus, select:focus, select, input.form-control:focus {
     --color-white: #fff;
     --color-black:#202528;
     --color-info-dark: #7d8da1;
+    --color-danger: #fc3747;
     --color-info-light: #dce1eb;
     --color-dark: #363949;
     --color-light: rgba(0,0,0,0.4);
@@ -49,7 +50,7 @@ body{
 
 .login-card {
     background: rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(5px);
     padding: 0.2rem 0;
 }
 
@@ -65,7 +66,11 @@ body{
 }
 
 .login-card-header{
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.login-card-footer{
+    margin-top: 0.5rem;
 }
 
 .login-card-header h1{
@@ -82,6 +87,8 @@ body{
 .card > .card-body{
     margin-top: 1rem;
     transition: all 300ms ease;
+    margin-bottom: 1rem;
+
 }
 
 .card:hover{
@@ -170,6 +177,28 @@ body{
     gap: 1rem;
 }
 
+.color{
+    color: var(--color-background);
+}
+
+
+.danger{
+    color: var(--color-danger);
+}
+
+.iconp{
+    height: 180px;
+}
+
+.blocked{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgb(0 0 0 / 90%);
+    backdrop-filter: blur(10px);
+}
+
 .login-card-social-btn a{
     display: flex;
     align-items: center;
@@ -195,23 +224,32 @@ body{
     background: transparent;
 }
 
-#hora, #min{
+/* #hora, #min{
     font-size: xxx-large;
     font-weight: bolder;
-}
+} */
 
 .two #second{
     font-size: larger;
     font-weight: bolder;
+    font-size: 40px;
 }
 
 .two #pre{
     font-size: medium;
     font-weight:normal;
+    font-size: 20px;
+
 }
 
 .hours{
     background: rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(8px);
     /* width: 90%; */
+    padding: 0;
+}
+
+.date{
+    padding: 0;
+    font-size: 80px;
 }
