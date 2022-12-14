@@ -80,7 +80,7 @@ if ($intentos == 3) {?>
                                     <p class="color">Excedio el limite de intentos</p>
                                 </div>
                                 <p class="danger iconp"><ion-icon name="close-circle-outline"></ion-icon></p>
-                                <div class="blocked-header">
+                                <div class="blocked-header text-center">
                                     <p class='color'>Para volver a intentar<span id="tiempoespera" class="coldown">180</span><br><span class="text-muted">No recargue la web</span></p>
                                 </div>
                             </div>
