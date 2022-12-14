@@ -56,13 +56,11 @@ elseif ($tipoUsuario === "0")
                 </div>
             </button>
         </div>
-        <?php// if($tipoUsuario == "1" || $tipoUsuario === "2") { ?>
-            <ul class="navbar-nav ml-auto mr-0 mr-md-3 my-2 my-md-0">
-                <button class="mx-2 btn btn-link btn-sm d-flex justify-content-center" data-bs-toggle="offcanvas" data-bs-target="#Metas" aria-controls="offcanvasRight">
-                    <ion-icon name="analytics-outline"></ion-icon>
-                </button>  
-            </ul>      
-        <?php //} ?>			 
+        <ul class="navbar-nav ml-auto mr-0 mr-md-3 my-2 my-md-0">
+            <button class="mx-2 btn btn-link btn-sm d-flex justify-content-center" data-bs-toggle="offcanvas" data-bs-target="#Metas" aria-controls="offcanvasRight">
+                <ion-icon name="analytics-outline"></ion-icon>
+            </button>  
+        </ul>      			 
     </nav>
     <?php require_once 'contenidoMetas.php'; ?>
     <div id="layoutSidenav">

@@ -4,9 +4,19 @@ $intentos = isset($_SESSION["intentos"]) ? $_SESSION["intentos"] : 0;
 
 if ($intentos == 3) {?>
     <script>
-        setTimeout(() => {
-            <?php session_destroy(); ?>
-        }, 180000);
+        var timejsjs = 180000
+        let timeshow = 0
+            setInterval(() => {
+                if (timejsjs > 0) {
+                    timeshow = timejsjs / 1000;
+                    timejsjs = timejsjs-1000;
+                } else{
+                    setTimeout(() => {
+                        <?php session_destroy();?>
+                        location.reload();
+                    }, 500);
+                }
+            }, 1000);
     </script>
 <?php } ?>
 <!DOCTYPE html>
@@ -52,8 +62,14 @@ if ($intentos == 3) {?>
                             <?php }elseif ($intentos == 3) {?>
                                 <div class="login-card-header">
                                     <h3 class="text-danger">Se excedió el limite de intentos posibles.</h3>
-                                    <h5 class='text-danger'>Podrá intentar después de 3 minutos.</h5>
+                                    <h5 class='text-danger'>Podrá intentar después de <span id="tiempoespera">180</span> segundos.</h5>
                                 </div>
+                                <script>
+                                    let timeespera = document.getElementById('tiempoespera');
+                                    setInterval(() => {
+                                        timeespera.innerHTML = timeshow;
+                                    }, 1000);
+                                </script>
                             <?php }?>
                         </div>
                     </div>
