@@ -8,13 +8,10 @@ if ($intentos == 3) {?>
         let timeshow = 0
             setInterval(() => {
                 if (timejsjs > 0) {
-                    timeshow = timejsjs / 1000;
                     timejsjs = timejsjs-1000;
+                    timeshow = timejsjs / 1000;
                 } else{
-                    setTimeout(() => {
-                        <?php session_destroy();?>
-                        location.reload();
-                    }, 500);
+                    window.location.href = 'controller/acceso/logout.php';
                 }
             }, 1000);
     </script>
@@ -25,7 +22,7 @@ if ($intentos == 3) {?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Argo</title>
+    <title>Argosal</title>
     <link rel="icon" href="view/static/img/icono.png">
     <link rel="stylesheet" href="view/static/css/reset.css">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -68,11 +65,11 @@ if ($intentos == 3) {?>
                                 <div action="controller/acceso/login.php" method="post" class="login-card-form">
                                     <div class="form-item mb-3">
                                         <ion-icon name="person-outline"></ion-icon>
-                                        <input class="form-control" type="text" name="dni" id="dni" required autocomplete='off' maxlength="8" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" placeholder="Ingresa tu DNI">
+                                        <input class="form-control" type="text" placeholder="Ingresa tu DNI">
                                     </div>
                                     <div class="form-item mb-3">
                                         <ion-icon name="lock-closed-outline"></ion-icon>
-                                        <input class="form-control" type="password" name="clave" id="clave" required autocomplete='off' placeholder="Ingresa tu clave">
+                                        <input class="form-control" type="password" placeholder="Ingresa tu clave">
                                     </div>
                                     <div>
                                         <button type="submit" class="mx-2 px-5">Entrar</button>
