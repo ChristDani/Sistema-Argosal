@@ -1,6 +1,8 @@
 @import url("reset.css");
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
 
 input:focus, select:focus, select, input.form-control:focus {
 
@@ -54,7 +56,6 @@ body{
     padding: 0.2rem 0;
 }
 
-
 .login-card-header, .login-card-footer{
     text-align: center;
 }
@@ -63,16 +64,6 @@ body{
     text-decoration: none;
     color: #35339a;
 }
-
-/* #nope{
-    transition: .5s;    
-}
-
-#nope:hover{
-    position: absolute !important;    
-    top: 0;
-    left: 50% !important;
-} */
 
 .login-card-header{
     margin-bottom: 0.5rem;
@@ -88,19 +79,19 @@ body{
     margin-bottom: .5rem;
     color: rgb(151, 151, 151);
 }
-.card{
+.card, .date{
     box-shadow: var(--box-shadow);
     border-radius: var(--border-radius-3);
+    transition: all .1s ease;
 }
 
 .card > .card-body{
     margin-top: 1rem;
     transition: all 300ms ease;
     margin-bottom: 1rem;
-
 }
 
-.card:hover{
+.card:hover, .date:hover{
     box-shadow: none;
 }
 
@@ -164,26 +155,9 @@ body{
     cursor: pointer;
 }
 
-.login-card-social{
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    text-align: center;
-    margin-top: 3rem;
-}
-
-.login-card-social > div {
-    opacity:  .8;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: calc(1rem * .8);
-}
-
-.login-card-social-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
+p{
+    margin: 0;
+    padding: 0;
 }
 
 .color{
@@ -204,61 +178,34 @@ body{
     top: 0;
     left: 0;
     right: 0;
+    bottom: 0;
     background: rgb(0 0 0 / 90%);
     backdrop-filter: blur(10px);
 }
 
-.login-card-social-btn a{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: black;
-    width: 50px;
-    height: 50px;
-    background: rgba(255, 255, 255, .6);
-    border-radius: 100px;
-    transition: all .5s;
-}
-
-.login-card-social-btns a:hover{
-    background: white;
-    transform: scale(1.1);    
-}
-
-.hours{
-    color: rgb(196, 196, 196);
-    /* margin: 1% 0% -1% 0%; */
-    border-radius: 10px;
-    border: none;
-    background: transparent;
-}
-
-/* #hora, #min{
-    font-size: xxx-large;
-    font-weight: bolder;
-} */
-
-.two #second{
-    font-size: larger;
-    font-weight: bolder;
-    font-size: 40px;
-}
-
-.two #pre{
-    font-size: medium;
-    font-weight:normal;
-    font-size: 20px;
-
-}
-
-.hours{
-    background: rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(8px);
-    /* width: 90%; */
-    padding: 0;
-}
-
 .date{
-    padding: 0;
     font-size: 80px;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    color: rgb(151, 151, 151);
+    width: 100%;
+    padding: 0 10px;
+    /* font-family: 'Kdam Thmor Pro', sans-serif;      */
+    font-family: 'Michroma', sans-serif;         
+    transition: .2s ease;                               
+}
+
+.two{
+    font-size: 20px;
+}
+
+.coldown{
+    position: absolute;
+    top: 81;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: var(--color-danger);
+    font-size: 80px;
+    -webkit-text-stroke: 2px #fff;
 }
