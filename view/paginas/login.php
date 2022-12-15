@@ -1,7 +1,4 @@
 <?php
-require_once "model/conexion.php";
-$conelogin = new conexion();
-
 $mensajeLogin = isset($_SESSION["Mensaje"]) ? $_SESSION["Mensaje"] : null;
 $intentos = isset($_SESSION["intentos"]) ? $_SESSION["intentos"] : 0;
 
@@ -35,7 +32,6 @@ if ($intentos == 3) {?>
     <link rel="stylesheet" href="view/static/css/styleLogin.css">
 </head>
 <body>
-    <?php if ($conelogin) {?>
     <div class="m-0 vh-100" id="imagen">
         <div class="fondo m-0 vh-100 row">
             <div class="row justify-content-center align-items-center" >
@@ -125,9 +121,6 @@ if ($intentos == 3) {?>
             </div> 
         </div>
     </div>
-<script src="view/static/js/login.js"></script>    
-<?php }else {
-    include_once "500.php";
-}?>
+<script src="view/static/js/login.js"></script>
 </body>
 </html>
