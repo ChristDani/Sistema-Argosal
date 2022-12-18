@@ -114,8 +114,8 @@ provincia char(50) null,
 departamento char(50) null,
 horario char(100) null,
 estado char(15) null,
-alta datetime,
-baja datetime
+alta datetime null,
+baja datetime null
 )
 ---
 drop table if exists cadena
