@@ -158,10 +158,10 @@ if ($_FILES['dac']['name'])
     $excelDac = PHPExcel_IOFactory::load($archivoDac);
 
     // cargar la hoja escefica que queremos
-    $excelDac -> setActiveSheetIndex(0);
+    $excelDac -> setActiveSheetIndex(3);
 
     // obtener el numero de filas del archivo
-    $numerofila = $excelDac -> setActiveSheetIndex(0) -> getHighestRow();
+    $numerofila = $excelDac -> setActiveSheetIndex(3) -> getHighestRow();
     // echo $numerofila;
 
     // eliminamos la tabla antigua para reemplazar los datos
@@ -201,10 +201,10 @@ if ($_FILES['acd']['name'])
     $excelAcd = PHPExcel_IOFactory::load($archivoAcd);
 
     // cargar la hoja escefica que queremos
-    $excelAcd -> setActiveSheetIndex(1);
+    $excelAcd -> setActiveSheetIndex(3);
 
     // obtener el numero de filas del archivo
-    $numerofila = $excelAcd -> setActiveSheetIndex(1) -> getHighestRow();
+    $numerofila = $excelAcd -> setActiveSheetIndex(3) -> getHighestRow();
     // echo $numerofila;
 
     // eliminamos la tabla antigua para reemplazar los datos
@@ -232,6 +232,7 @@ if ($_FILES['acd']['name'])
 
         // se ejecuta la insercion
         $procearchivos->insertarAcd($region,$pdv,$nombre,$entrega,$pdvsisact,$codpdv,$descripcion,$direccion,$distrito,$provincia,$departamento,$horario,$estado,$alta,$baja);
+        // echo $region." | ".$pdv." | ".$nombre." | ".$entrega." | ".$pdvsisact." | ".$codpdv." | ".$descripcion." | ".$direccion." | ".$distrito." | ".$provincia." | ".$departamento." | ".$horario." | ".$estado." | ".$alta." | ".$baja."<br>";
     }
 }
 

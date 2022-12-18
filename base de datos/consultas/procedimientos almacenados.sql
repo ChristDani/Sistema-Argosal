@@ -417,8 +417,8 @@ go
 		@departamento char(50),
 		@horario char(100),
 		@estado char(15),
-		@alta datetime,
-		@baja datetime
+		@alta char(15),
+		@baja char(15)
 		as
 		begin
 			insert into acd(region,pdv,nombre,entrega,pdvsisact,codpdv,descripcion,direccion,distrito,provincia,departamento,horario,estado,alta,baja) values(@region,@pdv,@nombre,@entrega,@pdvsisact,@codpdv,@descripcion,@direccion,@distrito,@provincia,@departamento,@horario,@estado,@alta,@baja)

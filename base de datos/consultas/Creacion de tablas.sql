@@ -45,7 +45,9 @@ promocion char(50) not null,
 ubicacion varchar(100) not null,
 distrito char(25) not null,
 fechaRegistro datetime default getdate(),
-fechaActualizacion datetime default getDate()
+fechaActualizacion datetime default getDate(),
+
+CONSTRAINT fk_dniAsesor FOREIGN KEY (dniAsesor) REFERENCES usuarios (dni)
 )
 
 drop table if exists landing
@@ -114,8 +116,8 @@ provincia char(50) null,
 departamento char(50) null,
 horario char(100) null,
 estado char(15) null,
-alta datetime null,
-baja datetime null
+alta char(15) null,
+baja char(15) null
 )
 ---
 drop table if exists cadena
