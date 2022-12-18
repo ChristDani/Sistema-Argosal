@@ -29,12 +29,12 @@ class archivos
         return "Proceso realizado con éxito";
     }
 
-    public function insertarDac($nombre,$distrito,$provincia,$departamento,$region,$direccion,$descripcion)
+    public function insertarDac($region,$pdv,$nombre,$entrega,$pdvsisact,$codpdv,$descripcion,$direccion,$distrito,$provincia,$departamento,$horario,$estado,$alta,$baja)
     {
         $model=new conexion();
         $con=$model->conectar();
         
-        $sql="exec sp_insertar_dac '$nombre','$distrito','$provincia','$departamento','$region','$direccion','$descripcion'";
+        $sql="exec sp_insertar_dac '$region','$pdv','$nombre','$entrega','$pdvsisact','$codpdv','$descripcion','$direccion','$distrito','$provincia','$departamento','$horario','$estado','$alta','$baja'";
 
 		$rs=sqlsrv_query($con,$sql);
 

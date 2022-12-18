@@ -171,16 +171,24 @@ if ($_FILES['dac']['name'])
     for ($i=2; $i <= $numerofila ; $i++) 
     {
         // se especifican las variables
-        $nombre = $excelDac -> getActiveSheet() -> getCell('A'.$i) -> getCalculatedValue();
-        $distrito = $excelDac -> getActiveSheet() -> getCell('B'.$i) -> getCalculatedValue();
-        $provincia = $excelDac -> getActiveSheet() -> getCell('C'.$i) -> getCalculatedValue();
-        $departamento = $excelDac -> getActiveSheet() -> getCell('D'.$i) -> getCalculatedValue();
-        $region = $excelDac -> getActiveSheet() -> getCell('E'.$i) -> getCalculatedValue();
-        $direccion = $excelDac -> getActiveSheet() -> getCell('F'.$i) -> getCalculatedValue();
+        $region = $excelDac -> getActiveSheet() -> getCell('A'.$i) -> getCalculatedValue();
+        $pdv = $excelDac -> getActiveSheet() -> getCell('B'.$i) -> getCalculatedValue();
+        $nombre = $excelDac -> getActiveSheet() -> getCell('C'.$i) -> getCalculatedValue();
+        $entrega = $excelDac -> getActiveSheet() -> getCell('D'.$i) -> getCalculatedValue();
+        $pdvsisact = $excelDac -> getActiveSheet() -> getCell('E'.$i) -> getCalculatedValue();
+        $codpdv = $excelDac -> getActiveSheet() -> getCell('F'.$i) -> getCalculatedValue();
         $descripcion = $excelDac -> getActiveSheet() -> getCell('G'.$i) -> getCalculatedValue();
+        $direccion = $excelDac -> getActiveSheet() -> getCell('H'.$i) -> getCalculatedValue();
+        $distrito = $excelDac -> getActiveSheet() -> getCell('I'.$i) -> getCalculatedValue();
+        $provincia = $excelDac -> getActiveSheet() -> getCell('J'.$i) -> getCalculatedValue();
+        $departamento = $excelDac -> getActiveSheet() -> getCell('K'.$i) -> getCalculatedValue();
+        $horario = $excelDac -> getActiveSheet() -> getCell('L'.$i) -> getCalculatedValue();
+        $estado = $excelDac -> getActiveSheet() -> getCell('T'.$i) -> getCalculatedValue();
+        $alta = $excelDac -> getActiveSheet() -> getCell('U'.$i) -> getCalculatedValue();
+        $baja = $excelDac -> getActiveSheet() -> getCell('V'.$i) -> getCalculatedValue();
 
         // se ejecuta la insercion
-        $procearchivos->insertarDac($nombre,$distrito,$provincia,$departamento,$region,$direccion,$descripcion);
+        $procearchivos->insertarDac($region,$pdv,$nombre,$entrega,$pdvsisact,$codpdv,$descripcion,$direccion,$distrito,$provincia,$departamento,$horario,$estado,$alta,$baja);
     }
 }
 

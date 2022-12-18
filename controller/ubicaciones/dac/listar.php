@@ -5,7 +5,7 @@ $model=new conexion();
 $con=$model->conectar();
 
 // en el caso de solo querer determinadas columnas usar esto con el mismo nombre de las columnas...
-$columnas=['nombre','distrito', 'provincia', 'departamento', 'region', 'direccion', 'descripcion'];
+$columnas=['region','pdv', 'nombre', 'entrega', 'pdvsisact', 'codpdv', 'descripcion','direccion','distrito','provincia','departamento','horario','estado','alta','baja'];
 
 // tabla a seleccionar
 $tabla='dac';
@@ -87,13 +87,13 @@ if ($filas>0) {
         $output['data'] .= "<div class='card'>";
         $output['data'] .= "<div class='card-body'>";
         $output['data'] .= "<div class='head d-flex justify-content-around'>";
+        $output['data'] .= "<p>".$fila['pdv']."</p>";
         $output['data'] .= "<p></p>";
-        $output['data'] .= "<p>".$fila['region']."</p>";
         $output['data'] .= "<p></p>";
+        $output['data'] .= "<p>".$fila['entrega']."</p>";
         $output['data'] .= "<p></p>";
         $output['data'] .= "<p></p>";
         $output['data'] .= "<p>".$fila['nombre']."</p>";
-        $output['data'] .= "<p></p>";
         $output['data'] .= "</div>";
         $output['data'] .= "<div class='body'>";
         $output['data'] .= "<div class='row my-2'>";
@@ -111,7 +111,7 @@ if ($filas>0) {
         $output['data'] .= "</div>";
         $output['data'] .= "</div>";
         $output['data'] .= "<div class='row text-center' style='border-top: 1px solid #b9b9b9;'>";
-        $output['data'] .= "<p class='my-1 text-muted'>".$fila['descripcion']."</p>";
+        $output['data'] .= "<p class='my-1 text-muted'>".$fila['horario']."</p>";
         $output['data'] .= "</div>";
         $output['data'] .= "</div>";
         $output['data'] .= "</div>";

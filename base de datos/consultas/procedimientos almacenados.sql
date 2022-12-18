@@ -389,16 +389,24 @@ go
 
 		--drop procedure if exists sp_insertar_dac
 		create procedure sp_insertar_dac
-		@nombre char(100),
-		@distrito char(30),
-		@provincia char(30),
-		@departamento char(30),
 		@region char(20),
+		@pdv char(10),
+		@nombre char(100),
+		@entrega char(20),
+		@pdvsisact char(100),
+		@codpdv char(10),
+		@descripcion char(100),
 		@direccion char(255),
-		@descripcion char(100)
+		@distrito char(50),
+		@provincia char(50),
+		@departamento char(50),
+		@horario char(100),
+		@estado char(15),
+		@alta char(15),
+		@baja char(15)
 		as
 		begin
-			insert into dac(nombre,distrito,provincia,departamento,region,direccion,descripcion) values(@nombre,@distrito,@provincia,@departamento,@region,@direccion,@descripcion)
+			insert into dac(region,pdv,nombre,entrega,pdvsisact,codpdv,descripcion,direccion,distrito,provincia,departamento,horario,estado,alta,baja) values(@region,@pdv,@nombre,@entrega,@pdvsisact,@codpdv,@descripcion,@direccion,@distrito,@provincia,@departamento,@horario,@estado,@alta,@baja)
 		end 
 		go
 

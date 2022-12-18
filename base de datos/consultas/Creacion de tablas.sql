@@ -91,13 +91,21 @@ horario char(100) null
 drop table if exists dac
 create table dac
 (
-nombre char(100) null,
-distrito char(30) null,
-provincia char(30) null,
-departamento char(30) null,
 region char(20) null,
+pdv char(10) null,
+nombre char(100) null,
+entrega char(20) null,
+pdvsisact char(100) null,
+codpdv char(10) null,
+descripcion char(100) null,
 direccion char(255) null,
-descripcion char(100) null
+distrito char(50) null,
+provincia char(50) null,
+departamento char(50) null,
+horario char(100) null,
+estado char(15) null,
+alta char(15) null,
+baja char(15) null
 )
 
 drop table if exists acd
