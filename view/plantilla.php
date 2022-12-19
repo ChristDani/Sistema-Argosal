@@ -68,6 +68,10 @@
                 {
                     include_once "paginas/reportes.php";
                 }
+                elseif ($_GET["pagina"]==="Herramientas") 
+                {
+                    include_once "paginas/herramientas.php";
+                }
                 elseif ($_GET["pagina"]==="Configuracion") 
                 {
                     include_once "paginas/configuracion.php";
@@ -102,6 +106,10 @@
                 elseif ($_GET["pagina"]==="Reportes") 
                 {
                     include_once "paginas/401.php";
+                }
+                elseif ($_GET["pagina"]==="Herramientas") 
+                {
+                    include_once "paginas/herramientas.php";
                 }
                 elseif ($_GET["pagina"]==="Configuracion") 
                 {
