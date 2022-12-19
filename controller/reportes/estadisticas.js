@@ -28,9 +28,11 @@ function graficobarra(vt,vc,vp,vr)
   },
   options: {
       scales: {
-      y: {
-          beginAtZero: true
-      }
+        yAxes:[{
+          ticks: { 
+              beginAtZero :true
+          }
+        }]
       }
   }
   });

@@ -14,6 +14,19 @@ $dniAsesorMeta= !empty($_POST['busquedareporteasesorventa']) ? $_POST['busquedar
 $buscarestado= isset($_POST['busquedareporteestadoventa']) ? $_POST['busquedareporteestadoventa'] : null;
 $buscar= isset($_POST['busquedareporteventa']) ? $_POST['busquedareporteventa'] : null;
 
+if ($buscarestado == "0") 
+{
+    $buscarestadoname = "No Requiere";
+}
+elseif ($buscarestado == "1") 
+{
+    $buscarestadoname = "Concretado";
+}
+elseif ($buscarestado == "2") 
+{
+    $buscarestadoname = "Pendiente";
+}
+
 $where='';
 
 if ($fecharequerida != null) 
@@ -28,9 +41,9 @@ elseif ($fecharequerida == null)
 if ($dniAsesorMeta != null) {
     $name .= "-".$dniAsesorMeta;
     if ($buscarestado != null) {
-        $name .= "-".$dniAsesorMeta."-".$buscarestado;
+        $name .= "-".$dniAsesorMeta."-".$buscarestadoname;
         if ($buscar!=null) {
-            $name .= "-".$dniAsesorMeta."-".$buscarestado."-".$buscar;
+            $name .= "-".$dniAsesorMeta."-".$buscarestadoname."-".$buscar;
         }
     }
     elseif ($buscar!=null) {
@@ -38,9 +51,9 @@ if ($dniAsesorMeta != null) {
     }
 }
 if ($buscarestado != null and $dniAsesorMeta == null) {
-    $name .= "-".$buscarestado;
+    $name .= "-".$buscarestadoname;
     if ($buscar!=null) {
-        $name .= "-".$buscarestado."-".$buscar;
+        $name .= "-".$buscarestadoname."-".$buscar;
     }
 }
 elseif ($buscar!=null and $dniAsesorMeta == null and $buscarestado == null) {

@@ -41,8 +41,8 @@
         </div>
         <div class="col d-flex justify-content-end align-items-center">
             <div class="form-floating">
-                <input type="text" class="form-control" id="busquedadistritoM" placeholder="Distrito" onkeyup="getDataM(1);pasardato();">
-                <label for="busquedadistritoM">Distrito</label>
+                <input type="text" class="form-control" id="busquedateledniM" placeholder="Distrito" onkeyup="getDataM(1);pasardato();">
+                <label for="busquedateledniM">DNI / Telefono</label>
             </div>
         </div>
     </div>
@@ -65,7 +65,7 @@
     {
         busquedadepa = document.getElementById('busquedadepartamentoM').value;
         busquedaprovi = document.getElementById('busquedaprovinciaM').value;
-        busquedadistri = document.getElementById('busquedadistritoM').value;
+        busquedadistri = document.getElementById('busquedateledniM').value;
 
         busquereportdepa = document.getElementById('busquedareportedepartamentomasiva');
         busquereportprovi = document.getElementById('busquedareporteprovinciamasiva');
