@@ -11,7 +11,14 @@ $bus = $model->buscarUser($dni);
 
 if ($bus != null) 
 {
-    $model->reactivar($dni);
+    foreach($bus as $usre) 
+	{
+		$activouserrrr = $usre[7];
+	}
+    if ($activouserrrr == "0") 
+    {
+        $model->reactivar($dni);
+    }
 }
 else 
 {
