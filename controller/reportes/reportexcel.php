@@ -4,7 +4,7 @@ require_once '../../model/conexion.php';
 $conexion = new conexion();
 $con = $conexion->conectar();
 
-$columnas=['codigo','dniAsesor','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','numeroReferencia','sec','tipoFija','planFija','estado','observaciones','promocion','ubicacion','distrito','fechaRegistro','fechaActualizacion'];
+$columnas=['codigo','dniAsesor','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','numeroReferencia','sec','tipoFija','planFija','modoFija','estado','observaciones','promocion','ubicacion','distrito','fechaRegistro','fechaActualizacion'];
 $columnasBus=['codigo','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','numeroReferencia','sec','tipoFija','planFija','observaciones','promocion','ubicacion','distrito','fechaActualizacion'];
 
 $tabla='whatsapp';
@@ -69,7 +69,7 @@ if (isset($_POST['btngenerarreporteventas']))
     // salida de archivo
     $salida = fopen('php://output', 'w');
     // encabezados
-    fputcsv($salida, array('codigo','dniAsesor','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','numeroReferencia','sec','tipoFija','planFija','estado','observaciones','promocion','ubicacion','distrito','fechaRegistro','fechaActualizacion'));
+    fputcsv($salida, array('codigo','dniAsesor','nombre','dni','telefono','producto','lineaProcedente','operadorCedente','modalidad','tipo','planR','equipo','formaDePago','numeroReferencia','sec','tipoFija','planFija','modoFija','estado','observaciones','promocion','ubicacion','distrito','fechaRegistro','fechaActualizacion'));
     // consulta para crear el reporte
     if ($fecharequerida != null) 
     {
@@ -130,6 +130,71 @@ if (isset($_POST['btngenerarreporteventas']))
     $reporteventas=sqlsrv_query($con,$sql);
     while($row=sqlsrv_fetch_array($reporteventas))
     {
+        if ($row['estado'] == "0") 
+        {
+            $estadorepor = "No Requiere";
+        }
+        elseif ($row['estado'] == "1") 
+        {
+            $estadorepor = "Concretado";
+        }
+        elseif ($row['estado'] == "2") 
+        {
+            $estadorepor = "Pendiente";
+        }
+
+        if ($row['modalidad'] == "0") 
+        {
+            $modalidadrepor = "Prepago";
+        }
+        elseif ($row['modalidad'] == "1") 
+        {
+            $modalidadrepor = "Postpago";
+        }
+        elseif ($row['modalidad'] == "-") 
+        {
+            $modalidadrepor = "---";
+        }
+
+        if ($row['producto'] == "0") 
+        {
+            $productorepor = "Fija";
+        }
+        elseif ($row['producto'] == "1") 
+        {
+            $productorepor = "Movil";
+        }
+
+        if ($row['tipo'] == "0") 
+        {
+            $tiporepor = "Linea Nueva";
+        }
+        elseif ($row['tipo'] == "1") 
+        {
+            $tiporepor = "Portabilidad";
+        }
+        elseif ($row['tipo'] == "2") 
+        {
+            $tiporepor = "Renovacion";
+        }
+        elseif ($row['tipo'] == "-") 
+        {
+            $tiporepor = "---";
+        }
+
+        if ($row['tipoFija'] == "0") 
+        {
+            $tipofijarepor = "Alta";
+        }
+        elseif ($row['tipoFija'] == "1") 
+        {
+            $tipofijarepor = "Portabilidad";
+        }
+        elseif ($row['tipoFija'] == "-") 
+        {
+            $tipofijarepor = "---";
+        }
+
         $fechar = $row['fechaRegistro']->format('d/m/y');
         $fechaa = $row['fechaActualizacion']->format('d/m/y');
         fputcsv($salida, array($row['codigo'],
@@ -137,19 +202,20 @@ if (isset($_POST['btngenerarreporteventas']))
                                 $row['nombre'],
                                 $row['dni'],
                                 $row['telefono'],
-                                $row['producto'],
+                                $productorepor,
                                 $row['lineaProcedente'],
                                 $row['operadorCedente'],
-                                $row['modalidad'],
-                                $row['tipo'],
+                                $modalidadrepor,
+                                $tiporepor,
                                 $row['planR'],
                                 $row['equipo'],
                                 $row['formaDePago'],
                                 $row['numeroReferencia'],
                                 $row['sec'],
-                                $row['tipoFija'],
+                                $tipofijarepor,
                                 $row['planFija'],
-                                $row['estado'],
+                                $row['modoFija'],
+                                $estadorepor,
                                 $row['observaciones'],
                                 $row['promocion'],
                                 $row['ubicacion'],

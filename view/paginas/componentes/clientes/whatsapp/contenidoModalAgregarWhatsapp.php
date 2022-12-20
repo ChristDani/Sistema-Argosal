@@ -71,7 +71,7 @@ $productsMov = $produclist->listar();
                     
                     <div class="form-floating mb-3 d-none" id="dproducto">                
                         <select class="form-select form-select-sm" name="producto" id="producto">
-                            <option value="---" style="color: gray;">(vacio)</option>
+                            <option value="-" style="color: gray;">(vacio)</option>
                             <option value="1">Movil</option>
                             <option value="0">Fija</option>
                         </select>
@@ -90,7 +90,7 @@ $productsMov = $produclist->listar();
     
                     <div class="form-floating mb-3 d-none" id="dtipo">                
                         <select class="form-select form-select-sm" name="tipo" id="tipo">
-                            <option value="---" style="color: gray;">(vacio)</option>
+                            <option value="-" style="color: gray;">(vacio)</option>
                             <option value="0">Linea Nueva</option>
                             <option value="1">Portabilidad</option>
                             <option value="2">Renovacion</option>
@@ -100,7 +100,7 @@ $productsMov = $produclist->listar();
                     
                     <div class="form-floating mb-3 d-none" id="dtipoFija">                
                         <select class="form-select form-select-sm" name="tipoFija" id="tipoFija">
-                            <option value="---" style="color: gray;">(vacio)</option>
+                            <option value="-" style="color: gray;">(vacio)</option>
                             <option value="1">Portabilidad</option>
                             <option value="0">Alta</option>
                         </select>
@@ -133,7 +133,7 @@ $productsMov = $produclist->listar();
                     
                     <div class="form-floating mb-3 d-none" id="dmodalidad">                
                         <select class="form-select form-select-sm" name="modalidad" id="modalidad">
-                            <option value="---" style="color: gray;">(vacio)</option>
+                            <option value="-" style="color: gray;">(vacio)</option>
                             <option value="1">Postpago</option>
                             <option value="0">Prepago</option>
                         </select>
